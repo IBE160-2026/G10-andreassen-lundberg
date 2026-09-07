@@ -4,6 +4,9 @@ Gruppeprosjekt i **IBE160 Programmering med KI** ved Høgskolen i Molde, høsten
 
 Repoet inneholder gruppens applikasjon og dokumentasjon av utvikling, testing og kvalitetssikring med KI.
 
+Se [prosjektreglene](AGENTS.md) for språkhygiene og saklig omtale av personer
+i dokumentasjon, beslutningslogger, commits og pull requests.
+
 ## Medlemmer
 
 - Odin A Andreassen
