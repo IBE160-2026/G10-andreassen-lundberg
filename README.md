@@ -8,3 +8,10 @@ Repoet inneholder gruppens applikasjon og dokumentasjon av utvikling, testing og
 
 - Odin A Andreassen
 - Stian Lundberg
+
+## BMAD
+
+BMAD **6.12.0** er installert for Claude Code og Codex. Prosjektidé, MVP og
+applikasjonens teknologistakk er fortsatt ikke besluttet.
+
+Se [BMAD – oppsett og oppstart](docs/bmad-setup.md) for å komme i gang på egen maskin.
