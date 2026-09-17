@@ -1,8 +1,9 @@
 # BMAD – oppsett og oppstart
 
 BMAD Core og BMad Method (BMM) **6.12.0** er installert for gruppen.
-Metodevalget er avklart; prosjektidé, MVP og teknologistakk er fortsatt åpne.
-Dette oppsettet velger ikke produktretning eller starter produktutvikling.
+VaktMatch er valgt som prosjekt. [Produktbriefen](../productbrief.md) er gjeldende
+utkast til innlevering; detaljert MVP-omfang, arbeidsdeling og teknologistakk
+gjenstår å avklare.
 
 ## Hva som deles
 
@@ -24,8 +25,8 @@ slik leverandøren leverer dem. Begge verktøyene bruker samme prosjektkonfigura
 3. Åpne Claude Code eller Codex i roten av dette repoet.
 4. Start en ny samtale og be verktøyet kjøre `bmad-help`, for eksempel:
 
-   > Bruk bmad-help. Vi har installert BMAD, men har ikke valgt prosjektidé.
-   > Forklar hvilke muligheter vi har for å utforske ideer sammen.
+   > Bruk bmad-help. Vi har valgt VaktMatch og har et utkast i productbrief.md.
+   > Hjelp oss å finne neste steg etter produktbriefen.
 
 I Claude Code kan ferdigheten også startes med `/bmad-help`.
 Hvis ferdigheten ikke oppdages, åpne verktøyet på nytt fra repoet og kontroller
