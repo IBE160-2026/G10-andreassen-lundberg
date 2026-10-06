@@ -29,6 +29,22 @@ kan leses offentlig.
 
 Regelen ble innført 2026-09-07 etter gjennomgang av prosjektbriefene.
 
+## Endringer i produktbriefen
+
+- Ved hver endring i `productbrief.md`, oppdater samtidig
+  [endringsloggen](docs/productbrief-endringslogg.md) med dato, berørt del,
+  hva som endres fra og til, og en enkel forklaring på hvorfor.
+- Oppgi kilde og opphav, og skill mellom forslag, individuell arbeidsretning,
+  KI-presisering og felles beslutning. Ikke utled godkjenning fra taushet.
+- Rene språk-, metadata- og lenkerettelser kan grupperes, men skal også omtales.
+  Marker om produktinnholdet er uendret. Begrunnelser som mangler i kildene,
+  merkes som udokumenterte; ikke finn på forklaringer i ettertid.
+- Behold tidligere innslag. Når et valg endres, legg til et nytt innslag som
+  viser til det gamle. Første versjon og alle tekstendringer skal fortsatt kunne
+  spores i Git; loggen angir det faste sammenligningsgrunnlaget.
+- Hold lenkene fra hovedbriefen og README til loggen oppdatert. En skjult
+  `.memlog.md` eller commit-melding alene erstatter ikke den lesbare forklaringen.
+
 ## Prosjekthistorikk og personlige studienotater
 
 *(Skrevet: Codex · 22.09.26; generalisert: Codex · 06.10.26, etter instruksjon fra Odin)*

@@ -5,6 +5,38 @@
 fra 17.09.26 bevarer innspill og åpne spørsmål; det vedtar ikke ytterligere
 omfang. Se [dokumentoversikten](../../../../README.md#dokumentoversikt).
 
+**Senere avklaring 06.10.26:** Hovedbriefen videreutvikles etter Odins innspill
+med faste handlinger og et fast svarformat for KI-forklaringer. Chat og
+friteksttolkning er utsatt fra førsteversjonen. Beregning, forklaring og visning
+skal kunne brukes gjennom en eventuell chat senere. Eldre omtale av KI-tolkning
+nedenfor er historisk bakgrunn; gjeldende omfang står i hovedbriefen. Videre
+avklaringer logges i [hovedbriefens endringslogg](../../../../docs/productbrief-endringslogg.md).
+
+**Senere avklaring, presisert 07.10.26:** En ferdig syntetisk vaktplan brukes som
+datagrunnlag. Enkel plangenerering beholdes som forslag i MVP, etter Odins
+korrigering av Codex sin tolkning om å fjerne generering. VaktMatch kan generere
+og forklare et planforslag uten å innføre det i den faktiske vaktlisten. Reell
+leverandørtilkobling er en fremtidig mulighet, ikke en forutsetning for prosjektet.
+Omtalen nedenfor av generering og godkjenning bevares som historikk; gjeldende
+retning står i hovedbriefen. Dette er Odins presiserte arbeidsretning, ikke en ny
+felles beslutning. Korrigeringen er dokumentert i endringsloggen som E24.
+
+## Datagrunnlag og oppdateringer – innspill 07.10.26
+
+Odin ser for seg en mulig senere tilkobling til løpende oppdaterte bemanningsdata,
+med Quinyx nevnt som eksempel. Tilgang hos leverandører er uavklart og ikke
+undersøkt her. Studieprototypen skal demonstrere ideen med syntetiske data.
+VaktMatch skal kunne gi nye vurderinger når datagrunnlaget endres; om oppdatering
+skjer manuelt, automatisk eller ved en demosimulering, er et åpent designvalg.
+
+Codex foreslår å sammenligne dataversjoner med vanlig kode og la KI forklare
+påviste endringer. Forslaget skiller mellom undersøkt alternativ og observert
+vaktendring, og utleder ikke hvem som valgte eller hvorfor. Dette er en
+KI-konkretisering til senere PRD og arkitektur, ikke en valgt teknisk løsning.
+Se [demoscenarioets forslag til oppdatering](../../../../docs/demoscenario-fravaer.md#forslag-til-demonstrasjon-av-oppdaterte-data).
+
+## Historisk grunnlag fra september
+
 Oppdatert 17. september 2026. Gjeldende [produktbrief](../../../../productbrief.md)
 er utkastet til innlevering. Dette vedlegget bevarer produktinnspill og
 utdypinger til videre BMAD-arbeid. Prosjektvalget er bekreftet av Odin på
