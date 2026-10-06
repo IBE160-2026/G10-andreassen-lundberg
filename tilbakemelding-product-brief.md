@@ -7,6 +7,8 @@
 | **Tilbakemelding fra** | Faglærer i IBE160 (utarbeidet med KI-støtte) |
 | **Dato** | 2026-10-06 |
 
+Repoet har flere briefer, og hver av dem har fått egen tilbakemelding: `_bmad-output/planning-artifacts/briefs/brief-G10-andreassen-lundberg-2026-09-07-VaktMatch/tilbakemelding-product-brief.md` og `_bmad-output/planning-artifacts/briefs/brief-G10-andreassen-lundberg-2026-09-18-turnusgenerering/tilbakemelding-product-brief.md`.
+
 Vurderingen gjelder `productbrief.md` i roten, som README og den eldre VaktMatch-briefen peker på som gjeldende. Jeg har også lest det alternative forslaget i `_bmad-output/planning-artifacts/briefs/brief-G10-andreassen-lundberg-2026-09-18-turnusgenerering/` (brief, forslag og svar til felles retning), fordi det påvirker omfanget.
 
 ## Samlet vurdering
