@@ -1,8 +1,9 @@
 ---
 title: VaktMatch
 status: draft
+document_role: current_product_brief
 created: 2026-09-17
-updated: 2026-09-17
+updated: 2026-10-06
 ---
 
 # Product Brief: VaktMatch
@@ -11,6 +12,8 @@ updated: 2026-09-17
 **Metode:** BMAD (`bmad-product-brief`) · **Innlevering:** søndag 20. september 2026
 
 VaktMatch er valgt som gruppens prosjekt. Dette er et oppdatert utkast til innlevering; detaljert MVP-omfang og arbeidsdeling gjenstår å bekrefte sammen.
+
+**Dokumentrolle (avklart 06.10.26):** Dette er repoets eneste gjeldende produktbrief, fortsatt med status utkast. Alternativforslag, vedlegg og historikk er samlet i [dokumentoversikten](README.md#dokumentoversikt). Merkingen avklarer dokumentrollen; produktinnholdet nedenfor er fra 17.09.26 og er ennå ikke revidert etter [faglærerens tilbakemelding](tilbakemelding-product-brief.md).
 
 ## Executive Summary
 

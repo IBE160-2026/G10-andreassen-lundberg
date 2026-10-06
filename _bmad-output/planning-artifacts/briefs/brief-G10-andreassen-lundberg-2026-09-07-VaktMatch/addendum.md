@@ -1,5 +1,10 @@
 ﻿# Vedlegg: VaktMatch
 
+**Dokumentrolle (presisert 06.10.26):** Supplerende bakgrunn til den gjeldende
+[productbrief.md](../../../../productbrief.md), ikke en egen brief. Innholdet
+fra 17.09.26 bevarer innspill og åpne spørsmål; det vedtar ikke ytterligere
+omfang. Se [dokumentoversikten](../../../../README.md#dokumentoversikt).
+
 Oppdatert 17. september 2026. Gjeldende [produktbrief](../../../../productbrief.md)
 er utkastet til innlevering. Dette vedlegget bevarer produktinnspill og
 utdypinger til videre BMAD-arbeid. Prosjektvalget er bekreftet av Odin på

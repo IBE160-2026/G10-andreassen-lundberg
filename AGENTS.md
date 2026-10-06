@@ -28,3 +28,38 @@ kan leses offentlig.
   Git-historikken uten en egen avtale.
 
 Regelen ble innført 2026-09-07 etter gjennomgang av prosjektbriefene.
+
+## Prosjekthistorikk og personlige studienotater
+
+*(Skrevet: Codex · 22.09.26; generalisert: Codex · 06.10.26, etter instruksjon fra Odin)*
+
+Bevar vesentlige prosjektavklaringer, begrunnede valg, læringspunkter, endret
+omfang, frister og oppfølging i prosjektets eksisterende dokumentasjon, slik
+at alle som arbeider i repoet kan finne grunnlaget. Bruk korte oppsummeringer
+og lenker til kildene fremfor parallelle kopier av samme informasjon.
+
+- Repoet er felles kilde for produktbrief, arkitektur, kode og prosjektbeslutninger.
+  Felles krav og faglærerbeskjeder skal være tilgjengelige eller referert her,
+  ikke bare i én deltakers personlige notater. Bruk README som inngang til
+  gjeldende dokumenter; bevar tilbakemeldinger som kilder.
+- Skill mellom felles beslutninger, individuelle innspill og KI-vurderinger.
+  Registrer kilde, dato, usikkerhet og hvem som har skrevet eller vurdert innholdet.
+- Personlige studie- eller prosjektnotater oppdateres når brukeren har bedt om
+  det i oppdraget eller gjennom stående instrukser. Bruk det avtalte notatsystemet
+  og dets eksisterende prosjekt-, emne- og dagsnotater der det passer. Regelen
+  forutsetter verken Obsidian eller at deltakerne bruker samme verktøy og stier.
+- Les notatsystemets egne instrukser, eventuell AGENTS.md og målnotatene før
+  endring. Personlige oppsett og stier hører hjemme i brukerens lokale instrukser.
+  Bevar studiesammenheng, refleksjoner og lenker der; ikke kopier hele
+  prosjektgrunnlaget eller hver kodeendring til personlige notater.
+- En forespørsel om vurdering eller råd alene er lesende arbeid, med mindre
+  notering er uttrykkelig autorisert. Den gir ikke tillatelse til å endre
+  produktbriefen eller gjøre vurderingen til en gruppebeslutning.
+- Ikke kopier private refleksjoner, personopplysninger eller andre personlige
+  notater tilbake til repoet uten uttrykkelig instruksjon. Ikke lagre hemmeligheter
+  i repoet eller notatsystemet.
+- Hvis avtalt notering ikke kan utføres fordi notatsystemet er utilgjengelig,
+  opplys kort hva som bør noteres senere. Fortsett repoarbeidet; ikke opprett
+  et erstatningssystem eller anta at andre maskiner har samme lokale oppsett.
+- Avslutt med kort status på hvilke dokumenter og eventuelle personlige notater
+  som ble oppdatert, og hva som fortsatt er uavklart. Kontroller nye lenker.

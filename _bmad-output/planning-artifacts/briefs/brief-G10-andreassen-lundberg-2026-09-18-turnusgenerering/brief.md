@@ -1,14 +1,16 @@
 ---
-title: VaktMatch – Turnusgenerator (alternativt forslag)
-status: draft
+title: VaktMatch – alternativforslag fra Stian om turnusgenerering
+status: proposal
 created: 2026-09-18
-updated: 2026-09-18
+updated: 2026-10-06
 ---
 
-# Product Brief: VaktMatch – Turnusgenerator (alternativt forslag)
+# Alternativforslag: VaktMatch – turnusgenerering
 
 **Gruppe:** Odin A Andreassen og Stian Lundberg · IBE160, høsten 2026
-**Status:** Forslag fra Stian til en alternativ/utvidet retning for VaktMatch, lagt frem til vurdering sammen med Odin. Dette er **ikke** en beslutning, og det endrer eller erstatter ikke den gjeldende [productbrief.md](../../../../../productbrief.md), som beholder sitt scope (ukesgrunnlag + sammenligning ved ett sykefravær) inntil gruppen eventuelt beslutter noe annet.
+**Status:** Forslag fra Stian til en alternativ/utvidet retning for VaktMatch, lagt frem til vurdering sammen med Odin. Dette er **ikke** en beslutning, og det endrer eller erstatter ikke den gjeldende [productbrief.md](../../../../productbrief.md), som beholder sitt scope (ukesgrunnlag + sammenligning ved ett sykefravær) inntil gruppen eventuelt beslutter noe annet.
+
+**Dokumentrolle (presisert 06.10.26):** Beslutningsgrunnlag i brief-format, ikke en gjeldende produktbrief. Produktinnholdet fra 18.09.26 er bevart. Se [dokumentoversikten](../../../../README.md#dokumentoversikt), [forslaget til felles retning](forslag-til-felles-retning.md), [svaret fra Stians KI-assistent](svar-til-felles-retning.md) og [faglærerens tilbakemelding](tilbakemelding-product-brief.md).
 
 ## Executive Summary
 

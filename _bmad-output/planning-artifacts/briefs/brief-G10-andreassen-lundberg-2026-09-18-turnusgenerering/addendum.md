@@ -2,6 +2,11 @@
 
 Dette dokumentet bevarer utdypende teknisk grunnlag for turnusgenerator-briefen, hentet fra Stians opprinnelige forslag og en påfølgende teknisk vurdering i samtalen. Det er bakgrunnsmateriale for videre BMAD-arbeid (arkitektur, PRD) — ikke del av selve briefen, og ikke en beslutning tatt av gruppen.
 
+**Dokumentrolle (presisert 06.10.26):** Teknisk bakgrunn til
+[Stians alternativforslag](brief.md). Teknologivalgene nedenfor tilhører
+forslaget og er ikke felles vedtak. Repoets eneste gjeldende produktbrief er
+[productbrief.md](../../../../productbrief.md); se [dokumentoversikten](../../../../README.md#dokumentoversikt).
+
 ## Vurderte tekniske strategier
 
 **1. Regelbasert/optimaliseringsbasert kjerne + KI på toppen (anbefalt, lagt til grunn i briefen)**
