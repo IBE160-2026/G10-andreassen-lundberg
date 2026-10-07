@@ -10,8 +10,8 @@ ikke vedtatte krav.
 Alle ansatte og hendelser er konstruerte eksempler. Reglene beskriver et avgrenset
 scenarioregelsett, ikke en full kontroll av lovverk eller avtaler.
 
-**Arbeidsretning, presisert 07.10.26:** Førsteversjonen bruker en ferdig syntetisk
-vaktplan som datagrunnlag og skal også kunne generere et enkelt planforslag.
+**Arbeidsretning, presisert 07.10.26:** Førsteversjonen bruker demodata som
+datagrunnlag og skal også kunne generere et enkelt planforslag.
 Odin presiserte at generering beholdes; forslaget innføres ikke i den faktiske
 vaktlisten. Dette dokumentet eksemplifiserer fraværsdelen, ikke hele genereringen.
 VaktMatch viser forslag og konsekvenser, men gjennomfører ikke vaktendringer.
@@ -188,8 +188,8 @@ tilby en konkret vei til bedre grunnlag.
 
 ## Forslag til demonstrasjon av oppdaterte data
 
-Odin ønsker at beslutningsstøtten kan se når vaktdata endres, med syntetiske data
-i prosjektet. Codex foreslår følgende enkle demonstrasjon, uten leverandørtilkobling:
+Odin ønsker at beslutningsstøtten kan se når vaktdata endres.
+Codex foreslår følgende enkle demonstrasjon med demodata, uten leverandørtilkobling:
 
 1. Datasett D1 viser S1: vakten er udekket og A03 har 32 planlagte timer. Lederen
    undersøker A03; dette endrer ikke D1.

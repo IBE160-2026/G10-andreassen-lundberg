@@ -13,7 +13,7 @@ gjenstår å avklare. At dokumentet er gjeldende, betyr ikke at alle forslagene
 i det er endelig vedtatt.
 
 Arbeidsretningen er oppdatert etter Odins innspill 6.–7. oktober: førsteversjonen
-bruker en ferdig syntetisk vaktplan som grunnlag og kan generere et enkelt
+bruker demodata som grunnlag og kan generere et enkelt
 planforslag, med regelkontroll og konkrete KI-forklaringer. Genereringen beholdes
 i MVP; VaktMatch innfører ikke forslaget i den faktiske vaktlisten. Reell
 leverandørtilkobling ligger utenfor MVP; hvordan endrede demodata skal

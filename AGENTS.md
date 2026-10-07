@@ -45,6 +45,27 @@ Regelen ble innført 2026-09-07 etter gjennomgang av prosjektbriefene.
 - Hold lenkene fra hovedbriefen og README til loggen oppdatert. En skjult
   `.memlog.md` eller commit-melding alene erstatter ikke den lesbare forklaringen.
 
+## Føring og lesing av memlog
+
+*(Skrevet: Codex · 07.10.26, etter Odins gjennomgang av loggbruken)*
+
+- Bruk `.memlog.md` som kort prosesshukommelse. Før én vesentlig hendelse
+  per innslag, normalt én–to setninger med begrunnelse og lenke til detaljer.
+  Produktbriefen viser gjeldende arbeidsutkast; endringsloggen forklarer endringene.
+- Nye innslag skal ha dato (`YYYY-MM-DD`), konkret opphav i `--by` og en
+  relevant type. Skill mellom innspillets opphav og hvem som har tolket det:
+  KI-tolkninger føres som `assumption` med KI som opphav, ikke som brukerens
+  `decision`. Bruk `decision` bare når kilden støtter den konkrete beslutningen.
+- Registrer praktiske demovalg i forhold til betydningen de har. Ikke gjør
+  eksempler eller enkle svar til sterkere produktkrav eller prinsippvalg.
+- Skriv nye innslag gjennom `_bmad/scripts/memlog.py append`. Bevar eldre
+  innslag; rett feil med et kort `override` som identifiserer innslaget og
+  forklarer rettelsen. Les senere rettelser før eldre utsagn brukes som grunnlag.
+  Eldre datoer eller opphav som ikke kan dokumenteres, skal ikke gjettes.
+- Ved flytting av aktiv logg skal både gammel og ny logg ha en henvisning
+  til den andre. Hovedbriefens aktive logg er [rotloggen](.memlog.md);
+  logger for alternativforslag og research gjelder sine egne dokumenter.
+
 ## Prosjekthistorikk og personlige studienotater
 
 *(Skrevet: Codex · 22.09.26; generalisert: Codex · 06.10.26, etter instruksjon fra Odin)*

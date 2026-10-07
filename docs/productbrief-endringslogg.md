@@ -33,11 +33,11 @@ ikke leses som en felles godkjenning eller en ferdig kravspesifikasjon.
   lederstyrt sortering og ønsket om innstillinger for søkeomfang (E15–E19).
 - **Beholde plangenerering som et forslag.** Lederen skal kunne få en generert
   plan og forstå konsekvensene uten at VaktMatch innfører den i faktisk vaktliste.
-  Ferdige syntetiske data og generering kan inngå sammen. Den midlertidige
+  Demodata og generering kan inngå sammen. Den midlertidige
   fjerningen av generering var Codex sin tolkning, korrigert av Odin (E20–E24).
 - **Demonstrere ideen uten å være avhengig av leverandørtilgang.** Odin ser for
   seg en mulig fremtidig kobling til oppdaterte bemanningsdata, men tilgang er
-  uavklart. Prosjektet bruker derfor syntetiske data. To dataversjoner som
+  uavklart. Fiktive data er et praktisk demogrunnlag (presisert i E26). To dataversjoner som
   demonstrasjon av en endring er et forslag fra Codex, ikke et valgt krav (E20, E23).
 - **Starte med konkrete KI-svar.** Odin prioriterer faste handlinger og
   situasjonstilpassede forklaringer først, med chat som mulig senere utvidelse.
@@ -117,6 +117,12 @@ med et vedtak om to uker. Tidligere avgrensninger utenfor v1 er også beholdt.
 
 ## 07.10.26 – forslag fra syntetiske data og endringer i datakilden
 
+**Senere rettelser:** E21 inneholder Codex sin for brede tolkning av et svar
+om demogrunnlag. Fjerningen av plangenerering er korrigert i E24; omtalen av
+syntetiske data som et uttrykkelig produktvalg er korrigert i
+[E26](#071026--demodata-og-presis-loggføring). E21 bevares som historikk,
+ikke som dokumentasjon på at Odin vedtok disse avgrensningene.
+
 Innslagene bygger på Odins videre avklaringer i BMAD-samtalen 07.10.26, samt
 presiseringen om logging fra 06.10.26. De oppdaterer arbeidsutkastet, ikke en
 felles godkjenning av detaljert omfang. Tidligere innslag beholdes som historikk.
@@ -140,6 +146,22 @@ felles godkjenning av detaljert omfang. Tidligere innslag beholdes som historikk
 | ID | Hva endres, fra og til? | Enkel begrunnelse | Grunnlag og status |
 |---|---|---|---|
 | E25 | Briefens innledning går fra generelt forbehold om manglende felles godkjenning til uttrykkelig status: endringene 06.–07.10.26 er ikke avklart med Stian og publiseres som Odins innspill til felles vurdering. README får samme status og lenke til den samlede begrunnelsen øverst i denne loggen. | Gjøre opphav, hensikt og beslutningsstatus tydelig for den som leser endringene etter publisering. | Odin opplyste dette og ba om push 07.10.26. Sammendraget er skrevet av Codex fra allerede dokumenterte prosjektbegrunnelser. Produktinnholdet er uendret i denne presiseringen; publisering er ikke felles godkjenning. |
+
+## 07.10.26 – demodata og presis loggføring
+
+| ID | Hva endres, fra og til? | Enkel begrunnelse | Grunnlag og status |
+|---|---|---|---|
+| E26 | Briefens innledning, Executive Summary, The Solution, Who This Serves og Scope går fra gjentatte formuleringer om en «ferdig syntetisk vaktplan» som føring til demodata som praktisk grunnlag. Scope forklarer én gang at dataene er fiktive. Prosesshistorikken om feiltolkningen tas ut av Scope og beholdes her og i memlog. README, demo, vedlegg og sammendraget øverst i denne loggen får samme språk. | Odin påpekte at omtalen av syntetiske data som et uttrykkelig valg var for sterk. Codex hadde tillagt svaret større betydning enn det ga grunnlag for. | Kilde: Odins oppfølging av memlog-gjennomgangen i samtalen 07.10.26. Skrevet av Codex. Korrigerer tilskrivingen i E21 og nyanserer E24; ingen ny funksjonalitet eller felles beslutning. Demoen har fortsatt fiktive data, plangenerering beholdes, og reelle persondata og integrasjoner er fortsatt utenfor førsteversjonen. Produktfunksjonene er uendret. |
+
+Samme gjennomgang oppdaterer [føringsreglene](../AGENTS.md#føring-og-lesing-av-memlog)
+og presiserer opphav og loggplassering i fire memlogger. Eldre innslag bevares
+uten konstruerte datoer eller forfattere; eldre formuleringer finnes også i Git-historikken.
+
+## 07.10.26 – kortere innledning og tydeligere åpne valg
+
+| ID | Hva endres, fra og til? | Enkel begrunnelse | Grunnlag og status |
+|---|---|---|---|
+| E27 | Briefens innledning og valgfrie brukertest kortes ned. Den samlede listen over åpne valg deles i seks temaer med konkrete spørsmål. Forklaringen om loggvedlikehold over kortes ned; E01–E26 beholdes. | Gjøre produktet lettere å finne og vise hva som må avklares før planlegging. | Odin ba 07.10.26 om nødvendige endringer etter gjennomgangen av ukommitterte filer. Redigert av Codex. Produktinnhold og beslutningsstatus er uendret; ingen åpne valg er avgjort. |
 
 ## Se alle tekstendringer
 
@@ -166,9 +188,9 @@ Legg til et nytt datert innslag med neste ID og følgende innhold:
 
 | ID | Hva endres, fra og til? | Hvorfor? | Grunnlag og status |
 |---|---|---|---|
-| E26 | Berørt del og kort før/etter-beskrivelse. | Én eller to enkle setninger. | Hvem ga innspillet, kilde og om det er forslag, arbeidsretning eller felles beslutning. |
+| E28 | Berørt del og kort før/etter-beskrivelse. | Én eller to enkle setninger. | Hvem ga innspillet, kilde og om det er forslag, arbeidsretning eller felles beslutning. |
 
-E26-raden er en mal, ikke et tatt valg. Rene språk- og lenkerettelser kan samles
+E28-raden er en mal, ikke et tatt valg. Rene språk- og lenkerettelser kan samles
 i ett innslag med beskjed om at produktinnholdet er uendret. Et omgjort valg får
 et nytt innslag som viser til det gamle. Ikke skriv om tidligere begrunnelser
 slik at de fremstår som kjent da valget ble tatt. Bruk «begrunnelse ikke dokumentert»

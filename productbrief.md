@@ -11,15 +11,15 @@ updated: 2026-10-07
 **Gruppe:** Odin A Andreassen og Stian Lundberg · IBE160, høsten 2026  
 **Metode:** BMAD (`bmad-product-brief`) · **Innlevering:** søndag 20. september 2026
 
-VaktMatch er valgt som gruppens prosjekt. Arbeidsutkastet videreutvikles etter Odins innspill 06.–07.10.26: faste handlinger og konkrete KI-svar, med forslag basert på et syntetisk datasett. VaktMatch skal gi beslutningsstøtte og kunne vise endringer i datagrunnlaget; selve vaktendringen kan skje i et annet system. Chat er en mulig senere utvidelse. Endringene fra 06.–07.10.26 er ennå ikke avklart med Stian og publiseres som Odins innspill, bearbeidet med Codex, til felles vurdering. Detaljert MVP-omfang, teknologistakk og arbeidsdeling er fortsatt åpne; publiseringen innebærer ingen felles godkjenning av endringene.
+**Status:** VaktMatch er valgt som gruppens prosjekt, og dette er eneste gjeldende produktbrief. Endringene 06.–07.10.26 er Odins innspill, bearbeidet med Codex, til felles vurdering; de er ennå ikke avklart med Stian. Detaljert MVP-omfang, teknologistakk og arbeidsdeling er fortsatt åpne.
 
-**Dokumentrolle (oppdatert 07.10.26):** Dette er repoets eneste gjeldende produktbrief, fortsatt med status utkast. Alternativforslag, vedlegg og historikk er samlet i [dokumentoversikten](README.md#dokumentoversikt). KI-rollen og arbeidsflyten er oppdatert etter Odins avklaringer og [faglærerens tilbakemelding](tilbakemelding-product-brief.md); endelig regelsett og fullstendige demodata gjenstår. Oppdateringen er skrevet med Codex. [Endringsloggen](docs/productbrief-endringslogg.md) viser hva som er endret siden første versjon, hvorfor og hvilket grunnlag valgene har. Den løpende prosesshistorikken finnes i [.memlog.md](.memlog.md).
+[Endringsloggen](docs/productbrief-endringslogg.md) forklarer endringene og opphavet. [Dokumentoversikten](README.md#dokumentoversikt) viser vedlegg og historikk; [faglærerens tilbakemelding](tilbakemelding-product-brief.md) er grunnlag for videre avklaring.
 
 ## Executive Summary
 
 VaktMatch er en planlagt responsiv webapp som gir en skiftleder informasjon og kontekst når en vakt plutselig mangler bemanning. Lederen får undersøke bemanningsalternativer og se relevante konflikter, arbeidstidsgrenser, hviletid og interne føringer. «Helhetsoversikt» betyr her å gjøre den tilgjengelige, relevante informasjonen forståelig, med synlige begrensninger i grunnlaget. Lederen beholder beslutningsmyndigheten og velger hvilke hensyn som er viktige og hvilken kandidat som skal brukes. KI forklarer mulighetene og konsekvensene uten å gjennomføre valget.
 
-Studieprototypen skal bruke en ferdig syntetisk vaktplan som datagrunnlag, kunne generere et enkelt planforslag og demonstrere alternativer ved ett sykefravær. Odin presiserte 07.10.26 at plangenerering skal beholdes, mens forslaget ikke innføres direkte i den faktiske vaktlisten. Lederen bruker skjemaer og faste handlinger for å finne alternativer. Faste regler i kode kontrollerer kompetanse, hviletid og tidskollisjoner; KI bruker relevante ansattdata og kontrollresultater til å forklare avveininger, konsekvenser og usikkerhet i et fast svarformat. Lederen kan undersøke et annet alternativ enn det som kommer øverst i sorteringen. Reell leverandørtilkobling er ikke en forutsetning for studieprototypen.
+Studieprototypen bruker demodata og skal kunne generere et enkelt planforslag og demonstrere alternativer ved ett sykefravær. Planforslaget innføres ikke direkte i den faktiske vaktlisten. Lederen bruker skjemaer og faste handlinger for å finne alternativer. Faste regler i kode kontrollerer kompetanse, hviletid og tidskollisjoner; KI bruker relevante ansattdata og kontrollresultater til å forklare avveininger, konsekvenser og usikkerhet i et fast svarformat. Lederen kan undersøke et annet alternativ enn det som kommer øverst i sorteringen. Reell leverandørtilkobling er ikke en forutsetning for studieprototypen.
 
 ## The Problem
 
@@ -29,7 +29,7 @@ Utgangspunktet er en skiftleder som får beskjed om fravær kort før vaktstart.
 
 ## The Solution
 
-Lederen starter med et datagrunnlag som viser ansatte, vakter og bemanningsbehov for en avgrenset periode; én uke er foreløpig utgangspunkt. Når grunnlaget viser et fravær, velger lederen «Finn alternativer» og får en sammenligningsside. Førsteversjonen bruker syntetiske data. Hvordan fravær og senere endringer tilføres demodataene, gjenstår å konkretisere.
+Lederen starter med et datagrunnlag som viser ansatte, vakter og bemanningsbehov for en avgrenset periode; én uke er foreløpig utgangspunkt. Når grunnlaget viser et fravær, velger lederen «Finn alternativer» og får en sammenligningsside. Hvordan fravær og senere endringer tilføres demodataene, gjenstår å konkretisere.
 
 Lederen skal også kunne generere et enkelt planforslag for den avgrensede perioden. Forslaget vises separat fra gjeldende vaktliste, med foreslått bemanning, regelkontroll, udekket behov og konsekvenser. Kodebasert generering og avvikshåndtering bruker samme scenarioregler; KI forklarer resultatet. Å generere eller undersøke forslaget erstatter ikke vaktlisten i datagrunnlaget. Detaljene for hvilke eksisterende tildelinger som kan foreslås endret, og hvilke som skal ligge fast, gjenstår å avklare.
 
@@ -55,7 +55,7 @@ Prosjektets ambisjon er å demonstrere denne avgrensede arbeidsflyten. Det er ik
 
 **Primærbruker:** En skiftleder med bemanningsansvar som trenger et forståelig beslutningsgrunnlag under tidspress. Et vellykket resultat er at lederen kan velge en kandidat og forklare hvorfor vedkommende passer, eller forstå hvorfor vakten fortsatt står udekket.
 
-Demonstrasjonen legges til en generell, fiktiv arbeidsplass uten bransjetilknytning, etter Odins avklaring 06.10.26. Ansatte og forhåndsgodkjente vikarer inngår som syntetiske data; egne brukerflater for dem er ikke del av førsteversjonen.
+Demonstrasjonen legges til en generell, fiktiv arbeidsplass uten bransjetilknytning, etter Odins avklaring 06.10.26. Egne brukerflater for ansatte og forhåndsgodkjente vikarer er ikke del av førsteversjonen.
 
 ## Success Criteria
 
@@ -71,19 +71,26 @@ Følgende er foreslåtte kriterier som skal testes, ikke oppnådde resultater:
 - Når et oppdatert datasett lastes inn, bygger en ny vurdering på dette grunnlaget. Et forslag skal ikke vises som gjennomført bare fordi det er undersøkt eller foretrukket i appen.
 - Plangenerering, sammenligning og vurdering av oppdaterte data kan gjennomføres uten KI-nøkkel og ved modellfeil, med regelbaserte standardforklaringer.
 
-**Valgfritt forslag til brukertest fra Codex:** La en testbruker undersøke et scenario og forklare en avveining, en konsekvens og eventuell manglende informasjon. Sammenligning av tidsbruk mot manuell oversikt kan vurderes senere. Dette er ikke et dokumentert emnekrav, et hovedkriterium eller et krav om at lederen skal begrunne valgene i appen. [Faglærerens tilbakemelding](tilbakemelding-product-brief.md) anbefaler at sammenligningen av tidsbruk og forståelse eventuelt beholdes som brukertest, ikke hovedkriterium.
+**Valgfri brukertest (forslag fra Codex):** La en testbruker forklare en avveining, en konsekvens og eventuell manglende informasjon i et scenario. Tidsbruk mot manuell oversikt kan også sammenlignes senere. Dette er et testforslag, ikke et leveransekrav eller krav om begrunnelse i appen, i tråd med [faglærerens råd](tilbakemelding-product-brief.md).
 
 For studiearbeidet skal gruppen også dokumentere BMAD-bruken, egne valg og hvordan KI-generert kode er kvalitetssikret.
 
 ## Scope
 
-**Foreslått førsteversjon:** Én fiktiv arbeidsplass, 8–10 ansatte og noen forhåndsgodkjente eksterne vikarer tilknyttet et bemanningsforetak. Et syntetisk datasett med konkrete vakter, kompetanse, tilgjengelighet og nødvendige nabovakter danner grunnlaget. Appen kan generere et enkelt planforslag uten å endre gjeldende vaktliste. Ett sykefravær utløser sammenligning av alternativer på én side gjennom en fast handling. KI forklarer kontrollerte data i et fast svarformat. Generering og avvikshåndtering bruker samme 3–5 eksplisitte scenarioregler. Lederstyrt søkeomfang konkretiseres til et begrenset sett innstillinger. Oppdateringer i datagrunnlaget kan demonstreres med syntetiske data; mekanismen er ikke valgt. Grensesnittet skal fungere i nettleser på mobil og PC.
+**Foreslått førsteversjon:** Én fiktiv arbeidsplass, 8–10 ansatte og noen forhåndsgodkjente eksterne vikarer tilknyttet et bemanningsforetak. Demoen bruker fiktive (syntetiske) data med konkrete vakter, kompetanse, tilgjengelighet og nødvendige nabovakter som et praktisk grunnlag for å vise funksjonene. Appen kan generere et enkelt planforslag uten å endre gjeldende vaktliste. Ett sykefravær utløser sammenligning av alternativer på én side gjennom en fast handling. KI forklarer kontrollerte data i et fast svarformat. Generering og avvikshåndtering bruker samme 3–5 eksplisitte scenarioregler. Lederstyrt søkeomfang konkretiseres til et begrenset sett innstillinger. Hvordan oppdateringer i datagrunnlaget demonstreres, er ikke valgt. Grensesnittet skal fungere i nettleser på mobil og PC.
 
-**Avgrensning av plangenerering:** Enkel plangenerering beholdes som forslag i MVP. Ferdig syntetisk datagrunnlag og generering av planforslag kan inngå sammen. Codex tolket først valget av ferdig datasett som at generering skulle fjernes; Odin korrigerte dette 07.10.26. Skillet gjelder å generere et forslag og å innføre det i den faktiske vaktlisten. Minimumsnivået i Stians turnusgenerator-idé er fortsatt bakgrunn for enkel generering; bidraget og tidligere begrunnelser er bevart i [VaktMatch-vedlegget](_bmad-output/planning-artifacts/briefs/brief-G10-andreassen-lundberg-2026-09-07-VaktMatch/addendum.md). Dette er Odins presiserte arbeidsretning, ikke en ny felles godkjenning av omfanget.
+**Avgrensning av plangenerering:** Enkel plangenerering inngår som forslag i MVP. Appen kan generere en plan uten å innføre den i den faktiske vaktlisten. Minimumsnivået i Stians turnusgenerator-idé er fortsatt bakgrunn for enkel generering; bidraget og tidligere begrunnelser er bevart i [VaktMatch-vedlegget](_bmad-output/planning-artifacts/briefs/brief-G10-andreassen-lundberg-2026-09-07-VaktMatch/addendum.md). Dette er Odins presiserte arbeidsretning, ikke en ny felles godkjenning av omfanget.
 
 **Utenfor førsteversjonen:** AI-chat, friteksttolkning av behov og ønsker, full periodeplanlegging med preferanser og helgefordeling, åpen vikarmarkedsplass, reelle persondata, reelle integrasjoner med HR- og turnussystemer, innføring av planforslag og gjennomføring av foreslåtte vaktendringer i den faktiske vaktlisten, samt produksjonsdrift. En eventuell demofunksjon for å bytte datasett representerer en oppdatering fra datakilden, ikke en utført lederbeslutning i VaktMatch.
 
-**Gjenstår å avklare:** Planhorisont (én uke er foreløpig utgangspunkt), hvilke tildelinger plangenereringen kan foreslå endret og hvilke som skal ligge fast, konkrete regler og deres grunnlag, sorteringskriterier med standardvalg og lik rangering, støttede søkemåter og grenser for intern omfordeling, fullstendige demodata med fasit for både generering og fravær, hvordan oppdateringer lastes inn og vises, ansvar for manglende opplysninger, eventuell beslutningslogg og begrunnelsesinnstilling, teknologistakk, modellvalg og arbeidsdeling. Simulering av tilbud og aksept er ikke valgt.
+**Gjenstår å avklare:**
+
+- **Generering:** Hvor lang periode skal forslaget dekke, hvilke tildelinger kan endres, og hvilke skal ligge fast? Én uke er foreløpig utgangspunkt.
+- **Fravær:** Hvilke søkemåter skal støttes, hvor mange interne flyttinger kan foreslås, og skal tilbud og aksept simuleres?
+- **Regler og sortering:** Hvilke konkrete regler og kilder brukes, hvilke sorteringskriterier kan lederen velge, hva er standardvalget, og hvordan håndteres lik rangering?
+- **Data og demonstrasjon:** Hvordan tilføres fravær og oppdaterte data, hvordan vises endringene, og hvem har ansvar for manglende opplysninger? Fullstendige demodata med fasit for generering og fravær gjenstår.
+- **Beslutningslogg:** Skal valg lagres og begrunnelser etterspørres i MVP, og hvilke innstillinger skal gjelde?
+- **Gjennomføring:** Teknologistakk, språkmodell og arbeidsdeling er ikke valgt.
 
 **Arbeidsgrunnlag for konkretisering:** [Forslaget til fraværsscenario](docs/demoscenario-fravaer.md) viser ansattdata, fem tallfestede scenarioregler, eksempler på lederstyrt sortering og forventede svar ved gyldige alternativer, ingen direkte erstatter og manglende data. Lederstyrt prioritering følger Odins innspill 06.10.26. Regeltall, konkrete sorteringsvalg og beregningsmåter er forslag fra Codex og gjenstår å avklare; eksemplet er ikke en ferdig implementasjon eller et komplett datasett med alle vakter.
 

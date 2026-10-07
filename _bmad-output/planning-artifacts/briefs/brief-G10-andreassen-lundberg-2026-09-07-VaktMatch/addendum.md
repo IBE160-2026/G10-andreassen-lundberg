@@ -12,7 +12,7 @@ skal kunne brukes gjennom en eventuell chat senere. Eldre omtale av KI-tolkning
 nedenfor er historisk bakgrunn; gjeldende omfang står i hovedbriefen. Videre
 avklaringer logges i [hovedbriefens endringslogg](../../../../docs/productbrief-endringslogg.md).
 
-**Senere avklaring, presisert 07.10.26:** En ferdig syntetisk vaktplan brukes som
+**Senere avklaring, presisert 07.10.26:** Demoen bruker fiktive data som praktisk
 datagrunnlag. Enkel plangenerering beholdes som forslag i MVP, etter Odins
 korrigering av Codex sin tolkning om å fjerne generering. VaktMatch kan generere
 og forklare et planforslag uten å innføre det i den faktiske vaktlisten. Reell
@@ -25,7 +25,7 @@ felles beslutning. Korrigeringen er dokumentert i endringsloggen som E24.
 
 Odin ser for seg en mulig senere tilkobling til løpende oppdaterte bemanningsdata,
 med Quinyx nevnt som eksempel. Tilgang hos leverandører er uavklart og ikke
-undersøkt her. Studieprototypen skal demonstrere ideen med syntetiske data.
+undersøkt her. Studieprototypen demonstrerer ideen med demodata.
 VaktMatch skal kunne gi nye vurderinger når datagrunnlaget endres; om oppdatering
 skjer manuelt, automatisk eller ved en demosimulering, er et åpent designvalg.
 
