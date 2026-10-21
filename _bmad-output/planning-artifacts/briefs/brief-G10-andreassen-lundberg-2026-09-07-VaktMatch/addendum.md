@@ -21,6 +21,15 @@ Omtalen nedenfor av generering og godkjenning bevares som historikk; gjeldende
 retning står i hovedbriefen. Dette er Odins presiserte arbeidsretning, ikke en ny
 felles beslutning. Korrigeringen er dokumentert i endringsloggen som E24.
 
+**Senere avklaring 22.10.26 – SCRUM-16:** Odin har valgt fire uker historikk
+som synlig beslutningsgrunnlag og en ferdig planlagt uke 5 som arbeidsuke ved
+frafall. Dette erstatter separat generering av en ny ukeplan i MVP. Historikken
+styrer ikke rangeringen skjult; P1/P2 gjelder uke 5, og nye forslag kontrolleres
+mot R1–R5. Avklaringen endrer retningen i E24, uten å endre hva som faktisk ble
+besluttet da. Stians turnusgenerator-idé og tidligere bidrag nedenfor beholdes som
+kreditert bakgrunn. Se [E31](../../../../docs/productbrief-endringslogg.md#221026--historikk-og-forslag-ved-frafall)
+for før/etter og kilde; søkemetoden er fortsatt åpen.
+
 ## Datagrunnlag og oppdateringer – innspill 07.10.26
 
 Odin ser for seg en mulig senere tilkobling til løpende oppdaterte bemanningsdata,

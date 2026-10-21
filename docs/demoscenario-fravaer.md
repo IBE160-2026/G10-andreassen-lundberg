@@ -1,6 +1,6 @@
 # Demoscenario: ett fravær på en generell arbeidsplass
 
-*(Skrevet: Codex · 06.10.26; oppdatert: 21.10.26 etter Odins beslutning)*
+*(Skrevet: Codex · 06.10.26; oppdatert: 22.10.26 etter Odins beslutning)*
 
 **Status:** Konkretisering av [produktbriefen](../productbrief.md).
 Odin har valgt en generell arbeidsplass uten bransje og ønsker at lederen skal
@@ -12,11 +12,11 @@ konstruert eksempel skrevet av Codex.
 Alle ansatte og hendelser er konstruerte eksempler. Reglene beskriver et avgrenset
 scenarioregelsett, ikke en full kontroll av lovverk eller avtaler.
 
-**Arbeidsretning, presisert 07.10.26:** Førsteversjonen bruker demodata som
-datagrunnlag og skal også kunne generere et enkelt planforslag.
-Odin presiserte at generering beholdes; forslaget innføres ikke i den faktiske
-vaktlisten. Dette dokumentet eksemplifiserer fraværsdelen, ikke hele genereringen.
-VaktMatch viser forslag og konsekvenser, men gjennomfører ikke vaktendringer.
+**Arbeidsretning, avklart i SCRUM-16:** Førsteversjonen bruker demodata med fire
+uker historikk og ferdig planlagt uke 5. Verktøyet foreslår håndtering av frafall
+i uke 5 med synlig kontekst fra tidligere planer. Dette erstatter separat
+generering av en ny ukeplan i MVP. Historikken endres ikke. VaktMatch viser
+forslag og konsekvenser, men gjennomfører ikke vaktendringer.
 Eksemplet er tilpasset dette; tidligere alternativer for
 bekreftelse er bevart som historikk nedenfor. Søkegrense og tilbudssimulering er
 avklart i SCRUM-15, som beskrevet nedenfor. Tabellen her viser direkte erstatning.
@@ -31,6 +31,11 @@ Eksemplet har åtte interne ansatte (A01–A08), én forhåndsgodkjent ekstern v
 (V01) og kompetansekodene K1 og K2. Alle klokkeslett er lokale i Europe/Oslo.
 Målperioden for timetelling er mandag 12.10 kl. 00.00 til mandag 19.10 kl. 00.00.
 Én vakt teller åtte timer; pausefradrag er ikke modellert i eksemplet.
+Uke 5 er her 12.–18.10.2026. Uke 1–4 er de fire foregående ukene, fra
+14.09 kl. 00.00 til 12.10 kl. 00.00. Dette er relative ukenumre i demoen,
+ikke kalenderens ukenumre. Historikken skal vise tilgjengelig dokumentasjon av
+tidligere arbeidstid og vakter; den er ikke ferdig laget i hovedtabellen nedenfor.
+Nødvendige nabovakter inn i uke 6 følger med for hvilekontroll ved ukegrensen.
 P1, P2 og R5 bruker den samme faste sjudagersperioden i dette scenarioet. For en
 vakt som krysser periodegrensen, teller bare den delen av vakten som ligger i
 perioden. Dette er en scenariodefinisjon, ikke en generell regel for arbeidstid.
@@ -38,6 +43,33 @@ perioden. Dette er en scenariodefinisjon, ikke en generell regel for arbeidstid.
 Hovedeksemplet bruker søkegrense 0 og undersøker direkte erstattere. Appens
 standardgrense er 1, som også undersøker én intern flytting. «Ingen løsning»
 gjelder alltid det undersøkte kandidatsettet og den viste søkegrensen.
+
+## Historikk som synlig beslutningsgrunnlag – SCRUM-16
+
+Odin har avklart fire ukers historikk som synlig beslutningsgrunnlag for
+lederens valg ved frafall i en eksisterende uke 5. Arbeidstid, vakttyper og
+sammenlignbare vakter kan gi kontekst når grunnlaget finnes. En tidligere
+planlagt vakt dokumenterer ikke alene faktisk utført arbeid eller hvem som
+dekket et fravær. Opplysningenes kilde, periode og eventuelle mangler skal vises.
+
+Historikken gir ikke en ny poengsum eller automatisk endret rangering. P1/P2
+beregnes fortsatt for arbeidsuken, og R1–R5 kontrolleres i det nye forslaget.
+Gjenbruk av et historisk mønster betyr ikke at ny tildeling er bestått; kompetanse,
+tilgjengelighet, kollisjon, hvile og timer må vurderes på det aktuelle grunnlaget.
+Konkrete historikkfelt og presentasjon må spesifiseres i videre data-/designarbeid.
+At historikken ligger fast betyr at søket og forslagene ikke omskriver den.
+En korrigert datakilde kan lastes inn som ny dataversjon gjennom den avklarte
+oppdateringshandlingen. Endrede historikkopplysninger vises i endringsoversikten
+og utløser ny vurdering når de berører kontrollgrunnlaget, for eksempel hvilen
+fra uke 4. Tidligere valg og svar forblir knyttet til gammel dataversjon.
+
+| Kontrolltilfelle | Oppsett | Forventet resultat |
+|---|---|---|
+| H1 Uendret sortering | A02/A03 som i hovedtabellen; endre bare historikk som ikke påvirker R1–R5 eller P1/P2, for eksempel eldre vakttyper uten betydning for nabovakter. | Historikken vises med periode og kilde. P1 gir fortsatt A02 først, P2 A03 først. Historikk som påvirker nødvendig kontrollgrunnlag krever derimot ny regelkontroll. Lederen velger. |
+| H2 Ufullstendig historikk | Historiske timer eller vakttyper mangler. | Vis mangelen uten å fylle den med antakelser. Dersom nødvendig grunnlag for R1–R5 mangler, blir den berørte kontrollen uavklart. |
+| H3 Gammelt mønster med nytt avvik | En person hadde lignende vakter tidligere, men er utilgjengelig i uke 5. | Historikken gjør ikke personen tilgjengelig; R2 viser avvik på det aktuelle grunnlaget. |
+| H4 Ukegrense | Forslaget berører siste vakt i uke 5. | Hvile mot første relevante vakt i uke 6 kontrolleres; manglende nødvendig nabovaktgrunnlag gir uavklart kontroll. |
+| H5 Start på arbeidsuken | Første vakt i uke 5 starter mandag 12.10 kl. 08. Samme kandidat har siste relevante vaktslutt i uke 4 søndag kl. 21, eller kl. 22, eller ukjent. Øvrige nødvendige opplysninger er komplette og gir ingen brudd. | Kl. 21 gir 11 timer og består denne siden av R4; kl. 22 gir 10 timer og regelavvik. Ukjent nødvendig grunnlag gir uavklart kontroll. |
 
 ## Søkeomfang og simulert tilbud – SCRUM-15
 
@@ -351,12 +383,11 @@ logg over lederens beslutninger.
 R1–R5, P1 som standard, P2 som valgfritt kriterium og håndtering av lik rangering
 er avklart for scenarioet. Behandling av avtalte timer og stillingsprosenter må
 fortsatt konkretiseres i datasettet for at P2 skal kunne beregnes. Søkegrense og
-tilbudssimulering er avklart i SCRUM-15. Planhorisont står fortsatt åpen.
-Fullstendig syntetisk vaktplan,
-og fasit gjenstår; mekanismen for fravær og oppdaterte data er avklart i SCRUM-17.
-Plangenerering inngår
-som forslag uten innføring i faktisk vaktliste; den trenger et eget scenario
-med bemanningsbehov, avgrensning av hvilke tildelinger som kan endres, og fasit.
+tilbudssimulering er avklart i SCRUM-15. Fire historikkuker og arbeidsuke 5 er
+avklart i SCRUM-16; separat generering av en ny ukeplan er tatt ut av MVP.
+Komplette historikkdata, planlagt uke 5, nødvendige nabovakter og fasit gjenstår.
+Mekanismen for fravær og oppdaterte data er avklart i SCRUM-17. Søkemetode og
+eventuelle låste tildelinger i uke 5 gjenstår i SCRUM-16.
 
 Når en endring i dette forslaget fører til et valg i hovedbriefen, skal valget og
 begrunnelsen føres i [endringsloggen](productbrief-endringslogg.md).

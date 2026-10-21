@@ -23,6 +23,11 @@ merket som det; de er ikke selvstendige gruppebeslutninger.
 nedenfor. Dette er prosjektbegrunnelser, ikke nye beslutninger eller antakelser
 om personlige motiver.*
 
+**Historisk sammendrag:** Punktlisten under beskriver grunnlaget 07.10.26.
+Senere valg om regelsett, søkeomfang, oppdateringer og logging står i E28–E30.
+E31 erstatter separat plangenerering med forslag ved frafall i ferdig planlagt
+uke 5 og fire historikkuker som synlig kontekst.
+
 Odin presiserte 07.10.26 at endringene ennå ikke er avklart med Stian. Utkastet
 publiseres nå slik at endringene og begrunnelsene kan vurderes sammen. Det skal
 ikke leses som en felles godkjenning eller en ferdig kravspesifikasjon.
@@ -49,11 +54,10 @@ ikke leses som en felles godkjenning eller en ferdig kravspesifikasjon.
   og ikke er lovpålagt; eventuelle lovkrav er ikke fastslått. Brukertesten er et
   valgfritt KI-forslag, ikke et nytt dokumentert leveransekrav (E19, E22).
 
-Etter avklaringen 21.10.26 gjenstår særlig omfanget av generering og omfordeling,
-oppdatering av data, eventuell logging, teknologistakk og arbeidsdeling.
-Demomekanismer som fortsatt er merket som KI-forslag, er ikke automatisk
-godkjent ved publisering; E28 dokumenterer de konkrete reglene og sorteringsvalgene
-som nå er besluttet.
+Etter avklaringen 22.10.26 gjenstår særlig søkemetode, eventuelle låste tildelinger,
+komplette demodata, lagringsteknikk, teknologistakk og arbeidsdeling.
+Forslag som fortsatt er merket som KI-forslag, er ikke automatisk godkjent
+ved publisering; E28–E31 dokumenterer de konkrete valgene som er avklart.
 
 ## 06.10.26 – dokumentrolle og sporbarhet
 
@@ -196,6 +200,20 @@ varige registreringer og sletter ikke gamle valg. Dette er Codex sine konkrete
 avgrensninger for etterprøvbar implementering. Kontrolltilfellene i demoen viser
 overgangene og isolert komplettering av V01 i S3.
 
+## 22.10.26 – historikk og forslag ved frafall
+
+| ID | Hva endres, fra og til? | Enkel begrunnelse | Grunnlag og status |
+|---|---|---|---|
+| E31 | Metadata oppdateres til 22.10.26. Executive Summary, The Solution, Success Criteria og Scope går fra separat enkel plangenerering med åpen planhorisont til fire uker historikk og ferdig planlagt uke 5, med forslag til å håndtere frafall i den eksisterende planen. Historikken vises som kontekst uten skjult poengsum; P1/P2 gjelder arbeidsuken. Åpent punkt om generering erstattes med gjenstående valg av søkemetode og eventuelle låste tildelinger. README, demo og VaktMatch-vedlegg samkjøres; tidligere kreditering og kilder bevares. | Gi lederen mest mulig relevant kontekst og flere vurderbare retninger ved for eksempel sykdom, med beslutningsmyndigheten hos lederen. | Odin avklarte fire historikkuker, en eksisterende plan i uke 5 og forslag basert på tidligere planer, og sluttet seg til historikk som synlig beslutningsgrunnlag i samtalen om SCRUM-16. Dette er et nytt produktvalg innenfor felles delegering gjengitt av Odin i E28; Stian tilskrives ikke detaljvalgene. Det erstatter retningen i E24 og tilhørende genereringsformuleringer, med bevart historikk. Codex har konkretisert relative ukedatoer, kilde-/mangelvisning og kontrolltilfeller i demoen. Algoritme/solver og ytelsesmål er ikke valgt. SCRUM-16 beholdes In Progress. |
+
+Kildeoppsummering for [SCRUM-16](https://stiodi.atlassian.net/browse/SCRUM-16):
+Odin valgte fire uker historikk, bekreftet at uke 5 allerede er planlagt, og ønsket
+forslag ved frafall basert på tidligere planer framfor separat framtidig
+plangenerering. Han bekreftet deretter historikk som synlig beslutningsgrunnlag.
+Codex konkretiserte relative datoer, at planer ikke dokumenterer faktisk utført
+arbeid, og at korrigert historikk fra en ny datakilde krever synlig ny dataversjon
+og ny vurdering av berørte kontroller. Dette er ikke nye historiske poengregler.
+
 ## Se alle tekstendringer
 
 Git bevarer hver versjon. Kjør fra repoets rot for å se alle forskjeller mellom
@@ -221,9 +239,9 @@ Legg til et nytt datert innslag med neste ID og følgende innhold:
 
 | ID | Hva endres, fra og til? | Hvorfor? | Grunnlag og status |
 |---|---|---|---|
-| E31 | Berørt del og kort før/etter-beskrivelse. | Én eller to enkle setninger. | Hvem ga innspillet, kilde og om det er forslag, arbeidsretning eller felles beslutning. |
+| E32 | Berørt del og kort før/etter-beskrivelse. | Én eller to enkle setninger. | Hvem ga innspillet, kilde og om det er forslag, arbeidsretning eller felles beslutning. |
 
-E31-raden er en mal, ikke et tatt valg. Rene språk- og lenkerettelser kan samles
+E32-raden er en mal, ikke et tatt valg. Rene språk- og lenkerettelser kan samles
 i ett innslag med beskjed om at produktinnholdet er uendret. Et omgjort valg får
 et nytt innslag som viser til det gamle. Ikke skriv om tidligere begrunnelser
 slik at de fremstår som kjent da valget ble tatt. Bruk «begrunnelse ikke dokumentert»

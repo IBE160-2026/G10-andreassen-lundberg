@@ -12,10 +12,11 @@ Den er fortsatt et utkast: detaljert MVP-omfang, teknologistakk og arbeidsdeling
 gjenstår å avklare. At dokumentet er gjeldende, betyr ikke at alle forslagene
 i det er endelig vedtatt.
 
-Arbeidsretningen er oppdatert etter Odins innspill 6.–7. oktober: førsteversjonen
-bruker demodata som grunnlag og kan generere et enkelt
-planforslag, med regelkontroll og konkrete KI-forklaringer. Genereringen beholdes
-i MVP; VaktMatch innfører ikke forslaget i den faktiske vaktlisten. Reell
+Arbeidsretningen er oppdatert etter avklaringen i SCRUM-16: førsteversjonen
+bruker fire uker historikk og en ferdig planlagt uke 5. Ved frafall sammenligner
+lederen forslag med regelkontroll, synlig historisk kontekst og KI-forklaringer.
+Separat generering av en ny ukeplan er tatt ut av MVP. VaktMatch innfører ikke
+forslagene i den faktiske vaktlisten. Reell
 leverandørtilkobling ligger utenfor MVP; oppdaterte demodata lastes inn gjennom
 en demohandling som viser endringer og beregner vurderingen på nytt. Chat er en mulig senere utvidelse.
 Endringene fra 6.–7. oktober er Odins innspill, bearbeidet med Codex, og er ennå
@@ -26,10 +27,14 @@ Avklaringer fra 21. oktober er innarbeidet i briefen og demoscenarioet: R1–R5,
 sortering og lederstyrt søkegrense 0–1, med 1 som standard i førsteversjonen.
 Tilbud og aksept skal kunne simuleres; det enkle eksemplet kan kjøres uten steget.
 Valgene er tatt av Odin innenfor felles delegert beslutningsmyndighet, slik han
-har gjengitt avtalen med Stian. Se endringsloggen E28–E30 for opphav og avgrensning.
+har gjengitt avtalen med Stian. Se endringsloggen E28–E31 for opphav og avgrensning.
 SCRUM-17 avklarer simulert fravær, bytte mellom forhåndslagde datasett og
 komplettering av manglende opplysninger i demoen. Valg og simulerte svar beholdes
 i økten; varig beslutningslogg er valgfri, avslått som standard, med frivillig begrunnelse.
+
+Avklaringen 22. oktober gjør tidligere planer til synlig beslutningsgrunnlag,
+uten en ny historisk poengsum eller endring i P1/P2. SCRUM-16 står fortsatt
+In Progress mens søkemetode og eventuelle låste tildelinger avklares.
 
 [Endringsloggen for produktbriefen](docs/productbrief-endringslogg.md) viser
 endringene fra første versjon 17. september, med korte begrunnelser, opphav og
