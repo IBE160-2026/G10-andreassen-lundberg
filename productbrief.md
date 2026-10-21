@@ -3,7 +3,7 @@ title: VaktMatch
 status: draft
 document_role: current_product_brief
 created: 2026-09-17
-updated: 2026-10-07
+updated: 2026-10-21
 ---
 
 # Product Brief: VaktMatch
@@ -11,7 +11,7 @@ updated: 2026-10-07
 **Gruppe:** Odin A Andreassen og Stian Lundberg · IBE160, høsten 2026  
 **Metode:** BMAD (`bmad-product-brief`) · **Innlevering:** søndag 20. september 2026
 
-**Status:** VaktMatch er valgt som gruppens prosjekt, og dette er eneste gjeldende produktbrief. Endringene 06.–07.10.26 er Odins innspill, bearbeidet med Codex, til felles vurdering; de er ennå ikke avklart med Stian. Detaljert MVP-omfang, teknologistakk og arbeidsdeling er fortsatt åpne.
+**Status:** VaktMatch er valgt som gruppens prosjekt, og dette er eneste gjeldende produktbrief. Odin opplyste 21.10.26 at han og Stian samme dag avtalte at begge kan ta prosjektbeslutninger alene for å få arbeidet i gang. Scenarioreglene og sorteringen nedenfor er besluttet av Odin innenfor denne felles delegeringen; dette betyr ikke at Stian personlig valgte detaljene. Øvrig MVP-omfang, teknologistakk og arbeidsdeling er fortsatt åpne.
 
 [Endringsloggen](docs/productbrief-endringslogg.md) forklarer endringene og opphavet. [Dokumentoversikten](README.md#dokumentoversikt) viser vedlegg og historikk; [faglærerens tilbakemelding](tilbakemelding-product-brief.md) er grunnlag for videre avklaring.
 
@@ -36,6 +36,10 @@ Lederen skal også kunne generere et enkelt planforslag for den avgrensede perio
 Lederen skal kunne styre søkeomfanget i innstillinger. Mulige valg er direkte erstattere og intern omfordeling, men hvilke søkemåter førsteversjonen støtter, grensene for antall flyttinger og standardvalget er åpne. Innstillingen styrer hvilke alternativer som undersøkes; den endrer ikke kontrollresultatene eller regelgrunnlaget. Resultatet må vise hvilket søkeomfang vurderingen gjelder.
 
 Svaret har en fast struktur: sammenlignbare alternativer, begrunnelser, regelkontroll, konsekvenser og manglende opplysninger. Innholdet tilpasses den aktuelle vakten og ansattdataene. For hvert alternativ skal lederen kunne se kompetanse, tilgjengelighet, hviletid før og etter vakten, beregnet arbeidstid og konsekvenser for andre vakter. Lederen kan velge og prioritere blant definerte sorteringskriterier for kandidatene som oppfyller scenarioreglene. Valgte kriterier vises sammen med rangeringen; bytte av prioritering oppdaterer rekkefølge og begrunnelse uten å endre planen. Kandidater med regelavvik eller manglende kontrollopplysninger skal også kunne undersøkes, med avvik og usikkerhet synlig. Dersom ingen kandidat er bekreftet å oppfylle scenarioreglene, skal dette fremgå uten å fremstille uavklarte kandidater som ferdig vurdert.
+
+Det vedtatte regelsettet er R1 kompetanse, R2 tilgjengelighet og R3 ingen tidskollisjon som interne scenarioregler, samt R4 minst 11 timers sammenhengende arbeidsfri og R5 høyst 40 planlagte timer i sju dager som forenklede scenarioregler med lovutgangspunkt. R4 og R5 er ikke en full juridisk kontroll: arbeidsmiljøloven åpner for unntak, og blant annet skift-, turnus-, overtids- og gjennomsnittsberegningsregler er ikke modellert. [Demoscenarioet](docs/demoscenario-fravaer.md#fem-vedtatte-scenarioregler) angir terskler, kilder og begrensninger.
+
+P1, færrest planlagte timer etter tildeling, er standard sorteringskriterium. P2, lavest andel av avtalt timetall for samme periode, kan velges. Lederen kan prioritere kriteriene i rekkefølge; neste kriterium brukes bare når kandidater er like på det foregående. Kandidater som er like på alle valgte kriterier, vises som likeverdige. Stabil kandidat-ID kan styre visningsrekkefølgen, men skal ikke fremstilles som et faglig skille. Manglende sorteringsdata endrer ikke regelstatus, men hindrer en komplett rangering etter det berørte kriteriet.
 
 Regelmotoren finner og kontrollerer kandidater og beregner konsekvenser. KI forklarer hva prioriteringene betyr, hvorfor alternativene skiller seg og hva et undersøkt alternativ innebærer, for eksempel redusert hvile eller økt arbeidstid. Regelgrunnlaget skal være synlig, slik at lov- og avtaleregler, interne føringer og rene demoregler ikke blandes sammen. Studieprototypen kontrollerer et navngitt scenarioregelsett; den gir ingen generell garanti om lovlighet. Hvilke faktiske regler som gjelder på en arbeidsplass, må avklares før eventuell reell bruk.
 
@@ -77,7 +81,7 @@ For studiearbeidet skal gruppen også dokumentere BMAD-bruken, egne valg og hvor
 
 ## Scope
 
-**Foreslått førsteversjon:** Én fiktiv arbeidsplass, 8–10 ansatte og noen forhåndsgodkjente eksterne vikarer tilknyttet et bemanningsforetak. Demoen bruker fiktive (syntetiske) data med konkrete vakter, kompetanse, tilgjengelighet og nødvendige nabovakter som et praktisk grunnlag for å vise funksjonene. Appen kan generere et enkelt planforslag uten å endre gjeldende vaktliste. Ett sykefravær utløser sammenligning av alternativer på én side gjennom en fast handling. KI forklarer kontrollerte data i et fast svarformat. Generering og avvikshåndtering bruker samme 3–5 eksplisitte scenarioregler. Lederstyrt søkeomfang konkretiseres til et begrenset sett innstillinger. Hvordan oppdateringer i datagrunnlaget demonstreres, er ikke valgt. Grensesnittet skal fungere i nettleser på mobil og PC.
+**Foreslått førsteversjon:** Én fiktiv arbeidsplass, 8–10 ansatte og noen forhåndsgodkjente eksterne vikarer tilknyttet et bemanningsforetak. Demoen bruker fiktive (syntetiske) data med konkrete vakter, kompetanse, tilgjengelighet og nødvendige nabovakter som et praktisk grunnlag for å vise funksjonene. Appen kan generere et enkelt planforslag uten å endre gjeldende vaktliste. Ett sykefravær utløser sammenligning av alternativer på én side gjennom en fast handling. KI forklarer kontrollerte data i et fast svarformat. Generering og avvikshåndtering bruker de samme eksplisitte scenarioreglene R1–R5. Lederstyrt søkeomfang konkretiseres til et begrenset sett innstillinger. Hvordan oppdateringer i datagrunnlaget demonstreres, er ikke valgt. Grensesnittet skal fungere i nettleser på mobil og PC.
 
 **Avgrensning av plangenerering:** Enkel plangenerering inngår som forslag i MVP. Appen kan generere en plan uten å innføre den i den faktiske vaktlisten. Minimumsnivået i Stians turnusgenerator-idé er fortsatt bakgrunn for enkel generering; bidraget og tidligere begrunnelser er bevart i [VaktMatch-vedlegget](_bmad-output/planning-artifacts/briefs/brief-G10-andreassen-lundberg-2026-09-07-VaktMatch/addendum.md). Dette er Odins presiserte arbeidsretning, ikke en ny felles godkjenning av omfanget.
 
@@ -87,12 +91,11 @@ For studiearbeidet skal gruppen også dokumentere BMAD-bruken, egne valg og hvor
 
 - **Generering:** Hvor lang periode skal forslaget dekke, hvilke tildelinger kan endres, og hvilke skal ligge fast? Én uke er foreløpig utgangspunkt.
 - **Fravær:** Hvilke søkemåter skal støttes, hvor mange interne flyttinger kan foreslås, og skal tilbud og aksept simuleres?
-- **Regler og sortering:** Hvilke konkrete regler og kilder brukes, hvilke sorteringskriterier kan lederen velge, hva er standardvalget, og hvordan håndteres lik rangering?
 - **Data og demonstrasjon:** Hvordan tilføres fravær og oppdaterte data, hvordan vises endringene, og hvem har ansvar for manglende opplysninger? Fullstendige demodata med fasit for generering og fravær gjenstår.
 - **Beslutningslogg:** Skal valg lagres og begrunnelser etterspørres i MVP, og hvilke innstillinger skal gjelde?
 - **Gjennomføring:** Teknologistakk, språkmodell og arbeidsdeling er ikke valgt.
 
-**Arbeidsgrunnlag for konkretisering:** [Forslaget til fraværsscenario](docs/demoscenario-fravaer.md) viser ansattdata, fem tallfestede scenarioregler, eksempler på lederstyrt sortering og forventede svar ved gyldige alternativer, ingen direkte erstatter og manglende data. Lederstyrt prioritering følger Odins innspill 06.10.26. Regeltall, konkrete sorteringsvalg og beregningsmåter er forslag fra Codex og gjenstår å avklare; eksemplet er ikke en ferdig implementasjon eller et komplett datasett med alle vakter.
+**Arbeidsgrunnlag for konkretisering:** [Fraværsscenarioet](docs/demoscenario-fravaer.md) viser ansattdata, de fem vedtatte scenarioreglene, P1 og P2 og forventede svar ved gyldige alternativer, ingen direkte erstatter og manglende data. Regelsettet og sorteringen ble besluttet av Odin 21.10.26 innenfor den felles delegeringen han har gjengitt. Eksemplet er ikke en ferdig implementasjon eller et komplett datasett med alle vakter.
 
 **Tilrettelegging for senere chat:** Datatilgang, regelberegning, KI-forklaring og visning skal ha tydelige ansvarsgrenser. En eventuell samtaleassistent skal kunne bruke de samme funksjonene og kontrollene. Førsteversjonen trenger ikke chatgrensesnitt, samtalehistorikk eller en generell agentplattform.
 

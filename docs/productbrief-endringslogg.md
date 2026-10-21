@@ -49,10 +49,11 @@ ikke leses som en felles godkjenning eller en ferdig kravspesifikasjon.
   og ikke er lovpålagt; eventuelle lovkrav er ikke fastslått. Brukertesten er et
   valgfritt KI-forslag, ikke et nytt dokumentert leveransekrav (E19, E22).
 
-Til felles vurdering gjenstår særlig omfanget av generering og omfordeling,
-scenarioregler og sorteringsvalg, oppdatering av data, eventuell logging,
-teknologistakk og arbeidsdeling. Konkrete regeltall og demomekanismer som er
-merket som KI-forslag, er ikke automatisk godkjent ved publisering.
+Etter avklaringen 21.10.26 gjenstår særlig omfanget av generering og omfordeling,
+oppdatering av data, eventuell logging, teknologistakk og arbeidsdeling.
+Demomekanismer som fortsatt er merket som KI-forslag, er ikke automatisk
+godkjent ved publisering; E28 dokumenterer de konkrete reglene og sorteringsvalgene
+som nå er besluttet.
 
 ## 06.10.26 – dokumentrolle og sporbarhet
 
@@ -163,6 +164,12 @@ uten konstruerte datoer eller forfattere; eldre formuleringer finnes også i Git
 |---|---|---|---|
 | E27 | Briefens innledning og valgfrie brukertest kortes ned. Den samlede listen over åpne valg deles i seks temaer med konkrete spørsmål. Forklaringen om loggvedlikehold over kortes ned; E01–E26 beholdes. | Gjøre produktet lettere å finne og vise hva som må avklares før planlegging. | Odin ba 07.10.26 om nødvendige endringer etter gjennomgangen av ukommitterte filer. Redigert av Codex. Produktinnhold og beslutningsstatus er uendret; ingen åpne valg er avgjort. |
 
+## 21.10.26 – scenarioregler og sortering er avklart
+
+| ID | Hva endres, fra og til? | Enkel begrunnelse | Grunnlag og status |
+|---|---|---|---|
+| E28 | Status, The Solution og Scope går fra foreslåtte R1–R5 og P1–P2 til et vedtatt scenarioregelsett: R1 kompetanse, R2 tilgjengelighet og R3 kollisjon er interne scenarioregler; R4 krever minst 11 timers hvile og R5 setter høyst 40 timer i sju dager som forenklede regler med lovutgangspunkt og uttrykkelige forbehold. P1 færrest planlagte timer etter tildeling blir standard, P2 lavest andel av avtalt timetall blir valgfritt, kriterier kan prioriteres, og full likhet vises som lik rangering. Det åpne punktet om regler og sortering fjernes. | Gi PRD og implementering et konkret, håndkontrollerbart grunnlag uten å fremstille demoens to lovbaserte terskler som en full juridisk kontroll. | Odin tok de konkrete valgene 21.10.26. Han opplyste samme dag at han og Stian i møte avtalte at begge kan ta prosjektbeslutninger alene for å få arbeidet i gang. Valget registreres derfor som en prosjektbeslutning tatt av Odin innenfor den felles delegeringen; det tilskrives ikke Stian som et personlig valg av detaljene. [Demoscenarioet](demoscenario-fravaer.md) dokumenterer kilder og begrensninger. |
+
 ## Se alle tekstendringer
 
 Git bevarer hver versjon. Kjør fra repoets rot for å se alle forskjeller mellom
@@ -188,9 +195,9 @@ Legg til et nytt datert innslag med neste ID og følgende innhold:
 
 | ID | Hva endres, fra og til? | Hvorfor? | Grunnlag og status |
 |---|---|---|---|
-| E28 | Berørt del og kort før/etter-beskrivelse. | Én eller to enkle setninger. | Hvem ga innspillet, kilde og om det er forslag, arbeidsretning eller felles beslutning. |
+| E29 | Berørt del og kort før/etter-beskrivelse. | Én eller to enkle setninger. | Hvem ga innspillet, kilde og om det er forslag, arbeidsretning eller felles beslutning. |
 
-E28-raden er en mal, ikke et tatt valg. Rene språk- og lenkerettelser kan samles
+E29-raden er en mal, ikke et tatt valg. Rene språk- og lenkerettelser kan samles
 i ett innslag med beskjed om at produktinnholdet er uendret. Et omgjort valg får
 et nytt innslag som viser til det gamle. Ikke skriv om tidligere begrunnelser
 slik at de fremstår som kjent da valget ble tatt. Bruk «begrunnelse ikke dokumentert»

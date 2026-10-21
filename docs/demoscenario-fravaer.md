@@ -1,12 +1,14 @@
 # Demoscenario: ett fravær på en generell arbeidsplass
 
-*(Skrevet: Codex · 06.10.26; oppdatert: 07.10.26 etter Odins innspill)*
+*(Skrevet: Codex · 06.10.26; oppdatert: 21.10.26 etter Odins beslutning)*
 
-**Status:** Forslag til konkretisering av [produktbriefen](../productbrief.md).
+**Status:** Konkretisering av [produktbriefen](../productbrief.md).
 Odin har valgt en generell arbeidsplass uten bransje og ønsker at lederen skal
-kunne styre hvilke hensyn som prioriteres ved sortering. Regeltallene, de konkrete
-sorteringsvalgene og datasettet nedenfor er Codex sine forslag til gjennomgang,
-ikke vedtatte krav.
+kunne styre hvilke hensyn som prioriteres ved sortering. Odin besluttet R1–R5,
+P1 som standard og P2 som valgfritt kriterium 21.10.26 innenfor felles delegert
+beslutningsmyndighet, slik han har gjengitt avtalen fra møtet med Stian samme dag.
+Dette tilskriver ikke Stian de konkrete regelvalgene. Datasettet nedenfor er et
+konstruert eksempel skrevet av Codex.
 Alle ansatte og hendelser er konstruerte eksempler. Reglene beskriver et avgrenset
 scenarioregelsett, ikke en full kontroll av lovverk eller avtaler.
 
@@ -29,25 +31,28 @@ Eksemplet har åtte interne ansatte (A01–A08), én forhåndsgodkjent ekstern v
 (V01) og kompetansekodene K1 og K2. Alle klokkeslett er lokale i Europe/Oslo.
 Målperioden for timetelling er mandag 12.10 kl. 00.00 til mandag 19.10 kl. 00.00.
 Én vakt teller åtte timer; pausefradrag er ikke modellert i eksemplet.
+P1, P2 og R5 bruker den samme faste sjudagersperioden i dette scenarioet. For en
+vakt som krysser periodegrensen, teller bare den delen av vakten som ligger i
+perioden. Dette er en scenariodefinisjon, ikke en generell regel for arbeidstid.
 
 Vi undersøker bare om én person kan legges inn på den ledige vakten uten å flytte
 andre vakter. Dette avgjør ikke om intern omfordeling av flere vakter skal inngå
 i det endelige MVP-et. «Ingen løsning» gjelder det undersøkte kandidatsettet og
 direkte erstatning. Det sier ikke at enhver mulig omplanlegging er umulig.
 
-## Fem foreslåtte scenarioregler
+## Fem vedtatte scenarioregler
 
-| Regel | Konkret kontroll | Hvorfor den er med |
-|---|---|---|
-| R1 Kompetanse | Kandidaten må ha K1. | En ledig person må også kunne utføre oppgaven. |
-| R2 Tilgjengelighet | Kandidaten må være registrert tilgjengelig hele 08.00–16.00. Fravær betyr utilgjengelig. | Ledig plass i kalenderen alene bekrefter ikke tilgjengelighet. |
-| R3 Kollisjon | Ingen eksisterende vakt kan overlappe 08.00–16.00. Slutt lik start regnes ikke som overlapp. | Personen kan ikke være tildelt to samtidige vakter. |
-| R4 Hvile | Minst 11 timer fra forrige vakt slutter til målskiftet starter, og fra målskiftet slutter til neste vakt starter. Nøyaktig 11 timer består. | En ny vakt må kontrolleres både bakover og fremover i planen. |
-| R5 Timetall | Samlet planlagt arbeidstid etter tildeling må være høyst 40 timer i den definerte uken. Nøyaktig 40 timer består. | Gir en enkel grense som kan etterprøves for hånd. |
+| Regel | Konkret kontroll | Kategori og kilde | Begrensning |
+|---|---|---|---|
+| R1 Kompetanse | Kandidaten må ha K1. | Intern scenarioregel, besluttet av Odin 21.10.26. | K1 er en kode i det konstruerte datasettet, ikke en offentlig kvalifikasjonsstandard. |
+| R2 Tilgjengelighet | Kandidaten må være registrert tilgjengelig hele 08.00–16.00. Fravær betyr utilgjengelig. | Intern scenarioregel, besluttet av Odin 21.10.26. | Ledig plass i kalenderen alene bekrefter ikke tilgjengelighet. |
+| R3 Kollisjon | Ingen eksisterende vakt kan overlappe 08.00–16.00. Slutt lik start regnes ikke som overlapp. | Intern scenarioregel, besluttet av Odin 21.10.26. | Kontrollen gjelder registrerte vakter i datagrunnlaget. |
+| R4 Hvile | Minst 11 timer fra forrige vakt slutter til målskiftet starter, og fra målskiftet slutter til neste vakt starter. Nøyaktig 11 timer består. | Forenklet scenarioregel med lovutgangspunkt i [arbeidsmiljøloven § 10-8](https://lovdata.no/nav/lov/2005-06-17-62/kap10/%C2%A710-8). | Loven åpner for unntak. Scenarioet modellerer ikke tariffavtaler eller alle vilkår for unntak. |
+| R5 Timetall | Samlet planlagt arbeidstid etter tildeling må være høyst 40 timer i den definerte sjudagersperioden. Nøyaktig 40 timer består. | Forenklet scenarioregel med lovutgangspunkt i [arbeidsmiljøloven § 10-4](https://lovdata.no/lov/2005-06-17-62/%C2%A710-4). | Kortere grenser kan gjelde blant annet ved skift- og turnusarbeid. Gjennomsnittsberegning, merarbeid og overtid er ikke modellert. |
 
-11 timer er hentet som utgangspunkt fra [turnusforslaget](../_bmad-output/planning-artifacts/briefs/brief-G10-andreassen-lundberg-2026-09-18-turnusgenerering/brief.md).
-40 timer er en foreslått demoverdi fra Codex. Tallene er ikke valgt som en
-påstand om hvilke regler som gjelder for en faktisk arbeidsplass.
+R4 og R5 gjør tersklene håndkontrollerbare i demoen. De må ikke presenteres som
+en generell garanti om at en faktisk arbeidsplan er lovlig. Ved reell bruk må
+gjeldende lov, avtaler, arbeidstidsordning og komplett arbeidsgrunnlag avklares.
 
 Alle fem regler må være bekreftet oppfylt før en kandidat kan vises som
 **oppfyller scenarioreglene**. Et kjent brudd gir **regelavvik**. Ingen kjente
@@ -65,6 +70,9 @@ tilgjengelighet, eksisterende vakter med start og slutt, samlet arbeidstid i
 uken og en tydelig markering av om kontrollgrunnlaget er komplett. Nabovakter
 utenfor den viste planperioden må også være med når de påvirker hvilen.
 For eksterne vikarer må opplysningene dekke øvrig relevant arbeid.
+Når komplett historikk uttrykkelig viser at det ikke finnes en forrige eller neste
+vakt, består den aktuelle siden av R4-kontrollen. Hvis fraværet av en nabovakt
+skyldes ufullstendig historikk, er kontrollen uavklart.
 
 Tabellen er et håndregnet kontrollgrunnlag for fravær, ikke en komplett syntetisk
 vaktplan. Ukestimene er oppgitte syntetiske verdier. Før
@@ -88,15 +96,17 @@ kolonnene også nærmeste ikke-overlappende nabovakter; den overlappende vakten
 står separat og må inngå i kontrollgrunnlaget. «Timer etter» er en hypotetisk
 beregning, også for kandidater med regelavvik; ingen tildeling er gjennomført.
 
-## Lederstyrt prioritering – forslag til to sorteringsvalg
+## Lederstyrt prioritering – vedtatte sorteringsvalg
 
 Lederen velger hvilket hensyn som er viktigst blant kandidatene som består alle
 reglene. Scenarioreglene gjelder ved begge valg. Endret sortering endrer verken
 regelstatus eller tildelingen i planen. Valget vises ved resultatet og brukes i
-KI-forklaringen. Antall kriterier, eventuell prioritert rekkefølge og standardvalg
-gjenstår å avklare; eksemplet viser ett valgt kriterium om gangen.
+KI-forklaringen. Standardkonfigurasjonen er bare `[P1]`. Lederen kan aktivere P2,
+deaktivere et aktivt kriterium så lenge minst ett gjenstår, og flytte P1 og P2 i
+prioritert rekkefølge. Neste kriterium brukes bare når kandidater er like på det
+foregående.
 
-| Valg | Foreslått beregning | Hva det viser |
+| Valg | Vedtatt beregning | Hva det viser |
 |---|---|---|
 | P1 Færrest planlagte uketimer | Lavest samlet timetall etter tildeling først. | Hvem som vil ha færrest timer i den aktuelle uken. |
 | P2 Lavest andel av avtalt timetall | Planlagte timer etter tildeling delt på avtalte timer for samme uke, stigende. | Hvor stor del av det avtalte timegrunnlaget den planlagte tiden utgjør. |
@@ -118,11 +128,15 @@ stillingsprosent er ikke nok uten et definert timegrunnlag. Mangler sorteringsda
 vises det tydelig og en fullstendig rangering etter P2 kan ikke bekreftes.
 Regelstatusen beholdes: en kandidat som består R1–R5 blir ikke utelukket fordi
 avtalte timer mangler. Systemet må heller ikke stille bytte til P1 uten å vise det.
+Når en kandidat mangler data til et aktivt kriterium, vises kandidaten utenfor den
+komplette rangeringen. Verdier fra tidligere kriterier kan fortsatt vises, men de
+brukes ikke til å gi kandidaten en plass i den komplette rangeringen. Kandidater
+med alle nødvendige sorteringsdata rangeres fortsatt innbyrdes.
 
-Ved lik verdi foreslås kandidatene vist som likeverdige; ID brukes bare for
-stabil visningsrekkefølge. KI-en skal ikke finne på et skille mellom dem.
-Eksemplet har ingen vedtatt prioritering av intern foran ekstern eller noen
-kostnadsberegning. P1 og P2 er forslag til gjennomgang, ikke et fastsatt kriterieutvalg.
+Ved lik verdi på alle valgte kriterier vises kandidatene som likeverdige; ID
+brukes bare for stabil visningsrekkefølge. KI-en skal ikke finne på et skille
+mellom dem. Eksemplet har ingen vedtatt prioritering av intern foran ekstern
+eller noen kostnadsberegning.
 
 ## Tre scenarioer med forventede svar
 
@@ -131,6 +145,8 @@ kostnadsberegning. P1 og P2 er forslag til gjennomgang, ikke et fastsatt kriteri
 | S1 To bekreftede alternativer | Lederen velger P1 eller P2; ansattdataene er de samme. | P1 gir A02 foran A03; P2 gir A03 foran A02. Lederen kan undersøke begge og se konsekvensene. A04–A08 har fortsatt regelavvik. V01 er fortsatt uavklart og inngår ikke i rangeringen. Vakten vises som udekket i gjeldende datasett til oppdaterte data viser ny bemanning. |
 | S2 Ingen direkte erstatter innenfor reglene | A02, A03 og V01 er uttrykkelig registrert utilgjengelige for hele vakten. | Ingen kandidat består. Vis «Ingen direkte erstatter innenfor scenarioreglene» og la lederen undersøke avvikene. Behovet er fortsatt udekket i datasettet. Resultatet gjelder direkte erstatning; omfordeling er ikke undersøkt i dette eksemplet. |
 | S3 Mulig kandidat, men manglende data | A02 og A03 er registrert utilgjengelige. V01 har fortsatt ukjent tilgjengelighet. | Ingen bekreftet erstatter. Vis «Tilgjengelighet for V01 må avklares». Behovet er udekket og vurderingen uavklart; systemet kan ikke konkludere med at ingen kan ta vakten. |
+| S4 Lik rangering | A02 og A03 består R1–R5 og har samme verdi på alle aktive kriterier; bruk `[P1, P2]`. | A02 og A03 vises som likeverdige. ID kan gi stabil visningsrekkefølge, men begrunnelsen skal ikke hevde at den ene er bedre. |
+| S5 Manglende sorteringsdata | A02 og A03 består R1–R5; P2 er aktivt, men A03 mangler avtalt timetall. | A02 kan vises i den komplette rangeringen. A03 vises separat som ikke fullstendig rangerbar, med manglende avtalt timetall; A03 beholder bestått regelstatus, og systemet bytter ikke stille til P1. |
 
 Eksempel på KI-forklaring i S1 med P1:
 
@@ -175,9 +191,9 @@ Eksempel når lederen undersøker A03 med P1 valgt:
 ## Manglende data og regelgrunnlag
 
 Odin ønsker at lederen får informasjon om relevante konflikter, arbeidstidsgrenser,
-hviletid og interne føringer. I prototypen er R1–R5 fortsatt foreslåtte demoregler.
-De skal ikke presenteres som en fullstendig eller verifisert gjengivelse av lov-
-eller avtalekrav. Regelkilde og begrensninger må være synlige. Innstillinger for
+hviletid og interne føringer. R1–R5 er vedtatte regler for dette avgrensede
+scenarioet. De skal ikke presenteres som en fullstendig eller verifisert
+gjengivelse av lov- eller avtalekrav. Regelkilde og begrensninger må være synlige. Innstillinger for
 søkeomfang endrer ikke reglenes betydning eller gjør et avvik til bestått kontroll.
 
 I S3 kan teksten for eksempel forklare at bekreftet tilgjengelighet for V01 vil
@@ -235,10 +251,10 @@ endrede vaktdata er heller ikke i seg selv en logg over lederens beslutninger.
 
 ## Hva eksemplet avklarer videre
 
-Før reglene tas inn som krav, må vi ta stilling til 11 timers hvile, 40-timersgrensen
-og hvilke sorteringsvalg lederen skal få, med standardvalg og håndtering av lik
-rangering. Behandling av avtalte timer og stillingsprosenter må konkretiseres hvis
-P2 skal inngå. Planhorisont, konkrete søkemåter og grenser for eventuell omfordeling
+R1–R5, P1 som standard, P2 som valgfritt kriterium og håndtering av lik rangering
+er avklart for scenarioet. Behandling av avtalte timer og stillingsprosenter må
+fortsatt konkretiseres i datasettet for at P2 skal kunne beregnes. Planhorisont,
+konkrete søkemåter og grenser for eventuell omfordeling
 av flere vakter er fortsatt åpne valg i hovedbriefen. Fullstendig syntetisk vaktplan,
 fasit og en mekanisme for å vise oppdaterte data gjenstår. Plangenerering inngår
 som forslag uten innføring i faktisk vaktliste; den trenger et eget scenario
