@@ -214,6 +214,19 @@ Codex konkretiserte relative datoer, at planer ikke dokumenterer faktisk utført
 arbeid, og at korrigert historikk fra en ny datakilde krever synlig ny dataversjon
 og ny vurdering av berørte kontroller. Dette er ikke nye historiske poengregler.
 
+## 22.10.26 – nivåer for søk, låste vakter og resultat
+
+| ID | Hva endres, fra og til? | Enkel begrunnelse | Grunnlag og status |
+|---|---|---|---|
+| E32 | The Solution og Scope går fra åpne metode-/låsepunkter til avgrenset regelbasert søk etter direkte erstatning og opptil én flytting i førsteversjonen. Historikk, gjennomførte/påbegynte vakter og lederlåste tildelinger beskyttes. Dekning, regelstatus og søkestatus skilles; avbrutt søk gir ingen påstand om umulighet. Målemetode defineres uten et konkret responstidsløfte. README og demo peker til metodebeskrivelsen; tidligere alternativforslag beholdes. | Gjøre anbefalingene anvendelige i ulike grader: et oversiktlig første nivå med lederstyrte alternativer, mens solver og større søkeomfang kan vurderes etter implementering og måling. | Odin ga samlet tilslutning til anbefalingene om låste vakter, krav/prioriteringer, tilpasset søkemetode, tilbud/svar og presise resultatstatuser i [SCRUM-16](https://stiodi.atlassian.net/browse/SCRUM-16). Codex har konkretisert nivåene, valgt det anbefalte avgrensede søket for førsteversjonen og beskrevet låsegrenser, delvis dekning og måling i [metodebeskrivelsen](forslag-ved-frafall.md). Dette ferdigstiller det åpne grunnlaget i E31; detaljene er KI-konkretiseringer innenfor retningen, ikke særskilte valg tilskrevet begge deltakerne. Appkode og faktiske målinger er ikke utført. |
+
+Gjennomgangen av E32 konkretiserte hvordan fraværstildelingen tas ut av aktivt
+kontrollgrunnlag, hvordan en flytting med udekket kildevakt vises separat som
+konsekvensalternativ, og hvordan endrede låser gjør gamle resultater utdaterte.
+Søk på et allerede påbegynt målskift får en eksplisitt «ikke kjørt»-status.
+Dette er Codex-presiseringer av metodebeskrivelsen og endrer ikke P1/P2 eller
+grensen på én flytting.
+
 ## Se alle tekstendringer
 
 Git bevarer hver versjon. Kjør fra repoets rot for å se alle forskjeller mellom
@@ -239,9 +252,9 @@ Legg til et nytt datert innslag med neste ID og følgende innhold:
 
 | ID | Hva endres, fra og til? | Hvorfor? | Grunnlag og status |
 |---|---|---|---|
-| E32 | Berørt del og kort før/etter-beskrivelse. | Én eller to enkle setninger. | Hvem ga innspillet, kilde og om det er forslag, arbeidsretning eller felles beslutning. |
+| E33 | Berørt del og kort før/etter-beskrivelse. | Én eller to enkle setninger. | Hvem ga innspillet, kilde og om det er forslag, arbeidsretning eller felles beslutning. |
 
-E32-raden er en mal, ikke et tatt valg. Rene språk- og lenkerettelser kan samles
+E33-raden er en mal, ikke et tatt valg. Rene språk- og lenkerettelser kan samles
 i ett innslag med beskjed om at produktinnholdet er uendret. Et omgjort valg får
 et nytt innslag som viser til det gamle. Ikke skriv om tidligere begrunnelser
 slik at de fremstår som kjent da valget ble tatt. Bruk «begrunnelse ikke dokumentert»

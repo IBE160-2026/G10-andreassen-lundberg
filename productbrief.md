@@ -57,6 +57,10 @@ Codex har konkretisert økt- og loggovergangene slik: demoøkten avsluttes når 
 
 At historikken ligger fast gjelder søket og forslagene. En korrigert datakilde kan lastes inn som ny dataversjon; endrede historikkopplysninger vises, og berørte kontroller kjøres på nytt. Dette kan endre regelstatus når for eksempel en nabovakt i uke 4 korrigeres, selv om historikken ikke gir et eget rangeringskriterium.
 
+Førsteversjonen bruker avgrenset regelbasert søk etter direkte erstatning og opptil én flytting. Historikk, gjennomførte/påbegynte vakter og lederlåste tildelinger beskyttes; framtidige ulåste tildelinger i uke 5 kan inngå i forslag. Søket bruker et synlig vurderingstidspunkt fra demoen. Det endrer ikke vakttider eller deler vakter. Låser bekrefter ikke regelstatus og skal ikke skjule fravær eller udekket behov.
+
+Full og delvis dekning, regelstatus og fullført/avbrutt søk vises hver for seg. Et avbrutt søk kan vise kontrollerte funn, men ikke hevde fullstendig rangering eller at ingen løsning finnes. Ingen konkret responstid er lovet; søket og total ventetid skal måles separat. Solver og to flyttinger er mulige senere utvidelser. [Metodebeskrivelsen](docs/forslag-ved-frafall.md) konkretiserer søk, låser, statuser og målemetode fra anbefalingene Odin sluttet seg til i SCRUM-16.
+
 ## What Makes This Different
 
 VaktMatch samler sammenligning, regelkontroll og forklaring i det øyeblikket lederen må håndtere et avvik. En viktig egenskap er at brukeren får undersøke alternativene, styre hvilke hensyn som prioriteres og forstå konsekvensene av sitt eget valg, også når det avviker fra sorteringsrekkefølgen.
@@ -101,7 +105,7 @@ For studiearbeidet skal gruppen også dokumentere BMAD-bruken, egne valg og hvor
 
 **Gjenstår å avklare:**
 
-- **Forslagsmetode:** Valg av regelbasert søk eller solver, håndtering av avbrutt søk og eventuelle ytelsesmål gjenstår i SCRUM-16. Søkegrensen fra SCRUM-15 ligger fast; eventuelle låste tildelinger i uke 5 må konkretiseres før implementering.
+- **Implementering og ytelse:** Den avklarte søkemetoden, låser og resultatstatuser må implementeres og testes. Responstid må måles på representative data før eventuelle tidsmål eller større søkeomfang velges.
 - **Demodata og implementering:** Fullstendige datasett med fire uker historikk, planlagt uke 5, nødvendige nabovakter og fasit for fravær/oppdateringer samt lagringsteknikk for den valgfrie beslutningsloggen gjenstår. Ansvar for datakvalitet ved reell bruk avklares senere.
 - **Gjennomføring:** Teknologistakk, språkmodell og arbeidsdeling er ikke valgt.
 

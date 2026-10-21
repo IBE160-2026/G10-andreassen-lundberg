@@ -386,8 +386,10 @@ fortsatt konkretiseres i datasettet for at P2 skal kunne beregnes. Søkegrense o
 tilbudssimulering er avklart i SCRUM-15. Fire historikkuker og arbeidsuke 5 er
 avklart i SCRUM-16; separat generering av en ny ukeplan er tatt ut av MVP.
 Komplette historikkdata, planlagt uke 5, nødvendige nabovakter og fasit gjenstår.
-Mekanismen for fravær og oppdaterte data er avklart i SCRUM-17. Søkemetode og
-eventuelle låste tildelinger i uke 5 gjenstår i SCRUM-16.
+Mekanismen for fravær og oppdaterte data er avklart i SCRUM-17.
+[Søkemetode, låste tildelinger og resultatstatuser](forslag-ved-frafall.md) er
+konkretisert i SCRUM-16: avgrenset regelbasert søk i førsteversjonen, solver som
+mulig videreutvikling. Implementering, testing og ytelsesmålinger gjenstår.
 
 Når en endring i dette forslaget fører til et valg i hovedbriefen, skal valget og
 begrunnelsen føres i [endringsloggen](productbrief-endringslogg.md).

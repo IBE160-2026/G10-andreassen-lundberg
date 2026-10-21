@@ -27,14 +27,16 @@ Avklaringer fra 21. oktober er innarbeidet i briefen og demoscenarioet: R1–R5,
 sortering og lederstyrt søkegrense 0–1, med 1 som standard i førsteversjonen.
 Tilbud og aksept skal kunne simuleres; det enkle eksemplet kan kjøres uten steget.
 Valgene er tatt av Odin innenfor felles delegert beslutningsmyndighet, slik han
-har gjengitt avtalen med Stian. Se endringsloggen E28–E31 for opphav og avgrensning.
+har gjengitt avtalen med Stian. Se endringsloggen E28–E32 for opphav og avgrensning.
 SCRUM-17 avklarer simulert fravær, bytte mellom forhåndslagde datasett og
 komplettering av manglende opplysninger i demoen. Valg og simulerte svar beholdes
 i økten; varig beslutningslogg er valgfri, avslått som standard, med frivillig begrunnelse.
 
 Avklaringen 22. oktober gjør tidligere planer til synlig beslutningsgrunnlag,
-uten en ny historisk poengsum eller endring i P1/P2. SCRUM-16 står fortsatt
-In Progress mens søkemetode og eventuelle låste tildelinger avklares.
+uten en ny historisk poengsum eller endring i P1/P2. [Søk og låste vakter](docs/forslag-ved-frafall.md)
+beskriver førsteversjonens avgrensede regelbaserte søk, beskyttede tildelinger,
+resultatstatuser og målemetode. Solver og lengre kjeder vurderes senere.
+Dette er avklart produktgrunnlag; appkode og målinger gjenstår.
 
 [Endringsloggen for produktbriefen](docs/productbrief-endringslogg.md) viser
 endringene fra første versjon 17. september, med korte begrunnelser, opphav og
@@ -46,6 +48,7 @@ Start gjerne med [den samlede begrunnelsen for arbeidsutkastet](docs/productbrie
 | Dokument | Rolle |
 |---|---|
 | [productbrief.md](productbrief.md) | **Gjeldende produktbrief.** Samle avklarte endringer her før PRD. |
+| [Forslag ved frafall – søk og resultat](docs/forslag-ved-frafall.md) | Konkretisering av SCRUM-16: nivåer, låste vakter, avgrenset søk, dekning og søkestatuser samt målemetode. |
 | [Demoscenario for fravær](docs/demoscenario-fravaer.md) | Vedtatte scenarioregler, sortering, søkeomfang og tilbudssimulering med forventede svar. Eksempler og kontrollbeskrivelser; komplett datasett og kode gjenstår. |
 | [VaktMatch-vedlegget](_bmad-output/planning-artifacts/briefs/brief-G10-andreassen-lundberg-2026-09-07-VaktMatch/addendum.md) | Supplerende bakgrunn og åpne innspill til hovedbriefen. Ingen selvstendig brief eller utvidelse av vedtatt omfang. |
 | [Turnusgenerator – alternativforslag fra Stian](_bmad-output/planning-artifacts/briefs/brief-G10-andreassen-lundberg-2026-09-18-turnusgenerering/brief.md) | Forslag til vurdering. Erstatter ikke hovedbriefen. [Teknisk vedlegg](_bmad-output/planning-artifacts/briefs/brief-G10-andreassen-lundberg-2026-09-18-turnusgenerering/addendum.md) tilhører forslaget. |
