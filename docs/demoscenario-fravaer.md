@@ -18,8 +18,8 @@ Odin presiserte at generering beholdes; forslaget innføres ikke i den faktiske
 vaktlisten. Dette dokumentet eksemplifiserer fraværsdelen, ikke hele genereringen.
 VaktMatch viser forslag og konsekvenser, men gjennomfører ikke vaktendringer.
 Eksemplet er tilpasset dette; tidligere alternativer for
-bekreftelse er bevart som historikk nedenfor. Lederstyrt søkeomfang er ønsket,
-men konkrete søkemåter og grenser gjenstår. Tabellen her viser direkte erstatning.
+bekreftelse er bevart som historikk nedenfor. Søkegrense og tilbudssimulering er
+avklart i SCRUM-15, som beskrevet nedenfor. Tabellen her viser direkte erstatning.
 
 ## Situasjonen og avgrensningen
 
@@ -35,10 +35,62 @@ P1, P2 og R5 bruker den samme faste sjudagersperioden i dette scenarioet. For en
 vakt som krysser periodegrensen, teller bare den delen av vakten som ligger i
 perioden. Dette er en scenariodefinisjon, ikke en generell regel for arbeidstid.
 
-Vi undersøker bare om én person kan legges inn på den ledige vakten uten å flytte
-andre vakter. Dette avgjør ikke om intern omfordeling av flere vakter skal inngå
-i det endelige MVP-et. «Ingen løsning» gjelder det undersøkte kandidatsettet og
-direkte erstatning. Det sier ikke at enhver mulig omplanlegging er umulig.
+Hovedeksemplet bruker søkegrense 0 og undersøker direkte erstattere. Appens
+standardgrense er 1, som også undersøker én intern flytting. «Ingen løsning»
+gjelder alltid det undersøkte kandidatsettet og den viste søkegrensen.
+
+## Søkeomfang og simulert tilbud – SCRUM-15
+
+**Beslutning:** Odin avklarte søkeomfang og tilbudssimulering i samtalen om
+SCRUM-15 innenfor den dokumenterte felles delegeringen. Grense 0 betyr bare
+direkte erstattere. Grense 1 inkluderer også omfordeling med opptil én flytting
+av en eksisterende vakttildeling og er både standard og maksimum i førsteversjonen.
+En ny tildeling til en ledig erstatter teller ikke som en flytting. Alle berørte
+vakter må fortsatt være dekket og R1–R5 kontrollert mot den foreslåtte sluttplanen.
+Et forslag som flytter bemanningsmangelen til en annen vakt er ikke komplett.
+Hver ny tildeling kontrolleres mot den aktuelle vaktens kompetansekrav og tidsrom;
+K1 og 08–16 i hovedtabellen gjelder fraværsvakten X. Før kontroll fjernes
+flyttede tildelinger fra den hypotetiske planen, og de nye legges inn. Kollisjon,
+hvile og timer beregnes deretter for alle berørte ansatte i sluttplanen.
+
+To flyttinger er en mulig neste utvidelse etter vurdering av kompleksitet og
+målt responstid på representative demodata. En høyere grense er et senere
+vurderingspunkt, ikke vedtatt funksjonalitet. Ingen konkret ytelse er lovet.
+
+Demodata skal gi flere fungerende alternativer med ulike avveininger. A02 og A03
+viser allerede to direkte alternativer: P1 favoriserer A02, P2 favoriserer A03.
+Lederen kan beholde P1 og sende et simulert tilbud til A03. Antall gode kandidater
+er uavhengig av antall flyttinger som tillates.
+P1 og P2 bruker verdiene etter hele omfordelingen for personen som skal dekke
+fraværsvakten. Øvrige berørtes timer, hvile og svarstatus vises som konsekvenser,
+ikke som en ny samlet poengsum. Hvis direkte erstatter A har 32 timer etter
+tildeling, mens B har 24 timer etter en omfordeling, står B først med P1 når
+begge forslag består kontrollene. Lederen ser samtidig at Bs alternativ krever
+en flytting og en erstatter C, og kan velge A for å unngå den omfordelingen.
+
+Tilbudssimuleringen viser «tilbud sendt», «venter på svar», «akseptert» eller
+«avslått». Alle berørte i en omfordeling må ha akseptert før forslaget vises med
+full simulert aksept. Ett avslag gjør at forslaget ikke har full aksept, og lederen
+kan undersøke et annet alternativ. Ubesvart tilbud forblir ventende. Simuleringen
+gjennomfører ingen vaktendring og endrer ikke regelstatus. Det enkle eksemplet
+kan kjøres uten tilbudssteget og merkes da «aksept ikke simulert».
+Simulerte tilbud og svar gjelder det konkrete forslaget og datagrunnlaget de ble
+gitt for. Endret deltaker eller tildeling krever ny simulering. Ved ny dataversjon
+kontrolleres forslaget på nytt; gamle svar gir ikke automatisk aksept på det nye
+grunnlaget. Dette er avgrensning av demostatus, ikke et krav om varig beslutningslogg.
+
+| Kontrolltilfelle | Oppsett | Forventet resultat |
+|---|---|---|
+| F1 Direkte alternativer | Grense 0; A02 og A03 som i hovedtabellen. | Begge sammenlignes. Lederen kan velge A03 selv med P1 aktivt. |
+| F2 Én intern flytting | B flyttes fra vakt Y til fraværsvakt X; ledige C dekker Y. Prøv grense 0 og 1. | Alternativet utelates ved grense 0 og undersøkes ved grense 1. Én eksisterende tildeling flyttes. Bare en sluttplan med begge vakter dekket og bestått R1–R5 for alle berørte kan vises som komplett. |
+| F3 Flyttet bemanningsmangel | Som F2, men ingen kan dekke Y innenfor reglene. | Forslaget er ikke komplett, selv om X er dekket. |
+| F4 Utenfor søkegrensen | Forslaget krever at både B og C flyttes fra eksisterende tildelinger. | Utelatt ved grense 0 og 1. Det gir ikke grunnlag for å hevde at ingen løsning finnes ved større søkeomfang. |
+| F5 Tilbud til valgt kandidat | Lederen velger A03; simuler sendt tilbud og ventende svar, deretter aksept eller avslag. | Ventende er ikke aksept. Aksept endrer ingen vakter; ved avslag kan lederen undersøke A02. |
+| F6 Delvis svar på omfordeling | B har akseptert, C har ikke svart eller avslår. | Forslaget vises ikke med full simulert aksept. Regelkontroll og svarstatus vises hver for seg. |
+| F7 Eksempel uten tilbudssteg | Kjør hovedeksemplet uten simulering. | Vis «aksept ikke simulert»; ingen antatt aksept. |
+
+F2–F4 er kontrollbeskrivelser med konstruerte roller, ikke et ferdig vaktsett med
+fasit. Komplette vakter, tilgjengelighet og nabovakter gjenstår i dataarbeidet.
 
 ## Fem vedtatte scenarioregler
 
@@ -138,7 +190,7 @@ brukes bare for stabil visningsrekkefølge. KI-en skal ikke finne på et skille
 mellom dem. Eksemplet har ingen vedtatt prioritering av intern foran ekstern
 eller noen kostnadsberegning.
 
-## Tre scenarioer med forventede svar
+## Fem scenarioer med forventede svar
 
 | Scenario | Endring fra dataene over | Forventet svar |
 |---|---|---|
@@ -253,9 +305,9 @@ endrede vaktdata er heller ikke i seg selv en logg over lederens beslutninger.
 
 R1–R5, P1 som standard, P2 som valgfritt kriterium og håndtering av lik rangering
 er avklart for scenarioet. Behandling av avtalte timer og stillingsprosenter må
-fortsatt konkretiseres i datasettet for at P2 skal kunne beregnes. Planhorisont,
-konkrete søkemåter og grenser for eventuell omfordeling
-av flere vakter er fortsatt åpne valg i hovedbriefen. Fullstendig syntetisk vaktplan,
+fortsatt konkretiseres i datasettet for at P2 skal kunne beregnes. Søkegrense og
+tilbudssimulering er avklart i SCRUM-15. Planhorisont står fortsatt åpen.
+Fullstendig syntetisk vaktplan,
 fasit og en mekanisme for å vise oppdaterte data gjenstår. Plangenerering inngår
 som forslag uten innføring i faktisk vaktliste; den trenger et eget scenario
 med bemanningsbehov, avgrensning av hvilke tildelinger som kan endres, og fasit.

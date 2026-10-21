@@ -22,6 +22,12 @@ Endringene fra 6.–7. oktober er Odins innspill, bearbeidet med Codex, og er en
 ikke avklart med Stian. De publiseres som et arbeidsutkast for felles vurdering.
 Publiseringen innebærer ingen felles godkjenning av endringene.
 
+Avklaringer fra 21. oktober er innarbeidet i briefen og demoscenarioet: R1–R5,
+sortering og lederstyrt søkegrense 0–1, med 1 som standard i førsteversjonen.
+Tilbud og aksept skal kunne simuleres; det enkle eksemplet kan kjøres uten steget.
+Valgene er tatt av Odin innenfor felles delegert beslutningsmyndighet, slik han
+har gjengitt avtalen med Stian. Se endringsloggen E28–E29 for opphav og avgrensning.
+
 [Endringsloggen for produktbriefen](docs/productbrief-endringslogg.md) viser
 endringene fra første versjon 17. september, med korte begrunnelser, opphav og
 status for valgene. Den viser også hvordan alle tekstendringer kan leses i Git.
@@ -32,7 +38,7 @@ Start gjerne med [den samlede begrunnelsen for arbeidsutkastet](docs/productbrie
 | Dokument | Rolle |
 |---|---|
 | [productbrief.md](productbrief.md) | **Gjeldende produktbrief.** Samle avklarte endringer her før PRD. |
-| [Demoscenario for fravær](docs/demoscenario-fravaer.md) | Forslag til kontrollerbare data og forventede svar. Oppdatert til forslag uten vaktendring; ikke et komplett datasett eller vedtatt regelsett. |
+| [Demoscenario for fravær](docs/demoscenario-fravaer.md) | Vedtatte scenarioregler, sortering, søkeomfang og tilbudssimulering med forventede svar. Eksempler og kontrollbeskrivelser; komplett datasett og kode gjenstår. |
 | [VaktMatch-vedlegget](_bmad-output/planning-artifacts/briefs/brief-G10-andreassen-lundberg-2026-09-07-VaktMatch/addendum.md) | Supplerende bakgrunn og åpne innspill til hovedbriefen. Ingen selvstendig brief eller utvidelse av vedtatt omfang. |
 | [Turnusgenerator – alternativforslag fra Stian](_bmad-output/planning-artifacts/briefs/brief-G10-andreassen-lundberg-2026-09-18-turnusgenerering/brief.md) | Forslag til vurdering. Erstatter ikke hovedbriefen. [Teknisk vedlegg](_bmad-output/planning-artifacts/briefs/brief-G10-andreassen-lundberg-2026-09-18-turnusgenerering/addendum.md) tilhører forslaget. |
 | [Forslag til felles retning fra Odin](_bmad-output/planning-artifacts/briefs/brief-G10-andreassen-lundberg-2026-09-18-turnusgenerering/forslag-til-felles-retning.md) og [svar fra Stians KI-assistent](_bmad-output/planning-artifacts/briefs/brief-G10-andreassen-lundberg-2026-09-18-turnusgenerering/svar-til-felles-retning.md) | Beslutningsgrunnlag for gruppen. Ingen felles beslutning om sammenslåing. |

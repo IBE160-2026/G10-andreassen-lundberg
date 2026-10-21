@@ -170,6 +170,19 @@ uten konstruerte datoer eller forfattere; eldre formuleringer finnes også i Git
 |---|---|---|---|
 | E28 | Status, The Solution og Scope går fra foreslåtte R1–R5 og P1–P2 til et vedtatt scenarioregelsett: R1 kompetanse, R2 tilgjengelighet og R3 kollisjon er interne scenarioregler; R4 krever minst 11 timers hvile og R5 setter høyst 40 timer i sju dager som forenklede regler med lovutgangspunkt og uttrykkelige forbehold. P1 færrest planlagte timer etter tildeling blir standard, P2 lavest andel av avtalt timetall blir valgfritt, kriterier kan prioriteres, og full likhet vises som lik rangering. Det åpne punktet om regler og sortering fjernes. | Gi PRD og implementering et konkret, håndkontrollerbart grunnlag uten å fremstille demoens to lovbaserte terskler som en full juridisk kontroll. | Odin tok de konkrete valgene 21.10.26. Han opplyste samme dag at han og Stian i møte avtalte at begge kan ta prosjektbeslutninger alene for å få arbeidet i gang. Valget registreres derfor som en prosjektbeslutning tatt av Odin innenfor den felles delegeringen; det tilskrives ikke Stian som et personlig valg av detaljene. [Demoscenarioet](demoscenario-fravaer.md) dokumenterer kilder og begrensninger. |
 
+## 21.10.26 – søkeomfang og tilbudssimulering er avklart
+
+| ID | Hva endres, fra og til? | Enkel begrunnelse | Grunnlag og status |
+|---|---|---|---|
+| E29 | Status, The Solution og Success Criteria går fra åpne søkemåter, flyttegrenser og tilbud/aksept til lederstyrt grense 0 eller 1, med 1 som standard og maksimum i førsteversjonen. Direkte erstattere inngår ved begge grenser; alle berørte vakter må være dekket og regelkontrollert. Tilbud og aksept simuleres, med mulighet for å kjøre det enkle eksemplet uten steget. Det åpne fraværspunktet fjernes fra Scope. | Gi lederen flere fungerende alternativer med synlige konsekvenser og kontroll over søkeomfanget. Begrensningen gjør at vi kan starte med én flytting og vurdere to etter kompleksitet og målt responstid. | Odin avklarte dette i samtalen om SCRUM-15 og bekreftet at saken er avklart. Valgene er tatt innenfor felles delegert beslutningsmyndighet gjengitt av Odin, jf. E28; de tilskrives ikke Stian som personlige detaljvalg. Flere enn to flyttinger er bare et senere vurderingspunkt. Codex har presisert telledelen, kontroll av sluttplan og ventende/delvis aksept for å gjøre valgene etterprøvbare. [Demoscenarioet](demoscenario-fravaer.md#søkeomfang-og-simulert-tilbud--scrum-15) har kontrolltilfeller; komplette data og kode gjenstår. README oppdateres med gjeldende status, og demoens gamle tittel «Tre scenarioer» rettes til «Fem». |
+
+I samme leveranse konkretiserte Codex at kontrollen bruker hver vakts krav og
+den foreslåtte sluttplanen, at P1/P2 gjelder personen som dekker fraværsvakten
+etter hele omfordelingen, og at simulert aksept gjelder det konkrete forslaget
+og datagrunnlaget. Dette viderefører kandidatbasert sortering og gjør konsekvenser
+og svarstatus etterprøvbare; det er KI-presiseringer av E29, ikke særskilte valg
+tilskrevet begge prosjektdeltakerne.
+
 ## Se alle tekstendringer
 
 Git bevarer hver versjon. Kjør fra repoets rot for å se alle forskjeller mellom
@@ -195,9 +208,9 @@ Legg til et nytt datert innslag med neste ID og følgende innhold:
 
 | ID | Hva endres, fra og til? | Hvorfor? | Grunnlag og status |
 |---|---|---|---|
-| E29 | Berørt del og kort før/etter-beskrivelse. | Én eller to enkle setninger. | Hvem ga innspillet, kilde og om det er forslag, arbeidsretning eller felles beslutning. |
+| E30 | Berørt del og kort før/etter-beskrivelse. | Én eller to enkle setninger. | Hvem ga innspillet, kilde og om det er forslag, arbeidsretning eller felles beslutning. |
 
-E29-raden er en mal, ikke et tatt valg. Rene språk- og lenkerettelser kan samles
+E30-raden er en mal, ikke et tatt valg. Rene språk- og lenkerettelser kan samles
 i ett innslag med beskjed om at produktinnholdet er uendret. Et omgjort valg får
 et nytt innslag som viser til det gamle. Ikke skriv om tidligere begrunnelser
 slik at de fremstår som kjent da valget ble tatt. Bruk «begrunnelse ikke dokumentert»
