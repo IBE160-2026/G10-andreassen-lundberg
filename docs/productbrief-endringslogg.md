@@ -183,6 +183,19 @@ og datagrunnlaget. Dette viderefører kandidatbasert sortering og gjør konsekve
 og svarstatus etterprøvbare; det er KI-presiseringer av E29, ikke særskilte valg
 tilskrevet begge prosjektdeltakerne.
 
+## 21.10.26 – datatilføring og beslutningslogg er avklart
+
+| ID | Hva endres, fra og til? | Enkel begrunnelse | Grunnlag og status |
+|---|---|---|---|
+| E30 | The Solution, Success Criteria og Scope går fra åpne mekanismer for fravær og oppdateringer til «Simuler fravær» og «Last inn oppdaterte vaktdata» med forhåndslagde datasett, dataversjon, endringsoversikt og ny kontroll. Manglende opplysninger håndteres i demoen med et komplettert datasett; ansvar ved reell bruk avklares senere. Åpen lagring/begrunnelsesplikt erstattes med økttilstand og valgfri varig beslutningslogg, avslått som standard, med frivillig begrunnelse. | Gjøre demonstrasjonen styrbar og forståelig, bevare valgene gjennom økten og la lederen velge varig logging uten begrunnelsesplikt. | Odin svarte «ser greit ut det ja» på forslaget i samtalen om SCRUM-17. Valgene føres innenfor tidligere dokumentert felles delegering, jf. E28. Codex tolker godkjenningen som tilslutning til det samlede forslaget, inkludert valgfri varig logg; økt alene ble ikke valgt særskilt. Skillet mellom gamle og gjeldende svar viderefører E29. D0/D1/D2, kontrolltilfellene og beskrivelsen av lagring på/av er konkretisert av Codex; teknikk, komplette datasett og kode gjenstår. README og demoscenario samkjøres. |
+
+Gjennomgangen av E30 presiserte at simulert fravær gjelder gjeldende datasett,
+at tidligere valg må merkes som historikk ved oppdatering, og at demoøkten slutter
+når fanen lukkes. Logging på gjelder nye registreringer; logging av stanser nye
+varige registreringer og sletter ikke gamle valg. Dette er Codex sine konkrete
+avgrensninger for etterprøvbar implementering. Kontrolltilfellene i demoen viser
+overgangene og isolert komplettering av V01 i S3.
+
 ## Se alle tekstendringer
 
 Git bevarer hver versjon. Kjør fra repoets rot for å se alle forskjeller mellom
@@ -208,9 +221,9 @@ Legg til et nytt datert innslag med neste ID og følgende innhold:
 
 | ID | Hva endres, fra og til? | Hvorfor? | Grunnlag og status |
 |---|---|---|---|
-| E30 | Berørt del og kort før/etter-beskrivelse. | Én eller to enkle setninger. | Hvem ga innspillet, kilde og om det er forslag, arbeidsretning eller felles beslutning. |
+| E31 | Berørt del og kort før/etter-beskrivelse. | Én eller to enkle setninger. | Hvem ga innspillet, kilde og om det er forslag, arbeidsretning eller felles beslutning. |
 
-E30-raden er en mal, ikke et tatt valg. Rene språk- og lenkerettelser kan samles
+E31-raden er en mal, ikke et tatt valg. Rene språk- og lenkerettelser kan samles
 i ett innslag med beskjed om at produktinnholdet er uendret. Et omgjort valg får
 et nytt innslag som viser til det gamle. Ikke skriv om tidligere begrunnelser
 slik at de fremstår som kjent da valget ble tatt. Bruk «begrunnelse ikke dokumentert»

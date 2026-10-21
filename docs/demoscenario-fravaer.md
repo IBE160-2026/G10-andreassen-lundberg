@@ -248,16 +248,23 @@ scenarioet. De skal ikke presenteres som en fullstendig eller verifisert
 gjengivelse av lov- eller avtalekrav. Regelkilde og begrensninger må være synlige. Innstillinger for
 søkeomfang endrer ikke reglenes betydning eller gjør et avvik til bestått kontroll.
 
-I S3 kan teksten for eksempel forklare at bekreftet tilgjengelighet for V01 vil
-gjøre kontrollgrunnlaget mer komplett. Dette er Codex sitt tekstforslag. Det
-pålegger ikke mellomlederen å hente inn eller rette data; ansvar og eventuell
-arbeidsflyt er ikke valgt. Appen skal vise usikkerheten selv om den ikke kan
-tilby en konkret vei til bedre grunnlag.
+I S3 vises at bekreftet tilgjengelighet for V01 mangler og hindrer ferdig kontroll.
+Et forhåndslaget, komplettert datasett kan lastes inn og gi en ny vurdering.
+Ansvar for datakvalitet på en virkelig arbeidsplass avklares før reell bruk;
+demoen legger ikke dette ansvaret automatisk til mellomlederen.
 
 ## Forslag til demonstrasjon av oppdaterte data
 
-Odin ønsker at beslutningsstøtten kan se når vaktdata endres.
-Codex foreslår følgende enkle demonstrasjon med demodata, uten leverandørtilkobling:
+**Avklart i SCRUM-17:** Odin godtok demohandlingene «Simuler fravær» og
+«Last inn oppdaterte vaktdata», synlig endringsoversikt og ny vurdering. Den
+eksisterende overskriften beholdes for historiske lenker. Det tidligere forslaget
+er nå valgt som mekanisme, mens komplette datasett og kode fortsatt gjenstår.
+
+«Simuler fravær» virker på gjeldende datagrunnlag og markerer valgt ansatt
+utilgjengelig på valgt vakt; handlingen tilbakestiller ikke tidligere oppdateringer.
+I eksemplet er startgrunnlaget D0. D1 er tilstanden etter simulert fravær;
+handlingen viser hvilket fravær og hvilken bemanningsmangel som er lagt til.
+Den registrerer ingen erstatning. Følgende viser oppdateringsdelen:
 
 1. Datasett D1 viser S1: vakten er udekket og A03 har 32 planlagte timer. Lederen
    undersøker A03; dette endrer ikke D1.
@@ -269,16 +276,52 @@ Codex foreslår følgende enkle demonstrasjon med demodata, uten leverandørtilk
    KI forklarer de observerte endringene ut fra disse resultatene. Ny bemanning
    og regelstatus vises hver for seg; bemannet betyr ikke automatisk bestått kontroll.
 
-For å gjøre dette etterprøvbart foreslår Codex stabile vakt- og ansatt-ID-er og
-en synlig dataversjon eller oppdateringstid. D1 og D2 er foreløpig beskrivelser;
-komplette datasett er ikke laget. Det må også kunne vises at en ny dataversjon
+For å gjøre dette etterprøvbart brukes stabile vakt- og ansatt-ID-er og en
+synlig dataversjon. D0, D1 og D2 er beskrivelser; komplette datasett er ikke laget.
+Det må også kunne vises at en ny dataversjon
 er uendret eller har en annen bemanning enn forslaget lederen undersøkte.
 Ingen mottatt oppdatering betyr bare at nye data ikke er tilgjengelige, ikke
 at ingenting har skjedd utenfor appen. KI skal ikke utlede hvem som gjorde
 endringen, hvorfor den ble gjort eller om den skyldtes forslaget i VaktMatch.
 
-Dette er et forslag til demomekanisme og kontrolltilfeller. Valg av innlasting,
-oppdateringsfrekvens og omfang gjenstår; det er ikke lovet kontinuerlig overvåking.
+Oppdatering skjer ved den eksplisitte demohandlingen og et forhåndslaget datasett.
+Simulerte tilbud og svar beholdes med kobling til det gamle grunnlaget, men gir
+ikke automatisk aksept på den nye dataversjonen. Ny kontroll må være synlig før
+oppdaterte alternativer presenteres som ferdig vurdert.
+Tidligere valgt alternativ beholdes som et historisk øktvalg på gammel dataversjon.
+Det vises ikke som et gjeldende, ferdig vurdert valg før det er kontrollert på nytt.
+Er kandidaten blitt utilgjengelig, vises avviket; er vakten allerede dekket,
+vises ny bemanning og at det gamle alternativet ikke lenger er aktuelt.
+
+## Beslutningslogg i demoen – SCRUM-17
+
+Odin godtok at valgt alternativ og simulerte tilbud/svar beholdes i den aktive
+demoøkten. Varig beslutningslogg inngår som valgfri funksjon, avslått som standard.
+Begrunnelse er frivillig, også når logging er slått på. Logger gjelder registrerte
+valg og simuleringer, knyttet til forslag og dataversjon; en aksept eller et valgt
+alternativ registreres ikke som en gjennomført vaktendring.
+
+Med logging av lagres ikke øktens valg og svar varig automatisk. Med logging på
+kan registrerte valg leses etter avsluttet økt. Lagringsteknikk gjenstår i
+implementeringen. Dette er produktets demologg; prosjektbeslutninger føres fortsatt
+i repoets eksisterende dokumentasjon.
+Som konkretisering av øktgrensen avsluttes demoøkten når fanen lukkes. Med logging
+av er øktens valg og svar da ikke tilgjengelige ved ny åpning. Aktivering av
+logging gjelder nye registreringer fra aktiveringstidspunktet og kopierer ikke
+tidligere økthendelser automatisk. Deaktivering stanser nye varige registreringer;
+allerede lagrede valg beholdes og kan leses senere. Disse overgangene endrer
+ikke øktens synlige valg og svar så lenge økten er aktiv.
+
+| Kontrolltilfelle | Oppsett | Forventet resultat |
+|---|---|---|
+| D1 Fravær | Velg A01 og målskiftet i D0; bruk «Simuler fravær». | A01 er utilgjengelig på målskiftet, bemanningsmangelen vises, og D1 kan vurderes. |
+| D2 Oppdatert plan | Last inn D2 etter å ha undersøkt A03 i D1. | Vis endret bemanning og timer, dataversjon og ny kontroll. Gammelt tilbud/svar arves ikke som gjeldende aksept. |
+| D3 Uendret eller annen oppdatering | Last inn en dataversjon med uendrede vakter eller en annen bemanning enn A03. | Vis de faktiske forskjellene, uten å hevde at lederens undersøkte alternativ er gjennomført. |
+| D4 Komplettert grunnlag | Bruk S3: A02/A03 er utilgjengelige, V01 mangler tilgjengelighet. Last inn samme opplysninger, men med V01 bekreftet tilgjengelig. | A02/A03 forblir utilgjengelige. V01 består R1–R5 etter ny kontroll av det ellers komplette grunnlaget og kan rangeres med P1. Vis hvilken opplysning som ble komplettert. |
+| D5 Standard uten varig logg | Velg et alternativ og simuler svar med logging av. | Valg/svar er synlige i aktiv økt, uten automatisk varig loggføring eller krav om begrunnelse. |
+| D6 Valgfri varig logg | Slå på logging; registrer et valg uten begrunnelse og avslutt økten. | Det registrerte valget kan leses senere med korrekt forslag/dataversjon. Manglende begrunnelse blokkerer ikke. |
+| D7 Logging av/på | Gjør valg A med logging av, slå på og registrer B, slå av og registrer C. Lukk og åpne fanen. | A/B/C er synlige i aktiv økt. Bare B lagres varig; A etterregistreres ikke, og B slettes ikke ved deaktivering. |
+| D8 Tidligere valg etter oppdatering | Velg A03; last inn data der A03 er utilgjengelig eller vakten har fått annen bemanning. | Det gamle valget vises på gammel dataversjon. Ny kontroll og aktuell bemanning vises uten at gammelt valg fremstår som gjeldende. |
 
 ## Åpent valg – bekreftelse ved regelavvik
 
@@ -298,8 +341,10 @@ Odin presiserte senere 06.10.26 at innspillet om å kunne slå av en funksjon gj
 lagring av valg og krav om begrunnelse, ikke adgang til å overstyre reglene.
 Beslutningslogg og begrunnelseskrav er egne produktvalg, med ønske om at de kan
 slås av når de bare følger interne retningslinjer og ikke er lovpålagt. Eventuelle
-lovkrav, standardinnstillinger og MVP-omfang er ikke fastslått. En visning av
-endrede vaktdata er heller ikke i seg selv en logg over lederens beslutninger.
+lovkrav er fortsatt ikke fastslått. Standardinnstillinger og MVP-omfang er senere
+avklart i SCRUM-17 ovenfor: valgfri varig logg, avslått som standard, frivillig
+begrunnelse og økttilstand. En endringsvisning er fortsatt ikke i seg selv en
+logg over lederens beslutninger.
 
 ## Hva eksemplet avklarer videre
 
@@ -308,7 +353,8 @@ er avklart for scenarioet. Behandling av avtalte timer og stillingsprosenter må
 fortsatt konkretiseres i datasettet for at P2 skal kunne beregnes. Søkegrense og
 tilbudssimulering er avklart i SCRUM-15. Planhorisont står fortsatt åpen.
 Fullstendig syntetisk vaktplan,
-fasit og en mekanisme for å vise oppdaterte data gjenstår. Plangenerering inngår
+og fasit gjenstår; mekanismen for fravær og oppdaterte data er avklart i SCRUM-17.
+Plangenerering inngår
 som forslag uten innføring i faktisk vaktliste; den trenger et eget scenario
 med bemanningsbehov, avgrensning av hvilke tildelinger som kan endres, og fasit.
 

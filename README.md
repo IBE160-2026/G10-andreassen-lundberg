@@ -16,8 +16,8 @@ Arbeidsretningen er oppdatert etter Odins innspill 6.–7. oktober: førsteversj
 bruker demodata som grunnlag og kan generere et enkelt
 planforslag, med regelkontroll og konkrete KI-forklaringer. Genereringen beholdes
 i MVP; VaktMatch innfører ikke forslaget i den faktiske vaktlisten. Reell
-leverandørtilkobling ligger utenfor MVP; hvordan endrede demodata skal
-lastes inn og vises, gjenstår å konkretisere. Chat er en mulig senere utvidelse.
+leverandørtilkobling ligger utenfor MVP; oppdaterte demodata lastes inn gjennom
+en demohandling som viser endringer og beregner vurderingen på nytt. Chat er en mulig senere utvidelse.
 Endringene fra 6.–7. oktober er Odins innspill, bearbeidet med Codex, og er ennå
 ikke avklart med Stian. De publiseres som et arbeidsutkast for felles vurdering.
 Publiseringen innebærer ingen felles godkjenning av endringene.
@@ -26,7 +26,10 @@ Avklaringer fra 21. oktober er innarbeidet i briefen og demoscenarioet: R1–R5,
 sortering og lederstyrt søkegrense 0–1, med 1 som standard i førsteversjonen.
 Tilbud og aksept skal kunne simuleres; det enkle eksemplet kan kjøres uten steget.
 Valgene er tatt av Odin innenfor felles delegert beslutningsmyndighet, slik han
-har gjengitt avtalen med Stian. Se endringsloggen E28–E29 for opphav og avgrensning.
+har gjengitt avtalen med Stian. Se endringsloggen E28–E30 for opphav og avgrensning.
+SCRUM-17 avklarer simulert fravær, bytte mellom forhåndslagde datasett og
+komplettering av manglende opplysninger i demoen. Valg og simulerte svar beholdes
+i økten; varig beslutningslogg er valgfri, avslått som standard, med frivillig begrunnelse.
 
 [Endringsloggen for produktbriefen](docs/productbrief-endringslogg.md) viser
 endringene fra første versjon 17. september, med korte begrunnelser, opphav og
