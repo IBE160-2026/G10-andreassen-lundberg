@@ -71,8 +71,8 @@ og [den historiske henvisningen](_bmad-output/planning-artifacts/briefs/brief-G1
 Andre prosjektkandidater og tilhørende research er arkivert i Obsidian, utenfor
 repoet. Eldre versjoner finnes fortsatt i Git-historikken.
 
-Se [prosjektreglene](AGENTS.md) for språkhygiene og saklig omtale av personer
-i dokumentasjon, beslutningslogger, commits og pull requests.
+Se [prosjektreglene](AGENTS.md) for språkhygiene, dokumentasjonspraksis og
+[robust bruk av Jira](AGENTS.md#robust-bruk-av-jira).
 
 ## Medlemmer
 

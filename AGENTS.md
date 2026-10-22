@@ -3,8 +3,8 @@
 ## Språkhygiene og omtale av personer
 
 Gjelder dokumentasjon, BMAD-output, research, beslutningslogger (også skjulte
-`.memlog.md`), commit-meldinger og pull requests. Skriv med tanke på at repoet
-kan leses offentlig.
+`.memlog.md`), Jira-saker og -kommentarer, commit-meldinger og pull requests.
+Skriv med tanke på at repoet og delte prosjektflater kan leses offentlig.
 
 - Beskriv prosjektets behov, avklaringer og beslutninger saklig. Ikke skriv
   vurderinger av navngitte personers evner, motivasjon, følelser eller vilje
@@ -65,6 +65,39 @@ Regelen ble innført 2026-09-07 etter gjennomgang av prosjektbriefene.
 - Ved flytting av aktiv logg skal både gammel og ny logg ha en henvisning
   til den andre. Hovedbriefens aktive logg er [rotloggen](.memlog.md);
   logger for alternativforslag og research gjelder sine egne dokumenter.
+
+## Robust bruk av Jira
+
+*(Skrevet: Codex · 22.10.26, på grunnlag av SCRUM-51 og Odins gjengivelse av
+prosjektavklaringen 21.10.26)*
+
+- Jira brukes til prioritering, fordeling og oppfølging. Repoet er autoritativt
+  for produktbrief, arkitektur, kode og prosjektbeslutninger; Jira-kommentarer
+  eller sakshistorikk erstatter ikke relevant dokumentasjon i repoet.
+- Begge prosjektadministratorene har samme delegerte myndighet til å ta
+  ordinære prosjektbeslutninger alene. Registrer hvem som tok beslutningen og
+  kilden i dokumentet beslutningen gjelder, med kort prosesspor i `.memlog.md`
+  og ved produktbriefendringer også i `docs/productbrief-endringslogg.md`.
+  Ikke fremstille et individuelt valg som om begge valgte detaljene.
+- Tildeling betyr ansvar for oppfølging, ikke større beslutningsmyndighet.
+  Oppdater språk, metadata, status, prioritet, sprint, avhengigheter og
+  akseptansekriterier direkte når grunnlaget er dokumentert.
+- Koordiner med berørte prosjektadministratorer før sletting,
+  historikkomskriving, endring av arbeidsflyt,
+  statuser, sakstyper, tillatelser eller board-filter, vesentlig omlegging av
+  aktiv sprint eller arbeid som allerede utføres, og endring av
+  administratorrettigheter eller delegert myndighet. Registrer avklaringen i
+  den berørte Jira-saken og, når den gjelder en prosjektbeslutning, i repoet.
+- Før en sak tas inn i en sprint bør formål, testbart resultat, ansvar,
+  prioritet, avhengigheter og nødvendig kildegrunnlag fremgå. Sett ikke saken
+  til `Done` før akseptansekriteriene er kontrollert og nødvendig test- eller
+  dokumentasjonsbevis er tilgjengelig.
+- Blokkert arbeid beholder korrekt arbeidsstatus og får en kort kommentar om
+  blokkeringen og nødvendig neste handling. Bruk `In Progress` mens saken
+  undersøkes aktivt, og `To Do` når arbeidet er klart eller venter på en
+  dokumentert avklaring.
+- Bruk Jira-nøkkelen i tilhørende commit-melding. Når saken er verifisert,
+  kommenter kort med kontrollgrunnlag og commit-ID før den settes til `Done`.
 
 ## Prosjekthistorikk og personlige studienotater
 
