@@ -3,7 +3,53 @@
 Gruppeprosjekt i **IBE160 Programmering med KI** ved Høgskolen i Molde, høsten 2026 (15 studiepoeng).
 
 Gruppen har valgt **VaktMatch**, en webapp for å sammenligne bemanningsalternativer
-ved et udekket skift. Repoet inneholder foreløpig produktgrunnlaget og BMAD-oppsettet.
+ved et udekket skift. Repoet inneholder produktgrunnlaget, BMAD-oppsettet og et
+kodeskjelett for appen (se [Kom i gang](#kom-i-gang)).
+
+## Kom i gang
+
+Appen kjøres lokalt. Den trenger ingen konto eller KI-nøkkel.
+
+**Forutsetninger:** Python 3.12 eller nyere, [uv](https://docs.astral.sh/uv/) 0.5
+eller nyere, og Node.js 24 med npm.
+
+Start backend i én terminal (fra repoets rot):
+
+```powershell
+cd backend
+uv sync
+uv run uvicorn vaktmatch.main:app --reload --port 8000
+```
+
+Start frontend i en annen terminal:
+
+```powershell
+cd frontend
+npm install
+npm run dev
+```
+
+Åpne <http://localhost:5173>. API-dokumentasjonen ligger på
+<http://localhost:8000/docs>.
+
+**Tester og kontroller:**
+
+```powershell
+cd backend; uv run pytest; uv run ruff check .
+cd frontend; npm test; npm run lint; npm run build
+```
+
+**Miljøvariabler:** se [`backend/.env.example`](backend/.env.example). Alle er
+valgfrie; uten språkmodellnøkkel brukes regelbaserte forklaringer.
+
+**Mappeoversikt:**
+
+| Mappe | Innhold |
+|---|---|
+| `backend/` | FastAPI-app (`src/vaktmatch`), tester og demodatasett (`data/datasets`). |
+| `frontend/` | React/TypeScript-app med Vite. |
+| `docs/` | Planlegging, beslutninger og [arkitektur](docs/arkitektur.md). |
+| `_bmad/`, `_bmad-output/` | BMAD-oppsett og planleggingsartefakter. |
 
 ## Produktbrief
 
@@ -59,6 +105,7 @@ Start gjerne med [den samlede begrunnelsen for arbeidsutkastet](docs/productbrie
 | [PRD-forberedelser til 29. oktober](docs/prd-forberedelser.md) | Kursbeskjeden 26. oktober, eksisterende grunnlag og foreslåtte research-/brainstorming-temaer før PRD-arbeidet. |
 | [Forslag ved frafall – søk og resultat](docs/forslag-ved-frafall.md) | Konkretisering av SCRUM-16: nivåer, låste vakter, avgrenset søk, dekning og søkestatuser samt målemetode. |
 | [Demoscenario for fravær](docs/demoscenario-fravaer.md) | Vedtatte scenarioregler, sortering, søkeomfang og tilbudssimulering med forventede svar. Eksempler og kontrollbeskrivelser; komplett datasett og kode gjenstår. |
+| [Arkitektur](docs/arkitektur.md) | SCRUM-18: moduler, ansvarsgrenser, konfigurasjon og kvalitetssikring for kodeskjelettet. |
 | [Leverings- og dokumentasjonskrav for IBE160](docs/ibe160-leveringskrav.md) | Kildekontrollert oversikt over arbeidskrav, vurdering, KI-dokumentasjon, individuelle bidrag og design/UX. Sluttfrist og «delvurdering 3» er fortsatt uavklart. |
 | [VaktMatch-vedlegget](_bmad-output/planning-artifacts/briefs/brief-G10-andreassen-lundberg-2026-09-07-VaktMatch/addendum.md) | Supplerende bakgrunn og åpne innspill til hovedbriefen. Ingen selvstendig brief eller utvidelse av vedtatt omfang. |
 | [Turnusgenerator – alternativforslag fra Stian](_bmad-output/planning-artifacts/briefs/brief-G10-andreassen-lundberg-2026-09-18-turnusgenerering/brief.md) | Forslag til vurdering. Erstatter ikke hovedbriefen. [Teknisk vedlegg](_bmad-output/planning-artifacts/briefs/brief-G10-andreassen-lundberg-2026-09-18-turnusgenerering/addendum.md) tilhører forslaget. |

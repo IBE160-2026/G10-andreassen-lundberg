@@ -44,6 +44,6 @@ tester må kontrolleres mot tilgjengelig kode før sakene ferdigstilles.
 - [Gjeldende produktbrief](../productbrief.md), [E34 i endringsloggen](productbrief-endringslogg.md#261026--teknologi-lokal-oppstart-og-arbeidsdeling) og [prosjektreglene](../AGENTS.md).
 
 Stians kommentar viser til en tidligere versjon av `docs/teknologivalg.md` og
-E33. Disse var ikke tilgjengelige på de eksterne grenene ved kontroll 26.10.26.
-Denne filen dokumenterer avklaringen nå og må samordnes med den versjonen når
-den blir tilgjengelig. E34 brukes for å unngå kollisjon med det omtalte E33.
+E33, som bare lå på den lokale SCRUM-18-grenen. Ved samordning 28.10.26 ble den
+versjonen forkastet til fordel for denne filen og E34, fordi den er nyere og
+inneholder Odins tilslutning. E33 forblir ubrukt.
