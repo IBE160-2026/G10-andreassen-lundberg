@@ -227,6 +227,17 @@ Søk på et allerede påbegynt målskift får en eksplisitt «ikke kjørt»-stat
 Dette er Codex-presiseringer av metodebeskrivelsen og endrer ikke P1/P2 eller
 grensen på én flytting.
 
+## 26.10.26 – teknologi, lokal oppstart og arbeidsdeling
+
+| ID | Hva endres, fra og til? | Enkel begrunnelse | Grunnlag og status |
+|---|---|---|---|
+| E34 | Metadata oppdateres til 26.10.26. Status og «Gjenstår å avklare / Gjennomføring» går fra uvalgt stakk og arbeidsdeling til React og Python/FastAPI, lokal oppstart og en justerbar hovedfordeling: Odin følger opp UX, grensesnitt og forklaringer; Stian følger opp data, regler, søk og teknisk oppsett. KI-modell velges senere, og hosting/Supabase/RLS er muligheter for senere vurdering. Briefen og README lenker til docs/teknologivalg.md; BMAD-oppsettets status samkjøres. | Starte med lokal kjerneflyt og velge KI-modell når oppgavene, input og svarformat er mer konkrete. Arbeidsdelingen er et utgangspunkt som kan justeres. | Stians kommentar i [SCRUM-13](https://stiodi.atlassian.net/browse/SCRUM-13) 24.10.26, kommentar-ID 10019, og Odins uttrykkelige tilslutning i samtalen 26.10.26, der han også ba om dokumentasjon i repo og Jira. Stakkvalget er Stians; Odin aksepterte utgangspunktet. Lokal oppstart og utsatt modellvalg er bekreftet av Odin. Ingen nye tekniske detaljvalg eller godkjenning av kodeskjelettet utledes. Produktfunksjonene er uendret. |
+
+E33 er omtalt i Stians Jira-kommentar som del av en versjon som ennå ikke var
+tilgjengelig på de eksterne grenene ved kontroll 26.10.26. E34 er brukt for å
+unngå ID-kollisjon. Det omtalte E33 og teknologidokumentet må samordnes når den
+versjonen blir tilgjengelig; innholdet er ikke rekonstruert som et eldre innslag.
+
 ## Se alle tekstendringer
 
 Git bevarer hver versjon. Kjør fra repoets rot for å se alle forskjeller mellom
@@ -252,9 +263,9 @@ Legg til et nytt datert innslag med neste ID og følgende innhold:
 
 | ID | Hva endres, fra og til? | Hvorfor? | Grunnlag og status |
 |---|---|---|---|
-| E33 | Berørt del og kort før/etter-beskrivelse. | Én eller to enkle setninger. | Hvem ga innspillet, kilde og om det er forslag, arbeidsretning eller felles beslutning. |
+| E35 | Berørt del og kort før/etter-beskrivelse. | Én eller to enkle setninger. | Hvem ga innspillet, kilde og om det er forslag, arbeidsretning eller felles beslutning. |
 
-E33-raden er en mal, ikke et tatt valg. Rene språk- og lenkerettelser kan samles
+E35-raden er en mal, ikke et tatt valg. Rene språk- og lenkerettelser kan samles
 i ett innslag med beskjed om at produktinnholdet er uendret. Et omgjort valg får
 et nytt innslag som viser til det gamle. Ikke skriv om tidligere begrunnelser
 slik at de fremstår som kjent da valget ble tatt. Bruk «begrunnelse ikke dokumentert»

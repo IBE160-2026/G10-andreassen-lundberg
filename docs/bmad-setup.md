@@ -2,8 +2,9 @@
 
 BMAD Core og BMad Method (BMM) **6.12.0** er installert for gruppen.
 VaktMatch er valgt som prosjekt. [Produktbriefen](../productbrief.md) er gjeldende
-utkast til innlevering; detaljert MVP-omfang, arbeidsdeling og teknologistakk
-gjenstår å avklare.
+utkast til innlevering. [Teknologi og arbeidsdeling](teknologivalg.md) angir
+React og Python/FastAPI for lokal oppstart og en justerbar hovedfordeling;
+tekniske detaljer og implementering gjenstår.
 
 ## Hva som deles
 

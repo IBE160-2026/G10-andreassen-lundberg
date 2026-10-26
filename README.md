@@ -8,9 +8,15 @@ ved et udekket skift. Repoet inneholder foreløpig produktgrunnlaget og BMAD-opp
 ## Produktbrief
 
 **[productbrief.md](productbrief.md) er repoets eneste gjeldende produktbrief.**
-Den er fortsatt et utkast: detaljert MVP-omfang, teknologistakk og arbeidsdeling
-gjenstår å avklare. At dokumentet er gjeldende, betyr ikke at alle forslagene
+Den er fortsatt et utkast: tekniske detaljer og implementering gjenstår.
+At dokumentet er gjeldende, betyr ikke at alle forslagene
 i det er endelig vedtatt.
+
+[Teknologi og arbeidsdeling – SCRUM-13](docs/teknologivalg.md) registrerer
+React og Python/FastAPI som utgangspunkt for lokal oppstart, med justerbar
+hovedfordeling av arbeid. Grunnlaget er Stians forslag 24.10.26 og Odins
+tilslutning 26.10.26. Modellvalg utsettes til KI-oppgavene er mer konkrete;
+hosting og Supabase/RLS kan vurderes senere.
 
 Arbeidsretningen er oppdatert etter avklaringen i SCRUM-16: førsteversjonen
 bruker fire uker historikk og en ferdig planlagt uke 5. Ved frafall sammenligner
@@ -48,6 +54,7 @@ Start gjerne med [den samlede begrunnelsen for arbeidsutkastet](docs/productbrie
 | Dokument | Rolle |
 |---|---|
 | [productbrief.md](productbrief.md) | **Gjeldende produktbrief.** Samle avklarte endringer her før PRD. |
+| [Teknologi og arbeidsdeling](docs/teknologivalg.md) | SCRUM-13: lokal oppstart med React og Python/FastAPI, justerbar arbeidsdeling og utsatte valg. |
 | [Forslag ved frafall – søk og resultat](docs/forslag-ved-frafall.md) | Konkretisering av SCRUM-16: nivåer, låste vakter, avgrenset søk, dekning og søkestatuser samt målemetode. |
 | [Demoscenario for fravær](docs/demoscenario-fravaer.md) | Vedtatte scenarioregler, sortering, søkeomfang og tilbudssimulering med forventede svar. Eksempler og kontrollbeskrivelser; komplett datasett og kode gjenstår. |
 | [Leverings- og dokumentasjonskrav for IBE160](docs/ibe160-leveringskrav.md) | Kildekontrollert oversikt over arbeidskrav, vurdering, KI-dokumentasjon, individuelle bidrag og design/UX. Sluttfrist og «delvurdering 3» er fortsatt uavklart. |
@@ -83,6 +90,7 @@ Se [prosjektreglene](AGENTS.md) for språkhygiene, dokumentasjonspraksis og
 ## BMAD
 
 BMAD **6.12.0** er installert for Claude Code og Codex. Produktbriefen utarbeides
-med `bmad-product-brief`. Applikasjonens teknologistakk er fortsatt åpen.
+med `bmad-product-brief`. React og Python/FastAPI er utgangspunktet for oppstart;
+tekniske detaljer behandles videre i SCRUM-18.
 
 Se [BMAD – oppsett og oppstart](docs/bmad-setup.md) for å komme i gang på egen maskin.

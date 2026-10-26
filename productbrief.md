@@ -3,7 +3,7 @@ title: VaktMatch
 status: draft
 document_role: current_product_brief
 created: 2026-09-17
-updated: 2026-10-22
+updated: 2026-10-26
 ---
 
 # Product Brief: VaktMatch
@@ -11,7 +11,7 @@ updated: 2026-10-22
 **Gruppe:** Odin A Andreassen og Stian Lundberg · IBE160, høsten 2026  
 **Metode:** BMAD (`bmad-product-brief`) · **Innlevering:** søndag 20. september 2026
 
-**Status:** VaktMatch er valgt som gruppens prosjekt, og dette er eneste gjeldende produktbrief. Odin opplyste 21.10.26 at han og Stian samme dag avtalte at begge kan ta prosjektbeslutninger alene for å få arbeidet i gang. Scenarioreglene, sorteringen, søkeomfanget og tilbuds-/akseptsimuleringen nedenfor er besluttet av Odin innenfor denne felles delegeringen; dette betyr ikke at Stian personlig valgte detaljene. Øvrig MVP-omfang, teknologistakk og arbeidsdeling er fortsatt åpne.
+**Status:** VaktMatch er valgt som gruppens prosjekt, og dette er eneste gjeldende produktbrief. Odin opplyste 21.10.26 at han og Stian samme dag avtalte at begge kan ta prosjektbeslutninger alene for å få arbeidet i gang. Scenarioreglene, sorteringen, søkeomfanget og tilbuds-/akseptsimuleringen nedenfor er besluttet av Odin innenfor denne felles delegeringen; dette betyr ikke at Stian personlig valgte detaljene. React og Python/FastAPI er utgangspunktet for lokal oppstart, og hovedfordelingen av arbeid er akseptert som justerbar: Stians forslag i SCRUM-13, med Odins tilslutning 26.10.26. Språkmodell og tekniske detaljer avklares videre; se [teknologi og arbeidsdeling](docs/teknologivalg.md).
 
 [Endringsloggen](docs/productbrief-endringslogg.md) forklarer endringene og opphavet. [Dokumentoversikten](README.md#dokumentoversikt) viser vedlegg og historikk; [faglærerens tilbakemelding](tilbakemelding-product-brief.md) er grunnlag for videre avklaring.
 
@@ -107,7 +107,7 @@ For studiearbeidet skal gruppen også dokumentere BMAD-bruken, egne valg og hvor
 
 - **Implementering og ytelse:** Den avklarte søkemetoden, låser og resultatstatuser må implementeres og testes. Responstid må måles på representative data før eventuelle tidsmål eller større søkeomfang velges.
 - **Demodata og implementering:** Fullstendige datasett med fire uker historikk, planlagt uke 5, nødvendige nabovakter og fasit for fravær/oppdateringer samt lagringsteknikk for den valgfrie beslutningsloggen gjenstår. Ansvar for datakvalitet ved reell bruk avklares senere.
-- **Gjennomføring:** Teknologistakk, språkmodell og arbeidsdeling er ikke valgt.
+- **Gjennomføring:** React og Python/FastAPI brukes som utgangspunkt for lokal oppstart. Odin følger opp UX, grensesnitt, sammenligning, prioritering og forklaringer; Stian følger opp datagrunnlag, regelmotor, søk og teknisk oppsett. Fordelingen kan justeres. KI-modell velges når oppgavene, input og svarformat er mer konkrete (SCRUM-59); standardforklaringer lages først. Hosting og Supabase/RLS vurderes senere, uten et leverandørvalg nå. Opphav, avgrensning og gjenstående tekniske detaljer står i [teknologivalgene](docs/teknologivalg.md).
 
 **Arbeidsgrunnlag for konkretisering:** [Fraværsscenarioet](docs/demoscenario-fravaer.md) viser ansattdata, de fem vedtatte scenarioreglene, P1 og P2 og forventede svar ved gyldige alternativer, ingen direkte erstatter og manglende data. Regelsettet og sorteringen ble besluttet av Odin 21.10.26 innenfor den felles delegeringen han har gjengitt. Eksemplet er ikke en ferdig implementasjon eller et komplett datasett med alle vakter.
 

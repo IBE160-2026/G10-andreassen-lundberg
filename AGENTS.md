@@ -136,4 +136,21 @@ og lenker til kildene fremfor parallelle kopier av samme informasjon.
 
 ## Sesjonslogg
 
-Når en oppgave eller økt avsluttes, før sluttoppsummeringen, bruk `sesjonslogg`-skillen: dokumenter Oppgave + Plan + Resultat + åpne punkter i `.logs/<bruker>/`, og før åpne punkter i `.logs/<bruker>/issues.md`. Skillen committer loggfila lokalt; push gjør du selv. Gruppens egne regler for commit og språk gjelder foran dette.
+- Løpende samtale, spørsmål, råd, foreløpige tanker og personlige refleksjoner
+  skal ikke automatisk kopieres eller oppsummeres i repoets logger. En samtale
+  er ikke i seg selv et oppdrag om å dokumentere innholdet.
+- Dokumenter avklarte prosjektbeslutninger og nødvendig gjennomførings- og
+  kontrollgrunnlag som del av det avtalte prosjektarbeidet, i eksisterende
+  dokumentasjon etter reglene over. Ikke før et nytt logginnslag for hvert
+  innspill. Bevar skillet mellom forslag, KI-tolkninger og beslutninger.
+- Bruk `sesjonslogg`-skillen bare når brukeren uttrykkelig ber om en
+  sesjonslogg. Unngå dobbeltføring av innhold som allerede finnes i memlog,
+  endringslogg eller saksspesifikasjon. Prosjektoppgaver følges opp i Jira;
+  ikke opprett en parallell `issues.md` automatisk.
+- Loggføring gir ikke i seg selv tillatelse til commit eller push. Følg
+  brukerens avtalte omfang for versjonskontroll; ikke opprett egne
+  loggcommits automatisk. Disse prosjektreglene gjelder foran skillens
+  standardinstrukser om logging og commit.
+- Før hver push skal brukeren få se hva som skal publiseres og få anledning
+  til å vurdere det. Push krever uttrykkelig godkjenning av det konkrete
+  innholdet etter gjennomgangen; et generelt oppdrag er ikke nok.
