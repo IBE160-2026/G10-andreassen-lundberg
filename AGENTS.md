@@ -133,3 +133,7 @@ og lenker til kildene fremfor parallelle kopier av samme informasjon.
   et erstatningssystem eller anta at andre maskiner har samme lokale oppsett.
 - Avslutt med kort status på hvilke dokumenter og eventuelle personlige notater
   som ble oppdatert, og hva som fortsatt er uavklart. Kontroller nye lenker.
+
+## Sesjonslogg
+
+Når en oppgave eller økt avsluttes, før sluttoppsummeringen, bruk `sesjonslogg`-skillen: dokumenter Oppgave + Plan + Resultat + åpne punkter i `.logs/<bruker>/`, og før åpne punkter i `.logs/<bruker>/issues.md`. Skillen committer loggfila lokalt; push gjør du selv. Gruppens egne regler for commit og språk gjelder foran dette.
