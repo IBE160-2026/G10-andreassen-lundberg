@@ -1,0 +1,22 @@
+[
+  {
+    "claim": "[4] Historisk kompetansebehov",
+    "class": "historical-user-study",
+    "pub_date": "2022-09"
+  },
+  {
+    "claim": "[6] Historisk arbeidstidsoversikt",
+    "class": "historical-user-study",
+    "pub_date": "2023-12"
+  },
+  {
+    "claim": "[1] Historiske forklaringseksperimenter",
+    "class": "historical-explanation-study",
+    "pub_date": "2021-05"
+  },
+  {
+    "claim": "[9] Quinyx Skills, dokumentert oppdateringsdato",
+    "class": "features",
+    "pub_date": "2026-08-18"
+  }
+]

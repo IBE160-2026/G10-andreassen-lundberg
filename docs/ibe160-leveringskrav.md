@@ -2,7 +2,9 @@
 
 Kontrollert 22. oktober 2026 mot emneforsiden og kunngjøringer i Canvas,
 ressursene i modulen «Prosjektoppgaven» og Høgskolen i Moldes emneside. Dette
-dokumentet gjengir prosjektkrav som er relevante for repoet. Private
+dokumentet gjengir prosjektkrav som er relevante for repoet. Tillegget om
+PRD-forberedelser 26. oktober bygger på gjengitt kunngjøring, med eget kildegrunnlag
+angitt nedenfor. Private
 studienotater er brukt til å finne åpne spørsmål, men er ikke kopiert inn eller
 brukt som bekreftende kilde.
 
@@ -17,9 +19,28 @@ brukt som bekreftende kilde.
 | Individuelle bidrag | Refleksjonsmalen har en egen personlig refleksjon for hvert gruppemedlem. | Bekreftet i Canvas-malen. |
 | «Delvurdering 3» | Canvas-emneforsiden sier at vurderingen består av tre deler og nevner «delvurdering 3», men beskriver bare to deler som til sammen utgjør 100 %. Den formelle emnesiden sier uttrykkelig to deler og nevner ingen tredje del. | **Motstridende tekst. Krever skriftlig avklaring fra faglærer.** |
 | Visuelt uttrykk | Vurderes under design og brukeropplevelse med 10 % av del 1, tilsvarende 7 % av samlet karakter. | Bekreftet i sensorveiledningen. |
+| Forberedelse til PRD 29. oktober | Relevant research og research-/brainstorming-temaer forberedes før torsdag. PRD-en trenger ikke være ferdig på forhånd. | Kunngjøring fra Istvan Hadhazi 26.10.26 kl. 20.27, gjengitt i prosjektsamtalen; ikke ny direkte Canvas-kontroll. |
 
 De tre åpne punktene gjør at [SCRUM-49](https://stiodi.atlassian.net/browse/SCRUM-49)
 ikke kan regnes som ferdig selv om øvrige krav nå er samlet her.
+
+## Forberedelse til PRD torsdag 29. oktober
+
+En kurskunngjøring fra Istvan Hadhazi, publisert 26.10.2026 kl. 20.27,
+ber studentene gjøre relevant research og notere aktuelle research topics og
+brainstorming-temaer før torsdag. Undersøkelsen skal støtte beskrivelsen av
+problem, målgruppe, krav og funksjoner i PRD-en. Uklare spørsmål, brukerbehov,
+ideer og lignende løsninger er nevnt som temaer. PRD-en trenger ikke være
+ferdig på forhånd.
+
+Kilde: kunngjøringens tekst gjengitt i prosjektsamtalen 26.10.2026. Direkte
+kunngjøringslenke er ikke oppgitt, og dette tillegget er ikke en ny kontroll av
+Canvas. Torsdag viser til 29.10.2026. Beskjeden gir en forberedelse til
+undervisningen, ikke en ny sluttfrist for prosjektkode eller refleksjonsrapport.
+De åpne spørsmålene i SCRUM-49 er dermed fortsatt åpne.
+
+[PRD-forberedelsene](prd-forberedelser.md) samler eksisterende prosjektgrunnlag
+og foreslåtte research-/brainstorming-temaer til gjennomgang i SCRUM-46.
 
 ## Arbeidskrav: godkjent product brief
 
