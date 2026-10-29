@@ -1,0 +1,8 @@
+{
+  "dataset": {
+    "id": "skjelett",
+    "version": "0",
+    "title": "Plassholder for kodeskjelettet",
+    "description": "Inneholder bare metadata. Erstattes av demodatasettene i SCRUM-20."
+  }
+}
