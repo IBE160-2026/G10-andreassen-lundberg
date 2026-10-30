@@ -150,3 +150,27 @@ til prosjektets repo. Bare sesjonsloggen og issues.md committes lokalt.
 ### Åpne punkter
 Ingen nye åpne punkter fra arkiveringsoppgaven. De tidligere registrerte
 punktene om PR #3 og memlog-rettelser er ikke endret i denne økten.
+
+## 2026-10-30 kl. 23:10 — SirClaudealot
+
+### Oppgave
+Committe kveldens ferdige arbeid lokalt og avslutte for videre gjennomgang
+neste dag, etter Odins beskjed.
+
+### Plan
+- Kontrollere diff, nye vedlegg og skjulte logger mot prosjektreglene.
+- Kontrollere lenker og dokumentgrunnlag, committe produktfilene og føre avslutningen her.
+
+### Resultat
+Kveldens dokumentendringer er samlet i lokal commit `4fccbb6`
+(`docs(SCRUM-46, SCRUM-60): avklar demoflyt, merverdi og kostnadsanslag`):
+produktbrief, PRD, demoscenario, kostnadsanslag, README, endringslogg,
+memlogger og de to kontrollrapportene. Alle 10 aktuelle filer er med.
+Lenke- og ankerkontroll, krav-ID-kontroll, regneeksempler og
+`git diff --check` bestod. Arbeidskopien var ren etter produktcommiten.
+Panopto-kildematerialet forblir i Obsidian utenfor Git; ingen push er utført.
+Avslutningen committes som egen loggcommit etter prosjektregelen.
+
+### Åpne punkter
+Ingen nye åpne punkter fra commitoppgaven. Eksisterende oppfølging i issues.md
+og Jira videreføres ved neste arbeidsøkt.
