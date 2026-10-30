@@ -143,14 +143,19 @@ og lenker til kildene fremfor parallelle kopier av samme informasjon.
   kontrollgrunnlag som del av det avtalte prosjektarbeidet, i eksisterende
   dokumentasjon etter reglene over. Ikke før et nytt logginnslag for hvert
   innspill. Bevar skillet mellom forslag, KI-tolkninger og beslutninger.
-- Bruk `sesjonslogg`-skillen bare når brukeren uttrykkelig ber om en
-  sesjonslogg. Unngå dobbeltføring av innhold som allerede finnes i memlog,
-  endringslogg eller saksspesifikasjon. Prosjektoppgaver følges opp i Jira;
-  ikke opprett en parallell `issues.md` automatisk.
-- Loggføring gir ikke i seg selv tillatelse til commit eller push. Følg
-  brukerens avtalte omfang for versjonskontroll; ikke opprett egne
-  loggcommits automatisk. Disse prosjektreglene gjelder foran skillens
-  standardinstrukser om logging og commit.
+- Bruk `sesjonslogg`-skillen slik faglærer Bård har satt den opp: når en
+  oppgave eller økt avsluttes, før sluttoppsummeringen, skrives en logg
+  (Oppgave, Plan, Resultat, åpne punkter) i `.logs/<bruker>/`, og åpne punkter
+  føres i `.logs/<bruker>/issues.md`. Ikke logg per melding; økter som ikke
+  endret noe trenger ingen logg. Loggen beskriver arbeidet, ikke samtalen, og
+  følger språkreglene øverst. Unngå dobbeltføring av innhold som allerede
+  finnes i memlog, endringslogg eller saksspesifikasjon. Prosjektoppgaver
+  følges fortsatt opp i Jira; `issues.md` gjelder punkter fra selve økten.
+- Skillen committer loggfilene (og `issues.md`) lokalt straks etter at de er
+  skrevet, uten å spørre, og bare dem. Skillen pusher aldri. Dette er et
+  bevisst valg etter faglærers beskjed (se
+  [leveringskravene](docs/ibe160-leveringskrav.md#bmad-og-arbeidslogg)).
+  Brukeren leser loggen før push og kan endre eller angre commiten frem til da.
 - Før hver push skal brukeren få se hva som skal publiseres og få anledning
   til å vurdere det. Push krever uttrykkelig godkjenning av det konkrete
   innholdet etter gjennomgangen; et generelt oppdrag er ikke nok.

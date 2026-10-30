@@ -14,12 +14,13 @@ brukt som bekreftende kilde.
 |---|---|---|
 | Product brief / proposal | En separat `proposal.md` er utgått. Canvas beskriver godkjent `productbrief.md` som leveringsvilkår, og faglærer har sagt at gruppen kan gå videre med justeringer. | Kravet er bekreftet; gruppens eventuelle separate formelle godkjenningsstatus er ikke dokumentert. |
 | Frist for product brief | Søndag 27. september 2026 kl. 23:59. Den opprinnelige fristen 20. september ble forlenget. Gruppen leverte 20. september. | Bekreftet i Canvas-kunngjøring og faglærers tilbakemelding. |
-| Sluttfrist for prosjektkode og refleksjonsrapport | Ingen dato er publisert i de kontrollerte Canvas-flatene eller på emnesiden. Del 1 hentes fra gruppens repository slik det står ved fristen; leveringskanal for refleksjonsrapporten er ikke oppgitt. | **Ikke avklart. Må bekreftes av faglærer eller i en ny oppgave-/eksamenspublisering.** |
+| Sluttfrist for prosjektkode og refleksjonsrapport | Ingen dato er publisert i de kontrollerte Canvas-flatene eller på emnesiden. Del 1 hentes fra gruppens repository slik det står ved fristen; leveringskanal for refleksjonsrapporten er ikke oppgitt. | **Delvis avklart muntlig:** i første case-sesjon (opptak, 0:39–1:51) sies omtrent 15. desember som utgangspunkt, og refleksjonsrapporten leveres samtidig med applikasjonen. Ikke bekreftet skriftlig; leveringskanal er fortsatt ikke oppgitt. |
 | Vurderingsdeler | Prosjektkode og funksjonalitet 70 %, refleksjonsrapport 30 %. Begge er gruppebesvarelser. | Bekreftet på emnesiden; del 1 er utdypet i sensorveiledningen. |
 | Individuelle bidrag | Refleksjonsmalen har en egen personlig refleksjon for hvert gruppemedlem. | Bekreftet i Canvas-malen. |
 | «Delvurdering 3» | Canvas-emneforsiden sier at vurderingen består av tre deler og nevner «delvurdering 3», men beskriver bare to deler som til sammen utgjør 100 %. Den formelle emnesiden sier uttrykkelig to deler og nevner ingen tredje del. | **Motstridende tekst. Krever skriftlig avklaring fra faglærer.** |
 | Visuelt uttrykk | Vurderes under design og brukeropplevelse med 10 % av del 1, tilsvarende 7 % av samlet karakter. | Bekreftet i sensorveiledningen. |
 | Forberedelse til PRD 29. oktober | Relevant research og research-/brainstorming-temaer forberedes før torsdag. PRD-en trenger ikke være ferdig på forhånd. | Kunngjøring fra Istvan Hadhazi 26.10.26 kl. 20.27, gjengitt i prosjektsamtalen; ikke ny direkte Canvas-kontroll. |
+| BMAD og arbeidslogg | Faglærer Bård har ifølge Odin sagt at BMAD-bruk har stor betydning for å bestå: uten BMAD-oppfølging gis ingen karakter. Han har også sagt at gruppen må ha en logg som viser hvordan det er arbeidet med prosjektet, og at den er viktig for karakteren. | Odin gjengav dette 28.10.2026 fra opptak i Panopto; transkripsjon limt inn samme dag bekrefter det (muntlig, ikke skriftlig Canvas-tekst). Se [tillegget under](#bmad-og-arbeidslogg). |
 
 De tre åpne punktene gjør at [SCRUM-49](https://stiodi.atlassian.net/browse/SCRUM-49)
 ikke kan regnes som ferdig selv om øvrige krav nå er samlet her.
@@ -41,6 +42,49 @@ De åpne spørsmålene i SCRUM-49 er dermed fortsatt åpne.
 
 [PRD-forberedelsene](prd-forberedelser.md) samler eksisterende prosjektgrunnlag
 og foreslåtte research-/brainstorming-temaer til gjennomgang i SCRUM-46.
+
+## BMAD og arbeidslogg
+
+Odin gjengir 28.10.2026 at Bård (faglærer) har sagt to ting, og en
+transkripsjon av første case-sesjon, limt inn samme dag, støtter dem:
+
+1. BMAD har mye å si for å bestå. Hvis BMAD ikke følges, gis det ikke karakter.
+   Transkripsjonen (ca. 3:05–3:22) sier at BMAD med en KI-agent er et ufravikelig krav, og
+   at gruppen har feilet oppgaven hvis BMAD ikke finnes i repoet. Claude Code er ikke et
+   krav; Gemini, Codex CLI eller en annen KI-agent er tillatt (ca. 4:11–4:37).
+2. Gruppen må ha en logg som forteller hvordan det er arbeidet med prosjektet.
+   Den er viktig for karakteren. Transkripsjonen (ca. 31:15–32:02) sier at
+   mangel på logg vil påvirke sensuren, fordi sensor da ikke kan se hvordan
+   gruppen har arbeidet. Eksempelet som vises er `.logs/` med plan, resultat og
+   åpne punkter per økt, og med loggfilen committet separat (ca. 43:25–46:09).
+   Det er ett eksempel, ikke oppgitt som eneste godkjente format.
+
+Kilde: opptak i Panopto (lenke og ordrette sitater er ikke tatt med i repoet; Odin har dem lokalt),
+sesjonen «første sesjon der vi jobber med selve case». Tidspunktene over er fra
+den automatiske transkripsjonen, som har skrivefeil (for eksempel feilstavet
+BMAD); taleren er ikke navngitt der, og at det er Bård bygger på Odins
+gjengivelse. Beskjeden er ikke funnet i de skriftlige Canvas-flatene som ble
+kontrollert 22.10.2026, og det er ikke avklart om den hører sammen med
+«delvurdering 3» eller den formelle vurderingsfordelingen over.
+
+Samme sesjon nevner at innleveringen av applikasjon og refleksjonsrapport
+omtrent 15. desember er satt som utgangspunkt. Se sluttfristen i tabellen over.
+
+Konsekvens for repoet, uten at kravene er utvidet: BMAD-sporet (brief, PRD,
+arkitektur, epics og stories, sprintplan, implementasjon og gjennomgang) følges
+og dokumenteres i `_bmad-output/`. Prosessen spores i
+[`.memlog.md`](../.memlog.md), [endringsloggen for produktbriefen](productbrief-endringslogg.md),
+spec-filer per sak, Jira-saker og commit-meldinger. Sensorveiledningens krav til
+spor etter KI-bruk er beskrevet i seksjonen over. Prosjektreglene i
+[AGENTS.md](../AGENTS.md#sesjonslogg) sier i dag at sesjonslogg bare føres på
+uttrykkelig oppdrag, og at loggføring ikke gir tillatelse til commit. Med
+faglærers uttalelse om at manglende logg kan påvirke sensuren, valgte Odin
+29.10.2026 å gå tilbake til Bårds originale sesjonslogg: logg og `issues.md`
+skrives automatisk ved slutten av hver økt, loggfilene committes lokalt straks,
+og skillen pusher aldri. Push krever fortsatt Odins godkjenning etter
+gjennomgang. Se [AGENTS.md](../AGENTS.md#sesjonslogg). Odin foreslo først en
+variant der KI spør før den skriver (28.10.2026); den ble erstattet 29.10.2026.
+Stian er ikke konsultert ennå.
 
 ## Arbeidskrav: godkjent product brief
 
