@@ -1,6 +1,6 @@
 # Demoscenario: ett fravær på en generell arbeidsplass
 
-*(Skrevet: Codex · 06.10.26; oppdatert: 22.10.26 etter Odins beslutning)*
+*(Skrevet: Codex · 06.10.26; oppdatert: 30.10.26 etter Odins beslutning)*
 
 **Status:** Konkretisering av [produktbriefen](../productbrief.md).
 Odin har valgt en generell arbeidsplass uten bransje og ønsker at lederen skal
@@ -22,6 +22,15 @@ bekreftelse er bevart som historikk nedenfor. Søkegrense og tilbudssimulering e
 avklart i SCRUM-15, som beskrevet nedenfor. Tabellen her viser direkte erstatning.
 
 ## Situasjonen og avgrensningen
+
+**Presisering 30.10.26:** Odin valgte at flere morgenfravær håndteres ett etter
+ett i førsteversjonen. Samlet løsning for flere samtidige fravær vurderes senere.
+Enkel tilbudssimulering og et begrenset sett forhåndslagde dataoppdateringer
+inngår i sluttresultatet; varig logg utsettes. Kostnadsanslag med syntetiske
+satser og tillegg vises separat fra regelstatus og P1/P2, etter [kostnadsanslaget](kostnadsanslag.md).
+Målet er rask/enkel bruk, fair fordeling, tryggere beslutningsgrunnlag og
+økonomisk oversikt. Dette er en verdiambisjon, ikke dokumentert effekt eller
+en garanti om full rettferdighet eller lovlighet.
 
 En leder har en godkjent bemanningsplan. Ansatt A01 får registrert fravær fra
 vakten onsdag 14.10.2026 kl. 08.00–16.00. Vakten trenger én person med kompetanse
@@ -219,8 +228,9 @@ med alle nødvendige sorteringsdata rangeres fortsatt innbyrdes.
 
 Ved lik verdi på alle valgte kriterier vises kandidatene som likeverdige; ID
 brukes bare for stabil visningsrekkefølge. KI-en skal ikke finne på et skille
-mellom dem. Eksemplet har ingen vedtatt prioritering av intern foran ekstern
-eller noen kostnadsberegning.
+mellom dem. Eksemplet har ingen vedtatt prioritering av intern foran ekstern.
+Hovedtabellen nedenfor har ikke kostnadsdata; separate kontrolltilfeller O1–O5
+i [kostnadsanslaget](kostnadsanslag.md) konkretiserer økonomivalget fra 30.10.26.
 
 ## Fem scenarioer med forventede svar
 
@@ -327,6 +337,11 @@ vises ny bemanning og at det gamle alternativet ikke lenger er aktuelt.
 
 ## Beslutningslogg i demoen – SCRUM-17
 
+**Omfang endret 30.10.26:** Odin valgte å utsette varig beslutningslogg til Bør.
+Valg og tilbud/svar i aktiv økt er fortsatt Må. Beskrivelsen av varig lagring
+nedenfor beholdes som grunnlag hvis utvidelsen bygges; D6–D7 er Bør, mens
+øktbevaring i D5 og håndtering av gamle valg i D8 inngår i førsteversjonen.
+
 Odin godtok at valgt alternativ og simulerte tilbud/svar beholdes i den aktive
 demoøkten. Varig beslutningslogg inngår som valgfri funksjon, avslått som standard.
 Begrunnelse er frivillig, også når logging er slått på. Logger gjelder registrerte
@@ -354,6 +369,20 @@ ikke øktens synlige valg og svar så lenge økten er aktiv.
 | D6 Valgfri varig logg | Slå på logging; registrer et valg uten begrunnelse og avslutt økten. | Det registrerte valget kan leses senere med korrekt forslag/dataversjon. Manglende begrunnelse blokkerer ikke. |
 | D7 Logging av/på | Gjør valg A med logging av, slå på og registrer B, slå av og registrer C. Lukk og åpne fanen. | A/B/C er synlige i aktiv økt. Bare B lagres varig; A etterregistreres ikke, og B slettes ikke ved deaktivering. |
 | D8 Tidligere valg etter oppdatering | Velg A03; last inn data der A03 er utilgjengelig eller vakten har fått annen bemanning. | Det gamle valget vises på gammel dataversjon. Ny kontroll og aktuell bemanning vises uten at gammelt valg fremstår som gjeldende. |
+
+## Flere morgenfravær ett etter ett
+
+Hvert søk gjelder ett målskift. Simulerte tilbud og aksept reserverer ikke
+ansatte. Før en tidligere løsning behandles som innført ved neste fravær,
+lastes en separat forhåndslaget oppdatering som viser den nye bemanningen.
+Tidligere fravær og oppdateringer skal ikke nullstilles når nytt fravær
+simuleres. Dette er Codex sin konkretisering av Odins valg 30.10.26 og av
+prinsippet om at VaktMatch ikke innfører forslag i vaktlisten.
+
+| ID | Oppsett | Forventet resultat |
+|---|---|---|
+| M1 Neste fravær etter oppdatering | Håndter ett fravær, last en oppdatering som viser ny bemanning, og simuler et nytt fravær på en annen ansatt/vakt. | Første fravær og den oppdaterte bemanningen beholdes. Neste søk og kostnadsanslag bruker det nye grunnlaget; tidligere tildelinger inngår i kollisjons-, hvile- og timekontroll. |
+| M2 Neste fravær uten oppdatering | Undersøk et forslag og simuler aksept, men last ingen planoppdatering. Simuler deretter et nytt fravær. | Tidligere fravær beholdes som udekket i gjeldende grunnlag. Vis at forrige forslag ikke er innført; aksept reserverer ingen ansatte og er ikke bevis på samlet dekning. Søket gjelder bare valgt målskift. |
 
 ## Åpent valg – bekreftelse ved regelavvik
 

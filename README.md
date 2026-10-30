@@ -36,7 +36,12 @@ Valgene er tatt av Odin innenfor felles delegert beslutningsmyndighet, slik han
 har gjengitt avtalen med Stian. Se endringsloggen E28–E32 for opphav og avgrensning.
 SCRUM-17 avklarer simulert fravær, bytte mellom forhåndslagde datasett og
 komplettering av manglende opplysninger i demoen. Valg og simulerte svar beholdes
-i økten; varig beslutningslogg er valgfri, avslått som standard, med frivillig begrunnelse.
+i økten. Odin valgte 30. oktober en komplett, avgrenset demoflyt med enkel
+tilbudssimulering og begrenset datasettbytte som Må; varig logg utsettes til Bør.
+Flere morgenfravær håndteres ett etter ett. [Anslått kostnad](docs/kostnadsanslag.md)
+med syntetiske satser og tillegg vises separat fra P1/P2 og regelstatus.
+Rask/enkel bruk, fair fordeling, tryggere beslutningsgrunnlag og økonomisk
+oversikt er ønsket merverdi; effekten er ikke validert. Se endringsloggen E35.
 
 Avklaringen 22. oktober gjør tidligere planer til synlig beslutningsgrunnlag,
 uten en ny historisk poengsum eller endring i P1/P2. [Søk og låste vakter](docs/forslag-ved-frafall.md)
@@ -55,7 +60,8 @@ Start gjerne med [den samlede begrunnelsen for arbeidsutkastet](docs/productbrie
 |---|---|
 | [productbrief.md](productbrief.md) | **Gjeldende produktbrief.** Samle avklarte endringer her før PRD. |
 | [Teknologi og arbeidsdeling](docs/teknologivalg.md) | SCRUM-13: lokal oppstart med React og Python/FastAPI, justerbar arbeidsdeling og utsatte valg. |
-| [PRD](_bmad-output/planning-artifacts/prds/prd-G10-andreassen-lundberg-2026-10-29/prd.md) | SCRUM-46: nummererte krav (FR/NFR) med Jira-saker, Må/Bør-prioritering og avvik fra briefen. Odins gjennomgang gjenstår. |
+| [PRD](_bmad-output/planning-artifacts/prds/prd-G10-andreassen-lundberg-2026-10-29/prd.md) | SCRUM-46: nummererte krav, Må/Bør og avvik fra briefen. Omfang og verdiambisjon oppdatert etter Odins valg 30.10.26; ikke en full godkjenning av alle krav. |
+| [Kostnadsanslag](docs/kostnadsanslag.md) | Syntetiske satser og tillegg, synlig beregningsgrunnlag og kontrolltilfeller for økonomisk sammenligning. |
 | [PRD-forberedelser til 29. oktober](docs/prd-forberedelser.md) | Kursbeskjeden 26. oktober, eksisterende grunnlag og foreslåtte research-/brainstorming-temaer før PRD-arbeidet. |
 | [Forslag ved frafall – søk og resultat](docs/forslag-ved-frafall.md) | Konkretisering av SCRUM-16: nivåer, låste vakter, avgrenset søk, dekning og søkestatuser samt målemetode. |
 | [Demoscenario for fravær](docs/demoscenario-fravaer.md) | Vedtatte scenarioregler, sortering, søkeomfang og tilbudssimulering med forventede svar. Eksempler og kontrollbeskrivelser; komplett datasett og kode gjenstår. |

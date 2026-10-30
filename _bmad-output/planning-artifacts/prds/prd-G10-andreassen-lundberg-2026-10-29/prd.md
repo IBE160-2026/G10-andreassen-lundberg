@@ -2,15 +2,16 @@
 title: VaktMatch – PRD
 status: final
 created: 2026-10-29
-updated: 2026-10-29
+updated: 2026-10-30
 ---
 
 # PRD: VaktMatch
 
 *(Skrevet: Claude Code · 29.10.26, etter Stians valg av kjerne og prioriteringer.
-Gjennomgått mot BMAD-rubrikken i [review-rubric.md](review-rubric.md). Odin har
-ikke gått gjennom PRD-en ennå; se åpent spørsmål 2. PRD-en er et levende
-dokument og oppdateres når krav endres.)*
+Gjennomgått mot BMAD-rubrikken i [review-rubric.md](review-rubric.md).
+Oppdatert av Codex 30.10.26 etter Odins valg av en komplett, avgrenset demoflyt
+og presisering av merverdien. Kilde og endringer står i §7.2. Dette er ingen
+ny felles detaljgodkjenning eller full godkjenning av alle PRD-krav.)*
 
 ## 0. Formål og grunnlag
 
@@ -36,6 +37,13 @@ Kravene er delt i **Må** (kjerneflyten som skal fungere fra start til slutt) og
 **Bør** (utvidelser som bygger på kjernen). Avvik fra briefen står i §7.2.
 
 ## 1. Visjon
+
+Målet er å gjøre det raskt og enkelt å finne bemanningsløsninger når flere
+ansatte melder fravær om morgenen, med synlig grunnlag for fair fordeling,
+tryggere tildelingsbeslutninger og økonomiske avveininger. Førsteversjonen
+håndterer fravær ett etter ett; samlet løsning for flere samtidige fravær
+vurderes senere. Dette er ønsket merverdi, presisert av Odin 30.10.26, og er
+ennå ikke dokumentert som bruker- eller kostnadseffekt.
 
 VaktMatch hjelper en skiftleder som får beskjed om fravær kort før vaktstart.
 Lederen ser hvem som kan ta vakten, hva det betyr for resten av planen og hva
@@ -87,6 +95,11 @@ Kari er en konstruert eksempelperson, ikke en intervjuet bruker.
   A02 først (32 timer mot 40). Kari bytter til P2 og ser at A03 kommer først.
   Hun undersøker A03, leser forklaringen og ser at ingen andre vakter flyttes.
   Hun markerer A03 som valgt. Vaktlisten er uendret; Kari ringer A03 selv.
+  Hun kan simulere tilbud og svar. En aksept vises separat fra regelstatus og
+  gjennomfører ingen vaktendring. Kostnadsanslaget viser syntetiske satser,
+  tillegg og forskjellen fra gjeldende grunnlag. Ved et nytt fravær bruker hun
+  samme flyt på gjeldende data; en tidligere løsning regnes først som innført
+  når en separat demooppdatering viser den nye bemanningen.
   **Kanttilfelle:** Kari undersøker A05 og ser at hvilen før vakten bare er
   8 timer (R4). A05 kan ikke velges som bestått alternativ.
 
@@ -104,6 +117,9 @@ Kari er en konstruert eksempelperson, ikke en intervjuet bruker.
   A02 og A03 er utilgjengelige. V01 har riktig kompetanse, men tilgjengeligheten
   er ikke registrert. VaktMatch viser V01 som uavklart med teksten
   «Tilgjengelighet for V01 må avklares», og sier ikke at ingen kan ta vakten.
+  Kari laster et forhåndslaget, komplettert datasett. Endringen og ny kontroll
+  vises før V01 presenteres som ferdig vurdert; gamle valg og svar gir ikke
+  automatisk aksept på den nye dataversjonen.
 
 - **UJ-4. Sensor kjører appen.**
   Sensor kloner repoet, følger README og starter backend og frontend uten konto
@@ -168,6 +184,10 @@ Lederen velger en ansatt og en vakt i arbeidsuken og simulerer fravær.
 Realiserer UJ-1.
 - Den fraværende teller ikke som bemanning, og målskiftet vises som udekket (D1).
 - Handlingen endrer ikke datasettfilen.
+- Flyten kan gjentas for et nytt fravær, med ett målskift om gangen. Tidligere
+  fravær beholdes. Valg eller simulert aksept reserverer ingen ansatte.
+  En tidligere løsning inngår først som endret bemanning når et oppdatert
+  datasett viser den; se M1–M2 i demoscenarioet.
 - Ugyldige valg (ingen ansatt, vakt utenfor uke 5, påbegynt vakt) gir en
   forklarende melding.
 
@@ -262,7 +282,9 @@ markere et alternativ som valgt i den aktive økten.
 - Et alternativ med regelavvik eller uavklart status kan ikke markeres som et
   bestått valg.
 - Valget lever bare i økten og forsvinner når fanen lukkes. Lagring er Bør
-  (FR-23). Besluttet av Stian 29.10.26.
+  (FR-23). Besluttet av Stian 29.10.26 og videreført av Odin 30.10.26.
+- Ved datasettbytte beholdes tidligere valg som historikk på gammel
+  dataversjon. De vises ikke som gjeldende før ny kontroll (D8).
 
 #### FR-16: Historikk som kontekst (Må · SCRUM-55)
 For hver kandidat vises relevant historikk fra uke 1–4 med kilde og periode.
@@ -288,7 +310,12 @@ med det øverst rangerte.
 - Svaret har faste felt: kort svar, avveining, konsekvenser og usikkerhet.
 - Testene kjører med en testmodus uten modellkall og uten nøkkel.
 - Handlingen er «Forklar forskjellen» fra demoscenarioet (besluttet av Stian
-  29.10.26). Modell og leverandør avgjøres i SCRUM-59.
+  29.10.26, videreført av Odin 30.10.26). Flere faste handlinger kan vurderes
+  senere gjennom samme grensesnitt; de er ikke påkrevd nå. Modell og
+  leverandør avgjøres i SCRUM-59.
+- Hvis det undersøkte alternativet allerede er øverst, skal teksten si dette
+  uten å konstruere en forskjell. Kostnadsopplysninger kommer bare fra FR-24,
+  og uavklart kostnad omtales som uavklart.
 
 #### FR-19: KI endrer aldri grunnlaget (Må · SCRUM-41)
 - KI-forklaringen kan ikke endre status, rangering eller valg.
@@ -296,22 +323,49 @@ med det øverst rangerte.
   og brukeren får vite det.
 - En test sjekker at tall og statuser i KI-svaret samsvarer med kontrollresultatet.
 
-### 4.6 Utvidelser (Bør)
+### 4.6 Tilbud og oppdatering (Må)
 
-Disse bygges når kjernen (FR-1 til FR-19) fungerer og er testet. Begrunnelse i §7.2.
+Bygges etter sammenligningskjernen, men inngår i førsteversjonens ferdige
+demoflyt. Odin valgte denne avgrensningen 30.10.26; se §7.2.
 
-#### FR-20: Simulere tilbud og svar (Bør · SCRUM-52)
+#### FR-20: Simulere tilbud og svar (Må · SCRUM-52)
 Tilbud sendt, venter, akseptert og avslått for valgt alternativ, som i F5–F7.
-Ingen status endrer vakter.
+- Svar velges med demohandlinger; ingen ekte utsending eller ansattportal.
+- Full simulert aksept krever at alle berørte aksepterer ved omfordeling (F6).
+- Ingen status endrer vakter. Svar gjelder forslaget og dataversjonen;
+  endret grunnlag gir ikke automatisk videreført aksept.
 
-#### FR-21: Laste oppdaterte data med endringsoversikt (Bør · SCRUM-23, SCRUM-57)
+#### FR-21: Laste oppdaterte data med endringsoversikt (Må · SCRUM-23, SCRUM-57)
 Bytte til et forhåndslaget datasett, vise endringer og vurdere på nytt, som i D2–D4.
+- Et begrenset, fast sett datasett dekker endret, uendret/annerledes og
+  komplettert grunnlag. Generell filimport og leverandørintegrasjon inngår ikke.
+- Gammelt øktvalg og svar beholdes på gammel dataversjon, uten å fremstå som
+  gjeldende vurdering eller aksept (D8). Kostnaden beregnes på nytt.
+
+### 4.7 Økonomisk sammenligning (Må)
+
+#### FR-24: Anslått kostnad per alternativ (Må · SCRUM-60)
+Odin valgte 30.10.26 anslått kostnad med syntetiske satser og tillegg.
+- Vis kostnad for alle berørte vakttildelinger i alternativet, kostnad for
+  tilsvarende tildelinger i gjeldende grunnlag og differansen i NOK.
+- Timer, syntetiske satser og tillegg, dataversjon og modellens begrensninger
+  skal være synlige. Ved omfordeling inngår begge vakter og alle berørte.
+- Manglende kostnadsgrunnlag gir uavklart anslag, ikke null. Kostnad endrer
+  ikke regelstatus eller sortering etter P1/P2. Fair fordeling er et eget hensyn;
+  P1/P2 og historikk gir ikke en full rettferdighetsmodell.
+- Kontrolleres mot O1–O5 i [kostnadsanslaget](../../../../docs/kostnadsanslag.md).
+  Formelen og kontrolltilfellene er Codex sin konkretisering, ikke en modell
+  for reell lønn, overtid, tariff eller full arbeidsgiverkostnad.
+
+### 4.8 Senere utvidelser (Bør)
 
 #### FR-22: Låse tildelinger i grensesnittet (Bør · SCRUM-37)
 Lederen låser og låser opp framtidige tildelinger; tidligere søk blir utdatert.
 
 #### FR-23: Varig beslutningslogg (Bør · SCRUM-54)
 Valgfri, avslått som standard, frivillig begrunnelse, som i D5–D7.
+Utsettes til den komplette demoflyten er testet. D5s bevaring i økten er
+fortsatt Må gjennom FR-15/20; varig lagring og overgangene i D6–D7 er Bør.
 
 ## 5. Tverrgående ikke-funksjonelle krav
 
@@ -331,7 +385,9 @@ Valgfri, avslått som standard, frivillig begrunnelse, som i D5–D7.
   grensesnittet det. Ende-til-ende-testen prøver minst én ugyldig handling og
   én gjentatt handling.
 - **NFR-4 Testbarhet (Må · SCRUM-28, SCRUM-43):** Regelmotoren har automatiske
-  tester for alle kontrolltilfellene i demoscenarioet og metodebeskrivelsen.
+  tester for kontrolltilfellene som gjelder Må-krav i demoscenarioet,
+  metodebeskrivelsen og kostnadsanslaget O1–O5. D6–D7 og andre tilfeller for
+  Bør-funksjoner testes når disse bygges.
   Minst én ende-til-ende-test går gjennom UJ-1. CI kjører alle tester på pull
   requests.
 - **NFR-5 Determinisme:** Samme datasett, fravær, søkegrense og prioritering gir
@@ -359,12 +415,15 @@ Valgfri, avslått som standard, frivillig begrunnelse, som i D5–D7.
 
 ### 7.1 Førsteversjon
 
-**Må:** FR-1 til FR-19 og NFR-1 til NFR-6, NFR-8 og NFR-9. Det gir én
+**Må:** FR-1 til FR-21, FR-24 og NFR-1 til NFR-6, NFR-8 og NFR-9. Det gir én
 sammenhengende flyt: datagrunnlag → simulert fravær → finn alternativer
 (grense 0–1) → sammenligning med R1–R5, konsekvenser og manglende data →
-prioritering og undersøkelse → standard- og KI-forklaring.
+prioritering og undersøkelse med kostnadsanslag → standard- og KI-forklaring
+→ enkel tilbudssimulering → oppdaterte data og ny vurdering. Flyten kan
+gjentas for neste fravær på gjeldende grunnlag.
 
-**Bør:** FR-20 til FR-23, i den rekkefølgen, når kjernen er testet.
+**Bør:** FR-22 og FR-23 når den komplette demoflyten fungerer og er testet.
+Én samlet løsning for flere samtidige fravær er senere arbeid.
 
 **Utenfor:** Se §6.
 
@@ -372,13 +431,18 @@ prioritering og undersøkelse → standard- og KI-forklaring.
 
 | Hva | I briefen | I PRD-en | Begrunnelse og opphav |
 |---|---|---|---|
-| Simulert tilbud og aksept | Del av førsteversjonen og suksesskriteriene. | Bør (FR-20). | Kjernen må fungere og være testet først. Fristen er ukjent, og gruppen er to. Stian besluttet prioriteringen 29.10.26 etter forslag fra Claude Code; Odin er ikke konsultert ennå. |
-| Datasettbytte med endringsoversikt | Del av førsteversjonen og suksesskriteriene. | Bør (FR-21). | Som over. |
-| Varig beslutningslogg | Valgfri funksjon i MVP. | Bør (FR-23). | Som over. |
+| Simulert tilbud og aksept | Del av førsteversjonen og suksesskriteriene. | Må i avgrenset demoformat (FR-20). | Stian prioriterte Bør 29.10.26. Odin valgte 30.10.26 å beholde en enkel simulering i sluttresultatet, bygget etter kjernen, for å vise hele avklaringsflyten. |
+| Datasettbytte med endringsoversikt | Del av førsteversjonen og suksesskriteriene. | Må med et begrenset sett forhåndslagde datasett (FR-21). | Odin valgte 30.10.26 komplett demoflyt med ny vurdering av oppdatert grunnlag, fremfor å la denne delen falle ut som Bør. Ingen generell import eller integrasjon. |
+| Varig beslutningslogg | Tidligere valgfri funksjon i MVP; briefen er nå samordnet. | Bør (FR-23); økttilstand er Må. | Stian prioriterte Bør 29.10.26. Odin valgte samme avgrensning 30.10.26 for å prioritere den komplette demoflyten før varig lagring. Erstatter tidligere omfang i briefens E30. |
 | Lederlåser i grensesnittet | Lederen kan låse tildelinger. | Låser fra datasettet er Må; låsing i grensesnittet er Bør (FR-22). | Holder kjernen liten. Foreslått av Claude Code, besluttet av Stian 29.10.26. |
-| KI-forklaring | KI forklarer avveininger, konsekvenser og usikkerhet. | Én avgrenset KI-handling (FR-18) i tillegg til standardforklaringen. | Researchen fant ingen påvist merverdi av KI-tekst; handlingen skal kunne sammenlignes med standardteksten. Del av Stians beslutning 29.10.26. |
+| KI-forklaring | KI forklarer avveininger, konsekvenser og usikkerhet. | Én avgrenset KI-handling (FR-18) i tillegg til standardforklaringen; flere kan vurderes senere. | Stians valg 29.10.26 videreføres av Odin 30.10.26. Merverdien av KI-tekst mot standardtekst er uavklart for VaktMatch; researchen avgjør ikke antallet handlinger. |
+| Morgenfravær og økonomi | Ett fravær i demoen; økonomisk sammenligning var ikke konkretisert. | Fravær ett etter ett (FR-3), anslått kostnad med syntetiske satser og tillegg (FR-24). | Odin presiserte merverdien 30.10.26 og valgte sekvensiell håndtering og kostnadsanslag. Samlet løsning for flere fravær utsettes. Beregningsdetaljer er konkretisert av Codex. |
 
-Briefen og endringsloggen må oppdateres når prioriteringen er avklart med Odin.
+Kilde: Odins tilslutning til den anbefalte mellomvarianten og svar på de to
+omfangsspørsmålene i prosjektsamtalen 30.10.26. Dette er Odins valg innenfor
+den dokumenterte delegeringen, ikke en ny felles detaljbeslutning. Briefen og
+[endringsloggen E35](../../../../docs/productbrief-endringslogg.md#301026--komplett-demoflyt-og-presisert-merverdi)
+er samordnet. Tidligere valg bevares i memlog og Git-historikk.
 
 ## 8. Suksessmål
 
@@ -387,7 +451,10 @@ Briefen og endringsloggen må oppdateres når prioriteringen er avklart med Odin
   gir bestått status til en kandidat som bryter en regel eller mangler data.
   Validerer FR-4, FR-5, FR-6.
 - **SM-2 Kjerneflyten fungerer fra start til slutt:** UJ-1, UJ-2 og UJ-3 kan
-  gjennomføres med demodataene og dekkes av automatiske tester. Validerer FR-1 til FR-17.
+gjennomføres med demodataene og dekkes av automatiske tester, inkludert F5–F7,
+D2–D5, D8 og M1–M2. Validerer FR-1 til FR-17 og FR-20/21.
+- **SM-6 Etterprøvbart kostnadsanslag:** O1–O5 gir forventede beløp og
+  uavklart-status uten å endre P1/P2 eller regelstatus. Validerer FR-24.
 - **SM-3 Sensor får appen til å kjøre:** En person utenfor gruppen følger README
   på en ren maskin og kjører UJ-1 på under 20 minutter. Validerer NFR-1.
 
@@ -411,7 +478,7 @@ Briefen og endringsloggen må oppdateres når prioriteringen er avklart med Odin
 | Nr. | Spørsmål | Ansvarlig | Tas opp igjen |
 |---|---|---|---|
 | 1 | Hva er sluttfristen for kode og refleksjonsrapport? Den avgjør hvor mye av Bør som er realistisk. | Odin (SCRUM-49) | Når faglærer svarer. |
-| 2 | Slutter Odin seg til Må/Bør-delingen og endringene i §7.2? | Odin (SCRUM-46) | Før briefen og endringsloggen oppdateres. |
+| 2 | Er oppgaver og avhengigheter samordnet med det reviderte omfanget i §7.2? Odins prioriteringsvalg er avklart 30.10.26. | Odin (SCRUM-46) | Før videre implementering og lukking av saken. |
 | 3 | Hvilken modell og leverandør, og hvilken kostnadsgrense? | Odin (SCRUM-59) | Før FR-18 implementeres. |
 | 4 | Hvordan modelleres en ekstern vikars øvrige arbeid? | Stian (SCRUM-19) | I datamodellen. |
 | 5 | Hvilken type skiftleder skal scenarioet være troverdig for? | Begge | Ved UX-spesifikasjonen (SCRUM-47). |

@@ -238,6 +238,17 @@ tilgjengelig på de eksterne grenene ved kontroll 26.10.26. E34 er brukt for å
 unngå ID-kollisjon. Det omtalte E33 og teknologidokumentet må samordnes når den
 versjonen blir tilgjengelig; innholdet er ikke rekonstruert som et eldre innslag.
 
+## 30.10.26 – komplett demoflyt og presisert merverdi
+
+| ID | Hva endres, fra og til? | Enkel begrunnelse | Grunnlag og status |
+|---|---|---|---|
+| E35 | Metadata oppdateres til 30.10.26. Executive Summary og produktomtalen går fra generell sammenligning ved ett fravær til en tydelig verdiambisjon for morgenfravær: rask/enkel håndtering, fair fordeling, tryggere beslutningsgrunnlag og økonomiske avveininger. Scope presiserer flere fravær ett etter ett; samlet løsning utsettes. Anslått kostnad med syntetiske satser og tillegg legges til i The Solution, Success Criteria og Scope. Enkel tilbudssimulering og et begrenset sett oppdaterte datasett beholdes som Må, mens varig logg går fra valgfri MVP-funksjon i E30 til Bør etter testet demoflyt. Øktvalg/-svar beholdes. Én KI-handling bygges først; flere kan vurderes senere. README, PRD og demoscenario samordnes, og docs/kostnadsanslag.md legges til. | Beholde en komplett, avgrenset demo og knytte sammenligningen til brukerens ønskede merverdi. Varig lagring utsettes for å prioritere flyten. Ingen målt tidsbesparelse, økonomisk gevinst, rettferdighetsgaranti eller full juridisk trygghet hevdes. | Odin sluttet seg i prosjektsamtalen 30.10.26 til Codex sin anbefalte mellomvariant etter tre agentanalyser, og presiserte ønsket merverdi. Han svarte uttrykkelig «Ett etter ett i førsteversjonen; samlet løsning senere» og «Anslått kostnad per alternativ med syntetiske satser og tillegg». Dette er Odins valg innenfor dokumentert delegert myndighet, ikke en ny felles detaljbeslutning. Beregningsformel, avrunding, kontrolltilfeller og håndtering av neste fravær er Codex sine konkretiseringer. P1/P2 og R1–R5 er uendret; kostnad er ikke et nytt sorteringskriterium. |
+
+Dette erstatter E30s krav om en valgfri varig logg i MVP, uten å slette den
+tidligere begrunnelsen. Stians PRD-prioritering 29.10.26 er bevart som historikk
+i PRD §7.2 og memlog; tilbud og datasettbytte flyttes der fra Bør til Må.
+Produktinnholdet er endret. Ingen funksjonsvise tidsanslag er dokumentert.
+
 ## Se alle tekstendringer
 
 Git bevarer hver versjon. Kjør fra repoets rot for å se alle forskjeller mellom
@@ -263,9 +274,9 @@ Legg til et nytt datert innslag med neste ID og følgende innhold:
 
 | ID | Hva endres, fra og til? | Hvorfor? | Grunnlag og status |
 |---|---|---|---|
-| E35 | Berørt del og kort før/etter-beskrivelse. | Én eller to enkle setninger. | Hvem ga innspillet, kilde og om det er forslag, arbeidsretning eller felles beslutning. |
+| E36 | Berørt del og kort før/etter-beskrivelse. | Én eller to enkle setninger. | Hvem ga innspillet, kilde og om det er forslag, arbeidsretning eller felles beslutning. |
 
-E35-raden er en mal, ikke et tatt valg. Rene språk- og lenkerettelser kan samles
+E36-raden er en mal, ikke et tatt valg. Rene språk- og lenkerettelser kan samles
 i ett innslag med beskjed om at produktinnholdet er uendret. Et omgjort valg får
 et nytt innslag som viser til det gamle. Ikke skriv om tidligere begrunnelser
 slik at de fremstår som kjent da valget ble tatt. Bruk «begrunnelse ikke dokumentert»
