@@ -122,3 +122,31 @@ er ukommitterte; bare denne sesjonsloggen og issues.md committes lokalt.
 ### Åpne punkter
 Ingen nye åpne punkter fra selve økten. Videre prosjektarbeid følger SCRUM-46
 og SCRUM-60; eksisterende punkter i issues.md er ellers bevart.
+
+## 2026-10-30 kl. 23:08 — SirClaudealot
+
+### Oppgave
+Lagre Panopto-grunnlaget i det eksisterende personlige Obsidian-oppsettet,
+utenfor Git og gjenfinnbart ved behov, etter Odins uttrykkelige beskjed.
+
+### Plan
+- Lese notatsystemets instrukser og finne opprinnelige kildebidrag i den lokale prosjektsamtalen.
+- Bevare transkripsjonen, lenke fra relevante oversikter og kontrollere plassering og lenker.
+
+### Resultat
+Opptakslenken og transkripsjonen ble gjenfunnet i Odins meldinger fra
+28.10.26. Påstanden i den tidligere loggseksjonen om at materialet ikke
+fantes andre steder var for sterk: kilden var bevart i den lokale samtalen.
+Et kildearkiv er nå opprettet i Obsidian med full, uendret innlimt tekst,
+utvalgte sitater, tidsintervaller, opphav og kildeforbehold. Fagoversikten,
+VaktMatch-notatet, Panopto-ressursnotatet og dagsnotatet peker til arkivet.
+
+Kontrollert at målplasseringen er utenfor et Git-repo, at tekstkopien samsvarer
+med den opprinnelige innlimte teksten og at nye interne lenker finnes.
+Videoen er ikke avspilt eller lastet ned. Arkiveringspunktet i issues.md er
+lukket. Ingen opptakslenke, sitater eller personlige notater er kopiert tilbake
+til prosjektets repo. Bare sesjonsloggen og issues.md committes lokalt.
+
+### Åpne punkter
+Ingen nye åpne punkter fra arkiveringsoppgaven. De tidligere registrerte
+punktene om PR #3 og memlog-rettelser er ikke endret i denne økten.
