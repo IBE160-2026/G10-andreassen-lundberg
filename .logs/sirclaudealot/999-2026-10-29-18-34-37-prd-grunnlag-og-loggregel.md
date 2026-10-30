@@ -50,3 +50,44 @@ Stians første PRD på `main`, og arbeidet gikk over til å bygge videre på den
   «delvurdering 3», formell status for briefen).
 - Stians gren `scrum-18-kodeskjelett` (kodeskjelett og CI) er ikke merget til
   `main` og ikke gjennomgått her.
+
+## 2026-10-30 kl. 22:01 — SirClaudealot
+
+### Oppgave
+Avklare om arbeidskopien var klar for commit, og committe endringene fra
+29.10. Odin ville ikke ha Panopto-lenken og de ordrette sitatene fra Bårds
+opptak i repoet, men utdragene skulle kunne deles med Stian.
+
+### Plan
+- Gå gjennom diff og ikke-sporede filer mot språk- og delingsreglene i
+  [AGENTS.md](../../AGENTS.md).
+- Fjerne lenke og ordrette sitater fra de ucommittede endringene i stedet for
+  å bruke `.gitignore` (som bare virker for hele filer).
+- Committe i tre commits med Jira-nøkkel, rapporten og utdragene først slik at
+  lenkene i memlog treffer. Ikke push.
+
+### Resultat
+- Fjernet Panopto-URL, «must», «har feilet», «biomed» og sitert dato fra
+  [leveringskravene](../../docs/ibe160-leveringskrav.md#bmad-og-arbeidslogg),
+  [.memlog.md](../../.memlog.md) og det ene utdraget. Innholdet er nøytralt
+  omskrevet, og leveringskravene sier at lenke og sitater ligger lokalt hos
+  Odin. Det samme gjelder tidligere logg-seksjon over, som nevner lenken og
+  «rundt 15. desember»; den er bevart urørt og er ikke committet med lenken
+  (lenken sto aldri i en commit).
+- Tre lokale commits: `e4e952c` (SCRUM-46, utdragene), `b22005e` (SCRUM-18,
+  kodegjennomgang av PR #3) og `85e3121` (SCRUM-49, AGENTS.md,
+  leveringskrav og memlog).
+- Kodegjennomgangen av PR #3 ligger nå i repoet:
+  [review-pr3-scrum-18-2026-10-29.md](../../_bmad-output/implementation-artifacts/review-pr3-scrum-18-2026-10-29.md).
+  Den er skrevet av KI-lag (samme modell som skrev koden) og er ikke en
+  uavhengig menneskelig gjennomgang.
+- Ikke pushet. Push krever Odins godkjenning av innholdet.
+
+### Åpne punkter
+- Odin må selv lagre Panopto-lenken og sitatene utenfor repoet (for eksempel
+  i Obsidian); de er fjernet fra repoet og finnes ikke andre steder.
+- Rettelsene P1–P7 fra PR #3-gjennomgangen er ikke utført og ikke gitt Stian
+  som kommentarliste. `docs/arkitektur.md` på grenen mangler statuslinjen
+  om Odins godkjenning.
+- To memlog-innslag er datert bakover (W4 i gjennomgangen), også 28.10-
+  innslagene om Bårds beskjed; rettes med `override`, ikke omskriving.
