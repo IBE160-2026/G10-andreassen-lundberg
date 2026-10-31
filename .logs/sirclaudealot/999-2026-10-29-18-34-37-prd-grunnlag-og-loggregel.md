@@ -227,11 +227,23 @@ Arbeidet er samlet i commit `e3a980613d08e121d2730c685a8e71d7bdd0f629`.
 TypeScript/Vite-bygg og health direkte/gjennom Vite-proxy bestod.
 Testserverne er stoppet. Dokumentlenker og `git diff --check` bestod.
 Kontrollgrunnlag og commit er kommentert i SCRUM-13/18/46; ingen av
-sakene er satt Done. Delte grener og PR #3 er uendret. Ingen push er utført.
+sakene er satt Done. Main og den opprinnelige PR-grenen er uendret.
 Eksisterende issues-punkter om gjennomgang og logg er presisert med delstatus.
 Personlige notater er ikke endret. Bare loggfilene committes i loggcommiten.
 
+Oppfølging kl. 22:30: Odin godkjente publisering av det konkrete innholdet
+og åpning av utkast-PR. `scrum-18-klargjoring` er pushet til
+`ae5bd32e294551027659ace7d5528a0d6497a544`, og
+[utkast-PR #4](https://github.com/IBE160-2026/G10-andreassen-lundberg/pull/4)
+er opprettet mot main. Ekstern gren og godkjent lokal head samsvarer.
+[CI-kjøringen](https://github.com/IBE160-2026/G10-andreassen-lundberg/actions/runs/41243837659)
+har grønn backend og frontend på denne commiten; GitHub melder MERGEABLE.
+Publisering, godkjenning og CI-bevis er kommentert i SCRUM-13/18/46.
+Issues-punktet om publisert oppfølging av rettelsene er lukket. Ingen ekstern
+merge eller endring av den opprinnelige PR #3 er utført. Denne oppfølgingen
+committes bare lokalt som arbeidslogg; den er ikke del av den godkjente pushen.
+
 ### Åpne punkter
-Ingen nye punkter fra selve økten. Publisering av det konkrete innholdet
-venter på godkjenning; ny CI og ekstern merge følges deretter i Jira.
-Eksisterende issues-punkter er beholdt med oppdatert status.
+Ingen nye punkter fra selve økten. Videre gjennomgang, koordinering av
+PR-ene og ekstern merge følges i Jira. Eksisterende issues-punkter er
+beholdt med oppdatert status.
