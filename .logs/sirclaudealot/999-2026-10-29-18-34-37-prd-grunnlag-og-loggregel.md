@@ -205,3 +205,33 @@ bare denne loggen og issues.md committes i den separate loggcommiten.
 Ingen nye punkter fra selve økten. SCRUM-13-avhengigheten og øvrige
 prosjektavklaringer følges i Jira og kontrollgrunnlaget; eksisterende
 uløste punkter i issues.md er bevart.
+
+## 2026-10-31 kl. 22:15 — SirClaudealot
+
+### Oppgave
+Ta neste steg for SCRUM-46 ved å undersøke og klargjøre SCRUM-13/18,
+etter Odins oppdrag. Arbeidet er utført med Codex og bmad-build.
+
+### Plan
+- Kontrollere PR #3, eksisterende gjennomgang og Jira-grunnlaget.
+- Samordne og rette skjelettet på egen lokal gren, teste og dokumentere resultatet.
+
+### Resultat
+Lokal gren `scrum-18-klargjoring` samordner main med PR #3 og bevarer
+historikken. Konfliktene i memlog og teknologidokument er løst. Rettelser,
+avgrensning av P1s datalagsdel mot HTTP-arbeidet i SCRUM-22, gjennomgang og
+kontrollbevis står i [rapporten](../../_bmad-output/implementation-artifacts/verification-scrum-18-2026-10-31.md).
+Arbeidet er samlet i commit `e3a980613d08e121d2730c685a8e71d7bdd0f629`.
+
+22 backendtester og tre frontendtester, ruff check/format, oxlint,
+TypeScript/Vite-bygg og health direkte/gjennom Vite-proxy bestod.
+Testserverne er stoppet. Dokumentlenker og `git diff --check` bestod.
+Kontrollgrunnlag og commit er kommentert i SCRUM-13/18/46; ingen av
+sakene er satt Done. Delte grener og PR #3 er uendret. Ingen push er utført.
+Eksisterende issues-punkter om gjennomgang og logg er presisert med delstatus.
+Personlige notater er ikke endret. Bare loggfilene committes i loggcommiten.
+
+### Åpne punkter
+Ingen nye punkter fra selve økten. Publisering av det konkrete innholdet
+venter på godkjenning; ny CI og ekstern merge følges deretter i Jira.
+Eksisterende issues-punkter er beholdt med oppdatert status.

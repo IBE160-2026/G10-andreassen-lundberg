@@ -5,7 +5,7 @@
 - [x] 2026-10-29 [prd-grunnlag-og-loggregel](999-2026-10-29-18-34-37-prd-grunnlag-og-loggregel.md) — PRD: legg arbeidslogg per økt i NFR-8 og oppdater åpent spørsmål 1 med muntlig frist (løst 2026-10-31; SCRUM-46, commit 257007e)
 - [ ] 2026-10-29 [prd-grunnlag-og-loggregel](999-2026-10-29-18-34-37-prd-grunnlag-og-loggregel.md) — FR-18 avhenger av modellvalget i SCRUM-59
 - [ ] 2026-10-29 [prd-grunnlag-og-loggregel](999-2026-10-29-18-34-37-prd-grunnlag-og-loggregel.md) — SCRUM-49: tre avklaringer fra faglærer gjenstår
-- [ ] 2026-10-29 [prd-grunnlag-og-loggregel](999-2026-10-29-18-34-37-prd-grunnlag-og-loggregel.md) — Gren `scrum-18-kodeskjelett` er ikke merget eller gjennomgått
+- [ ] 2026-10-29 [prd-grunnlag-og-loggregel](999-2026-10-29-18-34-37-prd-grunnlag-og-loggregel.md) — SCRUM-18 er gjennomgått 29.10 og lokalt rettet/verifisert 31.10 på `scrum-18-klargjoring`; publisering, ny CI og ekstern merge gjenstår i Jira
 - [x] 2026-10-30 [prd-grunnlag-og-loggregel](999-2026-10-29-18-34-37-prd-grunnlag-og-loggregel.md) — Panopto-lenken, sitatene og full innlimt transkripsjon lagret i Obsidian utenfor Git (løst 2026-10-30)
-- [ ] 2026-10-30 [prd-grunnlag-og-loggregel](999-2026-10-29-18-34-37-prd-grunnlag-og-loggregel.md) — PR #3: rettelsene P1–P7 gis Stian som kommentarliste; statuslinje i docs/arkitektur.md på grenen
-- [ ] 2026-10-30 [prd-grunnlag-og-loggregel](999-2026-10-29-18-34-37-prd-grunnlag-og-loggregel.md) — Memlog: rett bakoverdaterte innslag (W4) med `override`
+- [ ] 2026-10-30 [prd-grunnlag-og-loggregel](999-2026-10-29-18-34-37-prd-grunnlag-og-loggregel.md) — PR #3: P1s datalagsdel og P2–P7 er lokalt rettet 31.10, arkitekturstatus er ført og kontrollgrunnlag kommentert i SCRUM-18; publisert oppfølging gjenstår
+- [ ] 2026-10-30 [prd-grunnlag-og-loggregel](999-2026-10-29-18-34-37-prd-grunnlag-og-loggregel.md) — Memlog: PR-grenens to W4-innslag er presisert med `override` 31.10; tidligere omtale av 28.10-datoer i sesjonsloggen er ikke kontrollert i denne kodeøkten
