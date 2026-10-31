@@ -2,7 +2,7 @@
 title: VaktMatch – PRD
 status: final
 created: 2026-10-29
-updated: 2026-10-30
+updated: 2026-10-31
 ---
 
 # PRD: VaktMatch
@@ -11,7 +11,9 @@ updated: 2026-10-30
 Gjennomgått mot BMAD-rubrikken i [review-rubric.md](review-rubric.md).
 Oppdatert av Codex 30.10.26 etter Odins valg av en komplett, avgrenset demoflyt
 og presisering av merverdien. Kilde og endringer står i §7.2. Dette er ingen
-ny felles detaljgodkjenning eller full godkjenning av alle PRD-krav.)*
+ny felles detaljgodkjenning eller full godkjenning av alle PRD-krav.
+Kilde- og Jira-avstemming er utført av Codex 31.10.26 i SCRUM-46; se
+[kontrollgrunnlaget](../../../../docs/scrum-46-prd-avstemming.md).)*
 
 ## 0. Formål og grunnlag
 
@@ -105,8 +107,8 @@ Kari er en konstruert eksempelperson, ikke en intervjuet bruker.
 
 - **UJ-2. Ingen direkte erstatter, men én flytting løser det.**
   Som UJ-1, men ingen ledig person oppfyller reglene. Med søkegrense 0 viser
-  VaktMatch «Ingen direkte erstatter innenfor scenarioreglene». Kari beholder
-  standardgrensen 1 og søker på nytt. Nå vises et forslag der B flyttes fra en
+  VaktMatch «Ingen direkte erstatter innenfor scenarioreglene». Kari setter
+  søkegrensen tilbake til 1 og søker på nytt. Nå vises et forslag der B flyttes fra en
   annen vakt og C dekker vakten B forlater. Begge vakter er dekket og alle
   berørte består R1–R5. Konsekvensene for B og C vises separat.
   **Kanttilfelle:** Ingen kan dekke vakten B forlater. Forslaget vises som
@@ -288,7 +290,9 @@ markere et alternativ som valgt i den aktive økten.
 
 #### FR-16: Historikk som kontekst (Må · SCRUM-55)
 For hver kandidat vises relevant historikk fra uke 1–4 med kilde og periode.
-- Historikken endrer ikke sortering eller status (H1).
+- Historisk kontekst gir ikke en egen poengsum og endrer ikke P1/P2 (H1).
+  Korrigert historikk som inngår i kontrollgrunnlaget, for eksempel nabovakter
+  fra uke 4, kan endre kontrollstatus etter ny kontroll.
 - Ufullstendig historikk vises som mangel (H2).
 
 ### 4.5 Forklaring
@@ -379,27 +383,34 @@ fortsatt Må gjennom FR-15/20; varig lagring og overgangene i D6–D7 er Bør.
   tomtilstand og feilmelding som sier hva brukeren kan gjøre. Fungerer fra 360 px
   bredde (mobil) til PC uten vannrett rulling. Status vises med tekst, ikke bare
   farge. En UX-spesifikasjon med skisser ligger i repoet før grensesnittet bygges.
-- **NFR-3 Robusthet:** API-et validerer all input og svarer på ugyldige
+- **NFR-3 Robusthet (Må · SCRUM-22, SCRUM-43):** API-et validerer all input og svarer på ugyldige
   forespørsler med en feilkode og en norsk melding, aldri med en uhåndtert feil.
   Grensesnittet viser meldingen og en vei videre. Når backend ikke svarer, sier
   grensesnittet det. Ende-til-ende-testen prøver minst én ugyldig handling og
   én gjentatt handling.
-- **NFR-4 Testbarhet (Må · SCRUM-28, SCRUM-43):** Regelmotoren har automatiske
-  tester for kontrolltilfellene som gjelder Må-krav i demoscenarioet,
+- **NFR-4 Testbarhet (Må · SCRUM-28, SCRUM-43, SCRUM-60):** Automatiske tester
+  på relevante nivåer dekker kontrolltilfellene som gjelder Må-krav i demoscenarioet,
   metodebeskrivelsen og kostnadsanslaget O1–O5. D6–D7 og andre tilfeller for
   Bør-funksjoner testes når disse bygges.
   Minst én ende-til-ende-test går gjennom UJ-1. CI kjører alle tester på pull
   requests.
-- **NFR-5 Determinisme:** Samme datasett, fravær, søkegrense og prioritering gir
-  alltid samme resultat, uavhengig av maskinens klokke.
-- **NFR-6 Hemmeligheter:** Nøkler leses fra miljøvariabler og ligger aldri i
+- **NFR-5 Determinisme (Må · SCRUM-28, SCRUM-37):** Samme datasett, fravær,
+  søkegrense og prioritering gir samme beregnede alternativer, kontrollstatuser,
+  rangering og kostnadsanslag, uavhengig av maskinens klokke. KI-ordlyden kan
+  variere, men må følge de samme beregnede faktaene (FR-19).
+- **NFR-6 Hemmeligheter (Må · SCRUM-18, SCRUM-59, SCRUM-48):** Nøkler leses fra miljøvariabler og ligger aldri i
   repoet eller historikken.
 - **NFR-7 Ytelse (SCRUM-58):** Ingen responstid loves. Søketid med grense 0 og 1
   måles og dokumenteres før større søkeomfang vurderes.
 - **NFR-8 Sporbarhet (Må · SCRUM-44):** Hvert FR har Jira-sak; commits viser til
   saken; avvik fra PRD-en føres i PRD-ens memlog og ved behov i endringsloggen.
   KI-bruk og funn i kodegjennomgang dokumenteres med kobling til konkrete endringer.
-- **NFR-9 Språk:** Grensesnitt og forklaringer er på norsk bokmål.
+  Hver arbeidsøkt som endrer tilstand dokumenteres med oppgave, plan, resultat
+  og åpne punkter i `.logs/<bruker>/`, etter
+  [prosjektregelen om sesjonslogg](../../../../AGENTS.md#sesjonslogg).
+  Loggfilene committes separat lokalt; push krever gjennomgang og uttrykkelig
+  godkjenning av innholdet. Dette følger Odins prosessvalg 29.10.26.
+- **NFR-9 Språk (Må · SCRUM-42, SCRUM-39, SCRUM-40):** Grensesnitt og forklaringer er på norsk bokmål.
 
 ## 6. Ikke-mål
 
@@ -477,13 +488,25 @@ D2–D5, D8 og M1–M2. Validerer FR-1 til FR-17 og FR-20/21.
 
 | Nr. | Spørsmål | Ansvarlig | Tas opp igjen |
 |---|---|---|---|
-| 1 | Hva er sluttfristen for kode og refleksjonsrapport? Den avgjør hvor mye av Bør som er realistisk. | Odin (SCRUM-49) | Når faglærer svarer. |
-| 2 | Er oppgaver og avhengigheter samordnet med det reviderte omfanget i §7.2? Odins prioriteringsvalg er avklart 30.10.26. | Odin (SCRUM-46) | Før videre implementering og lukking av saken. |
+| 1 | Hva er skriftlig bekreftet sluttfrist og leveringskanal for refleksjonsrapporten? Omtrent 15. desember er muntlig utgangspunkt, med samtidig levering av applikasjon og rapport; dette er ikke en bekreftet frist. Se [kravoversikten](../../../../docs/ibe160-leveringskrav.md#kort-status). | Odin (SCRUM-49) | Når faglærer svarer eller fristen publiseres skriftlig. |
 | 3 | Hvilken modell og leverandør, og hvilken kostnadsgrense? | Odin (SCRUM-59) | Før FR-18 implementeres. |
 | 4 | Hvordan modelleres en ekstern vikars øvrige arbeid? | Stian (SCRUM-19) | I datamodellen. |
 | 5 | Hvilken type skiftleder skal scenarioet være troverdig for? | Begge | Ved UX-spesifikasjonen (SCRUM-47). |
 
+Samordningsspørsmål 2 er lukket 31.10.26: kravdekning, sakskriterier og
+leveranseforutsetninger er kontrollert og nødvendige Jira-tekster oppdatert.
+Se [kontrollgrunnlaget for SCRUM-46](../../../../docs/scrum-46-prd-avstemming.md).
+Saksavhengigheten til den fortsatt åpne SCRUM-13 er beholdt; kontrollen
+innebærer verken godkjenning av kodeskjelettet eller Done for implementeringssaker.
+
 ## 10. Antakelser
 
-Ingen gjenstående. Antakelsene i utkastet om låser (FR-10), økt (FR-15) og
-KI-handling (FR-18) ble besluttet av Stian 29.10.26.
+Antakelsene i utkastet om låser (FR-10), økt (FR-15) og KI-handling (FR-18)
+ble besluttet av Stian 29.10.26. Omfangsendringene 30.10.26 er Odins valg,
+slik §7.2 beskriver.
+
+Kostnadsformel og kontrolltilfellene O1–O5 samt overgangene for sekvensielle
+fravær i M1–M2 er Codex sin konkretisering av disse valgene. De inngår i
+planleggings- og kontrollgrunnlaget, men er ikke særskilt detaljgodkjent av
+Odin eller en ny felles beslutning. Se [kostnadsanslaget](../../../../docs/kostnadsanslag.md)
+og [avstemmingen 30.10.26](reconcile-2026-10-30.md).

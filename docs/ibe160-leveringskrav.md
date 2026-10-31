@@ -76,8 +76,8 @@ og dokumenteres i `_bmad-output/`. Prosessen spores i
 [`.memlog.md`](../.memlog.md), [endringsloggen for produktbriefen](productbrief-endringslogg.md),
 spec-filer per sak, Jira-saker og commit-meldinger. Sensorveiledningens krav til
 spor etter KI-bruk er beskrevet i seksjonen over. Prosjektreglene i
-[AGENTS.md](../AGENTS.md#sesjonslogg) sier i dag at sesjonslogg bare føres på
-uttrykkelig oppdrag, og at loggføring ikke gir tillatelse til commit. Med
+[AGENTS.md](../AGENTS.md#sesjonslogg) hadde tidligere en regel om sesjonslogg
+bare på uttrykkelig oppdrag, uten automatisk tillatelse til commit. Med
 faglærers uttalelse om at manglende logg kan påvirke sensuren, valgte Odin
 29.10.2026 å gå tilbake til Bårds originale sesjonslogg: logg og `issues.md`
 skrives automatisk ved slutten av hver økt, loggfilene committes lokalt straks,

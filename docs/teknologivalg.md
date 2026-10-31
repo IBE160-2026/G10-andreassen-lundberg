@@ -43,7 +43,13 @@ tester må kontrolleres mot tilgjengelig kode før sakene ferdigstilles.
 - Odins tilslutning og beskjed om lokal oppstart i samtalen 26.10.2026, med uttrykkelig tillatelse til dokumentasjon. Bare den avklarte konklusjonen er oppsummert her.
 - [Gjeldende produktbrief](../productbrief.md), [E34 i endringsloggen](productbrief-endringslogg.md#261026--teknologi-lokal-oppstart-og-arbeidsdeling) og [prosjektreglene](../AGENTS.md).
 
-Stians kommentar viser til en tidligere versjon av `docs/teknologivalg.md` og
-E33. Disse var ikke tilgjengelige på de eksterne grenene ved kontroll 26.10.26.
-Denne filen dokumenterer avklaringen nå og må samordnes med den versjonen når
-den blir tilgjengelig. E34 brukes for å unngå kollisjon med det omtalte E33.
+Stians kommentar 24.10.26 viste til en tidligere versjon av dette dokumentet
+og E33. Disse var ikke tilgjengelige på de eksterne grenene ved kontroll
+26.10.26, og E34 ble brukt for å unngå kollisjon.
+
+**Samordning kontrollert 31.10.26:** Stian opplyste i SCRUM-13-kommentar
+`10023`, publisert 29.10.26, at den eldre lokale versjonen (`7deeaff`, E33)
+er forkastet til fordel for main-versjonen (`edb7eff`, E34). E33 brukes ikke.
+Det gjenstår derfor ikke et nytt produktvalg mellom disse versjonene.
+Kodeverifikasjon og merge av kodeskjelettet følges fortsatt opp i SCRUM-13/18;
+dette dokumentet bekrefter ikke at disse sakene er ferdige.
