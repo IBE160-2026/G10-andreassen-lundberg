@@ -187,7 +187,7 @@ etter Odins oppdrag. Arbeidet er utført med Codex.
 
 ### Resultat
 Planleggingskontrollen er samlet i
-[kontrollgrunnlaget](../../../docs/scrum-46-prd-avstemming.md), med lenker til
+[kontrollgrunnlaget](../../docs/scrum-46-prd-avstemming.md), med lenker til
 rapportene og presis avgrensning mot appverifikasjon. PRD, README,
 teknologidokument, leveringskrav og memlogger er oppdatert i lokal commit
 `257007e` (`docs(SCRUM-46): samordne PRD, kravdekning og Jira-kriterier`).
