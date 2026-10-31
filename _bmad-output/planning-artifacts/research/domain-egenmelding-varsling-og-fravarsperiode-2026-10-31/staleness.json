@@ -28,6 +28,13 @@
       "pub_date": "2026-08",
       "recheck": "2026-08-01",
       "stale": true
+    },
+    {
+      "claim": "To leverandøreksempler støtter perioderegistrering, uten å dokumentere markedsutbredelse; DNB oppdatert 2026-01, PowerOffice dato ukjent.",
+      "class": "interface-practice",
+      "pub_date": "2026-01",
+      "recheck": "2027-07-01",
+      "stale": false
     }
   ],
   "stale_count": 4,

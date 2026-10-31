@@ -71,3 +71,11 @@ ingen automatisk kjent varighet. Undersøkelsen fastsatte ingen standardverdi.
 Odin valgte senere standardverdi 1, der enheten er arbeidsdager/vakter i
 planen, slik avsnittet «Grunnlag» beskriver.
 Et nytt årsaksfelt eller automatisk valg av flere vakter er fortsatt ikke valgt.
+
+Oppfølgingen om vanlig registrering fant to leverandøreksempler med
+perioderegistrering: fra–til-dato hos DNB og løpende fravær med startdato
+hos PowerOffice. Egenmeldingens dokumentasjonsramme bruker kalenderdager.
+Se rapportens oppfølging og kildehenvisninger. Codex foreslår derfor å
+vurdere kalenderperiode med separat oversikt over berørte vakter. Dette
+er et forslag til endring av enheten, ikke et nytt valg fra Odin; skissen
+over beholder det gjeldende valget inntil avklaringen er gjort.

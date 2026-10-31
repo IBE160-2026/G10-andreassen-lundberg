@@ -8,9 +8,9 @@ status: complete
 preset: quick
 validation: normal
 invoked_by: bmad-ux
-claims_verified: 2
+claims_verified: 3
 claims_unverified: 2
-sources_read: 4
+sources_read: 6
 created: 2026-10-31
 updated: 2026-10-31
 ---
@@ -18,8 +18,9 @@ updated: 2026-10-31
 # Egenmelding, varsling og fraværsperiode
 
 Undersøkelsen følger [godkjent plan](brief.md) og er utført av Codex med
-ett kildeuttrekk og målrettet verifikasjon. Prosjektopplysninger er ikke
-brukt som faktabevis. Fire ulike offentlige veiledningssider er lest 31.10.2026.
+kildeuttrekk og målrettet verifikasjon. Prosjektopplysninger er ikke
+brukt som faktabevis. Fire offentlige veiledningssider og to leverandørers
+egne støttesider er lest 31.10.2026, inkludert en avgrenset oppfølgingsrunde.
 
 ## Kort konklusjon
 
@@ -34,6 +35,13 @@ Maksimalt antall egenmeldingsdager er ikke en prognose for det konkrete
 fraværet. [2][3][4] Vaktvalg må derfor drøftes ut fra opplysninger om
 fraværet, ikke ved å anta tre dagers fravær automatisk.
 
+Oppfølgingen peker mot perioderegistrering: DNB dokumenterer fra–til-dato,
+mens PowerOffice også beskriver løpende sykefravær med startdato og
+avslutning etter retur. [5][6] Dette er to konkrete systemeksempler, ikke
+bevis for en markedsstandard. Anbefalingen om å vise perioden og deretter
+berørte vakter er Codex sitt UX-forslag; tidligere valg om vakttelling
+er ikke endret gjennom undersøkelsen.
+
 ## Funn og sikkerhet
 
 | Funn | Kildegrunnlag og vurdering |
@@ -46,6 +54,31 @@ fraværet, ikke ved å anta tre dagers fravær automatisk.
 Kontaktmåte, dokumentasjonsordning og faktisk fraværsperiode er ulike
 opplysninger. Denne kombinasjonen er viktig for UX-en: et mottatt varsel
 forteller ikke alene hvilke senere vakter som blir udekket.
+
+## Oppfølging: periode, fridager og praktisk registrering
+
+Helsedirektoratet beskriver sammenhengende kalenderdager ved egenmelding
+og avviser å bruke torsdag, fredag og mandag som tre dager i samme periode.
+Dette gjelder dokumentasjonsrammen; veiledningen dokumenterer ikke faktisk
+sykdom hver mellomliggende dag i ethvert tilfelle. [3]
+
+Begge leverandøreksemplene bruker en periode: DNB lar brukeren markere
+fra-dato og dra til til-dato før fraværstype velges, blant annet egenmelding
+eller sykmelding. PowerOffice lar egenmeldt sykefravær stå løpende fra en
+startdato til det avsluttes etter tilbakekomst. [5][6] Periodemønsteret er
+bekreftet hos to ulike leverandører; sikkerheten gjelder disse eksemplene,
+ikke en påstand om hvor utbredt mønsteret er. PowerOffice viser dessuten
+at sluttdato ikke nødvendigvis må være kjent ved registrering.
+
+Kildene dokumenterer ikke beregning mot uregelmessige vaktplaner. Å vise
+planlagte vakter som overlapper perioden, fremfor å hoppe direkte til
+«neste N vakter», er derfor et designforslag fra Codex. Forslaget er å
+beholde 1 som enkel startverdi, men vurdere kalenderdager som enhet og
+vise de berørte vaktene separat. Dette krever et nytt UX-valg fra Odin;
+arbeidsdager/vakter er fortsatt det registrerte valget. Ukjent varighet
+må også avklares før en slik modell ferdigstilles. Se
+[kildeuttrekket](digests/periode-r2-1.md) og
+[kontrollen](digests/verification-r2.md).
 
 ## UX-vurderinger til videre avklaring
 
@@ -77,8 +110,9 @@ aktuell vakt når kjent eller ukjent fraværsperiode gjelder flere vakter.
 Det første er et scenario-/UX-valg; et faktisk arbeidsgiverkrav trenger
 arbeidsplassens dokumenterte rutine.
 
-Runden stoppet på dekning av den avtalte UX-avklaringen. Direkte lovkontroll
-står åpen; ytterligere undersøkelse krever et nytt, avgrenset oppdrag.
+De to avgrensede rundene stoppet på dekning av de bestilte UX-avklaringene.
+Direkte lovkontroll står åpen; ytterligere undersøkelse krever et nytt,
+avgrenset oppdrag.
 
 ## Kilder
 
@@ -91,6 +125,8 @@ kildenes oppgitte oppdatering eller faglige endring; alle ble lest 31.10.2026.
 | [2] | Muntlig/skriftlig, lokale rutiner, dagramme | NAV: [Egenmelding](https://www.nav.no/egenmelding) | 2025-09-16 | 2026-10-31 | Middels for kanal-/rutinepåstanden, som har én uttrykkelig kilde |
 | [3] | Definisjon og egenmeldingsramme | Helsedirektoratet: [Egenmelding ved sykdom](https://www.helsedirektoratet.no/veiledere/sykmelderveileder/alternativer-til-sykmelding-tilrettelegging-egenmelding-pleiepenger-mfl/egenmelding-ved-sykdom) | 2020-05-26 | 2026-10-31 | Støttekilde med eldre endringsdato |
 | [4] | Varsling og egenmeldingsramme | Altinn / Digitaliseringsdirektoratet: [Sykefravær og sykepenger](https://info.altinn.no/starte-og-drive/arbeidsforhold/sykdom/sykefravar-og-sykepenger/) | 2026-08-19 | 2026-10-31 | Høy for veiledningen |
+| [5] | Fra–til-dato og fraværstype | DNB Regnskap: [Kalenderen i Fravær](https://hjelp.dnbregnskap.dnb.no/no/article/kalenderen-i-fravaer-ois2ig/) | 2026-01-15 | 2026-10-31 | Direkte produktdokumentasjon; ikke markedsstatistikk |
+| [6] | Startdato og løpende sykefravær | PowerOffice: [Registrere ferie/fravær](https://hjelpesenter.poweroffice.no/registrere-ferie-fravaer) | Ukjent | 2026-10-31 | Direkte produktdokumentasjon; ukjent oppdateringsdato |
 
 ## Ferskhet
 
@@ -102,3 +138,8 @@ Dette er varsler fra kildenes oppdateringsmåneder, ikke nye rettslige frister
 eller bevis for at innholdet er feil. Den aktuelle kontrollen ble gjort
 31.10.2026. Kontroller på nytt før gjenbruk som regelgrunnlag; direkte
 lovtekst og konkret arbeidsgiverrutine er de viktigste uavklarte sporene.
+
+Leverandøreksemplenes periodemønster har et kontrollvindu på 18 måneder.
+DNBs kjente oppdateringsmåned gir 2027-07-01 som beregnet kontrollpunkt;
+PowerOffice har ukjent dato og dermed ingen beregnbar frist. Begge bør
+kontrolleres på nytt før grensesnittet brukes som implementeringsreferanse.

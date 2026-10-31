@@ -28,3 +28,12 @@ Generelle regler, ikke personlig sykepengerådgivning eller verifikasjon av
 en bestemt arbeidsplass. Saksbehandling av egenmeldingsrett, lønn og
 diagnoser ligger utenfor denne undersøkelsen. Prosjektopplysninger brukes
 til å stille spørsmål, ikke som juridiske kilder.
+
+## Avgrenset oppfølging 31.10.2026
+
+Odin ba om å sjekke hva som er normalt før det avklares om antall 3 skal
+omfatte startvakten og de to neste planlagte vaktene. Dette følges opp i
+samme mappe, med én ekstra runde om kalenderperiode, fridager og praktisk
+fraværsregistrering. Codex avgrenser runden til inntil tre primærkilder:
+offentlig veiledning og to leverandøreksempler. Et lite utvalg gir ikke
+grunnlag for å fastslå markedsstandard eller velge produktatferd automatisk.

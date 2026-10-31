@@ -18,5 +18,10 @@
     "claim": "Universelt telefonkrav før vakt er ikke verifisert i runden.",
     "class": "regulatory",
     "pub_date": "2026-08"
+  },
+  {
+    "claim": "To leverandøreksempler støtter perioderegistrering, uten å dokumentere markedsutbredelse; DNB oppdatert 2026-01, PowerOffice dato ukjent.",
+    "class": "interface-practice",
+    "pub_date": "2026-01"
   }
 ]
