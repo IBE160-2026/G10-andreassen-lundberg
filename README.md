@@ -116,6 +116,7 @@ Start gjerne med [den samlede begrunnelsen for arbeidsutkastet](docs/productbrie
 | [Teknologi og arbeidsdeling](docs/teknologivalg.md) | SCRUM-13: lokal oppstart med React og Python/FastAPI, justerbar arbeidsdeling og utsatte valg. |
 | [PRD](_bmad-output/planning-artifacts/prds/prd-G10-andreassen-lundberg-2026-10-29/prd.md) | SCRUM-46: nummererte krav, Må/Bør og avvik fra briefen. Omfang og verdiambisjon oppdatert etter Odins valg 30.10.26; ikke en full godkjenning av alle krav. |
 | [PRD- og Jira-avstemming – SCRUM-46](docs/scrum-46-prd-avstemming.md) | Kontroll 31.10.26 av kildegrunnlag, alle FR/NFR og eksisterende saker. PR #4 er merget med grønn main-CI; SCRUM-13/18/46 er Done. |
+| [UX – visuelt](_bmad-output/planning-artifacts/ux-designs/ux-G10-andreassen-lundberg-2026-10-31/DESIGN.md) og [oppførsel](_bmad-output/planning-artifacts/ux-designs/ux-G10-andreassen-lundberg-2026-10-31/EXPERIENCE.md) | SCRUM-47: dokumentrammer opprettet. Kildevalg og UX-visjon avklares før innhold og skisser utformes. |
 | [Kostnadsanslag](docs/kostnadsanslag.md) | Syntetiske satser og tillegg, synlig beregningsgrunnlag og kontrolltilfeller for økonomisk sammenligning. |
 | [PRD-forberedelser til 29. oktober](docs/prd-forberedelser.md) | Kursbeskjeden 26. oktober, eksisterende grunnlag og foreslåtte research-/brainstorming-temaer før PRD-arbeidet. |
 | [Forslag ved frafall – søk og resultat](docs/forslag-ved-frafall.md) | Konkretisering av SCRUM-16: nivåer, låste vakter, avgrenset søk, dekning og søkestatuser samt målemetode. |
