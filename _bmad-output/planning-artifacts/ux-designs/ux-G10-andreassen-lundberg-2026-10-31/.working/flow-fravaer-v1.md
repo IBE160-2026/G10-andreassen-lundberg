@@ -28,3 +28,12 @@ flowchart LR
 
 Disse punktene er UX-avklaringer i SCRUM-47. De er ikke nye produktkrav eller
 grunnlag for å endre produktbriefen nå.
+
+## Research som grunnlag for neste avklaring
+
+Odin foreslo egenmelding som mulig standardutgangspunkt og ba om kildesjekk.
+[Undersøkelsen](../../../research/domain-egenmelding-varsling-og-fravarsperiode-2026-10-31/research.md)
+skiller varsling, dokumentasjonsordning og faktisk fraværsperiode. Et generelt
+telefonkrav før vaktstart er ikke verifisert, og egenmeldingsrammen gir
+ingen automatisk kjent varighet. Dette fastsetter ikke en standardperiode,
+et nytt årsaksfelt eller automatisk valg av flere vakter i skissen.

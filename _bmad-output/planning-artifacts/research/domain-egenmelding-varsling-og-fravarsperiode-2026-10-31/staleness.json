@@ -1,0 +1,36 @@
+{
+  "today": "2026-10-31",
+  "claims": [
+    {
+      "claim": "Varsling fra første sykedag ifølge NAV; snarest mulig og meldingsdagens betydning ifølge Altinn.",
+      "class": "regulatory",
+      "pub_date": "2026-08",
+      "recheck": "2026-08-01",
+      "stale": true
+    },
+    {
+      "claim": "Muntlig/skriftlig egenmelding og arbeidsgiverens rutiner: NAV som én uttrykkelig utgiver.",
+      "class": "regulatory",
+      "pub_date": "2025-09",
+      "recheck": "2025-09-01",
+      "stale": true
+    },
+    {
+      "claim": "Egenmeldingsramme og utvidelser er dokumentert; konkret varighet kan ikke utledes automatisk.",
+      "class": "regulatory",
+      "pub_date": "2020-05",
+      "recheck": "2020-05-01",
+      "stale": true
+    },
+    {
+      "claim": "Universelt telefonkrav før vakt er ikke verifisert i runden.",
+      "class": "regulatory",
+      "pub_date": "2026-08",
+      "recheck": "2026-08-01",
+      "stale": true
+    }
+  ],
+  "stale_count": 4,
+  "earliest_recheck": "2020-05-01",
+  "no_window_classes": []
+}

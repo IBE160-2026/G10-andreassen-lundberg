@@ -9,4 +9,5 @@ sources:
   - ../../../../productbrief.md
   - ../../../../docs/demoscenario-fravaer.md
   - ../../../../docs/kostnadsanslag.md
+  - ../../research/domain-egenmelding-varsling-og-fravarsperiode-2026-10-31/research.md
 ---
