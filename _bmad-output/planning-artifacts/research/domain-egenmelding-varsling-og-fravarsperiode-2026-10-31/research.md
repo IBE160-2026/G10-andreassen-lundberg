@@ -39,8 +39,10 @@ Oppfølgingen peker mot perioderegistrering: DNB dokumenterer fra–til-dato,
 mens PowerOffice også beskriver løpende sykefravær med startdato og
 avslutning etter retur. [5][6] Dette er to konkrete systemeksempler, ikke
 bevis for en markedsstandard. Anbefalingen om å vise perioden og deretter
-berørte vakter er Codex sitt UX-forslag; tidligere valg om vakttelling
-er ikke endret gjennom undersøkelsen.
+berørte vakter var Codex sitt UX-forslag ved undersøkelsens slutt.
+Odin valgte deretter kalenderdager med separat visning av berørte vakter,
+fortsatt med 1 som standardverdi. Dette er et etterfølgende UX-valg, ikke
+en kildekonklusjon; se [gjeldende skisse](../../ux-designs/ux-G10-andreassen-lundberg-2026-10-31/.working/flow-fravaer-v1.md).
 
 ## Funn og sikkerhet
 
@@ -74,9 +76,9 @@ Kildene dokumenterer ikke beregning mot uregelmessige vaktplaner. Å vise
 planlagte vakter som overlapper perioden, fremfor å hoppe direkte til
 «neste N vakter», er derfor et designforslag fra Codex. Forslaget er å
 beholde 1 som enkel startverdi, men vurdere kalenderdager som enhet og
-vise de berørte vaktene separat. Dette krever et nytt UX-valg fra Odin;
-arbeidsdager/vakter er fortsatt det registrerte valget. Ukjent varighet
-må også avklares før en slik modell ferdigstilles. Se
+vise de berørte vaktene separat. Forslaget ble senere valgt av Odin i
+UX-avklaringen omtalt over. Ukjent varighet må fortsatt avklares før en
+slik modell ferdigstilles. Se
 [kildeuttrekket](digests/periode-r2-1.md) og
 [kontrollen](digests/verification-r2.md).
 
