@@ -48,3 +48,10 @@ utført. Skjelettet bryter ingen krav i PRD-en som det skulle ha dekket; mye av
 
 - **false:** «Låsfiler mangler» og «avhengigheter ikke pinnet». Filene finnes i PR-en; de var utelatt fra diffen som ble gitt til gjennomgangen.
 - **Lav, ikke verdt kompleksiteten:** abort/timeout i `useEffect`, ikke-JSON-svar, bred CORS og manglende CORS-test (CORS brukes ikke med Vite-proxy), import-tids `create_app()` (feiler tydelig), pakking av `data/` i wheel, rester fra Vite-malen, flytende versjonstagger i Actions, at hvert kall leser alle datasettfilene, `explain` importerer `config`, ingen håndheving av modulgrenser, og at endringsloggen ikke er oppdatert (PR-en endrer ikke produktbriefen).
+
+## Lokal oppfølging 31.10.26
+
+Rapporten over viser vurderingen 29.10. [Kontrollrapporten](verification-scrum-18-2026-10-31.md)
+viser senere lokale rettelser og tester for P1–P7, D1 og W4. P1s datalagsdel
+er rettet; felles HTTP-feilhåndtering gjenstår i SCRUM-22 etter D2. Ingen
+push eller ekstern merge er utført, og de gamle funnene er ikke omskrevet.

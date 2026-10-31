@@ -1,0 +1,16 @@
+/* Midlertidig grunnstil. Visuelt uttrykk utformes i SCRUM-42 og SCRUM-47. */
+:root {
+  font-family: system-ui, 'Segoe UI', Roboto, sans-serif;
+  line-height: 1.5;
+  color-scheme: light dark;
+}
+
+body {
+  margin: 0;
+}
+
+main {
+  max-width: 60rem;
+  margin: 0 auto;
+  padding: 1rem;
+}
