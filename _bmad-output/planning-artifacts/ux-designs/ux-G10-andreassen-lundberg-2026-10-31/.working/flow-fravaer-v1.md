@@ -22,22 +22,44 @@ flowchart LR
 - Odin presiserte at antallet gjelder arbeidsdager/vakter i planen, med
   standardverdi 1. Fridager telles ikke som berørte arbeidsdager/vakter.
   Dette beskriver skjemaets enhet, ikke kalenderdaggrensene i egenmeldingsordningen.
+- Odin valgte at neste planlagte vakt foreslås som startvakt, med mulighet
+  til å velge en annen. I demoen brukes datasettets vurderingstidspunkt
+  som grunnlag, etter eksisterende PRD FR-10, ikke maskinens klokke.
 - Kildene avgrenser hvert søk til ett målskift. Et nytt fravær bruker
   gjeldende grunnlag; valg eller simulert aksept innfører ingen vaktendring.
   Se [kravuttrekket](source-requirements.md) og [scenariouttrekket](source-scenarios.md).
 
 ## Ikke avklart i denne skissen
 
-- Hvordan aktuell vakt angis etter personvalg, blant annet når personen har flere vakter.
-- Hvordan startvakten velges, og hvordan antallet kobles til berørte
-  vakter. Automatisk flervaktregistrering eller endring av søkets ene
-  målskift er ikke avklart gjennom valget av enhet og standardverdi.
+- Hvordan antallet kobles til flere berørte vakter fra startvakten.
+  Automatisk flervaktregistrering eller endring av søkets ene målskift
+  er ikke avklart gjennom valget av startvakt, enhet og standardverdi.
 - Fordeling av informasjon mellom alternativoversikt og detaljer.
 - Skjermdeling, visuell stil og konkret skiftlederkontekst.
 
 Disse punktene avklares i SCRUM-47 før den detaljerte UX-flyten ferdigstilles.
 Dagfeltet er et nytt UX-valg fra Odin; det avgjør ikke de åpne punktene eller
 utvider alene det avtalte søkeomfanget.
+
+## Skjemaskisse til gjennomgang
+
+Felt og standardverdier nedenfor gjengir valgene over. Feltrekkefølge,
+etiketter og oppdeling er Codex sin arbeidsskisse til gjennomgang,
+ikke et ferdig vedtatt skjermoppsett. Ingen ny fraværsårsak er valgt.
+
+```text
+FRAVÆR
+
+Fraværende ansatt       [ Velg ansatt                 ]
+Startvakt              [ Neste planlagte vakt       v ]
+Antall arbeidsdager/
+vakter                 [ 1                          ]
+
+                       [ Finn alternativer           ]
+```
+
+Startvakten kan endres. Flere berørte vakter må avklares før skissen
+tolkes som støtte for samlet søk etter flere samtidige fravær.
 
 ## Research som grunnlag for neste avklaring
 
