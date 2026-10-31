@@ -496,8 +496,9 @@ D2–D5, D8 og M1–M2. Validerer FR-1 til FR-17 og FR-20/21.
 Samordningsspørsmål 2 er lukket 31.10.26: kravdekning, sakskriterier og
 leveranseforutsetninger er kontrollert og nødvendige Jira-tekster oppdatert.
 Se [kontrollgrunnlaget for SCRUM-46](../../../../docs/scrum-46-prd-avstemming.md).
-Saksavhengigheten til den fortsatt åpne SCRUM-13 er beholdt; kontrollen
-innebærer verken godkjenning av kodeskjelettet eller Done for implementeringssaker.
+Etter merge og grønn main-CI er SCRUM-13, SCRUM-46 og SCRUM-18 satt til Done
+31.10.26. Avhengighetslenkene er beholdt som sporbarhet. Dette avslutter
+planleggings- og skjelettoppgavene, ikke de øvrige implementeringssakene.
 
 ## 10. Antakelser
 

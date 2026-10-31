@@ -13,15 +13,19 @@ Alle 24 FR og ni NFR har saksdekning. Beskrivelsene i 22 oppgaver og fire
 epics er samordnet med kravene. Ingen separat ny produktsak var nødvendig:
 de konkrete dekningsmanglene kunne rettes i eksisterende saker.
 
-Planleggingskontrollen er fullført. SCRUM-46 legges til gjennomgang og
-beholder avhengigheten til SCRUM-13. Dette er ikke Done for SCRUM-46,
-kodeskjelettet eller implementeringssakene.
+Planleggingskontrollen er fullført. Etter merge av
+[PR #4](https://github.com/IBE160-2026/G10-andreassen-lundberg/pull/4)
+til main i `283afb682e40f0b7bdf42344f572d5d7fd256032` er SCRUM-13,
+SCRUM-46 og SCRUM-18 satt til Done med kontrollkommentar og commit-ID.
+[Main-CI](https://github.com/IBE160-2026/G10-andreassen-lundberg/actions/runs/41244197911)
+er grønn for backend og frontend. Dette avslutter planleggings- og
+skjelettoppgavene; øvrige implementeringssaker gjenstår.
 
 ## Akseptansekriterier og kontrollbevis
 
 | Kriterium i SCRUM-46 | Kontrollgrunnlag og resultat |
 |---|---|
-| Resultatene fra SCRUM-13–17 er innarbeidet i briefen. | [Briefen](../productbrief.md), [teknologivalgene](teknologivalg.md) og [endringslogg E28–E35](productbrief-endringslogg.md). Senere omfangsvalg i E35 overstyrer eldre MVP-omtale av varig logg. SCRUM-13s kodeverifikasjon er fortsatt åpen. |
+| Resultatene fra SCRUM-13–17 er innarbeidet i briefen. | [Briefen](../productbrief.md), [teknologivalgene](teknologivalg.md) og [endringslogg E28–E35](productbrief-endringslogg.md). Senere omfangsvalg i E35 overstyrer eldre MVP-omtale av varig logg. Kodeskjelettet er verifisert og merget gjennom PR #4. |
 | Endringslogg og memlog viser kilde, opphav og beslutningsstatus. | Eksisterende endringslogg og [rotmemlog](../.memlog.md) skiller individuelle valg, avtalt delegering og KI-konkretiseringer. Ingen briefendring er gjort i denne runden; et kort kontrollspor føres i memloggene. |
 | Felles beslutninger er uttrykkelig skilt fra individuelle valg. | PRD §7.2/10 og briefen bevarer opphavet til Stians valg 29.10, Odins revisjon 30.10 og Codex sine beregnings-/testkonkretiseringer. Kontrollen innebærer ingen ny felles detaljgodkjenning. |
 | PRD er opprettet eller validert mot briefen. | [Kildeavstemming](../_bmad-output/planning-artifacts/prds/prd-G10-andreassen-lundberg-2026-10-29/reconcile-brief-2026-10-31.md) og [rubrikkgjennomgang](../_bmad-output/planning-artifacts/prds/prd-G10-andreassen-lundberg-2026-10-29/review-rubric-2026-10-31.md). Ingen kritiske eller høye funn; konkrete kilde- og presisjonsmangler er rettet. |
@@ -60,17 +64,19 @@ eksisterende blokkering eller pågående kodearbeid er endret.
 
 ## Avhengigheter og neste steg
 
-Jira har ingen syklus i de registrerte blokkeringene alene. Den praktiske
-sirkelen skyldes at SCRUM-13s siste kommentar venter på merge av SCRUM-18,
-mens SCRUM-46 er blokkert av SCRUM-13 og selv blokkerer SCRUM-18/47.
-Lenkene er beholdt. Produktgrunnlaget er tilgjengelig, men lukking av
-SCRUM-46 avventer håndtering av SCRUM-13-avhengigheten.
+Jira hadde ingen syklus i de registrerte blokkeringene alene. Den praktiske
+sirkelen før merge var at SCRUM-13 ventet på merge av SCRUM-18, mens
+SCRUM-46 var blokkert av SCRUM-13 og selv blokkerte SCRUM-18/47.
+Merge og kontroll oppfylte forutsetningen i SCRUM-13. Deretter ble
+SCRUM-13, SCRUM-46 og SCRUM-18 lukket i denne rekkefølgen.
+Lenkene er beholdt som sporbarhet; SCRUM-47 har nå sitt planleggingsgrunnlag.
 
 Stians SCRUM-13-kommentar `10023`, publisert 29.10.26, avklarer at den eldre
 lokale E33-versjonen er forkastet til fordel for E34 på main.
 [Teknologidokumentet](teknologivalg.md#kilder-og-samordning) viser nå dette.
-Kjørbarhet, nøkkelhåndtering og gjenværende rettelser i kodeskjelettet følges
-opp gjennom SCRUM-13/18 og [PR #3](https://github.com/IBE160-2026/G10-andreassen-lundberg/pull/3).
+Kjørbarhet, nøkkelhåndtering og skjelettrettelsene er kontrollert gjennom
+SCRUM-13/18 og [PR #4](https://github.com/IBE160-2026/G10-andreassen-lundberg/pull/4).
+GitHub har også registrert PR #3 som merget, siden innholdet er bevart i PR #4.
 
 Arbeidsrekkefølgen er beskrevet uten nye generelle blokkeringer:
 datamodell før integrert demodatasett; kontrollerte resultater før integrerte
@@ -89,4 +95,4 @@ Rubrikk- og kildeavstemming er gjort med egne underagenter, men er fortsatt
 KI-gjennomganger. Kontrolltilfellene beskriver forventet oppførsel; komplett
 datasett, kjørbare tester og appfunksjoner gjenstår i implementeringssakene.
 Den konkrete dokumentkontrollen og commitgrunnlaget registreres i SCRUM-46
-og sesjonsloggen. Ingen push utføres i denne runden.
+og sesjonsloggen. Ny funksjonalitet verifiseres i de respektive implementeringssakene.

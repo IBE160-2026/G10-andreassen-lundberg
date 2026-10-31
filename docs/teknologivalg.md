@@ -51,5 +51,9 @@ og E33. Disse var ikke tilgjengelige på de eksterne grenene ved kontroll
 `10023`, publisert 29.10.26, at den eldre lokale versjonen (`7deeaff`, E33)
 er forkastet til fordel for main-versjonen (`edb7eff`, E34). E33 brukes ikke.
 Det gjenstår derfor ikke et nytt produktvalg mellom disse versjonene.
-Kodeverifikasjon og merge av kodeskjelettet følges fortsatt opp i SCRUM-13/18;
-dette dokumentet bekrefter ikke at disse sakene er ferdige.
+Kodeverifikasjon og merge er fullført 31.10.26 gjennom
+[PR #4](https://github.com/IBE160-2026/G10-andreassen-lundberg/pull/4),
+merge-commit `283afb682e40f0b7bdf42344f572d5d7fd256032`, med
+[grønn main-CI](https://github.com/IBE160-2026/G10-andreassen-lundberg/actions/runs/41244197911).
+SCRUM-13/18 er satt til Done. Dette gjelder oppstartsgrunnlag og kodeskjelett;
+full produktflyt og modellvalg følges i implementeringssakene.

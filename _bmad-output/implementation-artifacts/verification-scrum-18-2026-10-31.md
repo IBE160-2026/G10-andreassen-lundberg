@@ -58,3 +58,17 @@ saksavhengigheten må følges opp med korrekt commitgrunnlag. Eksisterende
 arbeidsdeling er beholdt; ny gjennomgangsgren endrer ikke den delte PR-grenen.
 W1–W3 og felles HTTP-feilhåndtering følger fortsatt de tidligere angitte
 implementeringssakene.
+
+## Oppfølging etter publisering og merge
+
+Avsnittet over viser kontrollpunktet før publisering. PR #4 er senere
+merget til main 31.10.26 i `283afb682e40f0b7bdf42344f572d5d7fd256032`.
+GitHub registrerte også PR #3 som merget fordi det opprinnelige innholdet
+er bevart. [CI på merge-commiten](https://github.com/IBE160-2026/G10-andreassen-lundberg/actions/runs/41244197911)
+er grønn for backend og frontend; filtrærne til testet PR-head og merge-commit
+er identiske. Ingen nye kodetester var nødvendige i denne avslutningen.
+
+Akseptansekriterier og publisert kontrollbevis er registrert i SCRUM-13,
+SCRUM-46 og SCRUM-18 før sakene ble satt til Done. Gjennomføringen følger
+Odins oppdrag om å gå videre; ingen ny felles detaljbeslutning eller endring
+av arbeidsdeling er utledet. SCRUM-47 er neste planleggingsoppgave.
