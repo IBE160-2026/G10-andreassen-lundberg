@@ -243,7 +243,26 @@ Issues-punktet om publisert oppfølging av rettelsene er lukket. Ingen ekstern
 merge eller endring av den opprinnelige PR #3 er utført. Denne oppfølgingen
 committes bare lokalt som arbeidslogg; den er ikke del av den godkjente pushen.
 
+Oppfølging kl. 22:37: Etter Odins beskjed om å gå videre er PR #4 merget
+til main i `283afb682e40f0b7bdf42344f572d5d7fd256032`. GitHub registrerte
+også PR #3 som merget, uten en separat lukking eller sletting av grenen.
+[Main-CI](https://github.com/IBE160-2026/G10-andreassen-lundberg/actions/runs/41244197911)
+er grønn for backend og frontend. Merge-commit og testet PR-head har
+identiske filtrær; ingen nye kodetester var nødvendige.
+
+Akseptansekriterier, kildegrunnlag og avgrensninger er kontrollert og
+kommentert med commit-ID før SCRUM-13, SCRUM-46 og SCRUM-18 ble satt til
+Done, i denne rekkefølgen. Ansvar, sprint og avhengighetslenker er beholdt.
+SCRUM-47 har sitt planleggingsgrunnlag; øvrige implementeringssaker er åpne.
+README, PRD, kontrollrapporter, teknologidokument og memlogger viser
+sluttstatus i lokal commit `26bf827bdd14b0208e86104901283c2383dc7ef6`.
+65 dokumentlenker/ankre, krav-ID-er og `git diff --check` bestod.
+Lokal main er oppdatert, og den tidligere lokale publiseringsloggen er
+bevart som egen loggcommit. Sluttdokumentasjon og denne loggoppdateringen
+er ikke pushet. Personlige notater er uendret.
+
 ### Åpne punkter
-Ingen nye punkter fra selve økten. Videre gjennomgang, koordinering av
-PR-ene og ekstern merge følges i Jira. Eksisterende issues-punkter er
-beholdt med oppdatert status.
+Ingen nye punkter fra selve økten. SCRUM-18s merge-/gjennomgangspunkt i
+issues.md er lukket; øvrige eksisterende punkter er beholdt. Videre
+prosjektarbeid, inkludert SCRUM-47 og utsatte implementeringskrav,
+følges i Jira.
