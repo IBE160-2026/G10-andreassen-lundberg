@@ -98,6 +98,10 @@ scenarioet og etablerer ingen responstids- eller skaleringsgaranti.
 
 ## Bevisste grenser
 
+[Jira-avstemmingen 08.11.2026](jira-avstemming-2026-11-08.md) skiller denne
+kontrollerte Build-leveransen fra bredere eller gjenstående sakskriterier.
+Grønne lokale tester betyr ikke at alle Jira-saker eller hele MVP-en er ferdige.
+
 - Ett målskift og én manglende plass per søk, høyst én flytting. Flere fravær
   beholdes, men appen løser dem ikke samlet og reserverer ingen ansatte.
 - R1–R5 er avgrensede scenarioregler. Historiske registrerte vakter er ikke

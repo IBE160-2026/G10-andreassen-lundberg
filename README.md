@@ -166,6 +166,7 @@ Start gjerne med [den samlede begrunnelsen for arbeidsutkastet](docs/productbrie
 | [Arkitektur](docs/arkitektur.md) | Moduler, ansvarsgrenser, konfigurasjon og kvalitetssikring for den lokale demoflyten. |
 | [Data- og HTTP-kontrakt](docs/api-demoflyt.md) | Validerte datasett, tilstandsløst API, resultatfelter og versjonsbundet øktminne. |
 | [Demoflytens kontrollrapport](docs/demoflyt-kontrollrapport-2026-11-08.md) | SCRUM-19: fasit, grense-/feilkontroller, øktregresjoner, faktisk nettlesergrunnlag og avgrensninger. |
+| [Jira-avstemming 08.11.2026](docs/jira-avstemming-2026-11-08.md) | Per-sak-kobling mellom pushet kode, kontrollbevis, status og gjenstående akseptansekriterier. |
 | [Leverings- og dokumentasjonskrav for IBE160](docs/ibe160-leveringskrav.md) | Kildekontrollert oversikt over arbeidskrav, vurdering, KI-dokumentasjon, individuelle bidrag og design/UX. Sluttfrist og «delvurdering 3» er fortsatt uavklart. |
 | [VaktMatch-vedlegget](_bmad-output/planning-artifacts/briefs/brief-G10-andreassen-lundberg-2026-09-07-VaktMatch/addendum.md) | Supplerende bakgrunn og åpne innspill til hovedbriefen. Ingen selvstendig brief eller utvidelse av vedtatt omfang. |
 | [Turnusgenerator – alternativforslag fra Stian](_bmad-output/planning-artifacts/briefs/brief-G10-andreassen-lundberg-2026-09-18-turnusgenerering/brief.md) | Forslag til vurdering. Erstatter ikke hovedbriefen. [Teknisk vedlegg](_bmad-output/planning-artifacts/briefs/brief-G10-andreassen-lundberg-2026-09-18-turnusgenerering/addendum.md) tilhører forslaget. |
