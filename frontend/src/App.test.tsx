@@ -1,23 +1,242 @@
-import { cleanup, render, screen } from '@testing-library/react'
-import { afterEach, expect, test, vi } from 'vitest'
+import { cleanup, fireEvent, render, screen, waitFor } from '@testing-library/react'
+import { afterEach, beforeEach, expect, test, vi } from 'vitest'
 import App from './App'
+import { alternative, dataset, evaluation, info, updatedInfo } from './test/demo-fixture'
+
+beforeEach(() => { vi.stubGlobal('scrollTo', vi.fn()) })
 
 afterEach(() => {
   cleanup()
   vi.unstubAllGlobals()
 })
 
-test('viser backendstatus når API-et svarer', async () => {
-  vi.stubGlobal(
-    'fetch',
-    vi.fn().mockResolvedValue(
-      new Response(JSON.stringify({ status: 'ok', version: '0.1.0', explainer: 'regelbasert' })),
-    ),
-  )
+function setupApi(evaluationValue = evaluation) {
+  const fetchMock = vi.fn(async (url: string, options?: RequestInit) => {
+    const body = options?.body ? JSON.parse(String(options.body)) : undefined
+    let value: unknown
+    if (url === '/api/datasets') value = [info, updatedInfo]
+    else if (url.includes('/state') && options?.method !== 'POST') value = { ...dataset, dataset: url.includes('komplettert') ? updatedInfo : info }
+    else if (url === '/api/state') value = { ...dataset, dataset: body.dataset_id === updatedInfo.id ? updatedInfo : info, coverage: evaluation.coverage }
+    else if (url === '/api/absences/preview') value = { start: dataset.week_start, end: dataset.week_end, affected: [{ shift: dataset.shifts[0], eligible: true, limitation: '' }] }
+    else if (url === '/api/absences/simulate') value = { ...body, absences: [body.absence], coverage: evaluation.coverage, message: 'Fraværet er simulert for valgt vakt. Finn alternativer når du er klar.' }
+    else if (url === '/api/evaluate') value = { ...evaluationValue, ...body, alternatives: evaluationValue.alternatives.filter(a => body.search_limit === 1 || a.moves === 0) }
+    else if (url === '/api/datasets/compare') value = { previous: body.previous_id === info.id ? info : updatedInfo, next: body.next_id === info.id ? info : updatedInfo, same_family: true, unchanged: false, changes: [{ category: 'employees', id: 'V01', field: 'availability', before: null, after: [] }] }
+    else if (url === '/api/explain') value = { mode: 'standard', message: 'Standardforklaringen vises fortsatt.', explanation: evaluation.alternatives[0].explanation, reference_id: 'A02' }
+    else throw new Error(`Uventet testforespørsel: ${url}`)
+    return new Response(JSON.stringify(value))
+  })
+  vi.stubGlobal('fetch', fetchMock)
+  return fetchMock
+}
 
+function failOnce(fetchMock: ReturnType<typeof setupApi>, path: string) {
+  const original = fetchMock.getMockImplementation()!
+  let failed = false
+  fetchMock.mockImplementation(async (url, options) => {
+    if (url === path && !failed) { failed = true; return new Response(JSON.stringify({ message: 'Midlertidig feil. Prøv igjen.' }), { status: 503 }) }
+    return original(url, options)
+  })
+}
+
+async function startSearch() {
   render(<App />)
+  fireEvent.click(await screen.findByRole('button', { name: 'Registrer fravær' }))
+  await screen.findByRole('radio')
+  fireEvent.click(screen.getByRole('button', { name: 'Simuler fravær' }))
+  await waitFor(() => expect(screen.getByRole('button', { name: 'Finn alternativer' })).toBeEnabled())
+  fireEvent.click(screen.getByRole('button', { name: 'Finn alternativer' }))
+  await screen.findByRole('button', { name: /Undersøk A02/ })
+}
 
-  expect(await screen.findByText(/Backend 0\.1\.0 kjører/)).toBeInTheDocument()
+test('simulering og søk er separate handlinger med API-beregnet dekning', async () => {
+  const fetchMock = setupApi()
+  render(<App />)
+  fireEvent.click(await screen.findByRole('button', { name: 'Registrer fravær' }))
+  await screen.findByRole('radio')
+  expect(fetchMock.mock.calls.some(([url]) => url === '/api/evaluate')).toBe(false)
+  fireEvent.click(screen.getByRole('button', { name: 'Simuler fravær' }))
+  await screen.findByText('Faktisk udekket: 1 plass(er)')
+  expect(fetchMock.mock.calls.some(([url]) => url === '/api/evaluate')).toBe(false)
+  fireEvent.click(screen.getByRole('button', { name: 'Finn alternativer' }))
+  await screen.findByRole('button', { name: /Undersøk A02/ })
+  expect(fetchMock.mock.calls.some(([url]) => url === '/api/evaluate')).toBe(true)
+})
+
+test('A → B → A bevarer svar for riktig forslag uten å endre vaktlisten', async () => {
+  setupApi(); await startSearch()
+  fireEvent.click(screen.getByRole('button', { name: /Undersøk A02/ }))
+  fireEvent.click(screen.getByRole('button', { name: 'Velg alternativ' }))
+  fireEvent.click(screen.getByRole('button', { name: 'Simuler tilbud' }))
+  fireEvent.click(screen.getByRole('button', { name: 'Simuler avslag for A02' }))
+  expect(screen.getByText(/Avslått – ikke full simulert aksept/)).toBeInTheDocument()
+  fireEvent.click(screen.getByRole('button', { name: 'Undersøk et annet alternativ' }))
+  fireEvent.click(screen.getByRole('button', { name: /Undersøk A03/ }))
+  fireEvent.click(screen.getByRole('button', { name: 'Velg alternativ' }))
+  expect(screen.getByRole('button', { name: 'Simuler tilbud' })).toBeEnabled()
+  fireEvent.click(screen.getByRole('button', { name: 'Undersøk et annet alternativ' }))
+  fireEvent.click(screen.getByRole('button', { name: /Undersøk A02/ }))
+  fireEvent.click(screen.getByRole('button', { name: 'Velg alternativ' }))
+  expect(screen.getByRole('button', { name: 'Simuler tilbud' })).toBeDisabled()
+  expect(screen.getByText(/Avslått – ikke full simulert aksept/)).toBeInTheDocument()
+  expect(screen.getByText('Faktisk udekket: 1 plass(er)')).toBeInTheDocument()
+})
+
+test('datasettbytte arkiverer valg og svar og bevarer gyldig fravær', async () => {
+  const fetchMock = setupApi(); await startSearch()
+  fireEvent.click(screen.getByRole('button', { name: /Undersøk A02/ }))
+  fireEvent.click(screen.getByRole('button', { name: 'Velg alternativ' }))
+  fireEvent.click(screen.getByRole('button', { name: 'Simuler tilbud' }))
+  fireEvent.click(screen.getByRole('button', { name: 'Simuler aksept for A02' }))
+  fireEvent.click(screen.getByRole('button', { name: 'Datagrunnlag' }))
+  fireEvent.click(screen.getByRole('button', { name: 'Forhåndsvis endringer' }))
+  fireEvent.click(await screen.findByRole('button', { name: 'Last inn oppdaterte vaktdata' }))
+  await screen.findByRole('heading', { name: 'Planlagt uke 5' })
+  fireEvent.click(screen.getByRole('button', { name: '3 Valg' }))
+  expect(screen.getByText(/Ingen gjeldende valg/)).toBeInTheDocument()
+  fireEvent.click(screen.getByText('Tidligere valg (1)'))
+  expect(screen.getByText(/Full simulert aksept/)).toBeInTheDocument()
+  const refresh = fetchMock.mock.calls.filter(([url]) => url === '/api/state').at(-1)!
+  expect(JSON.parse(String(refresh[1]?.body)).absences).toEqual([{ employee_id: 'A01', shift_id: 'X' }])
+})
+
+test('ugyldig skjema viser feltlenker og sender ikke fravær', async () => {
+  const fetchMock = setupApi(); render(<App />)
+  fireEvent.click(await screen.findByRole('button', { name: 'Registrer fravær' }))
+  fireEvent.change(screen.getByLabelText('Kalenderdager'), { target: { value: '0' } })
+  fireEvent.click(screen.getByRole('button', { name: 'Simuler fravær' }))
+  expect(screen.getByRole('link', { name: /Kalenderdager må være/ })).toHaveAttribute('href', '#days')
+  expect(fetchMock.mock.calls.some(([url]) => url === '/api/absences/simulate')).toBe(false)
+})
+
+test('et flyttevalg utenfor ny søkegrense blir historisk og kan ikke få tilbud', async () => {
+  const moved = alternative('B','8'); moved.kind = 'flytting'; moved.moves = 1
+  setupApi({ ...evaluation, alternatives: [...evaluation.alternatives, moved] })
+  await startSearch()
+  fireEvent.click(screen.getByRole('button', { name: /Undersøk B,/ }))
+  fireEvent.click(screen.getByRole('button', { name: 'Velg alternativ' }))
+  fireEvent.click(screen.getByRole('button', { name: 'Undersøk et annet alternativ' }))
+  fireEvent.change(screen.getByLabelText('Søkegrense'), { target: { value: '0' } })
+  fireEvent.click(screen.getByRole('button', { name: 'Finn alternativer' }))
+  await waitFor(() => expect(screen.getByRole('button', { name: 'Finn alternativer' })).toBeEnabled())
+  fireEvent.click(screen.getByRole('button', { name: '3 Valg' }))
+  expect(screen.getByText(/Ingen gjeldende valg/)).toBeInTheDocument()
+  expect(screen.queryByRole('button', { name: 'Simuler tilbud' })).not.toBeInTheDocument()
+  expect(screen.getByText('Tidligere valg (1)')).toBeInTheDocument()
+})
+
+test('datasett A → B → A krever ny aksept men beholder tidligere svar historisk', async () => {
+  setupApi(); await startSearch()
+  fireEvent.click(screen.getByRole('button', { name: /Undersøk A02/ }))
+  fireEvent.click(screen.getByRole('button', { name: 'Velg alternativ' }))
+  fireEvent.click(screen.getByRole('button', { name: 'Simuler tilbud' }))
+  fireEvent.click(screen.getByRole('button', { name: 'Simuler aksept for A02' }))
+  for (const identifier of [updatedInfo.id, info.id]) {
+    fireEvent.click(screen.getByRole('button', { name: 'Datagrunnlag' }))
+    fireEvent.change(screen.getByLabelText('Nytt datasett'), { target: { value: identifier } })
+    fireEvent.click(screen.getByRole('button', { name: 'Forhåndsvis endringer' }))
+    fireEvent.click(await screen.findByRole('button', { name: 'Last inn oppdaterte vaktdata' }))
+    await screen.findByRole('heading', { name: 'Planlagt uke 5' })
+    await waitFor(() => expect(screen.getByRole('button', { name: 'Datagrunnlag' })).toBeEnabled())
+  }
+  fireEvent.click(screen.getByRole('button', { name: '2 Alternativer' }))
+  expect(screen.getByRole('button', { name: /Undersøk A02/ })).toBeEnabled()
+  fireEvent.click(screen.getByRole('button', { name: 'Finn alternativer' }))
+  await waitFor(() => expect(screen.getByRole('button', { name: 'Finn alternativer' })).toBeEnabled())
+  fireEvent.click(screen.getByRole('button', { name: /Undersøk A02/ }))
+  fireEvent.click(screen.getByRole('button', { name: 'Velg alternativ' }))
+  expect(screen.getByRole('button', { name: 'Simuler tilbud' })).toBeEnabled()
+  expect(screen.getByRole('button', { name: 'Simuler aksept for A02' })).toBeDisabled()
+  fireEvent.click(screen.getByText('Tidligere valg (1)'))
+  expect(screen.getByText(/Full simulert aksept/)).toBeInTheDocument()
+})
+
+test('Prøv igjen gjentar feilet fraværssimulering med gyldige felt', async () => {
+  const fetchMock = setupApi(); render(<App />)
+  fireEvent.click(await screen.findByRole('button', { name: 'Registrer fravær' }))
+  await screen.findByRole('radio')
+  failOnce(fetchMock, '/api/absences/simulate')
+  fireEvent.click(screen.getByRole('button', { name: 'Simuler fravær' }))
+  fireEvent.click(await screen.findByRole('button', { name: 'Prøv igjen' }))
+  await screen.findByRole('button', { name: 'Finn alternativer' })
+  expect(fetchMock.mock.calls.filter(([url]) => url === '/api/absences/simulate')).toHaveLength(2)
+})
+
+test('Prøv igjen gjentar både feilet datasammenligning og innlasting', async () => {
+  const fetchMock = setupApi(); render(<App />)
+  await screen.findByRole('button', { name: 'Registrer fravær' })
+  fireEvent.click(screen.getByRole('button', { name: 'Datagrunnlag' }))
+  failOnce(fetchMock, '/api/datasets/compare')
+  fireEvent.click(screen.getByRole('button', { name: 'Forhåndsvis endringer' }))
+  fireEvent.click(await screen.findByRole('button', { name: 'Prøv igjen' }))
+  await screen.findByRole('button', { name: 'Last inn oppdaterte vaktdata' })
+  expect(fetchMock.mock.calls.filter(([url]) => url === '/api/datasets/compare')).toHaveLength(2)
+  failOnce(fetchMock, '/api/datasets/komplettert/state')
+  fireEvent.click(screen.getByRole('button', { name: 'Last inn oppdaterte vaktdata' }))
+  fireEvent.click(await screen.findByRole('button', { name: 'Prøv igjen' }))
+  await screen.findByRole('heading', { name: 'Planlagt uke 5' })
+  expect(fetchMock.mock.calls.filter(([url]) => url === '/api/datasets/komplettert/state')).toHaveLength(2)
+})
+
+test('Prøv igjen gjentar feilet forklaring uten å fjerne standarden', async () => {
+  const fetchMock = setupApi(); await startSearch()
+  fireEvent.click(screen.getByRole('button', { name: /Undersøk A03/ }))
+  failOnce(fetchMock, '/api/explain')
+  fireEvent.click(screen.getByRole('button', { name: 'Forklar forskjellen' }))
+  fireEvent.click(await screen.findByRole('button', { name: 'Prøv igjen' }))
+  await screen.findByRole('heading', { name: 'Standard sammenligning · KI er ikke tilgjengelig' })
+  expect(fetchMock.mock.calls.filter(([url]) => url === '/api/explain')).toHaveLength(2)
+  expect(screen.getByRole('heading', { name: 'Standardforklaring' })).toBeInTheDocument()
+})
+
+test('ventende søk låser navigasjon og annonserer handlingen til svaret er behandlet', async () => {
+  const fetchMock = setupApi(); render(<App />)
+  fireEvent.click(await screen.findByRole('button', { name: 'Registrer fravær' }))
+  await screen.findByRole('radio')
+  fireEvent.click(screen.getByRole('button', { name: 'Simuler fravær' }))
+  await waitFor(() => expect(screen.getByRole('button', { name: 'Finn alternativer' })).toBeEnabled())
+  const original = fetchMock.getMockImplementation()!
+  let resolve!: (response: Response) => void
+  fetchMock.mockImplementation((url, options) => url === '/api/evaluate' ? new Promise<Response>(done => { resolve = done }) : original(url, options))
+  fireEvent.click(screen.getByRole('button', { name: 'Finn alternativer' }))
+  expect(screen.getByRole('status')).toHaveTextContent('Søker med grense 1')
+  expect(screen.getByRole('button', { name: 'Datagrunnlag' })).toBeDisabled()
+  expect(screen.getByRole('button', { name: '1 Fravær' })).toBeDisabled()
+  fireEvent.click(screen.getByRole('button', { name: 'Datagrunnlag' }))
+  resolve(new Response(JSON.stringify(evaluation)))
+  await screen.findByRole('button', { name: /Undersøk A02/ })
+  expect(screen.getByRole('heading', { level: 1 })).toHaveTextContent('Sammenlign alternativer')
+  expect(screen.getByRole('button', { name: 'Datagrunnlag' })).toBeEnabled()
+})
+
+test('gamle kort viser opprinnelige kriterier etter ubehandlet scope- og kriterieendring', async () => {
+  const fetchMock = setupApi(); await startSearch()
+  const count = fetchMock.mock.calls.filter(([url]) => url === '/api/evaluate').length
+  fireEvent.change(screen.getByLabelText('Søkegrense'), { target: { value: '0' } })
+  fireEvent.click(screen.getByLabelText('P2 · Lavest andel av avtalte timer'))
+  fireEvent.click(screen.getByLabelText('P1 · Færrest planlagte uketimer'))
+  expect(fetchMock.mock.calls.filter(([url]) => url === '/api/evaluate')).toHaveLength(count)
+  expect(screen.getAllByText(/Sortering P1 ·/)).toHaveLength(2)
+  expect(screen.queryByText(/Sortering P2 ·/)).not.toBeInTheDocument()
+})
+
+test('ny vurderingstid fjerner utløpt simulert fravær og forklarer paret ved innlasting', async () => {
+  const fetchMock = setupApi(); await startSearch()
+  const original = fetchMock.getMockImplementation()!
+  fetchMock.mockImplementation(async (url, options) => {
+    const response = await original(url, options)
+    if (url === '/api/datasets/komplettert/state') {
+      const value = await response.json()
+      return new Response(JSON.stringify({ ...value, assessment_time: '2026-10-14T09:00:00+02:00' }))
+    }
+    return response
+  })
+  fireEvent.click(screen.getByRole('button', { name: 'Datagrunnlag' }))
+  fireEvent.click(screen.getByRole('button', { name: 'Forhåndsvis endringer' }))
+  fireEvent.click(await screen.findByRole('button', { name: 'Last inn oppdaterte vaktdata' }))
+  await screen.findByRole('heading', { name: 'Planlagt uke 5' })
+  expect(screen.getByRole('status')).toHaveTextContent('Fravær som ikke overføres: A01/X')
+  const last = fetchMock.mock.calls.filter(([url]) => url === '/api/state').at(-1)!
+  expect(JSON.parse(String(last[1]?.body)).absences).toEqual([])
 })
 
 test('viser feilmelding når backend ikke svarer', async () => {

@@ -1,0 +1,1221 @@
+{
+  "dataset": {
+    "id": "komplettert",
+    "version": "2.0",
+    "title": "V01: tilgjengelighet bekreftet",
+    "family_id": "hoved",
+    "description": "V01: tilgjengelighet bekreftet. Syntetiske data konstruert av Codex på Odins mandat 08.11.2026."
+  },
+  "assessment_time": "2026-10-14T07:00:00+02:00",
+  "week_start": "2026-10-12T00:00:00+02:00",
+  "week_end": "2026-10-19T00:00:00+02:00",
+  "coverage_start": "2026-09-14T00:00:00+02:00",
+  "coverage_end": "2026-10-21T00:00:00+02:00",
+  "employees": [
+    {
+      "id": "A01",
+      "name": "A01 · eksempelperson",
+      "kind": "internal",
+      "skills": [
+        "K1"
+      ],
+      "availability": [
+        {
+          "start": "2026-09-14T00:00:00+02:00",
+          "end": "2026-10-21T00:00:00+02:00"
+        }
+      ],
+      "contract_hours": "40",
+      "hourly_rate": "180",
+      "work_context_complete": true,
+      "history_complete": true,
+      "history_source": "Konstruerte registrerte vakter · Codex 08.11.2026, ikke faktisk utført arbeid"
+    },
+    {
+      "id": "A02",
+      "name": "A02 · eksempelperson",
+      "kind": "internal",
+      "skills": [
+        "K1"
+      ],
+      "availability": [
+        {
+          "start": "2026-09-14T00:00:00+02:00",
+          "end": "2026-10-21T00:00:00+02:00"
+        }
+      ],
+      "contract_hours": "24",
+      "hourly_rate": "200",
+      "work_context_complete": true,
+      "history_complete": true,
+      "history_source": "Konstruerte registrerte vakter · Codex 08.11.2026, ikke faktisk utført arbeid"
+    },
+    {
+      "id": "A03",
+      "name": "A03 · eksempelperson",
+      "kind": "internal",
+      "skills": [
+        "K1"
+      ],
+      "availability": [
+        {
+          "start": "2026-09-14T00:00:00+02:00",
+          "end": "2026-10-21T00:00:00+02:00"
+        }
+      ],
+      "contract_hours": "40",
+      "hourly_rate": "200",
+      "work_context_complete": true,
+      "history_complete": true,
+      "history_source": "Konstruerte registrerte vakter · Codex 08.11.2026, ikke faktisk utført arbeid"
+    },
+    {
+      "id": "A04",
+      "name": "A04 · eksempelperson",
+      "kind": "internal",
+      "skills": [
+        "K2"
+      ],
+      "availability": [
+        {
+          "start": "2026-09-14T00:00:00+02:00",
+          "end": "2026-10-21T00:00:00+02:00"
+        }
+      ],
+      "contract_hours": "40",
+      "hourly_rate": "210",
+      "work_context_complete": true,
+      "history_complete": true,
+      "history_source": "Konstruerte registrerte vakter · Codex 08.11.2026, ikke faktisk utført arbeid"
+    },
+    {
+      "id": "A05",
+      "name": "A05 · eksempelperson",
+      "kind": "internal",
+      "skills": [
+        "K1"
+      ],
+      "availability": [
+        {
+          "start": "2026-09-14T00:00:00+02:00",
+          "end": "2026-10-21T00:00:00+02:00"
+        }
+      ],
+      "contract_hours": "40",
+      "hourly_rate": "220",
+      "work_context_complete": true,
+      "history_complete": true,
+      "history_source": "Konstruerte registrerte vakter · Codex 08.11.2026, ikke faktisk utført arbeid"
+    },
+    {
+      "id": "A06",
+      "name": "A06 · eksempelperson",
+      "kind": "internal",
+      "skills": [
+        "K1"
+      ],
+      "availability": [
+        {
+          "start": "2026-09-14T00:00:00+02:00",
+          "end": "2026-10-21T00:00:00+02:00"
+        }
+      ],
+      "contract_hours": "40",
+      "hourly_rate": "230",
+      "work_context_complete": true,
+      "history_complete": true,
+      "history_source": "Konstruerte registrerte vakter · Codex 08.11.2026, ikke faktisk utført arbeid"
+    },
+    {
+      "id": "A07",
+      "name": "A07 · eksempelperson",
+      "kind": "internal",
+      "skills": [
+        "K1"
+      ],
+      "availability": [
+        {
+          "start": "2026-09-14T00:00:00+02:00",
+          "end": "2026-10-21T00:00:00+02:00"
+        }
+      ],
+      "contract_hours": "40",
+      "hourly_rate": "240",
+      "work_context_complete": true,
+      "history_complete": true,
+      "history_source": "Konstruerte registrerte vakter · Codex 08.11.2026, ikke faktisk utført arbeid"
+    },
+    {
+      "id": "A08",
+      "name": "A08 · eksempelperson",
+      "kind": "internal",
+      "skills": [
+        "K1"
+      ],
+      "availability": [
+        {
+          "start": "2026-09-14T00:00:00+02:00",
+          "end": "2026-10-21T00:00:00+02:00"
+        }
+      ],
+      "contract_hours": "40",
+      "hourly_rate": "250",
+      "work_context_complete": true,
+      "history_complete": true,
+      "history_source": "Konstruerte registrerte vakter · Codex 08.11.2026, ikke faktisk utført arbeid"
+    },
+    {
+      "id": "V01",
+      "name": "V01 · eksempelperson",
+      "kind": "external",
+      "skills": [
+        "K1"
+      ],
+      "availability": [
+        {
+          "start": "2026-09-14T00:00:00+02:00",
+          "end": "2026-10-21T00:00:00+02:00"
+        }
+      ],
+      "contract_hours": "40",
+      "hourly_rate": "260",
+      "work_context_complete": true,
+      "history_complete": true,
+      "history_source": "Konstruerte registrerte vakter · Codex 08.11.2026, ikke faktisk utført arbeid"
+    }
+  ],
+  "shifts": [
+    {
+      "id": "H1-A01",
+      "start": "2026-09-15T08:00:00+02:00",
+      "end": "2026-09-15T16:00:00+02:00",
+      "required_skill": "K1",
+      "required_count": 1
+    },
+    {
+      "id": "H2-A01",
+      "start": "2026-09-22T08:00:00+02:00",
+      "end": "2026-09-22T16:00:00+02:00",
+      "required_skill": "K1",
+      "required_count": 1
+    },
+    {
+      "id": "H3-A01",
+      "start": "2026-09-29T08:00:00+02:00",
+      "end": "2026-09-29T16:00:00+02:00",
+      "required_skill": "K1",
+      "required_count": 1
+    },
+    {
+      "id": "H4-A01",
+      "start": "2026-10-06T08:00:00+02:00",
+      "end": "2026-10-06T16:00:00+02:00",
+      "required_skill": "K1",
+      "required_count": 1
+    },
+    {
+      "id": "H1-A02",
+      "start": "2026-09-15T08:00:00+02:00",
+      "end": "2026-09-15T16:00:00+02:00",
+      "required_skill": "K1",
+      "required_count": 1
+    },
+    {
+      "id": "H2-A02",
+      "start": "2026-09-22T08:00:00+02:00",
+      "end": "2026-09-22T16:00:00+02:00",
+      "required_skill": "K1",
+      "required_count": 1
+    },
+    {
+      "id": "H3-A02",
+      "start": "2026-09-29T08:00:00+02:00",
+      "end": "2026-09-29T16:00:00+02:00",
+      "required_skill": "K1",
+      "required_count": 1
+    },
+    {
+      "id": "H4-A02",
+      "start": "2026-10-06T08:00:00+02:00",
+      "end": "2026-10-06T16:00:00+02:00",
+      "required_skill": "K1",
+      "required_count": 1
+    },
+    {
+      "id": "H1-A03",
+      "start": "2026-09-15T08:00:00+02:00",
+      "end": "2026-09-15T16:00:00+02:00",
+      "required_skill": "K1",
+      "required_count": 1
+    },
+    {
+      "id": "H2-A03",
+      "start": "2026-09-22T08:00:00+02:00",
+      "end": "2026-09-22T16:00:00+02:00",
+      "required_skill": "K1",
+      "required_count": 1
+    },
+    {
+      "id": "H3-A03",
+      "start": "2026-09-29T08:00:00+02:00",
+      "end": "2026-09-29T16:00:00+02:00",
+      "required_skill": "K1",
+      "required_count": 1
+    },
+    {
+      "id": "H4-A03",
+      "start": "2026-10-06T08:00:00+02:00",
+      "end": "2026-10-06T16:00:00+02:00",
+      "required_skill": "K1",
+      "required_count": 1
+    },
+    {
+      "id": "H1-A04",
+      "start": "2026-09-15T08:00:00+02:00",
+      "end": "2026-09-15T16:00:00+02:00",
+      "required_skill": "K2",
+      "required_count": 1
+    },
+    {
+      "id": "H2-A04",
+      "start": "2026-09-22T08:00:00+02:00",
+      "end": "2026-09-22T16:00:00+02:00",
+      "required_skill": "K2",
+      "required_count": 1
+    },
+    {
+      "id": "H3-A04",
+      "start": "2026-09-29T08:00:00+02:00",
+      "end": "2026-09-29T16:00:00+02:00",
+      "required_skill": "K2",
+      "required_count": 1
+    },
+    {
+      "id": "H4-A04",
+      "start": "2026-10-06T08:00:00+02:00",
+      "end": "2026-10-06T16:00:00+02:00",
+      "required_skill": "K2",
+      "required_count": 1
+    },
+    {
+      "id": "H1-A05",
+      "start": "2026-09-15T08:00:00+02:00",
+      "end": "2026-09-15T16:00:00+02:00",
+      "required_skill": "K1",
+      "required_count": 1
+    },
+    {
+      "id": "H2-A05",
+      "start": "2026-09-22T08:00:00+02:00",
+      "end": "2026-09-22T16:00:00+02:00",
+      "required_skill": "K1",
+      "required_count": 1
+    },
+    {
+      "id": "H3-A05",
+      "start": "2026-09-29T08:00:00+02:00",
+      "end": "2026-09-29T16:00:00+02:00",
+      "required_skill": "K1",
+      "required_count": 1
+    },
+    {
+      "id": "H4-A05",
+      "start": "2026-10-06T08:00:00+02:00",
+      "end": "2026-10-06T16:00:00+02:00",
+      "required_skill": "K1",
+      "required_count": 1
+    },
+    {
+      "id": "H1-A06",
+      "start": "2026-09-15T08:00:00+02:00",
+      "end": "2026-09-15T16:00:00+02:00",
+      "required_skill": "K1",
+      "required_count": 1
+    },
+    {
+      "id": "H2-A06",
+      "start": "2026-09-22T08:00:00+02:00",
+      "end": "2026-09-22T16:00:00+02:00",
+      "required_skill": "K1",
+      "required_count": 1
+    },
+    {
+      "id": "H3-A06",
+      "start": "2026-09-29T08:00:00+02:00",
+      "end": "2026-09-29T16:00:00+02:00",
+      "required_skill": "K1",
+      "required_count": 1
+    },
+    {
+      "id": "H4-A06",
+      "start": "2026-10-06T08:00:00+02:00",
+      "end": "2026-10-06T16:00:00+02:00",
+      "required_skill": "K1",
+      "required_count": 1
+    },
+    {
+      "id": "H1-A07",
+      "start": "2026-09-15T08:00:00+02:00",
+      "end": "2026-09-15T16:00:00+02:00",
+      "required_skill": "K1",
+      "required_count": 1
+    },
+    {
+      "id": "H2-A07",
+      "start": "2026-09-22T08:00:00+02:00",
+      "end": "2026-09-22T16:00:00+02:00",
+      "required_skill": "K1",
+      "required_count": 1
+    },
+    {
+      "id": "H3-A07",
+      "start": "2026-09-29T08:00:00+02:00",
+      "end": "2026-09-29T16:00:00+02:00",
+      "required_skill": "K1",
+      "required_count": 1
+    },
+    {
+      "id": "H4-A07",
+      "start": "2026-10-06T08:00:00+02:00",
+      "end": "2026-10-06T16:00:00+02:00",
+      "required_skill": "K1",
+      "required_count": 1
+    },
+    {
+      "id": "H1-A08",
+      "start": "2026-09-15T08:00:00+02:00",
+      "end": "2026-09-15T16:00:00+02:00",
+      "required_skill": "K1",
+      "required_count": 1
+    },
+    {
+      "id": "H2-A08",
+      "start": "2026-09-22T08:00:00+02:00",
+      "end": "2026-09-22T16:00:00+02:00",
+      "required_skill": "K1",
+      "required_count": 1
+    },
+    {
+      "id": "H3-A08",
+      "start": "2026-09-29T08:00:00+02:00",
+      "end": "2026-09-29T16:00:00+02:00",
+      "required_skill": "K1",
+      "required_count": 1
+    },
+    {
+      "id": "H4-A08",
+      "start": "2026-10-06T08:00:00+02:00",
+      "end": "2026-10-06T16:00:00+02:00",
+      "required_skill": "K1",
+      "required_count": 1
+    },
+    {
+      "id": "H1-V01",
+      "start": "2026-09-15T08:00:00+02:00",
+      "end": "2026-09-15T16:00:00+02:00",
+      "required_skill": "K1",
+      "required_count": 1
+    },
+    {
+      "id": "H2-V01",
+      "start": "2026-09-22T08:00:00+02:00",
+      "end": "2026-09-22T16:00:00+02:00",
+      "required_skill": "K1",
+      "required_count": 1
+    },
+    {
+      "id": "H3-V01",
+      "start": "2026-09-29T08:00:00+02:00",
+      "end": "2026-09-29T16:00:00+02:00",
+      "required_skill": "K1",
+      "required_count": 1
+    },
+    {
+      "id": "H4-V01",
+      "start": "2026-10-06T08:00:00+02:00",
+      "end": "2026-10-06T16:00:00+02:00",
+      "required_skill": "K1",
+      "required_count": 1
+    },
+    {
+      "id": "X",
+      "start": "2026-10-14T08:00:00+02:00",
+      "end": "2026-10-14T16:00:00+02:00",
+      "required_skill": "K1",
+      "required_count": 1
+    },
+    {
+      "id": "W5-A01-2",
+      "start": "2026-10-16T08:00:00+02:00",
+      "end": "2026-10-16T16:00:00+02:00",
+      "required_skill": "K1",
+      "required_count": 1
+    },
+    {
+      "id": "W5-A02-1",
+      "start": "2026-10-12T08:00:00+02:00",
+      "end": "2026-10-12T16:00:00+02:00",
+      "required_skill": "K1",
+      "required_count": 1
+    },
+    {
+      "id": "W5-A02-2",
+      "start": "2026-10-13T08:00:00+02:00",
+      "end": "2026-10-13T16:00:00+02:00",
+      "required_skill": "K1",
+      "required_count": 1
+    },
+    {
+      "id": "W5-A02-3",
+      "start": "2026-10-15T08:00:00+02:00",
+      "end": "2026-10-15T16:00:00+02:00",
+      "required_skill": "K1",
+      "required_count": 1
+    },
+    {
+      "id": "W5-A03-1",
+      "start": "2026-10-12T08:00:00+02:00",
+      "end": "2026-10-12T16:00:00+02:00",
+      "required_skill": "K1",
+      "required_count": 1
+    },
+    {
+      "id": "W5-A03-2",
+      "start": "2026-10-13T12:00:00+02:00",
+      "end": "2026-10-13T20:00:00+02:00",
+      "required_skill": "K1",
+      "required_count": 1
+    },
+    {
+      "id": "W5-A03-3",
+      "start": "2026-10-15T08:00:00+02:00",
+      "end": "2026-10-15T16:00:00+02:00",
+      "required_skill": "K1",
+      "required_count": 1
+    },
+    {
+      "id": "W5-A03-4",
+      "start": "2026-10-16T08:00:00+02:00",
+      "end": "2026-10-16T16:00:00+02:00",
+      "required_skill": "K1",
+      "required_count": 1
+    },
+    {
+      "id": "W5-A04-1",
+      "start": "2026-10-12T08:00:00+02:00",
+      "end": "2026-10-12T16:00:00+02:00",
+      "required_skill": "K2",
+      "required_count": 1
+    },
+    {
+      "id": "W5-A04-2",
+      "start": "2026-10-13T08:00:00+02:00",
+      "end": "2026-10-13T16:00:00+02:00",
+      "required_skill": "K2",
+      "required_count": 1
+    },
+    {
+      "id": "W5-A04-3",
+      "start": "2026-10-15T08:00:00+02:00",
+      "end": "2026-10-15T16:00:00+02:00",
+      "required_skill": "K2",
+      "required_count": 1
+    },
+    {
+      "id": "W5-A05-1",
+      "start": "2026-10-12T08:00:00+02:00",
+      "end": "2026-10-12T16:00:00+02:00",
+      "required_skill": "K1",
+      "required_count": 1
+    },
+    {
+      "id": "W5-A05-2",
+      "start": "2026-10-13T16:00:00+02:00",
+      "end": "2026-10-14T00:00:00+02:00",
+      "required_skill": "K1",
+      "required_count": 1
+    },
+    {
+      "id": "W5-A05-3",
+      "start": "2026-10-15T08:00:00+02:00",
+      "end": "2026-10-15T16:00:00+02:00",
+      "required_skill": "K1",
+      "required_count": 1
+    },
+    {
+      "id": "W5-A06-1",
+      "start": "2026-10-12T08:00:00+02:00",
+      "end": "2026-10-12T16:00:00+02:00",
+      "required_skill": "K1",
+      "required_count": 1
+    },
+    {
+      "id": "W5-A06-2",
+      "start": "2026-10-13T08:00:00+02:00",
+      "end": "2026-10-13T16:00:00+02:00",
+      "required_skill": "K1",
+      "required_count": 1
+    },
+    {
+      "id": "W5-A06-3",
+      "start": "2026-10-14T20:00:00+02:00",
+      "end": "2026-10-15T04:00:00+02:00",
+      "required_skill": "K1",
+      "required_count": 1
+    },
+    {
+      "id": "W5-A07-1",
+      "start": "2026-10-13T08:00:00+02:00",
+      "end": "2026-10-13T16:00:00+02:00",
+      "required_skill": "K1",
+      "required_count": 1
+    },
+    {
+      "id": "W5-A07-2",
+      "start": "2026-10-14T12:00:00+02:00",
+      "end": "2026-10-14T20:00:00+02:00",
+      "required_skill": "K1",
+      "required_count": 1
+    },
+    {
+      "id": "W5-A07-3",
+      "start": "2026-10-15T08:00:00+02:00",
+      "end": "2026-10-15T16:00:00+02:00",
+      "required_skill": "K1",
+      "required_count": 1
+    },
+    {
+      "id": "W5-A08-1",
+      "start": "2026-10-12T08:00:00+02:00",
+      "end": "2026-10-12T16:00:00+02:00",
+      "required_skill": "K1",
+      "required_count": 1
+    },
+    {
+      "id": "W5-A08-2",
+      "start": "2026-10-13T08:00:00+02:00",
+      "end": "2026-10-13T16:00:00+02:00",
+      "required_skill": "K1",
+      "required_count": 1
+    },
+    {
+      "id": "W5-A08-3",
+      "start": "2026-10-15T08:00:00+02:00",
+      "end": "2026-10-15T16:00:00+02:00",
+      "required_skill": "K1",
+      "required_count": 1
+    },
+    {
+      "id": "W5-A08-4",
+      "start": "2026-10-16T08:00:00+02:00",
+      "end": "2026-10-16T16:00:00+02:00",
+      "required_skill": "K1",
+      "required_count": 1
+    },
+    {
+      "id": "W5-A08-5",
+      "start": "2026-10-17T08:00:00+02:00",
+      "end": "2026-10-17T16:00:00+02:00",
+      "required_skill": "K1",
+      "required_count": 1
+    },
+    {
+      "id": "W5-V01-1",
+      "start": "2026-10-13T08:00:00+02:00",
+      "end": "2026-10-13T16:00:00+02:00",
+      "required_skill": "K1",
+      "required_count": 1
+    },
+    {
+      "id": "W5-V01-2",
+      "start": "2026-10-15T08:00:00+02:00",
+      "end": "2026-10-15T16:00:00+02:00",
+      "required_skill": "K1",
+      "required_count": 1
+    },
+    {
+      "id": "W6-A01",
+      "start": "2026-10-19T08:00:00+02:00",
+      "end": "2026-10-19T16:00:00+02:00",
+      "required_skill": "K1",
+      "required_count": 1
+    },
+    {
+      "id": "W6-A02",
+      "start": "2026-10-19T08:00:00+02:00",
+      "end": "2026-10-19T16:00:00+02:00",
+      "required_skill": "K1",
+      "required_count": 1
+    },
+    {
+      "id": "W6-A03",
+      "start": "2026-10-19T08:00:00+02:00",
+      "end": "2026-10-19T16:00:00+02:00",
+      "required_skill": "K1",
+      "required_count": 1
+    },
+    {
+      "id": "W6-A04",
+      "start": "2026-10-19T08:00:00+02:00",
+      "end": "2026-10-19T16:00:00+02:00",
+      "required_skill": "K2",
+      "required_count": 1
+    },
+    {
+      "id": "W6-A05",
+      "start": "2026-10-19T08:00:00+02:00",
+      "end": "2026-10-19T16:00:00+02:00",
+      "required_skill": "K1",
+      "required_count": 1
+    },
+    {
+      "id": "W6-A06",
+      "start": "2026-10-19T08:00:00+02:00",
+      "end": "2026-10-19T16:00:00+02:00",
+      "required_skill": "K1",
+      "required_count": 1
+    },
+    {
+      "id": "W6-A07",
+      "start": "2026-10-19T08:00:00+02:00",
+      "end": "2026-10-19T16:00:00+02:00",
+      "required_skill": "K1",
+      "required_count": 1
+    },
+    {
+      "id": "W6-A08",
+      "start": "2026-10-19T08:00:00+02:00",
+      "end": "2026-10-19T16:00:00+02:00",
+      "required_skill": "K1",
+      "required_count": 1
+    },
+    {
+      "id": "W6-V01",
+      "start": "2026-10-19T08:00:00+02:00",
+      "end": "2026-10-19T16:00:00+02:00",
+      "required_skill": "K1",
+      "required_count": 1
+    }
+  ],
+  "assignments": [
+    {
+      "id": "T-H1-A01",
+      "shift_id": "H1-A01",
+      "employee_id": "A01",
+      "locked": true,
+      "absent": false
+    },
+    {
+      "id": "T-H2-A01",
+      "shift_id": "H2-A01",
+      "employee_id": "A01",
+      "locked": true,
+      "absent": false
+    },
+    {
+      "id": "T-H3-A01",
+      "shift_id": "H3-A01",
+      "employee_id": "A01",
+      "locked": true,
+      "absent": false
+    },
+    {
+      "id": "T-H4-A01",
+      "shift_id": "H4-A01",
+      "employee_id": "A01",
+      "locked": true,
+      "absent": false
+    },
+    {
+      "id": "T-H1-A02",
+      "shift_id": "H1-A02",
+      "employee_id": "A02",
+      "locked": true,
+      "absent": false
+    },
+    {
+      "id": "T-H2-A02",
+      "shift_id": "H2-A02",
+      "employee_id": "A02",
+      "locked": true,
+      "absent": false
+    },
+    {
+      "id": "T-H3-A02",
+      "shift_id": "H3-A02",
+      "employee_id": "A02",
+      "locked": true,
+      "absent": false
+    },
+    {
+      "id": "T-H4-A02",
+      "shift_id": "H4-A02",
+      "employee_id": "A02",
+      "locked": true,
+      "absent": false
+    },
+    {
+      "id": "T-H1-A03",
+      "shift_id": "H1-A03",
+      "employee_id": "A03",
+      "locked": true,
+      "absent": false
+    },
+    {
+      "id": "T-H2-A03",
+      "shift_id": "H2-A03",
+      "employee_id": "A03",
+      "locked": true,
+      "absent": false
+    },
+    {
+      "id": "T-H3-A03",
+      "shift_id": "H3-A03",
+      "employee_id": "A03",
+      "locked": true,
+      "absent": false
+    },
+    {
+      "id": "T-H4-A03",
+      "shift_id": "H4-A03",
+      "employee_id": "A03",
+      "locked": true,
+      "absent": false
+    },
+    {
+      "id": "T-H1-A04",
+      "shift_id": "H1-A04",
+      "employee_id": "A04",
+      "locked": true,
+      "absent": false
+    },
+    {
+      "id": "T-H2-A04",
+      "shift_id": "H2-A04",
+      "employee_id": "A04",
+      "locked": true,
+      "absent": false
+    },
+    {
+      "id": "T-H3-A04",
+      "shift_id": "H3-A04",
+      "employee_id": "A04",
+      "locked": true,
+      "absent": false
+    },
+    {
+      "id": "T-H4-A04",
+      "shift_id": "H4-A04",
+      "employee_id": "A04",
+      "locked": true,
+      "absent": false
+    },
+    {
+      "id": "T-H1-A05",
+      "shift_id": "H1-A05",
+      "employee_id": "A05",
+      "locked": true,
+      "absent": false
+    },
+    {
+      "id": "T-H2-A05",
+      "shift_id": "H2-A05",
+      "employee_id": "A05",
+      "locked": true,
+      "absent": false
+    },
+    {
+      "id": "T-H3-A05",
+      "shift_id": "H3-A05",
+      "employee_id": "A05",
+      "locked": true,
+      "absent": false
+    },
+    {
+      "id": "T-H4-A05",
+      "shift_id": "H4-A05",
+      "employee_id": "A05",
+      "locked": true,
+      "absent": false
+    },
+    {
+      "id": "T-H1-A06",
+      "shift_id": "H1-A06",
+      "employee_id": "A06",
+      "locked": true,
+      "absent": false
+    },
+    {
+      "id": "T-H2-A06",
+      "shift_id": "H2-A06",
+      "employee_id": "A06",
+      "locked": true,
+      "absent": false
+    },
+    {
+      "id": "T-H3-A06",
+      "shift_id": "H3-A06",
+      "employee_id": "A06",
+      "locked": true,
+      "absent": false
+    },
+    {
+      "id": "T-H4-A06",
+      "shift_id": "H4-A06",
+      "employee_id": "A06",
+      "locked": true,
+      "absent": false
+    },
+    {
+      "id": "T-H1-A07",
+      "shift_id": "H1-A07",
+      "employee_id": "A07",
+      "locked": true,
+      "absent": false
+    },
+    {
+      "id": "T-H2-A07",
+      "shift_id": "H2-A07",
+      "employee_id": "A07",
+      "locked": true,
+      "absent": false
+    },
+    {
+      "id": "T-H3-A07",
+      "shift_id": "H3-A07",
+      "employee_id": "A07",
+      "locked": true,
+      "absent": false
+    },
+    {
+      "id": "T-H4-A07",
+      "shift_id": "H4-A07",
+      "employee_id": "A07",
+      "locked": true,
+      "absent": false
+    },
+    {
+      "id": "T-H1-A08",
+      "shift_id": "H1-A08",
+      "employee_id": "A08",
+      "locked": true,
+      "absent": false
+    },
+    {
+      "id": "T-H2-A08",
+      "shift_id": "H2-A08",
+      "employee_id": "A08",
+      "locked": true,
+      "absent": false
+    },
+    {
+      "id": "T-H3-A08",
+      "shift_id": "H3-A08",
+      "employee_id": "A08",
+      "locked": true,
+      "absent": false
+    },
+    {
+      "id": "T-H4-A08",
+      "shift_id": "H4-A08",
+      "employee_id": "A08",
+      "locked": true,
+      "absent": false
+    },
+    {
+      "id": "T-H1-V01",
+      "shift_id": "H1-V01",
+      "employee_id": "V01",
+      "locked": true,
+      "absent": false
+    },
+    {
+      "id": "T-H2-V01",
+      "shift_id": "H2-V01",
+      "employee_id": "V01",
+      "locked": true,
+      "absent": false
+    },
+    {
+      "id": "T-H3-V01",
+      "shift_id": "H3-V01",
+      "employee_id": "V01",
+      "locked": true,
+      "absent": false
+    },
+    {
+      "id": "T-H4-V01",
+      "shift_id": "H4-V01",
+      "employee_id": "V01",
+      "locked": true,
+      "absent": false
+    },
+    {
+      "id": "T-X",
+      "shift_id": "X",
+      "employee_id": "A01",
+      "locked": false,
+      "absent": false
+    },
+    {
+      "id": "T-W5-A01-2",
+      "shift_id": "W5-A01-2",
+      "employee_id": "A01",
+      "locked": false,
+      "absent": false
+    },
+    {
+      "id": "T-W5-A02-1",
+      "shift_id": "W5-A02-1",
+      "employee_id": "A02",
+      "locked": false,
+      "absent": false
+    },
+    {
+      "id": "T-W5-A02-2",
+      "shift_id": "W5-A02-2",
+      "employee_id": "A02",
+      "locked": false,
+      "absent": false
+    },
+    {
+      "id": "T-W5-A02-3",
+      "shift_id": "W5-A02-3",
+      "employee_id": "A02",
+      "locked": false,
+      "absent": false
+    },
+    {
+      "id": "T-W5-A03-1",
+      "shift_id": "W5-A03-1",
+      "employee_id": "A03",
+      "locked": false,
+      "absent": false
+    },
+    {
+      "id": "T-W5-A03-2",
+      "shift_id": "W5-A03-2",
+      "employee_id": "A03",
+      "locked": false,
+      "absent": false
+    },
+    {
+      "id": "T-W5-A03-3",
+      "shift_id": "W5-A03-3",
+      "employee_id": "A03",
+      "locked": false,
+      "absent": false
+    },
+    {
+      "id": "T-W5-A03-4",
+      "shift_id": "W5-A03-4",
+      "employee_id": "A03",
+      "locked": false,
+      "absent": false
+    },
+    {
+      "id": "T-W5-A04-1",
+      "shift_id": "W5-A04-1",
+      "employee_id": "A04",
+      "locked": false,
+      "absent": false
+    },
+    {
+      "id": "T-W5-A04-2",
+      "shift_id": "W5-A04-2",
+      "employee_id": "A04",
+      "locked": false,
+      "absent": false
+    },
+    {
+      "id": "T-W5-A04-3",
+      "shift_id": "W5-A04-3",
+      "employee_id": "A04",
+      "locked": false,
+      "absent": false
+    },
+    {
+      "id": "T-W5-A05-1",
+      "shift_id": "W5-A05-1",
+      "employee_id": "A05",
+      "locked": false,
+      "absent": false
+    },
+    {
+      "id": "T-W5-A05-2",
+      "shift_id": "W5-A05-2",
+      "employee_id": "A05",
+      "locked": false,
+      "absent": false
+    },
+    {
+      "id": "T-W5-A05-3",
+      "shift_id": "W5-A05-3",
+      "employee_id": "A05",
+      "locked": false,
+      "absent": false
+    },
+    {
+      "id": "T-W5-A06-1",
+      "shift_id": "W5-A06-1",
+      "employee_id": "A06",
+      "locked": false,
+      "absent": false
+    },
+    {
+      "id": "T-W5-A06-2",
+      "shift_id": "W5-A06-2",
+      "employee_id": "A06",
+      "locked": false,
+      "absent": false
+    },
+    {
+      "id": "T-W5-A06-3",
+      "shift_id": "W5-A06-3",
+      "employee_id": "A06",
+      "locked": false,
+      "absent": false
+    },
+    {
+      "id": "T-W5-A07-1",
+      "shift_id": "W5-A07-1",
+      "employee_id": "A07",
+      "locked": false,
+      "absent": false
+    },
+    {
+      "id": "T-W5-A07-2",
+      "shift_id": "W5-A07-2",
+      "employee_id": "A07",
+      "locked": false,
+      "absent": false
+    },
+    {
+      "id": "T-W5-A07-3",
+      "shift_id": "W5-A07-3",
+      "employee_id": "A07",
+      "locked": false,
+      "absent": false
+    },
+    {
+      "id": "T-W5-A08-1",
+      "shift_id": "W5-A08-1",
+      "employee_id": "A08",
+      "locked": false,
+      "absent": false
+    },
+    {
+      "id": "T-W5-A08-2",
+      "shift_id": "W5-A08-2",
+      "employee_id": "A08",
+      "locked": false,
+      "absent": false
+    },
+    {
+      "id": "T-W5-A08-3",
+      "shift_id": "W5-A08-3",
+      "employee_id": "A08",
+      "locked": false,
+      "absent": false
+    },
+    {
+      "id": "T-W5-A08-4",
+      "shift_id": "W5-A08-4",
+      "employee_id": "A08",
+      "locked": false,
+      "absent": false
+    },
+    {
+      "id": "T-W5-A08-5",
+      "shift_id": "W5-A08-5",
+      "employee_id": "A08",
+      "locked": false,
+      "absent": false
+    },
+    {
+      "id": "T-W5-V01-1",
+      "shift_id": "W5-V01-1",
+      "employee_id": "V01",
+      "locked": false,
+      "absent": false
+    },
+    {
+      "id": "T-W5-V01-2",
+      "shift_id": "W5-V01-2",
+      "employee_id": "V01",
+      "locked": false,
+      "absent": false
+    },
+    {
+      "id": "T-W6-A01",
+      "shift_id": "W6-A01",
+      "employee_id": "A01",
+      "locked": true,
+      "absent": false
+    },
+    {
+      "id": "T-W6-A02",
+      "shift_id": "W6-A02",
+      "employee_id": "A02",
+      "locked": true,
+      "absent": false
+    },
+    {
+      "id": "T-W6-A03",
+      "shift_id": "W6-A03",
+      "employee_id": "A03",
+      "locked": true,
+      "absent": false
+    },
+    {
+      "id": "T-W6-A04",
+      "shift_id": "W6-A04",
+      "employee_id": "A04",
+      "locked": true,
+      "absent": false
+    },
+    {
+      "id": "T-W6-A05",
+      "shift_id": "W6-A05",
+      "employee_id": "A05",
+      "locked": true,
+      "absent": false
+    },
+    {
+      "id": "T-W6-A06",
+      "shift_id": "W6-A06",
+      "employee_id": "A06",
+      "locked": true,
+      "absent": false
+    },
+    {
+      "id": "T-W6-A07",
+      "shift_id": "W6-A07",
+      "employee_id": "A07",
+      "locked": true,
+      "absent": false
+    },
+    {
+      "id": "T-W6-A08",
+      "shift_id": "W6-A08",
+      "employee_id": "A08",
+      "locked": true,
+      "absent": false
+    },
+    {
+      "id": "T-W6-V01",
+      "shift_id": "W6-V01",
+      "employee_id": "V01",
+      "locked": true,
+      "absent": false
+    }
+  ],
+  "supplements": [
+    {
+      "start": "2026-10-14T08:00:00+02:00",
+      "end": "2026-10-14T16:00:00+02:00",
+      "rate": "25",
+      "shift_id": "X"
+    }
+  ]
+}
