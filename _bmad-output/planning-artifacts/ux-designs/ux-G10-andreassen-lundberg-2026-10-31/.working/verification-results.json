@@ -1,0 +1,481 @@
+{
+  "date": "2026-11-08",
+  "scope": "UX-dokumenter og illustrativ offlineprototype; ikke app eller regelmotor",
+  "checks": [
+    {
+      "check": "week: 1440px uten vannrett rulling",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "axe week 1440px",
+      "passed": true,
+      "detail": "[]"
+    },
+    {
+      "check": "absence: 1440px uten vannrett rulling",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "axe absence 1440px",
+      "passed": true,
+      "detail": "[]"
+    },
+    {
+      "check": "results: 1440px uten vannrett rulling",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "axe results 1440px",
+      "passed": true,
+      "detail": "[]"
+    },
+    {
+      "check": "details: 1440px uten vannrett rulling",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "axe details 1440px",
+      "passed": true,
+      "detail": "[]"
+    },
+    {
+      "check": "week: 768px uten vannrett rulling",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "absence: 768px uten vannrett rulling",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "results: 768px uten vannrett rulling",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "details: 768px uten vannrett rulling",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "week: 360px uten vannrett rulling",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "axe week 360px",
+      "passed": true,
+      "detail": "[]"
+    },
+    {
+      "check": "absence: 360px uten vannrett rulling",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "axe absence 360px",
+      "passed": true,
+      "detail": "[]"
+    },
+    {
+      "check": "results: 360px uten vannrett rulling",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "axe results 360px",
+      "passed": true,
+      "detail": "[]"
+    },
+    {
+      "check": "details: 360px uten vannrett rulling",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "axe details 360px",
+      "passed": true,
+      "detail": "[]"
+    },
+    {
+      "check": "Alternativer flyter om ved 200% tekststørrelse",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "Søk krever eksplisitt fraværssimulering",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "Manglende ansatt gir synlig norsk feil",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "Ugyldig ansattfelt er maskinlesbart",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "Ugyldig dagtall 0 simuleres ikke",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "Ugyldig dagtall 1.5 simuleres ikke",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "Overlappende påbegynt nattvakt vises beskyttet",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "P1 plasserer A02 foran A03",
+      "passed": true,
+      "detail": "['candidate-A02', 'candidate-A03']"
+    },
+    {
+      "check": "P2 plasserer A03 foran A02",
+      "passed": true,
+      "detail": "['candidate-A03', 'candidate-A02']"
+    },
+    {
+      "check": "Siste aktive sorteringskriterium kan ikke fjernes",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "Regelavvik kan undersøkes, men ikke velges",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "Tilbake fra detalj returnerer fokus til undersøkt kort",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "Simulert aksept er synlig for valgt forslag",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "KI-reserve bevarer valgt alternativ og svar",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "A → B → A bevarer simulerte svar for A",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "Datasettbytte forhåndsvises før innlasting",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "Nye data krever nytt eksplisitt søk",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "Aksept fra d1 arves ikke av d2",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "Tidligere valg og svar finnes med gammel dataversjon",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "Tomt søk har avgrenset konklusjon",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "Søkefeil kan prøves igjen",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "Feilet dataoppdatering beholder siste gyldige grunnlag",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "Én av to aksepter er ikke full aksept ved flytting",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "Flytteforslag krever aksept fra begge berørte",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "Endret utkast krever ny eksplisitt simulering",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "Endret utkast fjerner ikke aktivt simulert fravær",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "Fraværshandlingen nås med Tab uten musebruk",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "Tastatursimulering flytter fokus til søk",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "Hovedflyten kan åpne resultater med tastatur",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "Endret søkeomfang starter ikke skjult søk",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "Grense 0 skjuler flytteeksempler",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "Andre målskift bruker ikke morgenvaktens konstruerte resultater",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "Låst målskift kan få registrert fravær",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "Fravær på låst målskift kan simuleres eksplisitt",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "Lås skjuler ikke udekket behov i ukesoversikten",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "Ingen JavaScript-feil ved skjermnavigasjon",
+      "passed": true,
+      "detail": "[]"
+    },
+    {
+      "check": "Prototypen sender ingen nettverksforespørsler",
+      "passed": true,
+      "detail": "[]"
+    },
+    {
+      "check": "Begge UX-kontraktene ferdigstilt",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "DESIGN: tokenreferanser",
+      "passed": true,
+      "detail": "72 referanser; mangler: []"
+    },
+    {
+      "check": "EXPERIENCE: tokenreferanser",
+      "passed": true,
+      "detail": "5 referanser; mangler: []"
+    },
+    {
+      "check": "Fargetokens har konkrete hexverdier",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "Kontrast ink/surface",
+      "passed": true,
+      "detail": "14.68:1; minimum 4.5:1"
+    },
+    {
+      "check": "Kontrast ink/background",
+      "passed": true,
+      "detail": "13.39:1; minimum 4.5:1"
+    },
+    {
+      "check": "Kontrast ink-secondary/surface",
+      "passed": true,
+      "detail": "6.28:1; minimum 4.5:1"
+    },
+    {
+      "check": "Kontrast ink-secondary/background",
+      "passed": true,
+      "detail": "5.73:1; minimum 4.5:1"
+    },
+    {
+      "check": "Kontrast on-primary/primary",
+      "passed": true,
+      "detail": "11.97:1; minimum 4.5:1"
+    },
+    {
+      "check": "Kontrast positive/positive-soft",
+      "passed": true,
+      "detail": "7.31:1; minimum 4.5:1"
+    },
+    {
+      "check": "Kontrast caution/caution-soft",
+      "passed": true,
+      "detail": "6.29:1; minimum 4.5:1"
+    },
+    {
+      "check": "Kontrast negative/negative-soft",
+      "passed": true,
+      "detail": "6.42:1; minimum 4.5:1"
+    },
+    {
+      "check": "Kontrast focus/surface",
+      "passed": true,
+      "detail": "6.77:1; minimum 3:1"
+    },
+    {
+      "check": "Kontrast focus/background",
+      "passed": true,
+      "detail": "6.17:1; minimum 3:1"
+    },
+    {
+      "check": "Kontrast border/surface",
+      "passed": true,
+      "detail": "4.16:1; minimum 3:1"
+    },
+    {
+      "check": "Samme komponentsett i begge kontrakter",
+      "passed": true,
+      "detail": "Kun design: []; kun oppførsel: []"
+    },
+    {
+      "check": "Lokale lenker i DESIGN.md",
+      "passed": true,
+      "detail": "[]"
+    },
+    {
+      "check": "Lokale lenker i EXPERIENCE.md",
+      "passed": true,
+      "detail": "[]"
+    },
+    {
+      "check": "Lokale lenker i implementation-handoff.md",
+      "passed": true,
+      "detail": "[]"
+    },
+    {
+      "check": "Lokale lenker i .working/source-reconciliation-2026-11-08.md",
+      "passed": true,
+      "detail": "[]"
+    },
+    {
+      "check": "Kilde ../../prds/prd-G10-andreassen-lundberg-2026-10-29/prd.md",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "Kilde ../../../../productbrief.md",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "Kilde ../../../../docs/demoscenario-fravaer.md",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "Kilde ../../../../docs/kostnadsanslag.md",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "Kilde ../../research/domain-egenmelding-varsling-og-fravarsperiode-2026-10-31/research.md",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "Kilde ../../../../docs/forslag-ved-frafall.md",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "Kilde ../../prds/prd-G10-andreassen-lundberg-2026-10-29/prd.md",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "Kilde ../../../../productbrief.md",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "Kilde ../../../../docs/demoscenario-fravaer.md",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "Kilde ../../../../docs/kostnadsanslag.md",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "Kilde ../../research/domain-egenmelding-varsling-og-fravarsperiode-2026-10-31/research.md",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "Kilde ../../../../docs/forslag-ved-frafall.md",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "Obligatoriske EXPERIENCE-seksjoner",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "DESIGN-seksjoner i kanonisk rekkefølge",
+      "passed": true,
+      "detail": "['Brand & Style', 'Colors', 'Typography', 'Layout & Spacing', 'Elevation & Depth', 'Shapes', 'Components', \"Do's and Don'ts\"]"
+    },
+    {
+      "check": "Statisk skjermreferanse key-alternativer.html: uten script",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "Statisk skjermreferanse key-detaljer.html: uten script",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "Statisk skjermreferanse key-fravaer.html: uten script",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "Statisk skjermreferanse key-ukeplan.html: uten script",
+      "passed": true,
+      "detail": ""
+    }
+  ]
+}

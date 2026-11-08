@@ -4,11 +4,19 @@ Arbeidsskisse fra Codex 31.10.2026, basert på Odins UX-innspill og valg av
 egen handling «Finn alternativer». Dette viser rekkefølge, ikke et vedtatt
 skjermoppsett eller visuelt uttrykk.
 
+Kildepresisering 08.11.2026 fra Codex: Den korte skissen manglet PRD-ens
+eksplisitte «Simuler fravær»-handling. Den er satt inn nedenfor, jf.
+[kildeavstemmingen](source-reconciliation-2026-11-08.md). Gjeldende
+oppførsel og avklaringer på gjennomføringsmandatet står nå i
+[EXPERIENCE.md](../EXPERIENCE.md); åpne punkter nedenfor beskriver
+arbeidsstadiet 31.10 og er ikke lenger siste status.
+
 ```mermaid
 flowchart LR
     A[Velg hvem som er fraværende] --> B[Velg startvakt og antall kalenderdager]
     B --> E[Se berørte vakter og aktuell vakt for søket]
-    E --> C[Trykk Finn alternativer]
+    E --> F[Simuler fravær for ett målskift]
+    F --> C[Trykk Finn alternativer]
     C --> D[Se og sammenlign alternativer]
 ```
 
