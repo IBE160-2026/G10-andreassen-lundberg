@@ -131,7 +131,7 @@ with sync_playwright() as p:
         check("S1: beregnede direkte forslag A02/A03 i P1-rekkefølge", [a["candidate_id"] for a in direct] == ["A02", "A03"])
         check("S1: API sender eksakte timetall", [(a["p1"]) for a in direct] == ["32", "40"])
         measure("alternativer", 1440)
-        page.screenshot(path=str(OUT / "live-alternatives-desktop.png"), full_page=True)
+        page.screenshot(path=str(REPORT.with_name(f"live-alternatives-desktop-{STARTED:%Y%m%d-%H%M%S}.png")), full_page=True)
         p2 = page.get_by_role("checkbox", name=re.compile("^P2"))
         p1 = page.get_by_role("checkbox", name=re.compile("^P1"))
         with page.expect_response(lambda response: "/api/evaluate" in response.url):
@@ -201,7 +201,7 @@ with sync_playwright() as p:
         button("Simuler fravær").click()
         result = search("0")
         measure("alternativer", 360)
-        page.screenshot(path=str(OUT / "live-alternatives-mobile.png"), full_page=True)
+        page.screenshot(path=str(REPORT.with_name(f"live-alternatives-mobile-{STARTED:%Y%m%d-%H%M%S}.png")), full_page=True)
         inspect("A02")
         measure("detaljer", 360)
         button("Velg alternativ").click()
@@ -276,7 +276,7 @@ with sync_playwright() as p:
         check("Gjenforsøk etter tidsavbrudd gir nytt faktisk resultat", page.locator("article.card:visible").count() > 0)
     except Exception as error:
         check("Samlet nettleserflyt fullført", False, f"{type(error).__name__}: {error}")
-        page.screenshot(path=str(OUT / "live-failure.png"), full_page=True)
+        page.screenshot(path=str(REPORT.with_name(f"live-failure-{STARTED:%Y%m%d-%H%M%S}.png")), full_page=True)
     finally:
         check("Ingen JavaScript-feil i appen", not page_errors, page_errors)
         check("Ingen eksterne modell-/leverandørkall", not external_requests, external_requests)
