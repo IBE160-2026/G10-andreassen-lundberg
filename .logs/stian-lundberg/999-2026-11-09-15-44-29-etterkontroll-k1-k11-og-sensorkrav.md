@@ -38,15 +38,20 @@ samme dag og vurdere repoet mot sensorveiledningen for del 1.
   [egenkontroll mot sensorveiledningen](../../docs/sensor-egenkontroll.md),
   vekting i leveringskravene, skjermbilde i README og et memlog-innslag.
   89 lokale lenker kontrollert.
-- Jira er bare lest. Produktbrief og PRD er uendret. Ingen push, PR eller
-  merge. Sensorveiledningens PDF ligger usporet lokalt og er ikke lagt i repoet.
+- Etter Stians uttrykkelige godkjenning av innholdet: grenen er pushet
+  (`git ls-remote` bekreftet `6e539c5`), og
+  [PR #5](https://github.com/IBE160-2026/G10-andreassen-lundberg/pull/5) er
+  åpnet mot `main` som klar for gjennomgang. PR-CI er grønn for backend og
+  frontend. Kommentarer med commit-ID og kontrollgrunnlag er lagt på SCRUM-22,
+  SCRUM-23, SCRUM-26, SCRUM-28, SCRUM-33, SCRUM-43, SCRUM-44, SCRUM-53,
+  SCRUM-57 og SCRUM-58. Ingen Jira-status er endret, og ingenting er merget.
+- Produktbrief og PRD er uendret. Sensorveiledningens PDF ligger usporet
+  lokalt og er ikke lagt i repoet.
 
 ### Åpne punkter
-- `scrum-19-demoflyt` må merges til `main` gjennom en PR med CI, ellers ser
-  sensor ikke appen.
+- PR #5 må gjennomgås og merges til `main`, ellers ser sensor ikke appen.
 - KI-sporet (SCRUM-59, SCRUM-39, SCRUM-41) er ikke startet. Det er
   funksjonalitetsgapet med størst konsekvens mot product brief og PRD.
-- Jira-saker berørt av K1–K11 trenger kommentar med commit-ID etter push.
 - SCRUM-48: en ny brukers installasjon på under 20 minutter er ikke målt.
   README-kommandoene er bare skrevet for PowerShell.
 - Commit `14b187d` (15 757 linjer) er et varseltegn i sensorveiledningen. Det
