@@ -13,7 +13,7 @@ import subprocess
 from playwright.sync_api import sync_playwright, expect
 
 parser = argparse.ArgumentParser(description="Faktisk lokal VaktMatch-demo med Playwright; ingen modellkall.")
-parser.add_argument("--url", default="http://127.0.0.1:5173")
+parser.add_argument("--url", default="http://localhost:5173")
 parser.add_argument("--browser", help="Valgfri Chromium-binær; ellers brukes Playwrights installerte nettleser")
 parser.add_argument("--axe", help="Valgfri lokal axe.min.js; uten denne kjøres ikke axe-kontroller")
 parser.add_argument("--out", help="Rapportfil; standard er en ny, tidsstemplet browser-results-*.json")
