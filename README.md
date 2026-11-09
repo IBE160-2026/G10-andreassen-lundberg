@@ -6,6 +6,10 @@ Gruppen har valgt **VaktMatch**, en webapp for å sammenligne bemanningsalternat
 ved et udekket skift. Repoet inneholder produktgrunnlaget, BMAD-oppsettet og en
 kjørbar lokal demoflyt for appen (se [Kom i gang](#kom-i-gang)).
 
+![VaktMatch sammenligner to kontrollerte erstattere for et udekket skift, med regelstatus, timer, hvile og kostnadsanslag](docs/bilder/vaktmatch-alternativer.png)
+
+*Skjermbilde fra lokal kjøring 09.11.2026 med syntetiske data (hovedscenarioet, søkegrense 0).*
+
 ## Kom i gang
 
 Appen kjøres lokalt. Den trenger ingen konto eller KI-nøkkel.
@@ -167,7 +171,8 @@ Start gjerne med [den samlede begrunnelsen for arbeidsutkastet](docs/productbrie
 | [Data- og HTTP-kontrakt](docs/api-demoflyt.md) | Validerte datasett, tilstandsløst API, resultatfelter og versjonsbundet øktminne. |
 | [Demoflytens kontrollrapport](docs/demoflyt-kontrollrapport-2026-11-08.md) | SCRUM-19: fasit, grense-/feilkontroller, øktregresjoner, faktisk nettlesergrunnlag og avgrensninger. |
 | [Jira-avstemming 08.11.2026](docs/jira-avstemming-2026-11-08.md) | Per-sak-kobling mellom pushet kode, kontrollbevis, status og gjenstående akseptansekriterier. |
-| [Tilstandsvurdering 09.11.2026](_bmad-output/implementation-artifacts/review-status-2026-11-09.md) | Fire agentgjennomganger, nye tester i tre nettlesermotorer, separat installasjon og verifiserte oppfølgingspunkter. |
+| [Tilstandsvurdering 09.11.2026](_bmad-output/implementation-artifacts/review-status-2026-11-09.md) | Fire agentgjennomganger, nye tester i tre nettlesermotorer, separat installasjon og verifiserte oppfølgingspunkter. [Etterkontrollen](_bmad-output/implementation-artifacts/review-status-2026-11-09.md#etterkontroll-09112026) viser at alle elleve er rettet og testet. |
+| [Egenkontroll mot sensorveiledningen](docs/sensor-egenkontroll.md) | KI-vurdering 09.11.2026 av repoet mot de sju kriteriene i del 1, med prioriterte tiltak før fristen. Ikke en karakterprognose. |
 | [Leverings- og dokumentasjonskrav for IBE160](docs/ibe160-leveringskrav.md) | Kildekontrollert oversikt over arbeidskrav, vurdering, KI-dokumentasjon, individuelle bidrag og design/UX. Sluttfrist og «delvurdering 3» er fortsatt uavklart. |
 | [VaktMatch-vedlegget](_bmad-output/planning-artifacts/briefs/brief-G10-andreassen-lundberg-2026-09-07-VaktMatch/addendum.md) | Supplerende bakgrunn og åpne innspill til hovedbriefen. Ingen selvstendig brief eller utvidelse av vedtatt omfang. |
 | [Turnusgenerator – alternativforslag fra Stian](_bmad-output/planning-artifacts/briefs/brief-G10-andreassen-lundberg-2026-09-18-turnusgenerering/brief.md) | Forslag til vurdering. Erstatter ikke hovedbriefen. [Teknisk vedlegg](_bmad-output/planning-artifacts/briefs/brief-G10-andreassen-lundberg-2026-09-18-turnusgenerering/addendum.md) tilhører forslaget. |
