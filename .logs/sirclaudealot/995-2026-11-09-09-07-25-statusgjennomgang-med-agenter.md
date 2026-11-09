@@ -39,3 +39,29 @@ lokale appen beholdes. Ingen push eller merge. Denne loggen committes separat lo
 De elleve tiltakene og videre MVP-/leveringskontroll er beskrevet i rapporten
 og spesifikasjonen, med referanser til eksisterende Jira-saker. Ingen nye
 oppfølgingspunkter fra selve økten føres i issues.md; Jira er bare lest her.
+
+## 2026-11-09 kl. 09:21 — SirClaudealot
+
+### Oppgave
+Committe og publisere rapporten etter Odins uttrykkelige beskjed, etter
+gjennomgangen av resultat og konkret publiseringsinnhold.
+
+### Plan
+- Kontrollere arbeidskopi, fjernreferanse og upubliserte commits.
+- Pushe demogrenen og bekrefte commit-ID mot GitHub.
+
+### Resultat
+Rapport og kontrollbevis var allerede committet i `458e6c9`, med arbeidslogg
+i `c58d78c`. Pushen tok også med den tidligere Jira-avstemmingen og tilhørende
+logger, slik det ble opplyst før publisering. Appkode og produktgrunnlag er
+uendret. Git-diffkontrollen bestod; fjernreferansen hadde ingen nye commits
+som måtte flettes inn. Ingen tester ble kjørt om igjen for dokumentpushen.
+
+`scrum-19-demoflyt` er pushet til origin. `git ls-remote` bekreftet
+`c58d78c11ce62be54d1bff2cfab004613a422b38`, samme commit som lokal HEAD
+ved publisering. Ingen merge eller Jira-endring. Denne etterfølgende
+pushbekreftelsen committes bare lokalt etter loggregelen og inngår ikke i
+den bekreftede pushen. Personlige notater og issues.md er uendret.
+
+### Åpne punkter
+Ingen nye punkter fra selve publiseringsøkten. Rapportens tiltak er fortsatt åpne.
