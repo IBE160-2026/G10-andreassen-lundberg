@@ -20,7 +20,7 @@ function setupApi(evaluationValue = evaluation) {
     else if (url === '/api/absences/preview') value = { start: dataset.week_start, end: dataset.week_end, affected: [{ shift: dataset.shifts[0], eligible: true, limitation: '' }] }
     else if (url === '/api/absences/simulate') value = { ...body, absences: [body.absence], coverage: evaluation.coverage, message: 'Fraværet er simulert for valgt vakt. Finn alternativer når du er klar.' }
     else if (url === '/api/evaluate') value = { ...evaluationValue, ...body, alternatives: evaluationValue.alternatives.filter(a => body.search_limit === 1 || a.moves === 0) }
-    else if (url === '/api/datasets/compare') value = { previous: body.previous_id === info.id ? info : updatedInfo, next: body.next_id === info.id ? info : updatedInfo, same_family: true, unchanged: false, changes: [{ category: 'employees', id: 'V01', field: 'availability', before: null, after: [] }] }
+    else if (url === '/api/datasets/compare') value = { previous: body.previous_id === info.id ? info : updatedInfo, next: body.next_id === info.id ? info : updatedInfo, same_family: true, unchanged: false, changes: [{ category: 'employees', id: 'V01', field: 'availability', before: null, after: [], label: 'Ansatte · V01 · Tilgjengelighet', before_label: 'Mangler opplysninger / ingen oppføring', after_label: 'Kjent utilgjengelig' }] }
     else if (url === '/api/explain') value = { mode: 'standard', message: 'Standardforklaringen vises fortsatt.', explanation: evaluation.alternatives[0].explanation, reference_id: 'A02' }
     else throw new Error(`Uventet testforespørsel: ${url}`)
     return new Response(JSON.stringify(value))
@@ -254,4 +254,69 @@ test('oversetter nettverksfeil til norsk', async () => {
 
   expect(await screen.findByText(/Backend er utilgjengelig/)).toBeInTheDocument()
   expect(screen.queryByText(/Failed to fetch/)).not.toBeInTheDocument()
+})
+
+test('K1: Prøv igjen henter en feilet fraværsforhåndsvisning på nytt', async () => {
+  const fetchMock = setupApi()
+  failOnce(fetchMock, '/api/absences/preview')
+  render(<App />)
+  fireEvent.click(await screen.findByRole('button', { name: 'Registrer fravær' }))
+  await screen.findByText('Midlertidig feil. Prøv igjen.')
+  expect(screen.queryByRole('radio')).not.toBeInTheDocument()
+  fireEvent.click(screen.getByRole('button', { name: 'Simuler fravær' }))
+  fireEvent.click(await screen.findByRole('button', { name: 'Prøv igjen' }))
+  expect(await screen.findByRole('radio')).toBeChecked()
+  expect(fetchMock.mock.calls.filter(([url]) => url === '/api/absences/preview')).toHaveLength(2)
+  expect(screen.queryByRole('alert')).not.toBeInTheDocument()
+  fireEvent.click(screen.getByRole('button', { name: 'Simuler fravær' }))
+  await screen.findByRole('button', { name: 'Finn alternativer' })
+})
+
+test('K3: valg og historikk viser hvilken konkret plan som ble valgt', async () => {
+  const moved = (id: string, shift: string) => {
+    const value = alternative(id, '40'); value.candidate_id = 'A08'; value.kind = 'flytting'; value.moves = 1
+    value.affected_employee_ids = ['A06', 'A08']; value.affected_shift_ids = [shift, 'X']
+    value.plan = [{ shift_id: shift, before: ['A08'], after: ['A06'] }, { shift_id: 'X', before: [], after: ['A08'] }]
+    return value
+  }
+  setupApi({ ...evaluation, alternatives: [...evaluation.alternatives, moved('aaaaaa1', 'W5-A08-4'), moved('bbbbbb2', 'W5-A08-5')] })
+  await startSearch()
+  for (const id of ['aaaaaa', 'bbbbbb']) {
+    fireEvent.click(screen.getByRole('button', { name: new RegExp(`Undersøk A08,.*forslag ${id}`) }))
+    fireEvent.click(screen.getByRole('button', { name: 'Velg alternativ' }))
+    if (id === 'aaaaaa') fireEvent.click(screen.getByRole('button', { name: 'Undersøk et annet alternativ' }))
+  }
+  expect(screen.getByText('Plan: W5-A08-5: A08 → A06; X: Udekket → A08 · forslag bbbbbb')).toBeInTheDocument()
+  expect(screen.getByText('Plan: W5-A08-4: A08 → A06; X: Udekket → A08 · forslag aaaaaa')).toBeInTheDocument()
+})
+
+test('K4: tilbake fra et øvrig funn holder listen åpen og gir fokus til kortet', async () => {
+  const other = alternative('A05', '32'); other.selectable = false; other.control_status = 'regelavvik'; other.rank = null
+  setupApi({ ...evaluation, alternatives: [...evaluation.alternatives, other] })
+  await startSearch()
+  const details = () => screen.getByText('Øvrige undersøkbare funn (1)').closest('details')!
+  details().open = true; fireEvent(details(), new Event('toggle'))
+  fireEvent.click(screen.getByRole('button', { name: /Undersøk A05/ }))
+  fireEvent.click(screen.getByRole('button', { name: 'Tilbake til alternativer' }))
+  await waitFor(() => expect(document.activeElement).toBe(screen.getByRole('button', { name: /Undersøk A05/ })))
+  expect(details().open).toBe(true)
+})
+
+test('K6 og K10: endringer vises med lesbare felt og neste datasett er aldri det innlastede', async () => {
+  const fetchMock = setupApi(); render(<App />)
+  await screen.findByRole('button', { name: 'Registrer fravær' })
+  fireEvent.click(screen.getByRole('button', { name: 'Datagrunnlag' }))
+  fireEvent.click(screen.getByRole('button', { name: 'Forhåndsvis endringer' }))
+  expect(await screen.findByText('Ansatte · V01 · Tilgjengelighet')).toBeInTheDocument()
+  expect(screen.getByText('Før: Mangler opplysninger / ingen oppføring')).toBeInTheDocument()
+  expect(screen.getByText('Etter: Kjent utilgjengelig')).toBeInTheDocument()
+  fireEvent.click(screen.getByRole('button', { name: 'Last inn oppdaterte vaktdata' }))
+  await screen.findByRole('heading', { name: 'Planlagt uke 5' })
+  await waitFor(() => expect(screen.getByRole('button', { name: 'Datagrunnlag' })).toBeEnabled())
+  fireEvent.click(screen.getByRole('button', { name: 'Datagrunnlag' }))
+  expect(screen.getByLabelText('Nytt datasett')).toHaveValue(info.id)
+  fireEvent.click(screen.getByRole('button', { name: 'Forhåndsvis endringer' }))
+  await screen.findByRole('button', { name: 'Last inn oppdaterte vaktdata' })
+  const last = fetchMock.mock.calls.filter(([url]) => url === '/api/datasets/compare').at(-1)!
+  expect(JSON.parse(String(last[1]?.body))).toEqual({ previous_id: updatedInfo.id, next_id: info.id })
 })

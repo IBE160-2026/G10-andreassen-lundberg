@@ -14,6 +14,8 @@ const number = (value: api.DecimalValue | null) => value === null ? 'Uavklart' :
 const money = (value: api.DecimalValue | null) => value === null ? 'Uavklart anslag' : `${number(value)} kr`
 const rate = (value: api.DecimalValue | null) => value === null ? 'Uavklart' : `${String(value).replace('.', ',')} kr`
 const period = (shift: api.Interval) => `${date(shift.start)} – ${date(shift.end)}`
+const planSummary = (alternative: api.Alternative) => alternative.plan
+  .map(item => `${item.shift_id}: ${item.before.join(', ') || 'Udekket'} → ${item.after.join(', ') || 'Udekket'}`).join('; ')
 const errorMessage = (error: unknown) => error instanceof Error ? error.message : 'Handlingen feilet. Prøv igjen.'
 type View = 'week' | 'absence' | 'alternatives' | 'detail' | 'choice' | 'data'
 type FailedAction = 'startup' | 'simulate' | 'search' | 'previewDataset' | 'loadDataset' | 'explainDifference' | null
@@ -92,6 +94,7 @@ export default function App() {
   const [targetDraft, setTargetDraft] = useState('')
   const [activeTarget, setActiveTarget] = useState('')
   const [formErrors, setFormErrors] = useState<Record<string, string>>({})
+  const [previewAttempt, setPreviewAttempt] = useState(0)
   const [previewState, setPreviewState] = useState<{ key: string; value: Awaited<ReturnType<typeof api.previewAbsence>> | null; error: string } | null>(null)
   const [limit, setLimit] = useState<0 | 1>(1)
   const [criteria, setCriteria] = useState<api.Criterion[]>(['P1'])
@@ -103,6 +106,7 @@ export default function App() {
   const [selectedKey, setSelectedKey] = useState('')
   const [nextDataset, setNextDataset] = useState('')
   const [comparison, setComparison] = useState<api.DatasetComparison | null>(null)
+  const [othersOpen, setOthersOpen] = useState(false)
   const [extraExplanation, setExtraExplanation] = useState<api.Explanation | null>(null)
   const requestId = useRef(0)
   const heading = useRef<HTMLHeadingElement>(null)
@@ -146,7 +150,7 @@ export default function App() {
       .then(value => { if (active) setPreviewState({ key: previewKey, value, error: '' }) })
       .catch(e => { if (active) setPreviewState({ key: previewKey, value: null, error: errorMessage(e) }) })
     return () => { active = false; controller.abort() }
-  }, [data, employee, startShift, days, absences, previewKey])
+  }, [data, employee, startShift, days, absences, previewKey, previewAttempt])
 
   useEffect(() => { heading.current?.focus() }, [view])
 
@@ -154,11 +158,15 @@ export default function App() {
   function retryFailed() {
     if (busy) return
     if (failedAction === 'startup') { setBusy('Laster demodata …'); setError(''); setFailedAction(null); setRetry(r => r + 1) }
+    else if (failedAction === 'simulate' && !preview) retryPreview()
     else if (failedAction === 'simulate') void simulate()
     else if (failedAction === 'search') void search()
     else if (failedAction === 'previewDataset') void previewDataset()
     else if (failedAction === 'loadDataset') void loadDataset()
     else if (failedAction === 'explainDifference') void explainDifference()
+  }
+  function retryPreview() {
+    setPreviewState(null); setError(''); setFormErrors({}); setFailedAction(null); setPreviewAttempt(n => n + 1)
   }
   function chooseEmployee(value: string) {
     setEmployee(value); setStartShift(data ? nextShift(data, value) : ''); setTargetDraft(''); setFormErrors({})
@@ -237,7 +245,7 @@ export default function App() {
     setMessage(response ? `Svar simulert for ${response.employee}: ${response.value}.` : 'Tilbud sendt i simuleringen. Venter på svar.')
   }
   async function previewDataset() {
-    if (!data || !nextDataset || busy) return
+    if (!data || !nextDataset || nextDataset === data.dataset.id || busy) return
     const id = ++requestId.current; setBusy('Sammenligner datagrunnlag …'); setError('')
     try { const value = await api.compareDatasets(data.dataset.id, nextDataset); if (id === requestId.current) { setComparison(value); setFailedAction(null) } }
     catch (e) { if (id === requestId.current) { setFailedAction('previewDataset'); setError(errorMessage(e)) } }
@@ -254,6 +262,7 @@ export default function App() {
       const removed = absences.filter(a => !kept.includes(a))
       const keptTarget = refreshed.shifts.some(s => s.id === activeTarget) ? activeTarget : ''
       setData(refreshed); setLoadId(value => value + 1); setAbsences(kept); setSelectedKey(''); setDetailId(''); setComparison(null)
+      setNextDataset(datasets.find(d => d.id !== refreshed.dataset.id)?.id || '')
       setActiveTarget(comparison.same_family ? keptTarget : ''); setTargetDraft('')
       const person = refreshed.employees[0]?.id || ''
       setEmployee(person); setStartShift(nextShift(refreshed, person)); setDays('1')
@@ -343,7 +352,7 @@ export default function App() {
             <fieldset id="target" aria-invalid={!!formErrors.target} aria-describedby="target-error"><legend>Berørte vakter · velg ett målskift</legend>
               {preview ? <><p>Periode: {period(preview)} · Europe/Oslo</p>{preview.affected.length ? preview.affected.map(item => <label className="radio-row" key={item.shift.id}>
                 <input type="radio" name="target" value={item.shift.id} disabled={!item.eligible || !!busy} checked={(targetDraft || preview.affected.find(a => a.eligible)?.shift.id) === item.shift.id} onChange={() => setTargetDraft(item.shift.id)} />
-                <span>{item.shift.id} · {period(item.shift)}{item.limitation && <span className="meta">{item.limitation}</span>}</span></label>) : <p>Ingen vakter overlapper perioden. Velg en annen startvakt.</p>}</> : <p>{previewError || 'Velg gyldige felt for å vise berørte vakter.'}</p>}
+                <span>{item.shift.id} · {period(item.shift)}{item.limitation && <span className="meta">{item.limitation}</span>}</span></label>) : <p>Ingen vakter overlapper perioden. Velg en annen startvakt.</p>}</> : <>{previewError ? <><p>{previewError}</p><button type="button" className="secondary" disabled={!!busy} onClick={retryPreview}>Hent berørte vakter på nytt</button></> : <p>Velg gyldige felt for å vise berørte vakter.</p>}</>}
             </fieldset><p id="target-error" className="field-error">{formErrors.target}</p>
             <button disabled={!!busy} type="submit">Simuler fravær</button>
           </form>
@@ -363,7 +372,7 @@ export default function App() {
             <h3>Rangerte komplette forslag</h3>{result.alternatives.filter(a => a.rank !== null).map(card)}
             {!result.alternatives.some(a => a.rank !== null) && <p>Ingen komplette rangerte forslag på dette grunnlaget.</p>}
             {result.alternatives.some(a => a.selectable && a.rank === null) && <><h3>Bestått med manglende sorteringsgrunnlag</h3>{result.alternatives.filter(a => a.selectable && a.rank === null).map(card)}</>}
-            <details><summary>Øvrige undersøkbare funn ({result.alternatives.filter(a => !a.selectable).length})</summary>{result.alternatives.filter(a => !a.selectable).map(card)}</details>
+            <details open={othersOpen} onToggle={e => setOthersOpen(e.currentTarget.open)}><summary>Øvrige undersøkbare funn ({result.alternatives.filter(a => !a.selectable).length})</summary>{result.alternatives.filter(a => !a.selectable).map(card)}</details>
           </>}
         </section>}
 
@@ -386,14 +395,14 @@ export default function App() {
           </> : <p>Velg et alternativ fra listen for å undersøke det.</p>}
         </section>}
 
-        {view === 'choice' && <section className="panel"><h2>Gjeldende øktvalg</h2>{selected ? <><h3>{selected.alternative.candidate_id} · {labels[selected.alternative.kind]}</h3><p>{selected.basis.dataset_id} / v{selected.basis.version} · målskift {selected.target}</p><p>Valgt i økten. Vaktlisten er uendret.</p><Badge status={selected.alternative.control_status} />
+        {view === 'choice' && <section className="panel"><h2>Gjeldende øktvalg</h2>{selected ? <><h3>{selected.alternative.candidate_id} · {labels[selected.alternative.kind]}</h3><p>{selected.basis.dataset_id} / v{selected.basis.version} · målskift {selected.target}</p><p>Plan: {planSummary(selected.alternative)} · forslag {selected.alternative.id.slice(0, 6)}</p><p>Valgt i økten. Vaktlisten er uendret.</p><Badge status={selected.alternative.control_status} />
           <h3>Tilbudssimulering</h3><p>{selected.sent && 'Tilbud sendt i simuleringen. '}{offerStatus(selected)}</p>
           {!fresh && <p className="notice">Kjør ny vurdering før videre tilbudssimulering.</p>}
           <button disabled={!!busy || selected.sent || !fresh} onClick={() => updateOffer()}>Simuler tilbud</button>
           {selected.alternative.affected_employee_ids.map(person => <div className="inset" key={person}><h4>{person}</h4><p>Svar: {selected.sent ? selected.responses[person] || 'venter' : 'Aksept ikke simulert'}</p><div className="actions"><button className="secondary" disabled={!!busy || !selected.sent || !fresh} onClick={() => updateOffer({ employee: person, value: 'akseptert' })}>Simuler aksept for {person}</button><button className="secondary" disabled={!!busy || !selected.sent || !fresh} onClick={() => updateOffer({ employee: person, value: 'avslått' })}>Simuler avslag for {person}</button></div></div>)}
           <button className="secondary" onClick={() => go('alternatives')}>Undersøk et annet alternativ</button>
         </> : <p>Ingen gjeldende valg. Undersøk et komplett, bestått alternativ og velg det. <button className="secondary" onClick={() => go('alternatives')}>Til alternativer</button></p>}
-          <details><summary>Tidligere valg ({historical.length})</summary>{historical.length ? historical.map(record => <article className="inset" key={record.key}><h3>{record.alternative.candidate_id} · {labels[record.alternative.kind]}</h3><p>{record.basis.dataset_id} / v{record.basis.version} · {record.target}</p><p>Fravær: {record.basis.absences.map(a => `${a.employee_id}/${a.shift_id}`).join(', ')}</p><p>{record.sent && 'Tilbud sendt i simuleringen. '}{offerStatus(record)}</p>{record.alternative.affected_employee_ids.map(p => <p key={p}>{p}: {record.responses[p] || 'Aksept ikke simulert'}</p>)}</article>) : <p>Ingen tidligere valg i denne økten.</p>}</details>
+          <details><summary>Tidligere valg ({historical.length})</summary>{historical.length ? historical.map(record => <article className="inset" key={record.key}><h3>{record.alternative.candidate_id} · {labels[record.alternative.kind]}</h3><p>{record.basis.dataset_id} / v{record.basis.version} · {record.target}</p><p>Plan: {planSummary(record.alternative)} · forslag {record.alternative.id.slice(0, 6)}</p><p>Fravær: {record.basis.absences.map(a => `${a.employee_id}/${a.shift_id}`).join(', ')}</p><p>{record.sent && 'Tilbud sendt i simuleringen. '}{offerStatus(record)}</p>{record.alternative.affected_employee_ids.map(p => <p key={p}>{p}: {record.responses[p] || 'Aksept ikke simulert'}</p>)}</article>) : <p>Ingen tidligere valg i denne økten.</p>}</details>
           <p className="meta">Valg og svar lever i aktiv fane. Lukking avslutter økten.</p>
         </section>}
 
