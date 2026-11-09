@@ -2,18 +2,59 @@
 # requires-python = ">=3.12"
 # dependencies = ["playwright==1.58.0"]
 # ///
+from datetime import datetime
+from hashlib import sha256
 from pathlib import Path
+from zoneinfo import ZoneInfo
 import argparse
 import json
 import re
+import subprocess
 from playwright.sync_api import sync_playwright, expect
 
 parser = argparse.ArgumentParser(description="Faktisk lokal VaktMatch-demo med Playwright; ingen modellkall.")
 parser.add_argument("--url", default="http://127.0.0.1:5173")
 parser.add_argument("--browser", help="Valgfri Chromium-binær; ellers brukes Playwrights installerte nettleser")
 parser.add_argument("--axe", help="Valgfri lokal axe.min.js; uten denne kjøres ikke axe-kontroller")
+parser.add_argument("--out", help="Rapportfil; standard er en ny, tidsstemplet browser-results-*.json")
 args = parser.parse_args()
 OUT = Path(__file__).parent
+ROOT = Path(__file__).resolve().parents[3]
+STARTED = datetime.now(ZoneInfo("Europe/Oslo"))
+REPORT = Path(args.out) if args.out else OUT / f"browser-results-{STARTED:%Y%m%d-%H%M%S}.json"
+
+
+def git(*command):
+    try:
+        return subprocess.run(["git", *command], cwd=ROOT, capture_output=True, text=True, check=True).stdout.strip()
+    except (OSError, subprocess.CalledProcessError):
+        return "ukjent"
+
+
+def provenance(page):
+    # K11: knytt rårapporten til kildegrunnlag og faktisk kjørende backend.
+    digest = sha256()
+    for path in sorted((ROOT / "backend" / "data" / "datasets").glob("*.json")):
+        digest.update(path.name.encode() + b"\0" + path.read_bytes())
+    base = args.url.rstrip("/")
+    try:
+        health = page.request.get(base + "/api/health").json()
+    except Exception as error:
+        health = {"error": f"{type(error).__name__}: {error}"}
+    try:
+        served = sorted(f"{d['id']}@{d['version']}" for d in page.request.get(base + "/api/datasets").json())
+    except Exception as error:
+        served = [f"{type(error).__name__}: {error}"]
+    return {
+        "started_at": STARTED.isoformat(timespec="seconds"),
+        "finished_at": datetime.now(ZoneInfo("Europe/Oslo")).isoformat(timespec="seconds"),
+        "commit": git("rev-parse", "HEAD"),
+        "app_worktree_dirty": bool(git("status", "--porcelain", "--", "backend", "frontend")),
+        "datasets_sha256": digest.hexdigest(),
+        "backend_health": health,
+        "served_datasets": served,
+        "axe_version": page.evaluate("() => window.axe?.version ?? null") if axe else None,
+    }
 checks = []
 page_errors = []
 external_requests = []
@@ -239,9 +280,9 @@ with sync_playwright() as p:
     finally:
         check("Ingen JavaScript-feil i appen", not page_errors, page_errors)
         check("Ingen eksterne modell-/leverandørkall", not external_requests, external_requests)
-        report = {"scope": "Faktisk lokal app, ikke HTML-prototypen", "url": args.url, "browser": browser.version, "axe_enabled": bool(axe), "checks": checks, "passed": sum(x["passed"] for x in checks), "failed": [x for x in checks if not x["passed"]]}
-        (OUT / "browser-results.json").write_text(json.dumps(report, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
-        print(json.dumps({"passed": report["passed"], "failed": report["failed"]}, ensure_ascii=True))
+        report = {"scope": "Faktisk lokal app, ikke HTML-prototypen", "url": args.url, "browser": browser.version, "axe_enabled": bool(axe), "provenance": provenance(page), "checks": checks, "passed": sum(x["passed"] for x in checks), "failed": [x for x in checks if not x["passed"]]}
+        REPORT.write_text(json.dumps(report, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+        print(json.dumps({"report": str(REPORT), "passed": report["passed"], "failed": report["failed"]}, ensure_ascii=True))
         browser.close()
 
 raise SystemExit(bool(report["failed"]))
