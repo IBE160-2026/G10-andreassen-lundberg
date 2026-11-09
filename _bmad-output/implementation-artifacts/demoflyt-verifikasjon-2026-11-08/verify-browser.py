@@ -1,6 +1,6 @@
 # /// script
 # requires-python = ">=3.12"
-# dependencies = ["playwright==1.58.0"]
+# dependencies = ["playwright==1.58.0", "tzdata"]
 # ///
 from datetime import datetime
 from hashlib import sha256
