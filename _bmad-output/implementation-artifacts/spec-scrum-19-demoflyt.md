@@ -2,7 +2,7 @@
 title: 'SCRUM-19: kjørbar demoflyt fra fravær til kontrollert alternativ'
 type: feature
 created: 2026-11-08
-status: done
+status: in-progress
 route: dispatch
 review_loop_iteration: 0
 baseline_commit: 3277c041f56d08e66232b2408bfd077747c43795
@@ -78,6 +78,32 @@ leverandørintegrasjon, vaktdeling eller flyttegrense over 1.
 - Given valgt forslag og simulerte svar, when A→B→A eller nye data prøves, then svar bevares bare for riktig grunnlag og alle berørte må akseptere.
 - Given ingen modellnøkkel eller stoppet backend, when relevante handlinger prøves, then norsk reserve/feil vises med vei videre.
 - Given 360 px, tastatur og 200 % tekst, when hovedflyten brukes, then nødvendig informasjon og handlinger er tilgjengelige uten vannrett rulling.
+
+### Review Findings – 2026-11-09
+
+Ny vurdering på Odins oppdrag, med fire separate KI-lag og hovedagentens
+etterkontroll. [Samlet rapport](review-status-2026-11-09.md) viser nye tester,
+produktstatus og alle 14 individuelle dommer før gruppering. Ingen høye funn;
+ni middels og to lave tiltak. Dette er vurdering, ikke utførte rettelser.
+
+- [ ] [Review][Patch] K1: Fungerende gjenforsøk ved feilet fraværsforhåndsvisning [frontend/src/App.tsx:141,154,177] — medium; oppfølging SCRUM-22/43.
+- [ ] [Review][Patch] K2: Vis faktisk R4-brudd med vakt og hvileintervall [backend/src/vaktmatch/rules/engine.py:234,243] — medium; oppfølging SCRUM-26/30.
+- [ ] [Review][Patch] K3: Identifiser konkret plan i valg og historikk [frontend/src/App.tsx:389,396] — medium; oppfølging SCRUM-52/53.
+- [ ] [Review][Patch] K4: Bevar åpne øvrige funn og tilbakefokus [frontend/src/App.tsx:217,366] — medium; oppfølging SCRUM-33/42.
+- [ ] [Review][Patch] K5: Behandle manglende scenariofamilie som ubekreftet [backend/src/vaktmatch/data/schema.py:16; backend/src/vaktmatch/api/routes.py:295] — medium; oppfølging SCRUM-19/23.
+- [ ] [Review][Patch] K6: Verifiser lesbare differansefelt i API og frontend [backend/tests/test_demoflow.py:286; frontend/src/App.test.tsx:26] — medium; oppfølging SCRUM-28/43/57.
+- [ ] [Review][Patch] K7: Test rekkefølgen på kombinerte P-kriterier [backend/src/vaktmatch/rules/engine.py:463; backend/tests/test_demoflow.py:51,95] — medium; oppfølging SCRUM-28/35/43.
+- [ ] [Review][Patch] K8: Test sekundærkriteriet ved lik primærverdi [backend/tests/test_demoflow.py:95; backend/src/vaktmatch/rules/engine.py:463] — medium; oppfølging SCRUM-28/36/43.
+- [ ] [Review][Patch] K9: Bevar riktig dato og separate benchmarkkjøringer [_bmad-output/implementation-artifacts/demoflyt-verifikasjon-2026-11-08/benchmark.py:32,39] — medium; oppfølging SCRUM-58.
+- [ ] [Review][Patch] K10: Nullstill neste datasett ved innlasting [frontend/src/App.tsx:256,400] — low; oppfølging SCRUM-23/57.
+- [ ] [Review][Patch] K11: Registrer kjøringens proveniens i nettleserrapport [_bmad-output/implementation-artifacts/demoflyt-verifikasjon-2026-11-08/verify-browser.py:242] — low; oppfølging SCRUM-43/44.
+
+#### Rejected
+
+Ingen. 0 decision-needed, 11 patch, 0 defer. Alle lag fullførte.
+Appkoden og tidligere kontrollhistorikk er uendret; nye åpne funn gir status
+in-progress. Jira/sprint er bare lest og er ikke synkronisert av vurderingen.
+
 
 ## Implementation Notes
 

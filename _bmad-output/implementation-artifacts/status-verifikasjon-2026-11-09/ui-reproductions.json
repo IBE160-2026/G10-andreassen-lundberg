@@ -1,0 +1,44 @@
+[
+  {
+    "finding": "preview_retry",
+    "preview_requests_after_retry": 1,
+    "target_choices_after_retry": 0,
+    "form_error_visible": true,
+    "preview_requests_after_field_change": 2,
+    "target_choices_after_field_change": 1
+  },
+  {
+    "finding": "dataset_selection",
+    "displayed_value": "",
+    "preview_enabled": true,
+    "comparison_body": {
+      "previous_id": "en-flytting",
+      "next_id": "en-flytting"
+    }
+  },
+  {
+    "finding": "back_to_list",
+    "other_findings_open": false,
+    "focus_on_origin_button": false,
+    "origin_button_visible": false
+  },
+  {
+    "finding": "ambiguous_history",
+    "distinct_proposal_ids": [
+      "504dbbdc3d25a1dda6d8",
+      "044f3488dff3bcce0578"
+    ],
+    "distinct_shift_sets": [
+      [
+        "W5-A08-4",
+        "X"
+      ],
+      [
+        "W5-A08-5",
+        "X"
+      ]
+    ],
+    "history_records": 2,
+    "identical_history_text": true
+  }
+]

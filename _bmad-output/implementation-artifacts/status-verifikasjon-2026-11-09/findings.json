@@ -1,0 +1,278 @@
+{
+  "date": "2026-11-09",
+  "head": "fc5c111416de839fe00fb965952970b790ac2330",
+  "review_mode": "full",
+  "failed_layers": [],
+  "findings": [
+    {
+      "id": 1,
+      "source": "blind-hunter",
+      "title": "Datasettvelgeren beholder et fjernet valg",
+      "location": "frontend/src/App.tsx:256,400",
+      "verdict": "low",
+      "evidence": "Etter innlasting av en-flytting viser velgeren tom verdi, mens aktiv forhåndsvisning sender previous_id=next_id=en-flytting. Hovedagentens faktiske nettleserrepro bekrefter samme-datasett-sammenligning.",
+      "group": "K10",
+      "bucket": "patch"
+    },
+    {
+      "id": 2,
+      "source": "blind-hunter",
+      "title": "Tilbake mister åpen funnliste og fokus",
+      "location": "frontend/src/App.tsx:217,366",
+      "verdict": "medium",
+      "evidence": "Ukontrollert details avmonteres ved detaljvisning. Etter A05 → Tilbake er øvrige funn lukket, opprinnelig undersøk-knapp usynlig og fokus ikke returnert; bekreftet av hovedagentens nettleserrepro.",
+      "group": "K4",
+      "bucket": "patch"
+    },
+    {
+      "id": 3,
+      "source": "blind-hunter",
+      "title": "Fraværsforhåndsvisning har ikke virksomt gjenforsøk",
+      "location": "frontend/src/App.tsx:141,154,177",
+      "verdict": "medium",
+      "evidence": "Ett avbrutt preview etterfulgt av Simuler og Prøv igjen gir fortsatt ett preview-kall og null målskiftvalg. Feltendring gir straks nytt kall; dette er feil gjenoppretting, ikke varig backendfeil.",
+      "group": "K1",
+      "bucket": "patch"
+    },
+    {
+      "id": 4,
+      "source": "blind-hunter",
+      "title": "Ulike planforslag kan være identiske i valghistorikken",
+      "location": "frontend/src/App.tsx:389,396",
+      "verdict": "medium",
+      "evidence": "To forskjellige A08/A06-forslag gjelder W5-A08-4 respektive W5-A08-5. Hovedagenten registrerte begge og valgte A02; de to historikkpostene har identisk synlig tekst, selv om forslag-ID og berørt vakt er ulike. Gjeldende valg har samme identifikasjonsmangel.",
+      "group": "K3",
+      "bucket": "patch"
+    },
+    {
+      "id": 5,
+      "source": "blind-hunter",
+      "title": "R4-resultat skjuler intervallet som gir avvik",
+      "location": "backend/src/vaktmatch/rules/engine.py:234,243",
+      "verdict": "medium",
+      "evidence": "Validert variant forlenger W5-A02-1 til 23:00 og gir ni timers hvile til tirsdag. A02s direkte X-forslag får korrekt R4-avvik, men regelverdi og rest_after viser bare X:16/16 t. Bekreftet prosesslokalt av hovedagenten; dette er en forklarings-/sporbarhetsfeil, ikke en feilaktig beståttstatus.",
+      "group": "K2",
+      "bucket": "patch"
+    },
+    {
+      "id": 6,
+      "source": "blind-hunter",
+      "title": "Tom familie tolkes som bekreftet samme scenario",
+      "location": "backend/src/vaktmatch/data/schema.py:16; backend/src/vaktmatch/api/routes.py:295",
+      "verdict": "medium",
+      "evidence": "family_id er valgfri med tom standard. To fullstendig validerte datasett med ulike ID-er uten familie gir HTTP 200 og same_family=true. Frontend kan da overføre kompatible fraværsreferanser uten bekreftet scenariofamilie. Ikke utløst av de elleve medfølgende, navngitte familiene; feilen gjelder den aksepterte datakontrakten.",
+      "group": "K5",
+      "bucket": "patch"
+    },
+    {
+      "id": 7,
+      "source": "blind-hunter",
+      "title": "Benchmark gjentar gammel dato og overskriver historisk bevis",
+      "location": "_bmad-output/implementation-artifacts/demoflyt-verifikasjon-2026-11-08/benchmark.py:32,39",
+      "verdict": "medium",
+      "evidence": "Skriptet hardkoder 2026-11-08 og skriver samme versjonerte resultatfil hver gang. Rerun-kommandoen i kontrollrapporten vil derfor merke senere målinger som 8. november og erstatte eldre råtall. Verifisert ved å følge skrivebanen; originalfilen ble ikke kjørt/overskrevet i denne økten.",
+      "group": "K9",
+      "bucket": "patch"
+    },
+    {
+      "id": 8,
+      "source": "blind-hunter",
+      "title": "Nettleserrapport mangler automatisk proveniens",
+      "location": "_bmad-output/implementation-artifacts/demoflyt-verifikasjon-2026-11-08/verify-browser.py:242",
+      "verdict": "low",
+      "evidence": "Rapportobjektet har nettleser, URL og axe-flagg, men ikke kjøretid, commit, datasettfingeravtrykk eller axe-versjon. En utvikler som kjører mot en gammel lokal backend kan ikke avgjøre server-/kildegrunnlaget fra rårapporten. Denne økten har derfor eget manifest; kildeskriptets fremtidige rapportering er fortsatt åpen.",
+      "group": "K11",
+      "bucket": "patch"
+    },
+    {
+      "id": 9,
+      "source": "blind-hunter",
+      "title": "Lesbare datasettdifferanser kan bli tomme uten testfeil",
+      "location": "backend/tests/test_demoflow.py:286; frontend/src/App.test.tsx:26",
+      "verdict": "medium",
+      "evidence": "Hovedagenten gjentok prosesslokal mutasjon av label/before_label/after_label til tomme strenger: alle 64 backendtester bestod. Frontendfiksturen mangler de samme visningsfeltene. Den faktiske differansevisningen virker nå; dette er et verifikasjonsgap.",
+      "group": "K6",
+      "bucket": "patch"
+    },
+    {
+      "id": 10,
+      "source": "blind-hunter",
+      "title": "Sekundærkriteriet kan ignoreres uten testfeil",
+      "location": "backend/tests/test_demoflow.py:95; backend/src/vaktmatch/rules/engine.py:463",
+      "verdict": "medium",
+      "evidence": "Hovedagenten gjentok prosesslokal mutasjon fra criteria til criteria[:1] i sorteringsnøkkelen: alle 64 backendtester bestod. Tilfeller med likt primærkriterium og ulikt sekundærkriterium mangler. Dagens implementering bruker alle kriteriene korrekt.",
+      "group": "K8",
+      "bucket": "patch"
+    },
+    {
+      "id": 11,
+      "source": "edge-case-hunter",
+      "title": "Feilet forhåndsvisning blir ikke hentet på nytt",
+      "location": "frontend/src/App.tsx:141–161",
+      "verdict": "medium",
+      "evidence": "Samme konkrete ett-kallsrepro som funn 3 er bekreftet av hovedagenten. Gjenforsøk validerer bare det manglende målskiftet; mangelen kan løses ved nytt preview-kall.",
+      "group": "K1",
+      "bucket": "patch"
+    },
+    {
+      "id": 12,
+      "source": "edge-case-hunter",
+      "title": "Innlastet datasett beholdes som neste valg",
+      "location": "frontend/src/App.tsx:256–259",
+      "verdict": "low",
+      "evidence": "Samme faktiske tomme velger/aktive selv-sammenligning som funn 1 er bekreftet av hovedagenten. Direkte tilstandskorreksjon ved innlasting er nok.",
+      "group": "K10",
+      "bucket": "patch"
+    },
+    {
+      "id": 13,
+      "source": "verification-gap",
+      "title": "Kombinert P1/P2-prioritet er ikke beskyttet",
+      "location": "backend/src/vaktmatch/rules/engine.py:463; backend/tests/test_demoflow.py:51,95",
+      "verdict": "medium",
+      "evidence": "Forhåndsverifisert av testagenten etter test-/referansesøk: prosesslokal sorted(criteria)-mutasjon ga feil A02 først for [P2,P1], mens alle 64 tester bestod. Originalen ga korrekt A03. Forelderen bruker dette innsendte beviset uten å gjenta mutasjonen, etter workflow-regelen.",
+      "group": "K7",
+      "bucket": "patch"
+    },
+    {
+      "id": 14,
+      "source": "acceptance-auditor",
+      "title": "Gjenforsøksfeilen bryter feil-med-vei-videre-kravet",
+      "location": "frontend/src/App.tsx:154–161,177–179",
+      "verdict": "medium",
+      "evidence": "Agentens isolerte Vitest-repro og hovedagentens nettleserrepro bekrefter samme feil som 3/11. Bryter Build-AC4 og PRD NFR-3; feilmeldingen og den synlige gjenforsøkshandlingen gir ikke fungerende vei videre.",
+      "group": "K1",
+      "bucket": "patch"
+    }
+  ],
+  "groups": [
+    {
+      "id": "K1",
+      "severity": "medium",
+      "title": "Fungerende gjenforsøk ved feilet fraværsforhåndsvisning",
+      "members": [
+        3,
+        11,
+        14
+      ],
+      "jira": "SCRUM-22/43",
+      "bucket": "patch",
+      "fixed": false
+    },
+    {
+      "id": "K2",
+      "severity": "medium",
+      "title": "Vis faktisk R4-brudd med vakt og hvileintervall",
+      "members": [
+        5
+      ],
+      "jira": "SCRUM-26/30",
+      "bucket": "patch",
+      "fixed": false
+    },
+    {
+      "id": "K3",
+      "severity": "medium",
+      "title": "Identifiser konkret plan i valg og historikk",
+      "members": [
+        4
+      ],
+      "jira": "SCRUM-52/53",
+      "bucket": "patch",
+      "fixed": false
+    },
+    {
+      "id": "K4",
+      "severity": "medium",
+      "title": "Bevar åpne øvrige funn og tilbakefokus",
+      "members": [
+        2
+      ],
+      "jira": "SCRUM-33/42",
+      "bucket": "patch",
+      "fixed": false
+    },
+    {
+      "id": "K5",
+      "severity": "medium",
+      "title": "Behandle manglende scenariofamilie som ubekreftet",
+      "members": [
+        6
+      ],
+      "jira": "SCRUM-19/23",
+      "bucket": "patch",
+      "fixed": false
+    },
+    {
+      "id": "K6",
+      "severity": "medium",
+      "title": "Verifiser lesbare differansefelt i API og frontend",
+      "members": [
+        9
+      ],
+      "jira": "SCRUM-28/43/57",
+      "bucket": "patch",
+      "fixed": false
+    },
+    {
+      "id": "K7",
+      "severity": "medium",
+      "title": "Test rekkefølgen på kombinerte P-kriterier",
+      "members": [
+        13
+      ],
+      "jira": "SCRUM-28/35/43",
+      "bucket": "patch",
+      "fixed": false
+    },
+    {
+      "id": "K8",
+      "severity": "medium",
+      "title": "Test sekundærkriteriet ved lik primærverdi",
+      "members": [
+        10
+      ],
+      "jira": "SCRUM-28/36/43",
+      "bucket": "patch",
+      "fixed": false
+    },
+    {
+      "id": "K9",
+      "severity": "medium",
+      "title": "Bevar riktig dato og separate benchmarkkjøringer",
+      "members": [
+        7
+      ],
+      "jira": "SCRUM-58",
+      "bucket": "patch",
+      "fixed": false
+    },
+    {
+      "id": "K10",
+      "severity": "low",
+      "title": "Nullstill neste datasett ved innlasting",
+      "members": [
+        1,
+        12
+      ],
+      "jira": "SCRUM-23/57",
+      "bucket": "patch",
+      "fixed": false
+    },
+    {
+      "id": "K11",
+      "severity": "low",
+      "title": "Registrer kjøringens proveniens i nettleserrapport",
+      "members": [
+        8
+      ],
+      "jira": "SCRUM-43/44",
+      "bucket": "patch",
+      "fixed": false
+    }
+  ],
+  "decision_needed": 0,
+  "patch": 11,
+  "defer": 0,
+  "rejected": []
+}
