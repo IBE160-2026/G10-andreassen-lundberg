@@ -19,6 +19,7 @@ from vaktmatch.rules.engine import (
     history,
     hours,
     overlap,
+    rank_alternatives,
     week_hours,
 )
 
@@ -606,3 +607,83 @@ def test_current_controls_membership_violation_and_absence_hours(tmp_path, repos
     people = {p["employee_id"]: p for p in refreshed["current_controls"]}
     assert set(people) == {e.id for e in dataset.employees} - {"A01"}
     assert Decimal(people["A02"]["hours_after"]) == 16
+
+
+def ranked(criteria, *rows):
+    alternatives = [
+        {
+            "id": identifier,
+            "candidate_id": identifier,
+            "selectable": True,
+            "p1": Decimal(p1),
+            "p2": Decimal(p2),
+        }
+        for identifier, p1, p2 in rows
+    ]
+    return [(a["id"], a["rank"]) for a in rank_alternatives(alternatives, criteria)]
+
+
+def test_k7_criteria_order_decides_conflicting_p_values():
+    # «a» vinner på P1, «b» på P2; ID-rekkefølgen kan ikke avgjøre utfallet.
+    rows = [("b", "32", "0.8"), ("a", "24", "0.9")]
+    assert ranked(["P1", "P2"], *rows) == [("a", 1), ("b", 2)]
+    assert ranked(["P2", "P1"], *rows) == [("b", 1), ("a", 2)]
+
+
+def test_k7_main_scenario_follows_both_combined_orders(repository):
+    dataset = repository.get_dataset("hovedscenario")
+    for criteria, first in ((["P1", "P2"], "A02"), (["P2", "P1"], "A03")):
+        result = run(dataset, criteria=criteria)
+        assert result["criteria"] == criteria
+        assert result["alternatives"][0]["candidate_id"] == first
+
+
+def test_k8_secondary_criterion_breaks_primary_ties_in_both_orders():
+    # Lik primærverdi: sekundærkriteriet skal gi ulik rang, ikke delt førsteplass.
+    assert ranked(["P1", "P2"], ("a", "24", "0.9"), ("z", "24", "0.6")) == [("z", 1), ("a", 2)]
+    assert ranked(["P2", "P1"], ("a", "32", "0.8"), ("z", "24", "0.8")) == [("z", 1), ("a", 2)]
+
+
+def test_k2_r4_value_names_the_shift_pair_behind_the_violation(repository):
+    dataset = repository.get_dataset("hovedscenario")
+    shift = next(s for s in dataset.shifts if s.id == "W5-A02-1")
+    shift.end = shift.end + timedelta(hours=7)  # 23:00, ni timer før W5-A02-2 kl. 08
+    r4 = direct(run(dataset), "A02")["consequences"][0]["rules"][3]
+    assert r4["rule"] == "R4"
+    assert r4["status"] == "regelavvik"
+    assert r4["value"].startswith("X: 16 / 16 t")
+    assert "W5-A02-1 → W5-A02-2: 9 t" in r4["value"]
+
+
+def test_k5_empty_family_never_confirms_same_family(tmp_path, repository):
+    source = repository.get_dataset("hovedscenario")
+    for identifier in ("uten-familie-a", "uten-familie-b"):
+        dataset = source.model_copy(deep=True)
+        dataset.dataset.id = identifier
+        dataset.dataset.family_id = ""
+        (tmp_path / f"{identifier}.json").write_text(dataset.model_dump_json(), encoding="utf-8")
+    client = TestClient(create_app(Settings(data_dir=tmp_path, _env_file=None)))
+    response = client.post(
+        "/api/datasets/compare",
+        json={"previous_id": "uten-familie-a", "next_id": "uten-familie-b"},
+    )
+    assert response.status_code == 200
+    assert response.json()["same_family"] is False
+
+
+def test_k6_change_overview_has_meaningful_norwegian_labels(demo_client):
+    result = demo_client.post(
+        "/api/datasets/compare", json={"previous_id": "hovedscenario", "next_id": "oppdatert-plan"}
+    ).json()
+    assert result["changes"]
+    for change in result["changes"]:
+        for key in ("label", "before_label", "after_label"):
+            assert change[key].strip(), (key, change)
+        assert change["label"].count(" · ") == 2
+    rate = next(c for c in result["changes"] if c["field"] == "hourly_rate")
+    assert rate["label"] == f"Ansatte · {rate['id']} · Syntetisk timesats"
+    assert rate["before_label"].endswith(" kr/time")
+    assert rate["after_label"].endswith(" kr/time")
+    assert rate["before_label"] != rate["after_label"]
+    assignment = next(c for c in result["changes"] if c["category"] == "assignments")
+    assert assignment["label"].startswith("Tildelinger · ")

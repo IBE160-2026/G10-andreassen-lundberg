@@ -292,7 +292,9 @@ def compare_datasets(body: CompareRequest, repository: Repository) -> dict:
         {
             "previous": previous.dataset,
             "next": following.dataset,
-            "same_family": previous.dataset.family_id == following.dataset.family_id,
+            # Tom familie bekrefter ikke at fravær kan overføres mellom datasettene.
+            "same_family": bool(previous.dataset.family_id)
+            and previous.dataset.family_id == following.dataset.family_id,
             "changes": [readable_change(change) for change in changes],
             "unchanged": not changes,
         }

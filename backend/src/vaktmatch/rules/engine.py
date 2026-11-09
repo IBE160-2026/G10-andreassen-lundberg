@@ -246,6 +246,28 @@ def control_person(dataset, employee, before, after, additions, absences):
         f" / {r['after_hours'] if r['after_hours'] is not None else 'ingen kjent nabovakt'} t"
         for r in rests
     )
+    # Vis vaktparet som begrunner avviket, også når bruddet ligger utenfor de nye vaktene.
+    short_rests = sorted(
+        {
+            (r["previous_shift_id"], r["shift_id"], r["before_hours"])
+            for r in violations
+            if r["before_hours"] is not None and r["before_hours"] < 11
+        }
+        | {
+            (r["shift_id"], r["next_shift_id"], r["after_hours"])
+            for r in violations
+            if r["after_hours"] is not None and r["after_hours"] < 11
+        }
+    )
+    if short_rests:
+        rest_value = "; ".join(
+            part
+            for part in (
+                rest_value,
+                "under 11 t hvile: " + ", ".join(f"{a} → {b}: {h} t" for a, b, h in short_rests),
+            )
+            if part
+        )
     if collision_pairs and not violations:
         rules.append(
             {
