@@ -1,0 +1,631 @@
+{
+  "started_at": "2026-11-09T15:36:30+01:00",
+  "commit": "c7679d81017caee4293c945a120866107511e743",
+  "backend_worktree_dirty": false,
+  "datasets_sha256": "5c8999c0476910279eb5da75b82e219e6b6a53a7698115d7a8cae9f1f79d5dae",
+  "machine": "Windows AMD64",
+  "python": "3.12.11",
+  "scope": "Motorens beregningstid; ekskluderer HTTP, filinnlasting, grensesnitt og modell. Ingen tids- eller skaleringsgaranti.",
+  "datasets": [
+    {
+      "dataset_id": "en-flytting",
+      "version": "1.0",
+      "absence": {
+        "employee_id": "A",
+        "shift_id": "X"
+      },
+      "employees": 9,
+      "shifts": 2,
+      "measurements": [
+        {
+          "search_limit": 0,
+          "warmups": 2,
+          "runs": 12,
+          "combinations_examined": 9,
+          "median_ms": 0.913,
+          "p95_nearest_rank_ms": 1.133,
+          "errors": 0,
+          "aborted": 0,
+          "samples_ms": [
+            0.918,
+            0.961,
+            0.909,
+            0.888,
+            0.929,
+            0.895,
+            0.908,
+            0.904,
+            1.133,
+            0.949,
+            0.921,
+            0.893
+          ]
+        },
+        {
+          "search_limit": 1,
+          "warmups": 2,
+          "runs": 12,
+          "combinations_examined": 17,
+          "median_ms": 2.436,
+          "p95_nearest_rank_ms": 2.605,
+          "errors": 0,
+          "aborted": 0,
+          "samples_ms": [
+            2.398,
+            2.44,
+            2.596,
+            2.473,
+            2.433,
+            2.411,
+            2.384,
+            2.39,
+            2.505,
+            2.605,
+            2.446,
+            2.393
+          ]
+        }
+      ]
+    },
+    {
+      "dataset_id": "hovedscenario",
+      "version": "1.0",
+      "absence": {
+        "employee_id": "A01",
+        "shift_id": "X"
+      },
+      "employees": 9,
+      "shifts": 73,
+      "measurements": [
+        {
+          "search_limit": 0,
+          "warmups": 2,
+          "runs": 12,
+          "combinations_examined": 9,
+          "median_ms": 10.317,
+          "p95_nearest_rank_ms": 11.097,
+          "errors": 0,
+          "aborted": 0,
+          "samples_ms": [
+            10.456,
+            11.097,
+            10.085,
+            9.943,
+            10.715,
+            10.189,
+            10.002,
+            10.446,
+            10.004,
+            10.619,
+            10.86,
+            10.179
+          ]
+        },
+        {
+          "search_limit": 1,
+          "warmups": 2,
+          "runs": 12,
+          "combinations_examined": 109,
+          "median_ms": 171.337,
+          "p95_nearest_rank_ms": 179.04,
+          "errors": 0,
+          "aborted": 0,
+          "samples_ms": [
+            169.752,
+            168.966,
+            177.961,
+            172.871,
+            170.154,
+            179.04,
+            173.845,
+            170.044,
+            171.734,
+            172.305,
+            170.939,
+            170.758
+          ]
+        }
+      ]
+    },
+    {
+      "dataset_id": "ingen-direkte",
+      "version": "1.0",
+      "absence": {
+        "employee_id": "A01",
+        "shift_id": "X"
+      },
+      "employees": 9,
+      "shifts": 73,
+      "measurements": [
+        {
+          "search_limit": 0,
+          "warmups": 2,
+          "runs": 12,
+          "combinations_examined": 9,
+          "median_ms": 10.41,
+          "p95_nearest_rank_ms": 11.34,
+          "errors": 0,
+          "aborted": 0,
+          "samples_ms": [
+            9.955,
+            10.487,
+            10.747,
+            10.123,
+            10.228,
+            10.8,
+            10.256,
+            11.34,
+            10.757,
+            10.332,
+            9.898,
+            11.072
+          ]
+        },
+        {
+          "search_limit": 1,
+          "warmups": 2,
+          "runs": 12,
+          "combinations_examined": 112,
+          "median_ms": 174.009,
+          "p95_nearest_rank_ms": 187.279,
+          "errors": 0,
+          "aborted": 0,
+          "samples_ms": [
+            187.279,
+            177.561,
+            173.219,
+            174.687,
+            176.933,
+            171.223,
+            176.907,
+            177.022,
+            173.33,
+            171.88,
+            170.272,
+            171.477
+          ]
+        }
+      ]
+    },
+    {
+      "dataset_id": "komplettert",
+      "version": "2.0",
+      "absence": {
+        "employee_id": "A01",
+        "shift_id": "X"
+      },
+      "employees": 9,
+      "shifts": 73,
+      "measurements": [
+        {
+          "search_limit": 0,
+          "warmups": 2,
+          "runs": 12,
+          "combinations_examined": 9,
+          "median_ms": 10.29,
+          "p95_nearest_rank_ms": 11.335,
+          "errors": 0,
+          "aborted": 0,
+          "samples_ms": [
+            10.29,
+            10.29,
+            10.291,
+            10.302,
+            10.692,
+            11.335,
+            10.391,
+            10.258,
+            10.288,
+            10.27,
+            10.102,
+            10.836
+          ]
+        },
+        {
+          "search_limit": 1,
+          "warmups": 2,
+          "runs": 12,
+          "combinations_examined": 109,
+          "median_ms": 172.257,
+          "p95_nearest_rank_ms": 183.202,
+          "errors": 0,
+          "aborted": 0,
+          "samples_ms": [
+            171.616,
+            182.536,
+            172.613,
+            170.739,
+            171.29,
+            173.818,
+            172.618,
+            171.609,
+            171.9,
+            178.869,
+            183.202,
+            168.893
+          ]
+        }
+      ]
+    },
+    {
+      "dataset_id": "lik-rang",
+      "version": "1.0",
+      "absence": {
+        "employee_id": "A01",
+        "shift_id": "X"
+      },
+      "employees": 9,
+      "shifts": 72,
+      "measurements": [
+        {
+          "search_limit": 0,
+          "warmups": 2,
+          "runs": 12,
+          "combinations_examined": 9,
+          "median_ms": 10.159,
+          "p95_nearest_rank_ms": 13.418,
+          "errors": 0,
+          "aborted": 0,
+          "samples_ms": [
+            9.895,
+            10.373,
+            9.824,
+            11.027,
+            10.186,
+            9.884,
+            13.418,
+            11.305,
+            10.008,
+            10.452,
+            9.87,
+            10.131
+          ]
+        },
+        {
+          "search_limit": 1,
+          "warmups": 2,
+          "runs": 12,
+          "combinations_examined": 101,
+          "median_ms": 154.99,
+          "p95_nearest_rank_ms": 161.338,
+          "errors": 0,
+          "aborted": 0,
+          "samples_ms": [
+            159.513,
+            155.118,
+            154.207,
+            155.619,
+            153.576,
+            154.862,
+            156.822,
+            153.449,
+            156.39,
+            161.338,
+            153.413,
+            153.094
+          ]
+        }
+      ]
+    },
+    {
+      "dataset_id": "mangler-komplettert",
+      "version": "2.0",
+      "absence": {
+        "employee_id": "A01",
+        "shift_id": "X"
+      },
+      "employees": 9,
+      "shifts": 73,
+      "measurements": [
+        {
+          "search_limit": 0,
+          "warmups": 2,
+          "runs": 12,
+          "combinations_examined": 9,
+          "median_ms": 10.341,
+          "p95_nearest_rank_ms": 11.631,
+          "errors": 0,
+          "aborted": 0,
+          "samples_ms": [
+            10.965,
+            10.189,
+            9.96,
+            10.039,
+            9.978,
+            10.679,
+            10.44,
+            9.939,
+            11.028,
+            11.631,
+            10.492,
+            10.242
+          ]
+        },
+        {
+          "search_limit": 1,
+          "warmups": 2,
+          "runs": 12,
+          "combinations_examined": 112,
+          "median_ms": 170.948,
+          "p95_nearest_rank_ms": 183.987,
+          "errors": 0,
+          "aborted": 0,
+          "samples_ms": [
+            169.24,
+            170.058,
+            170.843,
+            168.98,
+            171.054,
+            172.298,
+            173.442,
+            179.098,
+            168.125,
+            168.248,
+            172.561,
+            183.987
+          ]
+        }
+      ]
+    },
+    {
+      "dataset_id": "mangler-p2",
+      "version": "1.0",
+      "absence": {
+        "employee_id": "A01",
+        "shift_id": "X"
+      },
+      "employees": 9,
+      "shifts": 73,
+      "measurements": [
+        {
+          "search_limit": 0,
+          "warmups": 2,
+          "runs": 12,
+          "combinations_examined": 9,
+          "median_ms": 10.363,
+          "p95_nearest_rank_ms": 11.264,
+          "errors": 0,
+          "aborted": 0,
+          "samples_ms": [
+            10.115,
+            10.653,
+            10.612,
+            10.172,
+            11.264,
+            10.699,
+            10.1,
+            10.129,
+            10.098,
+            10.374,
+            10.371,
+            10.355
+          ]
+        },
+        {
+          "search_limit": 1,
+          "warmups": 2,
+          "runs": 12,
+          "combinations_examined": 109,
+          "median_ms": 172.695,
+          "p95_nearest_rank_ms": 182.363,
+          "errors": 0,
+          "aborted": 0,
+          "samples_ms": [
+            166.041,
+            170.586,
+            177.528,
+            170.376,
+            167.983,
+            175.438,
+            172.379,
+            173.646,
+            173.011,
+            182.363,
+            170.924,
+            176.974
+          ]
+        }
+      ]
+    },
+    {
+      "dataset_id": "mangler",
+      "version": "1.0",
+      "absence": {
+        "employee_id": "A01",
+        "shift_id": "X"
+      },
+      "employees": 9,
+      "shifts": 73,
+      "measurements": [
+        {
+          "search_limit": 0,
+          "warmups": 2,
+          "runs": 12,
+          "combinations_examined": 9,
+          "median_ms": 10.364,
+          "p95_nearest_rank_ms": 11.686,
+          "errors": 0,
+          "aborted": 0,
+          "samples_ms": [
+            10.244,
+            10.351,
+            10.608,
+            10.138,
+            11.686,
+            11.39,
+            10.198,
+            10.622,
+            10.378,
+            10.063,
+            10.442,
+            10.185
+          ]
+        },
+        {
+          "search_limit": 1,
+          "warmups": 2,
+          "runs": 12,
+          "combinations_examined": 112,
+          "median_ms": 172.838,
+          "p95_nearest_rank_ms": 181.043,
+          "errors": 0,
+          "aborted": 0,
+          "samples_ms": [
+            172.254,
+            173.113,
+            168.183,
+            181.043,
+            173.505,
+            172.563,
+            180.531,
+            172.238,
+            171.861,
+            171.77,
+            174.52,
+            174.532
+          ]
+        }
+      ]
+    },
+    {
+      "dataset_id": "oppdatert-plan",
+      "version": "2.1",
+      "absence": {
+        "employee_id": "A01",
+        "shift_id": "X"
+      },
+      "employees": 9,
+      "shifts": 73,
+      "measurements": [
+        {
+          "search_limit": 0,
+          "skipped": "Ikke kjørt – utenfor omfang. Velg en framtidig uke-5-vakt med én udekket plass."
+        },
+        {
+          "search_limit": 1,
+          "skipped": "Ikke kjørt – utenfor omfang. Velg en framtidig uke-5-vakt med én udekket plass."
+        }
+      ]
+    },
+    {
+      "dataset_id": "udekket-y",
+      "version": "1.0",
+      "absence": {
+        "employee_id": "A",
+        "shift_id": "X"
+      },
+      "employees": 9,
+      "shifts": 2,
+      "measurements": [
+        {
+          "search_limit": 0,
+          "warmups": 2,
+          "runs": 12,
+          "combinations_examined": 9,
+          "median_ms": 0.865,
+          "p95_nearest_rank_ms": 1.195,
+          "errors": 0,
+          "aborted": 0,
+          "samples_ms": [
+            1.195,
+            1.031,
+            0.911,
+            0.889,
+            0.865,
+            0.859,
+            0.866,
+            0.865,
+            0.86,
+            0.859,
+            0.861,
+            0.853
+          ]
+        },
+        {
+          "search_limit": 1,
+          "warmups": 2,
+          "runs": 12,
+          "combinations_examined": 18,
+          "median_ms": 2.576,
+          "p95_nearest_rank_ms": 3.961,
+          "errors": 0,
+          "aborted": 0,
+          "samples_ms": [
+            2.526,
+            2.512,
+            2.574,
+            2.498,
+            2.506,
+            2.766,
+            3.961,
+            3.133,
+            2.521,
+            2.578,
+            2.7,
+            2.991
+          ]
+        }
+      ]
+    },
+    {
+      "dataset_id": "uendret",
+      "version": "1.1",
+      "absence": {
+        "employee_id": "A01",
+        "shift_id": "X"
+      },
+      "employees": 9,
+      "shifts": 73,
+      "measurements": [
+        {
+          "search_limit": 0,
+          "warmups": 2,
+          "runs": 12,
+          "combinations_examined": 9,
+          "median_ms": 10.177,
+          "p95_nearest_rank_ms": 10.956,
+          "errors": 0,
+          "aborted": 0,
+          "samples_ms": [
+            10.03,
+            10.138,
+            10.057,
+            10.21,
+            10.956,
+            10.043,
+            10.555,
+            10.795,
+            10.158,
+            10.197,
+            10.374,
+            10.05
+          ]
+        },
+        {
+          "search_limit": 1,
+          "warmups": 2,
+          "runs": 12,
+          "combinations_examined": 109,
+          "median_ms": 171.792,
+          "p95_nearest_rank_ms": 182.195,
+          "errors": 0,
+          "aborted": 0,
+          "samples_ms": [
+            178.088,
+            171.433,
+            174.815,
+            170.2,
+            170.428,
+            182.195,
+            171.091,
+            171.93,
+            172.053,
+            171.654,
+            168.517,
+            172.767
+          ]
+        }
+      ]
+    }
+  ]
+}

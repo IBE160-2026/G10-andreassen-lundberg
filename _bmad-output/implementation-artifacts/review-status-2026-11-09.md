@@ -138,3 +138,48 @@ bør vurderes etter at denne kjernen er etterkontrollert.
 
 Dette er Codex sin vurdering. Produktbrief, PRD, produktprioriteringer og
 arbeidsdeling er uendret. Resultatene er lagret lokalt; ingen push eller merge.
+
+## Etterkontroll 09.11.2026
+
+Claude Code (Opus 5.5) på Stians oppdrag, samme dag. Alle elleve tiltak er
+rettet i den anbefalte rekkefølgen. Rapporten over er ikke endret og viser
+fortsatt funnene slik de var. KI-gjennomgangen fant feilene, en annen KI-agent
+rettet dem, og testene er kontrollert ved å fjerne rettingene igjen.
+
+| Tiltak | Retting | Commit | Kontroll |
+|---|---|---|---|
+| K1 | «Prøv igjen» og egen knapp henter forhåndsvisningen på nytt | `dd046ad` | Vitest K1: to preview-kall, radiovalg og videre simulering |
+| K2 | R4-verdien viser vaktpar og timer bak avviket | `d37f92a` | pytest K2: `W5-A02-1 → W5-A02-2: 9 t` |
+| K3 | Valg og historikk viser plan og forslags-ID | `dd046ad` | Vitest K3: W5-A08-4 og W5-A08-5 kan skilles |
+| K4 | Kontrollert `details`; fokus tilbake til kortet | `dd046ad` | Vitest K4 |
+| K5 | Tom `family_id` gir `same_family=false` | `d37f92a` | pytest K5 med to datasett uten familie |
+| K6 | Tester for meningsbærende norske visningsfelt | `d37f92a`, `dd046ad` | pytest og Vitest K6 |
+| K7 | Test av [P1,P2] mot [P2,P1] med motstridende verdier | `d37f92a` | pytest K7, også på hovedscenarioet |
+| K8 | Test av sekundærkriteriet ved lik primærverdi | `d37f92a` | pytest K8 i begge rekkefølger |
+| K9 | Faktisk kjøretid, ny fil per kjøring, alle datasett | `c7679d8` | [benchmark-results-20261109-153630.json](demoflyt-verifikasjon-2026-11-08/benchmark-results-20261109-153630.json) |
+| K10 | Neste datasett settes til et annet enn det lastede | `dd046ad` | Vitest K10: `previous_id ≠ next_id` |
+| K11 | Proveniens og tidsstemplede rapport- og bildefiler | `c7679d8`, `a706007`, `1bbfdec` | [browser-results-20261109-154005.json](demoflyt-verifikasjon-2026-11-08/browser-results-20261109-154005.json) |
+
+**Mutasjonskontroll.** De samme mutasjonene som slapp gjennom før rettingen,
+gir nå testfeil: `sorted(criteria)` (2 feil), `criteria[:1]` (1),
+tom `before_label` (1), gammel familiekontroll (1) og R4 uten vaktpar (1).
+I frontend gir det også én testfeil å fjerne hver av rettingene for K1, K3,
+K4, K10 og visningen av før-tekst (K6). Normal kjøring er grønn.
+
+**Kjørte kontroller.** Backend: 70 tester (fra 64), ruff lint og format.
+Frontend: 24 tester (fra 20), oxlint, TypeScript og produksjonsbygg. Faktisk
+app i Chromium 151: 39 av 39 kontroller, uten axe (`--axe` ble ikke oppgitt).
+Rapporten registrerer commit `a706007`, ren app-arbeidskopi, fingeravtrykk for
+datasettene og backendens helse. Benchmark på commit `c7679d8` målte ti av
+elleve datasett. `oppdatert-plan` hoppes over fordi A03 allerede dekker X, så
+søket er utenfor omfang. Hovedscenarioet hadde median 10,3 ms ved grense 0 og
+171,3 ms ved grense 1 på Windows AMD64/Python 3.12. Originalmålingen fra 08.11
+og skjermbildene derfra er uendret.
+
+**Funnet underveis.** Nettleserskriptet overskrev også skjermbildene fra
+08.11 og manglet `tzdata` på Windows. Begge deler ble rettet (`a706007`,
+`1bbfdec`). Skjermbildene ble gjenopprettet fra Git før commit.
+
+**Ikke gjort.** Ingen axe-kjøring, ikke Firefox eller WebKit, ikke Node 24
+og ingen ny brukers installasjon. KI-sporet og Må-restpunktene er uendret.
+Ingen push, merge eller Jira-endring uten egen godkjenning.

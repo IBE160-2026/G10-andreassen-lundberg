@@ -61,6 +61,9 @@ manuell skjermlesertest eller brukertest.
 
 Kjør appens backend og frontend etter README. Fra reporoten kan kontrollen
 gjentas med `uv run _bmad-output/implementation-artifacts/demoflyt-verifikasjon-2026-11-08/verify-browser.py`.
+*Tillegg 09.11.2026:* nye kjøringer skriver `browser-results-<tidspunkt>.json` og
+tilhørende skjermbilder med kildeproveniens, uten å overskrive bevisene over
+(K11; se [etterkontrollen](../_bmad-output/implementation-artifacts/review-status-2026-11-09.md#etterkontroll-09112026)).
 Rutinen trenger installert Playwright Chromium; `--browser` kan angi en
 eksisterende Chromium-binær. For axe-kontroll angis en lokal `axe.min.js` med
 `--axe`. Rapporten angir om axe faktisk var aktivert; denne kjøringen brukte
@@ -88,6 +91,9 @@ tre testfeil, og tomme gjeldende kontroller ga én testfeil. Normal kjøring er 
 og [råmålingene](../_bmad-output/implementation-artifacts/demoflyt-verifikasjon-2026-11-08/benchmark-results.json)
 kan gjentas fra roten med
 `uv run --project backend python _bmad-output/implementation-artifacts/demoflyt-verifikasjon-2026-11-08/benchmark.py`.
+*Tillegg 09.11.2026:* målerutinen skriver nå en ny, tidsstemplet fil per kjøring
+og måler alle medfølgende datasett med fullført søk; tallene under gjelder
+originalmålingen 08.11, som er uendret (K9).
 Hovedscenarioet har ni ansatte og 73 vakter. Etter to oppvarminger og tolv
 målinger per søkegrense var medianen 18,642 ms ved grense 0 (ni kombinasjoner)
 og 282,338 ms ved grense 1 (109 kombinasjoner); nærmeste-rang-p95 var henholdsvis
