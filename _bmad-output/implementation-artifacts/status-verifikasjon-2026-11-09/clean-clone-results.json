@@ -1,0 +1,23 @@
+{
+  "date": "2026-11-09",
+  "scope": "Separat lokal klone, nytt uv-miljo og egen backendprosess paa port 8010. Teknisk kontroll, ikke ny brukers tidsmaal.",
+  "checks": {
+    "health": true,
+    "dataset": true,
+    "absence": true,
+    "oracle": true,
+    "cost": true,
+    "reserve": true,
+    "source_unchanged": true
+  },
+  "head": "fc5c111416de839fe00fb965952970b790ac2330",
+  "runtime": {
+    "python": "3.12.14",
+    "node": "22.18.0",
+    "npm": "10.9.3",
+    "uv": "0.12.6"
+  },
+  "backend_tests": 64,
+  "frontend_tests": 20,
+  "frontend_build": true
+}

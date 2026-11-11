@@ -1,0 +1,28 @@
+[
+  {
+    "finding": "r4_hidden_interval",
+    "status": "regelavvik",
+    "value": "X: 16 / 16 t",
+    "rest_after": [
+      {
+        "shift_id": "X",
+        "before_hours": "16",
+        "after_hours": "16",
+        "previous_shift_id": "W5-A02-2",
+        "next_shift_id": "W5-A02-3",
+        "before_known": true,
+        "after_known": true,
+        "collision": false
+      }
+    ]
+  },
+  {
+    "finding": "empty_family",
+    "http_status": 200,
+    "same_family": true,
+    "ids": [
+      "family-a",
+      "family-b"
+    ]
+  }
+]

@@ -1,0 +1,260 @@
+{
+  "scope": "Faktisk lokal app, ikke HTML-prototypen",
+  "url": "http://127.0.0.1:5173",
+  "browser": "146.0.1",
+  "axe_enabled": true,
+  "checks": [
+    {
+      "check": "ukesoversikt: 1440px uten vannrett rulling",
+      "passed": true,
+      "details": ""
+    },
+    {
+      "check": "axe: ukesoversikt 1440px",
+      "passed": true,
+      "details": []
+    },
+    {
+      "check": "Fraværssimulering gir gyldig API-respons",
+      "passed": true,
+      "details": ""
+    },
+    {
+      "check": "S1: beregnede direkte forslag A02/A03 i P1-rekkefølge",
+      "passed": true,
+      "details": ""
+    },
+    {
+      "check": "S1: API sender eksakte timetall",
+      "passed": true,
+      "details": ""
+    },
+    {
+      "check": "alternativer: 1440px uten vannrett rulling",
+      "passed": true,
+      "details": ""
+    },
+    {
+      "check": "axe: alternativer 1440px",
+      "passed": true,
+      "details": []
+    },
+    {
+      "check": "P2 kommer fra backend og setter A03 først",
+      "passed": true,
+      "details": ""
+    },
+    {
+      "check": "Siste kriterium beholdes",
+      "passed": true,
+      "details": ""
+    },
+    {
+      "check": "detaljer: 1440px uten vannrett rulling",
+      "passed": true,
+      "details": ""
+    },
+    {
+      "check": "axe: detaljer 1440px",
+      "passed": true,
+      "details": []
+    },
+    {
+      "check": "Nøkkelfri forklaringsreserve er synlig",
+      "passed": true,
+      "details": ""
+    },
+    {
+      "check": "Direkte aksept er separat øktstatus",
+      "passed": true,
+      "details": ""
+    },
+    {
+      "check": "valg: 1440px uten vannrett rulling",
+      "passed": true,
+      "details": ""
+    },
+    {
+      "check": "axe: valg 1440px",
+      "passed": true,
+      "details": []
+    },
+    {
+      "check": "A → B → A bevarer As svar",
+      "passed": true,
+      "details": ""
+    },
+    {
+      "check": "Datasettbytte bevarer gammelt valg som historikk",
+      "passed": true,
+      "details": ""
+    },
+    {
+      "check": "Gammel aksept er ikke gjeldende valg på nye data",
+      "passed": true,
+      "details": ""
+    },
+    {
+      "check": "Retur til tidligere datasett vekker ikke gammel aksept",
+      "passed": true,
+      "details": ""
+    },
+    {
+      "check": "datagrunnlag: 1440px uten vannrett rulling",
+      "passed": true,
+      "details": ""
+    },
+    {
+      "check": "axe: datagrunnlag 1440px",
+      "passed": true,
+      "details": []
+    },
+    {
+      "check": "Fraværssimulering gir gyldig API-respons",
+      "passed": true,
+      "details": ""
+    },
+    {
+      "check": "UJ-2: ingen direkte kontrollerte løsninger",
+      "passed": true,
+      "details": ""
+    },
+    {
+      "check": "UJ-2: begge berørte beregnes i én flytting",
+      "passed": true,
+      "details": ""
+    },
+    {
+      "check": "Én av to aksepter gir ikke full aksept",
+      "passed": true,
+      "details": ""
+    },
+    {
+      "check": "To av to aksepter gir full simulert aksept",
+      "passed": true,
+      "details": ""
+    },
+    {
+      "check": "Utelatt flytteforslag blir ikke gyldig valg ved ny grense0",
+      "passed": true,
+      "details": ""
+    },
+    {
+      "check": "ukesoversikt: 360px uten vannrett rulling",
+      "passed": true,
+      "details": ""
+    },
+    {
+      "check": "axe: ukesoversikt 360px",
+      "passed": true,
+      "details": []
+    },
+    {
+      "check": "fravær: 360px uten vannrett rulling",
+      "passed": true,
+      "details": ""
+    },
+    {
+      "check": "axe: fravær 360px",
+      "passed": true,
+      "details": []
+    },
+    {
+      "check": "Ugyldig skjema har koblet feltfeil",
+      "passed": true,
+      "details": ""
+    },
+    {
+      "check": "alternativer: 360px uten vannrett rulling",
+      "passed": true,
+      "details": ""
+    },
+    {
+      "check": "axe: alternativer 360px",
+      "passed": true,
+      "details": []
+    },
+    {
+      "check": "detaljer: 360px uten vannrett rulling",
+      "passed": true,
+      "details": ""
+    },
+    {
+      "check": "axe: detaljer 360px",
+      "passed": true,
+      "details": []
+    },
+    {
+      "check": "valg: 360px uten vannrett rulling",
+      "passed": true,
+      "details": ""
+    },
+    {
+      "check": "axe: valg 360px",
+      "passed": true,
+      "details": []
+    },
+    {
+      "check": "datagrunnlag: 360px uten vannrett rulling",
+      "passed": true,
+      "details": ""
+    },
+    {
+      "check": "axe: datagrunnlag 360px",
+      "passed": true,
+      "details": []
+    },
+    {
+      "check": "200% tekst flyter om",
+      "passed": true,
+      "details": ""
+    },
+    {
+      "check": "Tastatur kan nå fraværsinngangen",
+      "passed": true,
+      "details": ""
+    },
+    {
+      "check": "Tastatur kan nå simulering uten felle",
+      "passed": true,
+      "details": ""
+    },
+    {
+      "check": "Simulert nettverksfeil mot backend gir norsk feil uten falske resultater",
+      "passed": true,
+      "details": ""
+    },
+    {
+      "check": "Gjenforsøk etter backendfeil laster virkelig grunnlag",
+      "passed": true,
+      "details": ""
+    },
+    {
+      "check": "Gjenforsøk av simulering utfører faktisk ny handling",
+      "passed": true,
+      "details": ""
+    },
+    {
+      "check": "Hengende forespørsel avsluttes med norsk feil og åpne handlinger",
+      "passed": true,
+      "details": "Handlingen kunne ikke fullføres\n\nSøket feilet. Backend svarte ikke innen tidsfristen. Prøv igjen.\n\nPrøv igjen"
+    },
+    {
+      "check": "Gjenforsøk etter tidsavbrudd gir nytt faktisk resultat",
+      "passed": true,
+      "details": ""
+    },
+    {
+      "check": "Ingen JavaScript-feil i appen",
+      "passed": true,
+      "details": []
+    },
+    {
+      "check": "Ingen eksterne modell-/leverandørkall",
+      "passed": true,
+      "details": []
+    }
+  ],
+  "passed": 50,
+  "failed": []
+}

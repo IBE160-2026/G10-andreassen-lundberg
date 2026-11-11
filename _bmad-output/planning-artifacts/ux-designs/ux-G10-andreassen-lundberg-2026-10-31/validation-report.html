@@ -1,0 +1,354 @@
+<!DOCTYPE html><html lang="nb"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Kontrollrapport – VaktMatch UX, SCRUM-47</title><style>
+  :root {
+    --bg: #fafaf9;
+    --surface: #ffffff;
+    --border: #e7e5e4;
+    --text: #1c1917;
+    --muted: #78716c;
+
+    --verdict-strong: #16a34a;
+    --verdict-adequate: #65a30d;
+    --verdict-thin: #d97706;
+    --verdict-broken: #dc2626;
+
+    --sev-low: #64748b;
+    --sev-medium: #ca8a04;
+    --sev-high: #ea580c;
+    --sev-critical: #dc2626;
+  }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Inter, system-ui, sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.6;
+    font-size: 15px;
+  }
+  .container { max-width: 960px; margin: 0 auto; padding: 32px 24px 64px; }
+
+  header.report-header {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 24px;
+    padding-bottom: 16px;
+    border-bottom: 1px solid var(--border);
+    margin-bottom: 24px;
+  }
+  .title h1 { margin: 0; font-size: 22px; font-weight: 600; letter-spacing: -0.01em; }
+  .title .subtitle { color: var(--muted); font-size: 13px; margin-top: 4px; font-family: ui-monospace, "SF Mono", Menlo, monospace; }
+
+  .synthesis {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-left: 3px solid var(--muted);
+    border-radius: 8px;
+    padding: 18px 22px;
+    margin-bottom: 24px;
+    font-size: 15.5px;
+  }
+  .synthesis p { margin: 0 0 10px; }
+  .synthesis p:last-child { margin-bottom: 0; }
+
+  .dimension-summary {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 10px;
+    margin-bottom: 24px;
+  }
+  .dim-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 12px 14px;
+  }
+  .dim-card .dim-name { font-size: 13px; color: var(--muted); margin-bottom: 6px; }
+  .dim-card .dim-verdict { font-size: 14px; font-weight: 600; }
+
+  section.dimension, section.reviewer-section { margin-bottom: 14px; }
+  section.dimension details, section.reviewer-section details {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    overflow: hidden;
+  }
+  section summary {
+    padding: 14px 20px;
+    cursor: pointer;
+    user-select: none;
+    list-style: none;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  section summary::-webkit-details-marker { display: none; }
+  section summary::before {
+    content: "▸";
+    display: inline-block;
+    color: var(--muted);
+    transition: transform 0.15s ease;
+  }
+  section details[open] summary::before { transform: rotate(90deg); }
+  section summary h2 {
+    display: inline;
+    margin: 0;
+    font-size: 16px;
+    font-weight: 600;
+    letter-spacing: -0.005em;
+    flex: 1;
+  }
+  .verdict-pill {
+    font-size: 11px;
+    padding: 3px 10px;
+    border-radius: 999px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    color: white;
+  }
+  .verdict-strong { background: var(--verdict-strong); }
+  .verdict-adequate { background: var(--verdict-adequate); }
+  .verdict-thin { background: var(--verdict-thin); }
+  .verdict-broken { background: var(--verdict-broken); }
+
+  .dim-body { padding: 4px 20px 18px; }
+  .dim-judgment { color: var(--text); font-size: 14.5px; }
+  .dim-judgment p { margin: 0 0 10px; }
+
+  .findings-list { padding: 0 20px 4px; }
+  article.finding {
+    padding: 14px 0;
+    border-top: 1px solid var(--border);
+  }
+  article.finding:first-child { border-top: none; }
+  article.finding header {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-wrap: wrap;
+    margin-bottom: 6px;
+  }
+  .badge {
+    font-size: 10.5px;
+    padding: 3px 8px;
+    border-radius: 4px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    line-height: 1.4;
+  }
+  .badge-sev-low { background: rgba(100, 116, 139, 0.12); color: var(--sev-low); }
+  .badge-sev-medium { background: rgba(202, 138, 4, 0.14); color: var(--sev-medium); }
+  .badge-sev-high { background: rgba(234, 88, 12, 0.14); color: var(--sev-high); }
+  .badge-sev-critical { background: rgba(220, 38, 38, 0.14); color: var(--sev-critical); }
+  .finding-title { margin: 0; font-size: 15px; font-weight: 500; flex: 1; min-width: 200px; }
+  .finding-location { font-family: ui-monospace, "SF Mono", Menlo, monospace; font-size: 12.5px; color: var(--muted); }
+  .finding-note, .finding-fix { margin-top: 6px; font-size: 14px; }
+  .finding-fix strong { color: var(--muted); font-weight: 500; }
+
+  .reviewer-source {
+    font-size: 12px;
+    color: var(--muted);
+    font-family: ui-monospace, "SF Mono", Menlo, monospace;
+  }
+
+  .mechanical {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 16px 20px;
+    margin-top: 24px;
+    font-size: 14px;
+  }
+  .mechanical h3 { margin: 0 0 10px; font-size: 14px; font-weight: 600; color: var(--muted); text-transform: uppercase; letter-spacing: 0.04em; }
+  .mechanical ul { margin: 0; padding-left: 20px; }
+  .mechanical li { margin-bottom: 4px; color: var(--text); }
+
+  footer.report-footer {
+    margin-top: 40px;
+    padding-top: 16px;
+    border-top: 1px solid var(--border);
+    font-size: 12px;
+    color: var(--muted);
+    font-family: ui-monospace, "SF Mono", Menlo, monospace;
+  }
+  footer .meta { display: flex; gap: 24px; flex-wrap: wrap; }
+
+table{width:100%;border-collapse:collapse;font-size:14px}th,td{text-align:left;padding:10px;border-bottom:1px solid var(--border);vertical-align:top;overflow-wrap:anywhere}th{font-weight:650}pre{overflow:auto;padding:16px;background:var(--bg)}code{overflow-wrap:anywhere}summary:focus-visible,a:focus-visible{outline:3px solid #123d3a;outline-offset:3px}@media(max-width:600px){.container{padding:20px 16px}th,td{padding:6px;font-size:13px}.dimension-summary{grid-template-columns:1fr 1fr}section summary{padding:12px}}</style></head><body><main class="container">
+<header class="report-header"><div class="title"><h1>Kontrollrapport – VaktMatch UX, SCRUM-47</h1><div class="subtitle">DESIGN.md + EXPERIENCE.md | 2026-11-08</div></div></header>
+<ul>
+<li><strong>Dokumenter:</strong> <a href="DESIGN.md">DESIGN.md</a> og <a href="EXPERIENCE.md">EXPERIENCE.md</a>.</li>
+<li><strong>Kontrolldato:</strong> 2026-11-08. Utført av Codex med egne underagenter og nettleserverktøy.</li>
+<li><strong>Mandat:</strong> Odins oppdrag om å avklare detaljene og drive det påbegynte UX-arbeidet videre.</li>
+<li><strong>Start med:</strong> <a href="mockups/prototype.html">klikkbar prototype</a> eller <a href="validation-report.html">HTML-rapport</a>.</li>
+</ul>
+<div class="synthesis"><p>Dokumentparet og skjermreferansene gir et sammenhengende grunnlag for
+implementering. Alle fire PRD-reiser, relevante resultatdimensjoner og
+Må-flytens flater er beskrevet. Tre kilde-/presisjonsfunn ble rettet.
+Ingen utestående kritiske, høye, middels eller lave funn er registrert
+i denne gjennomgangen.</p>
+<p>Prototypen er en illustrasjon, ikke VaktMatch-regelmotoren. Den viser
+forhåndslagde resultater for onsdagens morgenvakt og et separat konstruert
+flyttescenario. Andre målskift får en uttrykkelig beskjed om at
+prototypeberegning mangler. <code>final</code> i UX-dokumentene angir ferdigstilt
+designgrunnlag; det betyr ikke ferdig app eller dokumentert brukereffekt.</p></div>
+<div class="dimension-summary"><div class="dim-card"><div class="dim-name">Flytdekning</div><div class="dim-verdict">strong</div></div><div class="dim-card"><div class="dim-name">Tokenfullstendighet</div><div class="dim-verdict">strong</div></div><div class="dim-card"><div class="dim-name">Komponentdekning</div><div class="dim-verdict">strong</div></div><div class="dim-card"><div class="dim-name">Tilstandsdekning</div><div class="dim-verdict">strong</div></div><div class="dim-card"><div class="dim-name">Visuell referansedekning</div><div class="dim-verdict">strong</div></div><div class="dim-card"><div class="dim-name">Omfang og presisjonsnivå</div><div class="dim-verdict">strong</div></div><div class="dim-card"><div class="dim-name">Kildearv og begreper</div><div class="dim-verdict">strong</div></div><div class="dim-card"><div class="dim-name">Dokumentform</div><div class="dim-verdict">strong</div></div></div>
+<section class="dimension"><details><summary><h2>Flytdekning</h2><span class="verdict-pill verdict-strong" style="background:#22563a">strong</span></summary><div class="dim-body"><div class="dim-judgment"><p>Alle fire UJ-titler, nummererte reiser og feil-/kantveier; fraværssimulering og søk er separate handlinger.</p></div></div></details></section>
+<section class="dimension"><details><summary><h2>Tokenfullstendighet</h2><span class="verdict-pill verdict-strong" style="background:#22563a">strong</span></summary><div class="dim-body"><div class="dim-judgment"><p>YAML, konkrete farger, definerte tokenreferanser og elleve målte kontrastpar.</p></div></div></details></section>
+<section class="dimension"><details><summary><h2>Komponentdekning</h2><span class="verdict-pill verdict-strong" style="background:#22563a">strong</span></summary><div class="dim-body"><div class="dim-judgment"><p>Samme 19 navn i begge dokumentene, med visuelle regler og oppførsel.</p></div></div></details></section>
+<section class="dimension"><details><summary><h2>Tilstandsdekning</h2><span class="verdict-pill verdict-strong" style="background:#22563a">strong</span></summary><div class="dim-body"><div class="dim-judgment"><p>Tomt, ugyldig, ventende, feil, utdatert, mangler, tilbudssvar og KI-reserve er spesifisert.</p></div></div></details></section>
+<section class="dimension"><details><summary><h2>Visuell referansedekning</h2><span class="verdict-pill verdict-strong" style="background:#22563a">strong</span></summary><div class="dim-body"><div class="dim-judgment"><p>Fire statiske skjermer og klikkbar prototype, lenket fra begge dokumenter; ingen uomtalte mockfiler.</p></div></div></details></section>
+<section class="dimension"><details><summary><h2>Omfang og presisjonsnivå</h2><span class="verdict-pill verdict-strong" style="background:#22563a">strong</span></summary><div class="dim-body"><div class="dim-judgment"><p>Kildene eier produktreglene; dokumentparet eier presentasjon og interaksjon. Ingen nye integrasjoner innføres.</p></div></div></details></section>
+<section class="dimension"><details><summary><h2>Kildearv og begreper</h2><span class="verdict-pill verdict-strong" style="background:#22563a">strong</span></summary><div class="dim-body"><div class="dim-judgment"><p>P1/P2, dekning, kontroll, søk, valg og svar holdes atskilt; opphav og prototypebegrensning er uttrykkelige.</p></div></div></details></section>
+<section class="dimension"><details><summary><h2>Dokumentform</h2><span class="verdict-pill verdict-strong" style="background:#22563a">strong</span></summary><div class="dim-body"><div class="dim-judgment"><p>Kanonisk DESIGN-struktur og alle obligatoriske EXPERIENCE-seksjoner.</p></div></div></details></section>
+<section class="reviewer-section"><details open><summary><h2>Funn etter alvorlighet</h2></summary><div class="dim-body"><p><strong>Kritiske: 0. Høye: 0. Middels: 3, alle rettet. Lave: 0.</strong></p>
+<table>
+<thead>
+<tr>
+<th>Middels funn</th>
+<th>Rettelse og kontroll</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Sammenligning uten rangert referanse var udefinert.</td>
+<td>«Forklar forskjellen» er utilgjengelig uten sammenlignbar referanse. Standardforklaringen beholdes. Avbrutt søk gir bare foreløpig referanse.</td>
+</tr>
+<tr>
+<td>Et låst målskift kunne ikke få fravær i den første mockversjonen.</td>
+<td>Lås hindrer flytting av andre tildelinger og skjuler ikke fravær. Fredagens låste målskift kan simuleres; udekket behov vises i ukesoversikten. Tre regresjonskontroller bestod.</td>
+</tr>
+<tr>
+<td>Ekstern-kandidatteksten kunne motsi illustrert bestått kontroll.</td>
+<td>Det konstruerte eksemplet oppgir komplett kontrollgrunnlag for viste vakter/nabovakter. Appens manglende nødvendige grunnlag gir Uavklart; modellering av eksternt arbeid følges i SCRUM-19.</td>
+</tr>
+</tbody>
+</table>
+<p>Se <a href="review-rubric.md">rubrikkgjennomgangen</a> for kildeplassering og
+<a href="review-editorial.md">struktur-/språkkontrollen</a> for de to presiserte formuleringene.</p></div></details></section>
+<section class="reviewer-section"><details open><summary><h2>Faktisk kontroll av prototypen</h2></summary><div class="dim-body"><p><a href=".working/verification-results.json">Den siste maskinlesbare kjøringen</a>
+har <strong>95 beståtte kontroller og 0 feil</strong>. Nettleser: Chromium 145,
+Playwright 1.58.0; tilgjengelighetsmotor: axe-core 4.10.3.</p>
+<table>
+<thead>
+<tr>
+<th>Kontroll</th>
+<th>Resultat</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Fire skjermer ved 1440, 768 og 360 px</td>
+<td>Ingen vannrett rulling. Skjermbildene for alternativoversikt og detaljer på PC/mobil er også sett gjennom visuelt.</td>
+</tr>
+<tr>
+<td>axe, fire skjermer på PC og mobil</td>
+<td>Åtte kjøringer uten rapporterte brudd i de valgte WCAG A/AA-reglene. Dette er ikke en full tilgjengelighetsattest.</td>
+</tr>
+<tr>
+<td>Tekstforstørrelse og tastatur</td>
+<td>Alternativoversikt flyter om ved 200 % tekststørrelse. Tab/Enter kan gjennomføre fravær til resultat; tilbake fra detaljer gjenoppretter fokus.</td>
+</tr>
+<tr>
+<td>Fravær og periode</td>
+<td>Manglende ansatt og ugyldig dagtall avvises; overlappende påbegynt nattvakt vises beskyttet. Endret utkast fjerner ikke aktivt fravær. Låst målskift kan ha fravær.</td>
+</tr>
+<tr>
+<td>Sortering og søkeomfang</td>
+<td>P1 gir A02 før A03; P2 gir A03 før A02. Siste kriterium kan ikke fjernes. Endret søkegrense krever eksplisitt søk; grense 0 viser ingen flytteeksempler.</td>
+</tr>
+<tr>
+<td>Valg og svar</td>
+<td>Regelavvik kan undersøkes, men ikke velges som kontrollert løsning. A → B → A bevarer svar. Flytteeksemplet krever aksept fra begge berørte.</td>
+</tr>
+<tr>
+<td>Ny dataversjon</td>
+<td>Forhåndsvisning før bytte, ny vurdering og ingen arvet aksept. Tidligere valg/svar vises med gammel dataversjon.</td>
+</tr>
+<tr>
+<td>Reserve og feil</td>
+<td>Standardforklaringen og valget beholdes uten modell; tomt søk har avgrenset konklusjon; søke-/innlastingsfeil har vei videre.</td>
+</tr>
+<tr>
+<td>Lokal kjøring</td>
+<td>Ingen JavaScript-feil eller HTTP(S)-forespørsler fra prototypen under kontrollen. Fire statiske referanser er uten script.</td>
+</tr>
+<tr>
+<td>Dokumenter</td>
+<td>Kildestier, lenker fra hoveddokumentene, tokenreferanser, komponentnavn og kontrastpar består.</td>
+</tr>
+</tbody>
+</table>
+<p>Første nettleserpass fant ugyldig struktur i noen definisjonslister.
+Strukturen ble rettet og axe-kontrollene kjørt på nytt. Mobiltekst ble
+økt til minst 14 px ved standard tekststørrelse; tallgrupper flyter over
+flere rader der de trenger plass.</p>
+<h3>Gjenta kontrollen</h3>
+<p>Fra repoets rot, med <code>uv</code> installert:</p>
+<pre><code class="language-powershell">uv run --with playwright==1.58.0 playwright install chromium
+uv run _bmad-output/planning-artifacts/ux-designs/ux-G10-andreassen-lundberg-2026-10-31/.working/verify-ux.py
+</code></pre>
+<p><code>--browser &lt;sti&gt;</code> kan bruke en eksisterende Chromium. <code>--axe &lt;sti-til-axe.min.js&gt;</code>
+tar med tilgjengelighetskontrollene. Denne kjøringen brukte axe-core 4.10.3
+installert i en midlertidig mappe utenfor repoet. <code>--export-mocks</code> regenererer
+de fire statiske referansene fra prototypen. Uten <code>--axe</code> blir kontrolltallet
+lavere; det skal ikke rapporteres som en ny kjøring av alle 95 kontrollene.</p></div></details></section>
+<section class="reviewer-section"><details><summary><h2>Akseptansekriterier i SCRUM-47</h2></summary><div class="dim-body"><table>
+<thead>
+<tr>
+<th>Kriterium</th>
+<th>Bevis i repoet</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Ukesoversikt, sammenligning, kandidatdetalj og planforslag</td>
+<td><a href="mockups/key-ukeplan.html">Ukesoversikt</a>, <a href="mockups/key-fravaer.html">fravær</a>, <a href="mockups/key-alternativer.html">alternativer</a> og <a href="mockups/key-detaljer.html">detaljer med før/etter-forslag</a>.</td>
+</tr>
+<tr>
+<td>Oppfylt, regelavvik, uavklart og udekket</td>
+<td>Separate statuser i alternativoversikt/detaljer; udekket faktisk bemanning i konteksten og ukesoversikten.</td>
+</tr>
+<tr>
+<td>Mobil og PC</td>
+<td>Samme HTML flyter om; 360/768/1440 px er kontrollert.</td>
+</tr>
+<tr>
+<td>Forslag kan ikke forveksles med gjeldende plan</td>
+<td>Demobanner, egne før/etter-felt og uttrykkelig uendret plan etter valg/aksept.</td>
+</tr>
+<tr>
+<td>Lesbarhet, kontrast og tastatur er vurdert</td>
+<td>Tokenmålinger, axe, Tab/Enter-kontroll og visuell inspeksjon.</td>
+</tr>
+<tr>
+<td>UX-dokumentasjon lenket fra README</td>
+<td>README lenker til begge kontrakter, prototype og implementeringsoverlevering.</td>
+</tr>
+<tr>
+<td>Tilbud, øktvalg, datasettbytte og kostnad</td>
+<td>Interaktive visninger og kontrollsekvenser; kostnadsgrunnlaget er konstruert, separat fra P1/P2 og kildeførte O-tester.</td>
+</tr>
+</tbody>
+</table>
+<p>Dette er kontrollbevis for UX-leveransen. Jira-status og publisering
+følger prosjektets vanlige sporbarhet; rapporten hevder ingen ekstern merge.</p></div></details></section>
+<section class="reviewer-section"><details open><summary><h2>Kontrollgrenser og neste arbeid</h2></summary><div class="dim-body"><p>Ingen faktisk regelmotor, søkealgoritme, KI-tjeneste, backendfeilhåndtering,
+komplett demodatasett eller varig lagring er implementert gjennom dette
+UX-arbeidet. Appens eksisterende backend-/frontendtester er derfor ikke
+kjørt på nytt som bevis for disse funksjonene.</p>
+<p>Full skjermleserkontroll, flere nettlesermotorer, brukertest og appens
+ende-til-ende-verifikasjon gjenstår i implementeringen. Visuelle referanser
+dekker hovedkomposisjonene; tilstander som ikke kan utløses i prototypen
+bygges fra dokumentparets tabeller. Se <a href="implementation-handoff.md">overleveringen</a>
+for eksisterende Jira-oppfølging.</p></div></details></section>
+<section class="reviewer-section"><details><summary><h2>Kontrollfiler</h2></summary><div class="dim-body"><ul>
+<li><a href="review-rubric.md">Rubrikk</a>.</li>
+<li><a href="review-editorial.md">Struktur og språk</a>.</li>
+<li><a href=".working/source-reconciliation-2026-11-08.md">Kildeavstemming</a>.</li>
+<li><a href=".working/verify-ux.py">Kontrollskript</a> og <a href=".working/verification-results.json">resultat</a>.</li>
+<li><a href=".working/results-1440.png">PC: alternativer</a> og <a href=".working/details-1440.png">detaljer</a>.</li>
+<li><a href=".working/results-360.png">Mobil: alternativer</a> og <a href=".working/details-360.png">detaljer</a>.</li>
+</ul></div></details></section>
+<footer class="report-footer"><div class="meta"><span>Kontrakter: DESIGN.md / EXPERIENCE.md</span><span>Rubrikk: review-rubric.md</span><span>Kontrollert: 2026-11-08</span></div></footer></main></body></html>

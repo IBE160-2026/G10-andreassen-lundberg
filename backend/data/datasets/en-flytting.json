@@ -1,0 +1,199 @@
+{
+  "dataset": {
+    "id": "en-flytting",
+    "version": "1.0",
+    "title": "Én flytting: B til X, C til Y",
+    "family_id": "flytting",
+    "description": "Én flytting: B til X, C til Y. Syntetiske data konstruert av Codex på Odins mandat 08.11.2026."
+  },
+  "assessment_time": "2026-10-14T07:00:00+02:00",
+  "week_start": "2026-10-12T00:00:00+02:00",
+  "week_end": "2026-10-19T00:00:00+02:00",
+  "coverage_start": "2026-09-14T00:00:00+02:00",
+  "coverage_end": "2026-10-21T00:00:00+02:00",
+  "employees": [
+    {
+      "id": "A",
+      "name": "A · eksempelperson",
+      "kind": "internal",
+      "skills": [
+        "K1",
+        "K2"
+      ],
+      "availability": [
+        {
+          "start": "2026-09-14T00:00:00+02:00",
+          "end": "2026-10-21T00:00:00+02:00"
+        }
+      ],
+      "contract_hours": "40",
+      "hourly_rate": "180",
+      "work_context_complete": true,
+      "history_complete": true,
+      "history_source": "Konstruerte registrerte vakter · Codex 08.11.2026, ikke faktisk utført arbeid"
+    },
+    {
+      "id": "B",
+      "name": "B · eksempelperson",
+      "kind": "internal",
+      "skills": [
+        "K1",
+        "K2"
+      ],
+      "availability": [
+        {
+          "start": "2026-09-14T00:00:00+02:00",
+          "end": "2026-10-21T00:00:00+02:00"
+        }
+      ],
+      "contract_hours": "40",
+      "hourly_rate": "200",
+      "work_context_complete": true,
+      "history_complete": true,
+      "history_source": "Konstruerte registrerte vakter · Codex 08.11.2026, ikke faktisk utført arbeid"
+    },
+    {
+      "id": "C",
+      "name": "C · eksempelperson",
+      "kind": "internal",
+      "skills": [
+        "K2"
+      ],
+      "availability": [
+        {
+          "start": "2026-10-14T12:00:00+02:00",
+          "end": "2026-10-14T20:00:00+02:00"
+        }
+      ],
+      "contract_hours": "40",
+      "hourly_rate": "180",
+      "work_context_complete": true,
+      "history_complete": true,
+      "history_source": "Konstruerte registrerte vakter · Codex 08.11.2026, ikke faktisk utført arbeid"
+    },
+    {
+      "id": "F04",
+      "name": "F04 · eksempelperson",
+      "kind": "internal",
+      "skills": [
+        "K9"
+      ],
+      "availability": [],
+      "contract_hours": "40",
+      "hourly_rate": "180",
+      "work_context_complete": true,
+      "history_complete": true,
+      "history_source": "Konstruerte registrerte vakter · Codex 08.11.2026, ikke faktisk utført arbeid"
+    },
+    {
+      "id": "F05",
+      "name": "F05 · eksempelperson",
+      "kind": "internal",
+      "skills": [
+        "K9"
+      ],
+      "availability": [],
+      "contract_hours": "40",
+      "hourly_rate": "180",
+      "work_context_complete": true,
+      "history_complete": true,
+      "history_source": "Konstruerte registrerte vakter · Codex 08.11.2026, ikke faktisk utført arbeid"
+    },
+    {
+      "id": "F06",
+      "name": "F06 · eksempelperson",
+      "kind": "internal",
+      "skills": [
+        "K9"
+      ],
+      "availability": [],
+      "contract_hours": "40",
+      "hourly_rate": "180",
+      "work_context_complete": true,
+      "history_complete": true,
+      "history_source": "Konstruerte registrerte vakter · Codex 08.11.2026, ikke faktisk utført arbeid"
+    },
+    {
+      "id": "F07",
+      "name": "F07 · eksempelperson",
+      "kind": "internal",
+      "skills": [
+        "K9"
+      ],
+      "availability": [],
+      "contract_hours": "40",
+      "hourly_rate": "180",
+      "work_context_complete": true,
+      "history_complete": true,
+      "history_source": "Konstruerte registrerte vakter · Codex 08.11.2026, ikke faktisk utført arbeid"
+    },
+    {
+      "id": "F08",
+      "name": "F08 · eksempelperson",
+      "kind": "internal",
+      "skills": [
+        "K9"
+      ],
+      "availability": [],
+      "contract_hours": "40",
+      "hourly_rate": "180",
+      "work_context_complete": true,
+      "history_complete": true,
+      "history_source": "Konstruerte registrerte vakter · Codex 08.11.2026, ikke faktisk utført arbeid"
+    },
+    {
+      "id": "V01",
+      "name": "V01 · eksempelperson",
+      "kind": "external",
+      "skills": [
+        "K9"
+      ],
+      "availability": [],
+      "contract_hours": "40",
+      "hourly_rate": "180",
+      "work_context_complete": true,
+      "history_complete": true,
+      "history_source": "Konstruerte registrerte vakter · Codex 08.11.2026, ikke faktisk utført arbeid"
+    }
+  ],
+  "shifts": [
+    {
+      "id": "X",
+      "start": "2026-10-14T08:00:00+02:00",
+      "end": "2026-10-14T16:00:00+02:00",
+      "required_skill": "K1",
+      "required_count": 1
+    },
+    {
+      "id": "Y",
+      "start": "2026-10-14T12:00:00+02:00",
+      "end": "2026-10-14T20:00:00+02:00",
+      "required_skill": "K2",
+      "required_count": 1
+    }
+  ],
+  "assignments": [
+    {
+      "id": "T-X",
+      "shift_id": "X",
+      "employee_id": "A",
+      "locked": false,
+      "absent": false
+    },
+    {
+      "id": "T-Y",
+      "shift_id": "Y",
+      "employee_id": "B",
+      "locked": false,
+      "absent": false
+    }
+  ],
+  "supplements": [
+    {
+      "start": "2026-10-14T08:00:00+02:00",
+      "end": "2026-10-14T16:00:00+02:00",
+      "rate": "25",
+      "shift_id": "X"
+    }
+  ]
+}

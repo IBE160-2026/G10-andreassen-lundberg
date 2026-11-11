@@ -1,0 +1,60 @@
+{
+  "date": "2026-11-08",
+  "dataset_id": "hovedscenario",
+  "version": "1.0",
+  "employees": 9,
+  "shifts": 73,
+  "machine": "Windows AMD64",
+  "python": "3.12.14",
+  "scope": "Motorens beregningstid; ekskluderer HTTP, filinnlasting, grensesnitt og modell. Ingen tids- eller skaleringsgaranti.",
+  "measurements": [
+    {
+      "search_limit": 0,
+      "warmups": 2,
+      "runs": 12,
+      "combinations_examined": 9,
+      "median_ms": 18.642,
+      "p95_nearest_rank_ms": 22.239,
+      "errors": 0,
+      "aborted": 0,
+      "samples_ms": [
+        16.306,
+        17.824,
+        17.461,
+        17.21,
+        18.589,
+        18.695,
+        17.012,
+        21.953,
+        22.239,
+        21.219,
+        18.706,
+        21.722
+      ]
+    },
+    {
+      "search_limit": 1,
+      "warmups": 2,
+      "runs": 12,
+      "combinations_examined": 109,
+      "median_ms": 282.338,
+      "p95_nearest_rank_ms": 313.504,
+      "errors": 0,
+      "aborted": 0,
+      "samples_ms": [
+        271.728,
+        266.961,
+        269.894,
+        284.704,
+        264.71,
+        266.788,
+        299.495,
+        279.972,
+        311.401,
+        313.504,
+        304.687,
+        305.024
+      ]
+    }
+  ]
+}

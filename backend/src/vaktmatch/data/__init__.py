@@ -1,6 +1,7 @@
 """Datatilgang: leser demodatasett og gir dem videre som validerte modeller.
 
-Laget kjenner ikke regelmotoren eller API-et. Datamodellen utvides i SCRUM-19.
+Laget kjenner ikke regelmotoren eller API-et. Fullmodellen validerer
+tidssoner, intervaller, satser, unike ID-er og alle referanser.
 """
 
 from .repository import DatasetLoadError, DatasetNotFoundError, DatasetRepository

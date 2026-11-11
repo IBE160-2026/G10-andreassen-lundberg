@@ -3,7 +3,7 @@ from pathlib import Path
 
 from pydantic import ValidationError
 
-from .schema import DatasetInfo
+from .schema import Dataset, DatasetInfo
 
 
 class DatasetNotFoundError(LookupError):
@@ -37,6 +37,16 @@ class DatasetRepository:
         for info in self.list_datasets():
             if info.id == dataset_id:
                 return info
+        raise DatasetNotFoundError(dataset_id)
+
+    def get_dataset(self, dataset_id: str) -> Dataset:
+        self.get_info(dataset_id)
+        for path in sorted(self._data_dir.glob("*.json")):
+            if self._read_info(path).id == dataset_id:
+                try:
+                    return Dataset.model_validate_json(path.read_text(encoding="utf-8"))
+                except (OSError, UnicodeError, ValueError) as error:
+                    raise DatasetLoadError("Datasettet mangler gyldig kontrollgrunnlag") from error
         raise DatasetNotFoundError(dataset_id)
 
     @staticmethod

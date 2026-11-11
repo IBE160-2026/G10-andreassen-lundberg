@@ -151,6 +151,18 @@ Sensorveiledningen konkretiserer hva repoet bør dokumentere:
 Commit-antall alene skal ikke brukes til å trekke for samarbeid eller
 arbeidsfordeling. Prosessporene må vurderes samlet.
 
+Veiledende vekt i del 1: prosess og KI-styring 30 %, funksjonalitet og omfang
+20 %, kvalitetssikring og testing 15 %, design og brukeropplevelse 10 %,
+kodekvalitet og arkitektur 10 %, README og kjørbarhet 10 % og ryddighet i
+repoet 5 %. Sensor skal bruke inntil 15–20 minutter på å få appen til å kjøre
+etter README. Mangler som en vanlig bruker ikke kan løse ut fra README, regnes
+som mangler ved README. Varseltegnene er blant annet nesten all kode i noen få
+commits rett før fristen, planer som beskriver en annen app, README-kommandoer
+som ikke virker, committede hemmeligheter eller byggartefakter, og
+KI-dokumentasjon som ikke kan knyttes til konkrete endringer. En lokal kopi av
+veiledningen ble kontrollert 09.11.2026 og samsvarer med gjengivelsen her.
+Repoet er vurdert mot kriteriene i [egenkontrollen](sensor-egenkontroll.md).
+
 Sensor skal klone gruppens repository i organisasjonen `IBE160-2026` og bruke
 siste commit før innleveringsfristen; senere endringer skal ses bort fra.
 

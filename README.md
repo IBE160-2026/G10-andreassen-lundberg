@@ -3,8 +3,12 @@
 Gruppeprosjekt i **IBE160 Programmering med KI** ved Høgskolen i Molde, høsten 2026 (15 studiepoeng).
 
 Gruppen har valgt **VaktMatch**, en webapp for å sammenligne bemanningsalternativer
-ved et udekket skift. Repoet inneholder produktgrunnlaget, BMAD-oppsettet og et
-kodeskjelett for appen (se [Kom i gang](#kom-i-gang)).
+ved et udekket skift. Repoet inneholder produktgrunnlaget, BMAD-oppsettet og en
+kjørbar lokal demoflyt for appen (se [Kom i gang](#kom-i-gang)).
+
+![VaktMatch sammenligner to kontrollerte erstattere for et udekket skift, med regelstatus, timer, hvile og kostnadsanslag](docs/bilder/vaktmatch-alternativer.png)
+
+*Skjermbilde fra lokal kjøring 09.11.2026 med syntetiske data (hovedscenarioet, søkegrense 0).*
 
 ## Kom i gang
 
@@ -50,6 +54,44 @@ Pop-Location
 **Miljøvariabler:** se [`backend/.env.example`](backend/.env.example). Alle er
 valgfrie; uten språkmodellnøkkel brukes regelbaserte forklaringer.
 
+### Prøv demoflyten
+
+1. Åpne «Registrer fravær», behold A01 og X (14.10 kl. 08–16), og velg
+   «Simuler fravær». Dette viser én udekket plass uten å innføre en erstatter.
+2. Velg søkegrense **0** og «Finn alternativer» for den håndregnede hovedfasiten:
+   P1 gir A02 (24 → 32 t) først; bare P2 gir A03 (32 → 40 t) først.
+   Undersøk også A05s hvileavvik og V01s ukjente tilgjengelighet under øvrige funn.
+3. Undersøk et komplett, bestått forslag og velg det. Simuler eventuelt tilbud
+   og svar. Å undersøke, velge eller akseptere endrer ingen vakter.
+4. Åpne «Datagrunnlag», forhåndsvis et datasett og last det inn. Tidligere valg
+   og svar beholdes som økthistorikk; nytt grunnlag krever ny vurdering.
+
+Standard søkegrense er **1**. Den undersøker også reelle omfordelinger i
+hovedscenarioet og kan derfor gi andre topprangerte forslag enn tabellen for
+direkte erstatning. Hvert konkret forslag viser flytting, berørte personer og
+vakter. P1/P2 gjelder hovedkandidaten etter hele omfordelingen; kostnad er separat.
+
+| Datasett | Hva det demonstrerer |
+|---|---|
+| To direkte alternativer | Hovedfasit, konkrete uke-1–4-vakter og nabovakter i uke 6. |
+| Én flytting: B til X, C til Y | Velg A/X. Grense 0 har ingen beståtte; grense 1 dekker begge vakter. B og C må begge akseptere i simuleringen. |
+| Én flytting uten erstatter på Y | Delvis dekning og konkrete kontroller av mulige erstattere på Y. |
+| S3: V01 mangler tilgjengelighet / S3: V01 komplettert | A02/A03 forblir utilgjengelige; bare den oppgitte tilgjengeligheten kompletteres. |
+| Oppdatert plan: A03 dekker X | En separat kildeoppdatering viser A03 på X, kildeført fravær for A01 og ny syntetisk sats. |
+| Ny versjon, uendret innhold | Ingen innholdsendringer, men nytt vurderingsgrunnlag og ingen arvet aksept. |
+| S2, S4 og S5 | Ingen direkte beståtte, lik rang og manglende P2-grunnlag. |
+
+Alle personer, historikkopplysninger og satser er syntetiske, konstruert av
+Codex på Odins mandat 08.11.2026. Vurderingstidspunktet kommer fra datasettet,
+ikke dagens dato. Kildeplan og datasettfiler er uendret gjennom API-et. Lukking
+av fanen avslutter økten; det brukes ingen varig lagring eller ekte utsending.
+«Forklar forskjellen» gir en beregnet standardforklaring og en tydelig
+reservemelding. Språkmodell og leverandør er fortsatt ikke implementert.
+
+Se [HTTP-kontrakten](docs/api-demoflyt.md),
+[kontrollrapporten](docs/demoflyt-kontrollrapport-2026-11-08.md) og
+[arkitekturen](docs/arkitektur.md) for felter, kontrollbevis og begrensninger.
+
 **Mappeoversikt:**
 
 | Mappe | Innhold |
@@ -62,7 +104,8 @@ valgfrie; uten språkmodellnøkkel brukes regelbaserte forklaringer.
 ## Produktbrief
 
 **[productbrief.md](productbrief.md) er repoets eneste gjeldende produktbrief.**
-Den er fortsatt et utkast: tekniske detaljer og implementering gjenstår.
+Den er fortsatt et utkast; [kontrollrapporten](docs/demoflyt-kontrollrapport-2026-11-08.md)
+viser hva som er implementert og hvilke begrensninger som gjenstår.
 At dokumentet er gjeldende, betyr ikke at alle forslagene
 i det er endelig vedtatt.
 
@@ -101,7 +144,9 @@ Avklaringen 22. oktober gjør tidligere planer til synlig beslutningsgrunnlag,
 uten en ny historisk poengsum eller endring i P1/P2. [Søk og låste vakter](docs/forslag-ved-frafall.md)
 beskriver førsteversjonens avgrensede regelbaserte søk, beskyttede tildelinger,
 resultatstatuser og målemetode. Solver og lengre kjeder vurderes senere.
-Dette er avklart produktgrunnlag; appkode og målinger gjenstår.
+Dette er avklart produktgrunnlag. Den avgrensede lokale demoflyten er implementert
+08.11.2026; [kontrollrapporten](docs/demoflyt-kontrollrapport-2026-11-08.md)
+skiller kjørte kontroller fra gjenværende begrensninger.
 
 [Endringsloggen for produktbriefen](docs/productbrief-endringslogg.md) viser
 endringene fra første versjon 17. september, med korte begrunnelser, opphav og
@@ -116,11 +161,18 @@ Start gjerne med [den samlede begrunnelsen for arbeidsutkastet](docs/productbrie
 | [Teknologi og arbeidsdeling](docs/teknologivalg.md) | SCRUM-13: lokal oppstart med React og Python/FastAPI, justerbar arbeidsdeling og utsatte valg. |
 | [PRD](_bmad-output/planning-artifacts/prds/prd-G10-andreassen-lundberg-2026-10-29/prd.md) | SCRUM-46: nummererte krav, Må/Bør og avvik fra briefen. Omfang og verdiambisjon oppdatert etter Odins valg 30.10.26; ikke en full godkjenning av alle krav. |
 | [PRD- og Jira-avstemming – SCRUM-46](docs/scrum-46-prd-avstemming.md) | Kontroll 31.10.26 av kildegrunnlag, alle FR/NFR og eksisterende saker. PR #4 er merget med grønn main-CI; SCRUM-13/18/46 er Done. |
+| [UX – visuelt](_bmad-output/planning-artifacts/ux-designs/ux-G10-andreassen-lundberg-2026-10-31/DESIGN.md) og [oppførsel](_bmad-output/planning-artifacts/ux-designs/ux-G10-andreassen-lundberg-2026-10-31/EXPERIENCE.md) | SCRUM-47: ferdigstilt UX-grunnlag 08.11.26, konkretisert av Codex på Odins mandat. [Klikkbar prototype](_bmad-output/planning-artifacts/ux-designs/ux-G10-andreassen-lundberg-2026-10-31/mockups/prototype.html), fire skjermreferanser, [kontrollrapport](_bmad-output/planning-artifacts/ux-designs/ux-G10-andreassen-lundberg-2026-10-31/validation-report.md) og [overlevering til implementering](_bmad-output/planning-artifacts/ux-designs/ux-G10-andreassen-lundberg-2026-10-31/implementation-handoff.md). Prototypen illustrerer flyten med konstruerte data; appfunksjonene er ikke implementert gjennom UX-arbeidet. |
 | [Kostnadsanslag](docs/kostnadsanslag.md) | Syntetiske satser og tillegg, synlig beregningsgrunnlag og kontrolltilfeller for økonomisk sammenligning. |
+| [Egenmelding, varsling og fraværsperiode](_bmad-output/planning-artifacts/research/domain-egenmelding-varsling-og-fravarsperiode-2026-10-31/research.md) | Avgrenset kildesjekk til SCRUM-47. Skiller offentlige veiledninger, lokale rutiner og UX-forslag; ingen ny produktregel eller automatisk fraværsperiode. |
 | [PRD-forberedelser til 29. oktober](docs/prd-forberedelser.md) | Kursbeskjeden 26. oktober, eksisterende grunnlag og foreslåtte research-/brainstorming-temaer før PRD-arbeidet. |
 | [Forslag ved frafall – søk og resultat](docs/forslag-ved-frafall.md) | Konkretisering av SCRUM-16: nivåer, låste vakter, avgrenset søk, dekning og søkestatuser samt målemetode. |
-| [Demoscenario for fravær](docs/demoscenario-fravaer.md) | Vedtatte scenarioregler, sortering, søkeomfang og tilbudssimulering med forventede svar. Eksempler og kontrollbeskrivelser; komplett datasett og kode gjenstår. |
-| [Arkitektur](docs/arkitektur.md) | SCRUM-18: moduler, ansvarsgrenser, konfigurasjon og kvalitetssikring for kodeskjelettet. |
+| [Demoscenario for fravær](docs/demoscenario-fravaer.md) | Vedtatte scenarioregler, sortering, søkeomfang og tilbudssimulering med forventede svar. Implementering og faktisk kontroll er beskrevet i [kontrollrapporten](docs/demoflyt-kontrollrapport-2026-11-08.md). |
+| [Arkitektur](docs/arkitektur.md) | Moduler, ansvarsgrenser, konfigurasjon og kvalitetssikring for den lokale demoflyten. |
+| [Data- og HTTP-kontrakt](docs/api-demoflyt.md) | Validerte datasett, tilstandsløst API, resultatfelter og versjonsbundet øktminne. |
+| [Demoflytens kontrollrapport](docs/demoflyt-kontrollrapport-2026-11-08.md) | SCRUM-19: fasit, grense-/feilkontroller, øktregresjoner, faktisk nettlesergrunnlag og avgrensninger. |
+| [Jira-avstemming 08.11.2026](docs/jira-avstemming-2026-11-08.md) | Per-sak-kobling mellom pushet kode, kontrollbevis, status og gjenstående akseptansekriterier. |
+| [Tilstandsvurdering 09.11.2026](_bmad-output/implementation-artifacts/review-status-2026-11-09.md) | Fire agentgjennomganger, nye tester i tre nettlesermotorer, separat installasjon og verifiserte oppfølgingspunkter. [Etterkontrollen](_bmad-output/implementation-artifacts/review-status-2026-11-09.md#etterkontroll-09112026) viser at alle elleve er rettet og testet. |
+| [Egenkontroll mot sensorveiledningen](docs/sensor-egenkontroll.md) | KI-vurdering 09.11.2026 av repoet mot de sju kriteriene i del 1, med prioriterte tiltak før fristen. Ikke en karakterprognose. |
 | [Leverings- og dokumentasjonskrav for IBE160](docs/ibe160-leveringskrav.md) | Kildekontrollert oversikt over arbeidskrav, vurdering, KI-dokumentasjon, individuelle bidrag og design/UX. Sluttfrist og «delvurdering 3» er fortsatt uavklart. |
 | [VaktMatch-vedlegget](_bmad-output/planning-artifacts/briefs/brief-G10-andreassen-lundberg-2026-09-07-VaktMatch/addendum.md) | Supplerende bakgrunn og åpne innspill til hovedbriefen. Ingen selvstendig brief eller utvidelse av vedtatt omfang. |
 | [Turnusgenerator – alternativforslag fra Stian](_bmad-output/planning-artifacts/briefs/brief-G10-andreassen-lundberg-2026-09-18-turnusgenerering/brief.md) | Forslag til vurdering. Erstatter ikke hovedbriefen. [Teknisk vedlegg](_bmad-output/planning-artifacts/briefs/brief-G10-andreassen-lundberg-2026-09-18-turnusgenerering/addendum.md) tilhører forslaget. |
